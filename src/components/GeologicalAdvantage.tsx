@@ -19,10 +19,9 @@ export default function GeologicalAdvantage({ t }: GeologicalAdvantageProps) {
           >
             <div className="aspect-square rounded-[3rem] overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=1000"
+                src="/Drone Webp/DJI_20260310144303_0310_D (1).webp"
                 alt="Geological Formations"
                 className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-brand-blue/20" />
             </div>
