@@ -37,10 +37,10 @@ export default function SafetyStandards({ t }: SafetyStandardsProps) {
 
           <div className="lg:w-1/2 grid grid-cols-2 gap-6">
             <div className="aspect-square rounded-3xl overflow-hidden shadow-lg">
-              <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=500" alt="Safety 1" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+              <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=500" alt="Inspeksi standar keselamatan dan kesehatan kerja (K3) di area tambang PT WEU" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
             </div>
             <div className="aspect-square rounded-3xl overflow-hidden shadow-lg mt-12">
-              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=500" alt="Safety 2" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+              <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=500" alt="Penerapan Zero Accident policy dalam operasional pertambangan gamping Ratatotok" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
             </div>
           </div>
         </div>

@@ -14,39 +14,37 @@ export default function LegalStanding({ t }: LegalStandingProps) {
           {/* Decorative background */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/10 blur-3xl rounded-full -mr-20 -mt-20" />
           
-          <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
-            <div className="md:w-2/3">
-              <div className="inline-flex items-center space-x-2 text-brand-gold mb-6">
+          <div className="relative z-10 w-full">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center justify-center space-x-2 text-brand-gold mb-6">
                 <ShieldCheck size={28} />
                 <span className="font-bold uppercase tracking-widest text-sm">{t.title}</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight text-white max-w-4xl mx-auto">
                 {t.subtitle}
               </h2>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4 bg-white/5 p-6 rounded-2xl border border-white/10">
-                  <FileCheck className="text-brand-gold mt-1" size={24} />
-                  <div>
-                    <p className="text-xl font-bold text-white mb-1">{t.iup}</p>
-                    <p className="text-gray-400">{t.validity}</p>
-                  </div>
-                </div>
-              </div>
             </div>
             
-            <div className="md:w-1/3 flex justify-center">
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                className="w-48 h-48 border-4 border-brand-gold/30 rounded-full flex items-center justify-center p-4"
-              >
-                <div className="w-full h-full border-2 border-brand-gold rounded-full flex items-center justify-center text-center">
-                  <p className="text-brand-gold font-bold text-xs uppercase tracking-tighter">Certified<br/>Compliance</p>
-                </div>
-              </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {t.legalities.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-start space-x-4 bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors"
+                >
+                  <FileCheck className="text-brand-gold mt-1 shrink-0" size={28} />
+                  <div>
+                    <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                    <p className="text-sm text-gray-300 leading-relaxed">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
+
         </div>
       </div>
     </section>

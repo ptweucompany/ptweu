@@ -37,6 +37,7 @@ export interface Translation {
     subtitle: string;
     iup: string;
     validity: string;
+    legalities: { title: string; desc: string }[];
   };
   location: {
     title: string;

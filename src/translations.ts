@@ -44,10 +44,36 @@ export const translations: Record<'id' | 'en', Translation> = {
       labs: ['Minertech', 'Intertek', 'Sucofindo', 'Dinas Pekerjaan Umum & Tata Ruang'],
     },
     legal: {
-      title: 'Legalitas & Perizinan',
-      subtitle: 'Kami beroperasi dengan kepatuhan penuh terhadap regulasi pertambangan Indonesia.',
+      title: 'Legalitas & Formasi Perusahaan',
+      subtitle: 'Standar kepatuhan penuh dalam operasional dan perizinan.',
       iup: 'IUP Operasi Produksi: 91201019114410010',
       validity: 'Berlaku sejak April 2024',
+      legalities: [
+        {
+          title: 'Akta Pendirian & Perubahan',
+          desc: 'Akta Pendirian No. 1 (9 Sept 2019) oleh Notaris Salmiaty Hadjidjah Mutiara Mokoginta, SH. Akta Perubahan No. 01 (05 Juni 2023) oleh Notaris Moh. Rheza Awaluddin, S.H., M.Kn. Modal Ditempatkan: Rp 3.630.000.000.'
+        },
+        {
+          title: 'SK Kemenkumham',
+          desc: 'Pengesahan No. AHU-0046475.AH.01.01.TAHUN 2019 dan Perubahan No. AHU-0031214.AH.01.02.TAHUN 2023.'
+        },
+        {
+          title: 'IUP Operasi Produksi',
+          desc: 'Nomor Izin 91201019114410010, KBLI 08102 (Penggalian Batu Kapur/Gamping), Luas 97,05 Ha di Kab. Minahasa Tenggara.'
+        },
+        {
+          title: 'Persetujuan Lingkungan (UKL-UPL)',
+          desc: 'SK No. 503/DPMPTSPD/PPKPLH/880/X/2023 (Luas operasi & fasilitas 10,3 Ha).'
+        },
+        {
+          title: 'PKKPR Laut',
+          desc: 'Persetujuan Pembangunan Dermaga seluas 2,12 Ha di Laut Maluku (No: 03082310517100005).'
+        },
+        {
+          title: 'Legalitas Administratif',
+          desc: 'NPWP 92.853.784.4-821.000 dan Surat Keterangan Domisili di Desa Ratatotok Satu.'
+        }
+      ]
     },
     location: {
       title: 'Lokasi Strategis',
@@ -250,14 +276,17 @@ export const translations: Record<'id' | 'en', Translation> = {
       visionMission: {
         vision: {
           title: 'Visi Kami',
-          text: 'Menjadi pemimpin industri pertambangan mineral yang berkelanjutan dan terintegrasi, memberikan nilai tambah bagi pemangku kepentingan sambil melestarikan lingkungan.'
+          text: 'Menjadi perusahaan industri pertambangan kapur/gamping global terkemuka yang tumbuh berkelanjutan.'
         },
         mission: {
           title: 'Misi Kami',
           items: [
-            'Mengoptimalkan pengolahan sumber daya alam dengan teknologi ramah lingkungan.',
-            'Memberdayakan ekonomi lokal melalui penyerapan tenaga kerja dan kemitraan.',
-            'Menjamin standar keselamatan kerja tertinggi untuk seluruh personel.'
+            'Memupuk budaya cepat, produktif, efektif, efisien.',
+            'Mengutamakan kesehatan, keselamatan kerja, dan lingkungan dalam segala tindakan.',
+            'Memelihara tata kelola perusahaan tambang dengan baik demi meningkatkan kepercayaan masyarakat sekitar terhadap perusahaan.',
+            'Menyediakan lingkungan belajar untuk mencapai keunggulan dan meningkatkan kesejahteraan karyawan.',
+            'Mengedepankan teknologi yang berwawasan lingkungan.',
+            'Melakukan reklamasi penghijauan dengan baik sesuai aturan yang berlaku.'
           ]
         }
       },
@@ -444,10 +473,36 @@ export const translations: Record<'id' | 'en', Translation> = {
       labs: ['Minertech', 'Intertek', 'Sucofindo', 'Public Works & Spatial Planning Department'],
     },
     legal: {
-      title: 'Legality & Licensing',
-      subtitle: 'We operate in full compliance with Indonesian mining regulations.',
+      title: 'Legality & Formation',
+      subtitle: 'Full compliance standards in operations and licensing.',
       iup: 'Production Operation IUP: 91201019114410010',
       validity: 'Valid since April 2024',
+      legalities: [
+        {
+          title: 'Deed of Establishment & Amendment',
+          desc: 'Deed of Establishment No. 1 (Sept 9, 2019) by Notary Salmiaty Hadjidjah Mutiara Mokoginta, SH. Deed of Amendment No. 01 (June 5, 2023) by Notary Moh. Rheza Awaluddin, S.H., M.Kn. Issued Capital: Rp 3,630,000,000.'
+        },
+        {
+          title: 'Ministry of Law and Human Rights Decree',
+          desc: 'Ratification No. AHU-0046475.AH.01.01.TAHUN 2019 and Amendment No. AHU-0031214.AH.01.02.TAHUN 2023.'
+        },
+        {
+          title: 'Production Operation Mining License (IUP)',
+          desc: 'License Number 91201019114410010, KBLI 08102 (Limestone Excavation), Area 97.05 Ha in Southeast Minahasa Regency.'
+        },
+        {
+          title: 'Environmental Approval (UKL-UPL)',
+          desc: 'Decree No. 503/DPMPTSPD/PPKPLH/880/X/2023 (Operation & facility area 10.3 Ha).'
+        },
+        {
+          title: 'Marine PKKPR',
+          desc: 'Approval for Pier Construction covering 2.12 Ha in the Maluku Sea (No: 03082310517100005).'
+        },
+        {
+          title: 'Administrative Legality',
+          desc: 'NPWP 92.853.784.4-821.000 and Certificate of Domicile in Ratatotok Satu Village.'
+        }
+      ]
     },
     location: {
       title: 'Strategic Location',
@@ -650,14 +705,17 @@ export const translations: Record<'id' | 'en', Translation> = {
       visionMission: {
         vision: {
           title: 'Our Vision',
-          text: 'To be a leader in the sustainable and integrated mineral mining industry, delivering added value to stakeholders while preserving the environment.'
+          text: 'To be a leading global limestone/lime mining industry company that grows sustainably.'
         },
         mission: {
           title: 'Our Mission',
           items: [
-            'Optimizing natural resource processing with eco-friendly technology.',
-            'Empowering the local economy through job creation and partnerships.',
-            'Ensuring the highest safety standards for all personnel.'
+            'Cultivate a fast, productive, effective, and efficient culture.',
+            'Prioritize occupational health, safety, and environment in all actions.',
+            'Maintain good mining corporate governance to increase the trust of the surrounding community in the company.',
+            'Provide a learning environment to achieve excellence and improve employee welfare.',
+            'Prioritize environmentally friendly technology.',
+            'Conduct proper greening reclamation in accordance with applicable regulations.'
           ]
         }
       },

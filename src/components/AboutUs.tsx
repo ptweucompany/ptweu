@@ -20,8 +20,8 @@ export default function AboutUs({ t }: AboutUsProps) {
           >
             <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=1000"
-                alt="Industrial Facility"
+                src="https://images.unsplash.com/photo-1621686417748-038234661bc5?auto=format&fit=crop&q=80&w=1000"
+                alt="Fasilitas operasional pertambangan batu kapur dan limestone darat PT Wira Energi Utama yang berkelanjutan"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
