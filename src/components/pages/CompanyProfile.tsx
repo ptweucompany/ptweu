@@ -34,13 +34,24 @@ export default function CompanyProfile({ t }: CompanyProfileProps) {
     setIsGenerating(true);
     
     try {
+      // Scroll to top to ensure clean capture
+      window.scrollTo(0, 0);
+      // Wait for any scroll-triggered animations or layout shifts to settle
+      await new Promise(r => setTimeout(r, 500));
+      
       const element = pdfRef.current;
       const canvas = await html2canvas(element, { 
-        scale: 2, 
+        scale: 1.5, // Slightly reduced scale for stability/memory
         useCORS: true,
+        allowTaint: false,
+        backgroundColor: '#ffffff',
+        scrollX: 0,
+        scrollY: 0,
+        windowWidth: document.documentElement.offsetWidth,
+        windowHeight: document.documentElement.offsetHeight,
         logging: false
       });
-      const imgData = canvas.toDataURL('image/jpeg', 0.98);
+      const imgData = canvas.toDataURL('image/jpeg', 0.95);
       
       const pdf = new jsPDF('p', 'mm', 'a4');
       const pdfWidth = pdf.internal.pageSize.getWidth();
@@ -50,13 +61,14 @@ export default function CompanyProfile({ t }: CompanyProfileProps) {
       let position = 0;
       const pageHeight = pdf.internal.pageSize.getHeight();
       
-      pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight);
+      // Multi-page logic
+      pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight, undefined, 'FAST');
       heightLeft -= pageHeight;
       
       while (heightLeft >= 0) {
         position = heightLeft - pdfHeight;
         pdf.addPage();
-        pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight);
+        pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight, undefined, 'FAST');
         heightLeft -= pageHeight;
       }
       
