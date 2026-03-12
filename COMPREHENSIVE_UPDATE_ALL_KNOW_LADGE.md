@@ -68,13 +68,15 @@ Moving to Next.js 16.1.6 would provide:
 
 ---
 
-## 6. Recent Upgrades (March 2026 Phase 1-3)
+## 6. Recent Upgrades (March 2026 Phase 1-5)
 - **Framework Migration:** Successfully migrated from Vite (React 19) to **Next.js 16.1.6 (App Router)** for enhanced SEO, SSR, and robust routing.
 - **Content Expansion:** Designed and developed comprehensive `/about`, `/products`, and `/privacy` pages featuring interactive deep-dive sections (8+ per page).
 - **Corporate Identity & Legal:** 
   - Standardized the Vision ("Menjadi perusahaan industri pertambangan kapur/gamping global terkemuka yang tumbuh berkelanjutan.") and the 6 core Missions across all languages.
   - Implemented a detailed "Legalitas & Formasi Perusahaan" section in `/company-profile`, showcasing 6 critical operational and environmental licenses (IUP, UKL-UPL, PKKPR Laut, etc.) in a modern grid layout.
-- **Visual Overhaul:** Replaced all generic and mock images with high-resolution, industry-contextual visuals (drone shots, heavy machinery, labs) accompanied by highly descriptive, SEO-optimized `alt` tags emphasizing PT Wira Energi Utama's operations.
+- **Visual Overhaul:** Replaced all generic and mock AI images with high-resolution, industry-contextual visuals (drone shots, heavy machinery, labs) accompanied by highly descriptive, SEO-optimized `alt` tags emphasizing PT Wira Energi Utama's operations.
+- **PDF Generation:** Implemented a robust A4 PDF exporter for the `/company-profile` utilizing `html2canvas` and `jsPDF`, complete with UX loading states.
+- **SEO Mastery:** Structured global and route-specific metadata across the Next.js App Router (OG, Twitter, Keywords), leveraging `og-image.webp`, and programmatically generating `sitemap.xml` and `robots.txt` for absolute crawler optimization.
 - **Deployment Strategy:** Configured pure static HTML export (`output: 'export'`) in `next.config.js` to guarantee seamless, error-free deployment on Cloudflare Pages.
 
 *Last Updated: March 12, 2026*
