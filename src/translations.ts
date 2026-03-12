@@ -10,7 +10,7 @@ export const translations: Record<'id' | 'en', Translation> = {
     },
     hero: {
       title: 'PT Wira Energi Utama',
-      subtitle: 'Industri Pertambangan Kapur & Gamping Global Terkemuka.',
+      subtitle: 'Mining, General Trading & Industrial Supplier.',
       cta: 'Hubungi Kami',
     },
     about: {
@@ -233,8 +233,172 @@ export const translations: Record<'id' | 'en', Translation> = {
         success: 'Pesan Anda telah terkirim. Terima kasih!',
       },
     },
+    aboutDetails: {
+      history: {
+        title: 'Sejarah & Warisan Kami',
+        text: 'Didirikan dengan komitmen untuk menjadi energi utama dalam pembangunan nasional, PT Wira Energi Utama telah berkembang dari sebuah visi untuk mengoptimalkan kekayaan alam Sulawesi Utara menjadi penyedia batu kapur terintegrasi tingkat global. Selama lebih dari satu dekade, kami telah membangun reputasi atas keandalan, kualitas, dan praktik penambangan yang bertanggung jawab di Ratatotok.',
+      },
+      values: [
+        { title: 'Integritas', desc: 'Menjalankan bisnis dengan standar etika tertinggi dan transparansi penuh.' },
+        { title: 'Inovasi', desc: 'Terus mengadopsi teknologi terbaru untuk meningkatkan efisiensi dan kelestarian.' },
+        { title: 'Kemitraan', desc: 'Membangun hubungan jangka panjang yang saling menguntungkan dengan pelanggan dan masyarakat.' },
+      ],
+      team: {
+        title: 'Kepemimpinan Kami',
+        text: 'Dipimpin oleh para profesional berpengalaman di industri pertambangan yang berdedikasi pada keunggulan operasional dan keselamatan.',
+      },
+      visionMission: {
+        vision: {
+          title: 'Visi Kami',
+          text: 'Menjadi pemimpin industri pertambangan mineral yang berkelanjutan dan terintegrasi, memberikan nilai tambah bagi pemangku kepentingan sambil melestarikan lingkungan.'
+        },
+        mission: {
+          title: 'Misi Kami',
+          items: [
+            'Mengoptimalkan pengolahan sumber daya alam dengan teknologi ramah lingkungan.',
+            'Memberdayakan ekonomi lokal melalui penyerapan tenaga kerja dan kemitraan.',
+            'Menjamin standar keselamatan kerja tertinggi untuk seluruh personel.'
+          ]
+        }
+      },
+      sustainability: {
+        title: 'Komitmen Keberlanjutan',
+        text: 'Kami percaya bahwa pertambangan harus berjalan selaras dengan alam. Program reklamasi lahan kami yang proaktif memastikan bahwa setiap area yang selesai ditambang akan dikembalikan ke kondisi hijau yang produktif.'
+      },
+      safety: {
+        title: 'Keselamatan & Kesehatan Kerja (K3)',
+        text: 'Zero Accident bukan sekadar target, tapi adalah budaya kami.',
+        points: ['APD Lengkap & Standar', 'Pelatihan Rutin Staff', 'Sertifikasi Alat Berkala', 'Audit Keselamatan Eksternal']
+      },
+      process: {
+        title: 'Perjalanan Mineral',
+        steps: [
+          { title: 'Ekstraksi', desc: 'Penambangan terbuka dengan metode blasting terkontrol.' },
+          { title: 'Crushing', desc: 'Pengecilan ukuran mineral menggunakan teknologi crusher otomatis.' },
+          { title: 'Quality Control', desc: 'Pengujian laboratorium untuk memastikan kemurnian mineral.' },
+          { title: 'Distribusi', desc: 'Logistik efisien melalui dermaga khusus milik sendiri.' }
+        ]
+      },
+      infrastructure: {
+        title: 'Infrastruktur Canggih',
+        items: [
+          { name: 'Jetty Khusus', desc: 'Dermaga laut dalam yang mampu menampung tongkang kapasitas besar.' },
+          { name: 'Crushing Plant', desc: 'Sistem pengolahan terintegrasi dengan kapasitas produksi harian tinggi.' },
+          { name: 'Laboratorium QC', desc: 'Fasilitas teknis untuk analisis kimia mineral secara real-time.' }
+        ]
+      },
+      community: {
+        title: 'Membangun Bersama Ratatotok',
+        text: 'PT WEU4 bukan sekadar perusahaan, kami adalah bagian dari masyarakat Sulawesi Utara. Melalui program CSR, kami mendukung pendidikan, kesehatan, dan infrastruktur desa sekitar.'
+      },
+      quality: {
+        title: 'Standar Kualitas Global',
+        text: 'Produk kami memenuhi standar internasional untuk penggunaan di industri baja, semen, dan kimia reaktif tinggi.'
+      },
+      industrial: {
+        title: 'Pilar Industri Nasional',
+        text: 'Kami bangga menjadi pemasok utama bagi proyek-proyek strategis nasional, mendukung kemandirian energi dan bahan baku industri Indonesia.'
+      }
+    },
+    productExpansion: {
+      supplyChain: {
+        title: 'Alur Rantai Pasok',
+        steps: [
+          { title: 'Ekstraksi Tambang', desc: 'Pengambilan material mentah dari pit tambang Ratatotok.' },
+          { title: 'Pengolahan Sesuai Pesanan', desc: 'Penghancuran dan penyaringan mineral sesuai spesifikasi teknis klien.' },
+          { title: 'Logistik Terintegrasi', desc: 'Pemuatan ke tongkang melalui dermaga pribadi (Jetty).' },
+          { title: 'Pengiriman Tepat Waktu', desc: 'Distribusi global ke pabrik pemakai akhir tanpa hambatan.' }
+        ]
+      },
+      qcLifecycle: {
+        title: 'Siklus Penjaminan Kualitas',
+        items: [
+          'Analisis Kimia di Pit Tambang',
+          'Pengujian Sampel Harian di Laboratorium',
+          'Sertifikasi Pihak Ketiga Independen',
+          'Verifikasi Produk Sebelum Pemuatan'
+        ]
+      },
+      capabilities: {
+        title: 'Kapasitas Operasional',
+        text: 'Dengan dukungan infrastruktur modern, kami mampu memenuhi permintaan skala besar secara konsisten.',
+        stats: [
+          { label: 'Kapasitas Produksi', value: '150.000 MT/Bulan' },
+          { label: 'Luas Area Tambang', value: '100+ Hektar' },
+          { label: 'Draft Jetty', value: '12 Meter' }
+        ]
+      },
+      industries: {
+        title: 'Industri yang Kami Layani',
+        list: [
+          { name: 'Industri Semen', icon: 'Construction' },
+          { name: 'Sektor Baja', icon: 'Wrench' },
+          { name: 'Pembangkit Listrik (PLTU)', icon: 'Zap' },
+          { name: 'Industri Kimia', icon: 'Beaker' },
+          { name: 'Pertanian & Pupuk', icon: 'Sprout' }
+        ]
+      },
+      customSolutions: {
+        title: 'Solusi Mineral Kustom',
+        text: 'Kami memahami setiap industri memiliki kebutuhan unik. Tim teknis kami siap melakukan engineering pada ukuran butir (grit size) dan kemurnian kimia sesuai target proses produksi Anda.'
+      },
+      sustainability: {
+        title: 'Produksi Ramah Lingkungan',
+        text: 'Sistem crushing kami dilengkapi dengan filter debu canggih dan penggunaan air sirkulasi tertutup untuk meminimalkan dampak lingkungan selama proses produksi.'
+      },
+      partnership: {
+        title: 'Cara Menjadi Mitra Kami',
+        steps: [
+          { title: 'Konsultasi Teknis', desc: 'Diskusikan spesifikasi material yang Anda butuhkan.' },
+          { title: 'Uji Sampel', desc: 'Kami mengirimkan sampel material untuk pengujian di laboratorium Anda.' },
+          { title: 'Kesepakatan Kontrak', desc: 'Finalisasi volume, jadwal pengiriman, dan harga.' },
+          { title: 'Eksekusi & Suplai', desc: 'Suplai mineral berkelanjutan dimulai ke fasilitas Anda.' }
+        ]
+      }
+    },
+    productDetails: {
+      specsTitle: 'Spesifikasi Teknis',
+      limestone: {
+        title: 'Batu Kapur (Limestone)',
+        fullDesc: 'Batu kapur kami dikenal dengan kadar CaO yang tinggi dan reaktivitas yang luar biasa. Cocok untuk industri baja, kimia, dan semen.',
+        specs: ['Kadar CaO: > 55%', 'MgO: < 1.5%', 'Silika (SiO2): < 0.5%', 'Kadar Air: < 3%']
+      },
+      hydratedLime: {
+        title: 'Kapur Padam (Hydrated Lime)',
+        fullDesc: 'Kalsium Hidroksida hasil pemrosesan canggih untuk pemurnian air, stabilisasi tanah, dan pemrosesan gas buang.',
+        specs: ['Kandungan Ca(OH)2: > 92%', 'Kehalusan (passing 325 mesh): > 95%', 'Warna: Putih Bersih']
+      },
+      burnLime: {
+        title: 'Kapur Bakar (CaO)',
+        fullDesc: 'Diproduksi melalui proses kalsinasi terkontrol untuk menghasilkan kapur tohor dengan aktivitas termal tinggi.',
+        specs: ['Available CaO: > 90%', 'Ukuran (Lumpy): 10-50mm', 'Suhu Reaksi: > 60°C']
+      }
+    },
+    privacy: {
+      title: 'Kebijakan Privasi',
+      lastUpdated: 'Terakhir diperbarui: Maret 2024',
+      sections: [
+        {
+          title: '1. Pengumpulan Informasi',
+          content: 'Kami mengumpulkan informasi yang Anda berikan langsung kepada kami melalui formulir kontak, termasuk nama, alamat email, dan nama perusahaan untuk menanggapi pertanyaan bisnis Anda.'
+        },
+        {
+          title: '2. Penggunaan Data',
+          content: 'Data yang dikumpulkan hanya digunakan untuk kepentingan komunikasi bisnis resmi, peningkatan layanan, dan pemenuhan kewajiban sesuai hukum pertambangan Indonesia.'
+        },
+        {
+          title: '3. Keamanan Informasi',
+          content: 'Kami menerapkan langkah-langkah keamanan teknologi untuk melindungi data Anda dari akses yang tidak sah atau penyalahgunaan.'
+        }
+      ]
+    },
     footer: {
       rights: 'Hak Cipta Terpelihara.',
+      links: [
+        { label: 'Tentang', href: '/about' },
+        { label: 'Produk', href: '/products' },
+        { label: 'Privasi', href: '/privacy' }
+      ]
     },
   },
   en: {
@@ -469,8 +633,172 @@ export const translations: Record<'id' | 'en', Translation> = {
         success: 'Your message has been sent. Thank you!',
       },
     },
+    aboutDetails: {
+      history: {
+        title: 'Our History & Heritage',
+        text: 'Founded with a commitment to being the primary energy in national development, PT Wira Energi Utama has evolved from a vision to optimize North Sulawesi\'s natural wealth into a globally integrated limestone provider. For over a decade, we have built a reputation for reliability, quality, and responsible mining practices in Ratatotok.',
+      },
+      values: [
+        { title: 'Integrity', desc: 'Conducting business with the highest ethical standards and full transparency.' },
+        { title: 'Innovation', desc: 'Continuously adopting the latest technology to improve efficiency and sustainability.' },
+        { title: 'Partnership', desc: 'Building long-term, mutually beneficial relationships with customers and the community.' },
+      ],
+      team: {
+        title: 'Our Leadership',
+        text: 'Led by experienced professionals in the mining industry dedicated to operational excellence and safety.',
+      },
+      visionMission: {
+        vision: {
+          title: 'Our Vision',
+          text: 'To be a leader in the sustainable and integrated mineral mining industry, delivering added value to stakeholders while preserving the environment.'
+        },
+        mission: {
+          title: 'Our Mission',
+          items: [
+            'Optimizing natural resource processing with eco-friendly technology.',
+            'Empowering the local economy through job creation and partnerships.',
+            'Ensuring the highest safety standards for all personnel.'
+          ]
+        }
+      },
+      sustainability: {
+        title: 'Sustainability Commitment',
+        text: 'We believe that mining must run in harmony with nature. Our proactive land reclamation program ensures that every mined-out area is returned to a productive green state.'
+      },
+      safety: {
+        title: 'Health & Safety (K3)',
+        text: 'Zero Accident is not just a target, it is our culture.',
+        points: ['Standard Safety Gear', 'Regular Staff Training', 'Periodic Equipment Certification', 'External Safety Audits']
+      },
+      process: {
+        title: 'The Mineral Journey',
+        steps: [
+          { title: 'Extraction', desc: 'Open-pit mining with controlled blasting methods.' },
+          { title: 'Crushing', desc: 'Mineral size reduction using automated crusher technology.' },
+          { title: 'Quality Control', desc: 'Laboratory testing to ensure mineral purity.' },
+          { title: 'Distribution', desc: 'Efficient logistics via our own specialized jetty.' }
+        ]
+      },
+      infrastructure: {
+        title: 'Advanced Infrastructure',
+        items: [
+          { name: 'Private Jetty', desc: 'Deep-water port capable of accommodating large-capacity barges.' },
+          { name: 'Crushing Plant', desc: 'Integrated processing system with high daily production capacity.' },
+          { name: 'QC Laboratory', desc: 'Technical facilities for real-time mineral chemical analysis.' }
+        ]
+      },
+      community: {
+        title: 'Building with Ratatotok',
+        text: 'PT WEU4 is not just a company; we are part of the North Sulawesi community. Through CSR programs, we support education, health, and local village infrastructure.'
+      },
+      quality: {
+        title: 'Global Quality Standards',
+        text: 'Our products meet international standards for use in the steel, cement, and high-reactivity chemical industries.'
+      },
+      industrial: {
+        title: 'Pillar of National Industry',
+        text: 'We are proud to be a major supplier for national strategic projects, supporting Indonesia\'s energy independence and industrial raw materials.'
+      }
+    },
+    productExpansion: {
+      supplyChain: {
+        title: 'Supply Chain Flow',
+        steps: [
+          { title: 'Mine Extraction', desc: 'Raw material collection from the Ratatotok mining pit.' },
+          { title: 'Custom Processing', desc: 'Mineral crushing and screening according to client technical specifications.' },
+          { title: 'Integrated Logistics', desc: 'Loading onto barges via our private deep-water jetty.' },
+          { title: 'On-Time Delivery', desc: 'Seamless global distribution to end-user factories.' }
+        ]
+      },
+      qcLifecycle: {
+        title: 'Quality Assurance Lifecycle',
+        items: [
+          'In-Pit Chemical Analysis',
+          'Daily Laboratory Sample Testing',
+          'Independent Third-Party Certification',
+          'Pre-Loading Product Verification'
+        ]
+      },
+      capabilities: {
+        title: 'Operational Capabilities',
+        text: 'Supported by modern infrastructure, we are able to meet large-scale demands consistently.',
+        stats: [
+          { label: 'Production Capacity', value: '150,000 MT/Month' },
+          { label: 'Mining Area', value: '100+ Hectares' },
+          { label: 'Jetty Draft', value: '12 Meters' }
+        ]
+      },
+      industries: {
+        title: 'Industries We Serve',
+        list: [
+          { name: 'Cement Industry', icon: 'Construction' },
+          { name: 'Steel Sector', icon: 'Wrench' },
+          { name: 'Power Plants (PLTU)', icon: 'Zap' },
+          { name: 'Chemical Industry', icon: 'Beaker' },
+          { name: 'Agriculture & Fertilizer', icon: 'Sprout' }
+        ]
+      },
+      customSolutions: {
+        title: 'Custom Mineral Solutions',
+        text: 'We understand that every industry has unique requirements. Our technical team is ready to engineer grit size and chemical purity to meet your production targets.'
+      },
+      sustainability: {
+        title: 'Eco-Friendly Production',
+        text: 'Our crushing systems are equipped with advanced dust filters and closed-circuit water systems to minimize environmental impact during production.'
+      },
+      partnership: {
+        title: 'How to Become Our Partner',
+        steps: [
+          { title: 'Technical Consultation', desc: 'Discuss the material specifications you need.' },
+          { title: 'Sample Testing', desc: 'We send material samples for testing in your laboratory.' },
+          { title: 'Contract Agreement', desc: 'Finalize volume, delivery schedule, and pricing.' },
+          { title: 'Execution & Supply', desc: 'Sustainable mineral supply begins to your facility.' }
+        ]
+      }
+    },
+    productDetails: {
+      specsTitle: 'Technical Specifications',
+      limestone: {
+        title: 'Limestone',
+        fullDesc: 'Our limestone is known for its high CaO content and extraordinary reactivity. Suitable for the steel, chemical, and cement industries.',
+        specs: ['CaO Content: > 55%', 'MgO: < 1.5%', 'Silica (SiO2): < 0.5%', 'Moisture: < 3%']
+      },
+      hydratedLime: {
+        title: 'Hydrated Lime',
+        fullDesc: 'Calcium Hydroxide from advanced processing for water purification, soil stabilization, and flue gas processing.',
+        specs: ['Ca(OH)2 Content: > 92%', 'Fineness (passing 325 mesh): > 95%', 'Color: Pure White']
+      },
+      burnLime: {
+        title: 'Burn Lime (CaO)',
+        fullDesc: 'Produced through controlled calcination processes to produce quicklime with high thermal activity.',
+        specs: ['Available CaO: > 90%', 'Size (Lumpy): 10-50mm', 'Reaction Temperature: > 60°C']
+      }
+    },
+    privacy: {
+      title: 'Privacy Policy',
+      lastUpdated: 'Last updated: March 2024',
+      sections: [
+        {
+          title: '1. Information Collection',
+          content: 'We collect information you provide directly to us through contact forms, including name, email address, and company name to respond to your business inquiries.'
+        },
+        {
+          title: '2. Data Usage',
+          content: 'The collected data is only used for official business communication, service improvement, and fulfillment of obligations according to Indonesian mining law.'
+        },
+        {
+          title: '3. Information Security',
+          content: 'We implement technological security measures to protect your data from unauthorized access or misuse.'
+        }
+      ]
+    },
     footer: {
       rights: 'All Rights Reserved.',
+      links: [
+        { label: 'About', href: '/about' },
+        { label: 'Products', href: '/products' },
+        { label: 'Privacy', href: '/privacy' }
+      ]
     },
   },
 };

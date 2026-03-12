@@ -1,3 +1,6 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { Translation } from '../types';
 import { motion } from 'motion/react';
@@ -10,12 +13,20 @@ const data = [
   { name: 'Limestone', value: 1380096 },
   { name: 'Hydrated Lime', value: 1324800 },
   { name: 'Burn Lime', value: 34560 },
-  { name: 'Waste/Limbah', value: 20736 },
+  { name: 'Burn/Limbah', value: 20736 },
 ];
 
 const COLORS = ['#002B5B', '#D4AF37', '#004080', '#8E9299'];
 
 export default function ProductionStats({ t }: ProductionStatsProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return <div className="h-[400px] w-full bg-gray-50 animate-pulse rounded-3xl" />;
+
   return (
     <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

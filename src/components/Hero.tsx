@@ -1,3 +1,5 @@
+'use client';
+
 import { ChevronRight } from 'lucide-react';
 import { Translation } from '../types';
 import { motion } from 'motion/react';
@@ -13,7 +15,7 @@ export default function Hero({ t, onContactClick }: HeroProps) {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?auto=format&fit=crop&q=80&w=2000"
+          src="/Hero.webp"
           alt="Mining Background"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"

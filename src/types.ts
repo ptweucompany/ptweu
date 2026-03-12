@@ -180,7 +180,44 @@ export interface Translation {
       success: string;
     };
   };
+  aboutDetails: {
+    history: { title: string; text: string };
+    values: { title: string; desc: string }[];
+    team: { title: string; text: string };
+    visionMission: {
+      vision: { title: string; text: string };
+      mission: { title: string; items: string[] };
+    };
+    sustainability: { title: string; text: string };
+    safety: { title: string; text: string; points: string[] };
+    process: { title: string; steps: { title: string; desc: string }[] };
+    infrastructure: { title: string; items: { name: string; desc: string }[] };
+    community: { title: string; text: string };
+    quality: { title: string; text: string };
+    industrial: { title: string; text: string };
+  };
+  productExpansion: {
+    supplyChain: { title: string; steps: { title: string; desc: string }[] };
+    qcLifecycle: { title: string; items: string[] };
+    capabilities: { title: string; text: string; stats: { label: string; value: string }[] };
+    industries: { title: string; list: { name: string; icon: string }[] };
+    customSolutions: { title: string; text: string };
+    sustainability: { title: string; text: string };
+    partnership: { title: string; steps: { title: string; desc: string }[] };
+  };
+  productDetails: {
+    specsTitle: string;
+    limestone: { title: string; fullDesc: string; specs: string[] };
+    hydratedLime: { title: string; fullDesc: string; specs: string[] };
+    burnLime: { title: string; fullDesc: string; specs: string[] };
+  };
+  privacy: {
+    title: string;
+    lastUpdated: string;
+    sections: { title: string; content: string }[];
+  };
   footer: {
     rights: string;
+    links: { label: string; href: string }[];
   };
 }

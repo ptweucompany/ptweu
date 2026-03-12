@@ -1,20 +1,20 @@
 import { FileDown, ChevronLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import LegalStanding from '../components/LegalStanding';
-import ProductionStats from '../components/ProductionStats';
-import FleetEquipment from '../components/FleetEquipment';
-import LaboratoryDetail from '../components/LaboratoryDetail';
-import CorporateGovernance from '../components/CorporateGovernance';
-import EnvironmentCommitment from '../components/EnvironmentCommitment';
-import ProjectGallery from '../components/ProjectGallery';
-import MiningProcess from '../components/MiningProcess';
-import GeologicalAdvantage from '../components/GeologicalAdvantage';
-import EconomicBenefits from '../components/EconomicBenefits';
-import OperationalExcellence from '../components/OperationalExcellence';
-import ComplianceQuality from '../components/ComplianceQuality';
-import IndustrialApplications from '../components/IndustrialApplications';
-import QualityControlWorkflow from '../components/QualityControlWorkflow';
-import { Translation } from '../types';
+import Link from 'next/link';
+import LegalStanding from '../LegalStanding';
+import ProductionStats from '../ProductionStats';
+import FleetEquipment from '../FleetEquipment';
+import LaboratoryDetail from '../LaboratoryDetail';
+import CorporateGovernance from '../CorporateGovernance';
+import EnvironmentCommitment from '../EnvironmentCommitment';
+import ProjectGallery from '../ProjectGallery';
+import MiningProcess from '../MiningProcess';
+import GeologicalAdvantage from '../GeologicalAdvantage';
+import EconomicBenefits from '../EconomicBenefits';
+import OperationalExcellence from '../OperationalExcellence';
+import ComplianceQuality from '../ComplianceQuality';
+import IndustrialApplications from '../IndustrialApplications';
+import QualityControlWorkflow from '../QualityControlWorkflow';
+import { Translation } from '../../types';
 import { motion } from 'motion/react';
 
 interface CompanyProfileProps {
@@ -32,7 +32,7 @@ export default function CompanyProfile({ t }: CompanyProfileProps) {
       {/* Header Section */}
       <section className="bg-brand-blue text-white py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <Link to="/" className="inline-flex items-center text-brand-gold hover:text-brand-gold-light mb-8 transition-colors">
+          <Link href="/" className="inline-flex items-center text-brand-gold hover:text-brand-gold-light mb-8 transition-colors">
             <ChevronLeft size={20} className="mr-1" />
             Back to Home
           </Link>

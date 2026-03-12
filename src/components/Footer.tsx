@@ -1,5 +1,5 @@
 import { Mail, MapPin, Phone } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Translation } from '../types';
 
 interface FooterProps {
@@ -16,11 +16,11 @@ export default function Footer({ t, footerT, profileT }: FooterProps) {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-8">
-              <Link to="/" className="flex items-center space-x-2">
-                <div className="w-12 h-12 bg-brand-gold rounded-lg flex items-center justify-center font-bold text-brand-blue text-2xl">
-                  W
+              <Link href="/" className="flex items-center space-x-2 group">
+                <div className="w-14 h-14 flex items-center justify-center transition-transform group-hover:scale-110">
+                  <img src="/2.svg" alt="Wira Energi Utama Logo" className="w-full h-full" />
                 </div>
-                <span className="font-bold text-2xl tracking-tight">PT Wira Energi Utama</span>
+                <span className="font-bold text-2xl tracking-tight text-white group-hover:text-brand-gold transition-colors">PT Wira Energi Utama</span>
               </Link>
             </div>
             <p className="text-gray-400 max-w-md mb-8 leading-relaxed">
@@ -59,20 +59,15 @@ export default function Footer({ t, footerT, profileT }: FooterProps) {
             <div>
               <h4 className="text-brand-gold font-bold uppercase tracking-widest text-sm mb-6">Quick Links</h4>
               <ul className="space-y-3">
+                {footerT.links.map((link, idx) => (
+                  <li key={idx}>
+                    <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
                 <li>
-                  <Link to="/" className="text-gray-400 hover:text-white transition-colors text-sm">Home</Link>
-                </li>
-                <li>
-                  <a href="#about" className="text-gray-400 hover:text-white transition-colors text-sm">About Us</a>
-                </li>
-                <li>
-                  <a href="#products" className="text-gray-400 hover:text-white transition-colors text-sm">Products</a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
-                </li>
-                <li>
-                  <Link to="/company-profile" className="text-brand-gold hover:text-brand-gold-light transition-colors text-sm font-bold">
+                  <Link href="/company-profile" className="text-brand-gold hover:text-brand-gold-light transition-colors text-sm font-bold">
                     {profileT.link}
                   </Link>
                 </li>

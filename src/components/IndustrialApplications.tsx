@@ -37,6 +37,14 @@ export default function IndustrialApplications({ t }: IndustrialApplicationsProp
             );
           })}
         </div>
+        <div className="mt-16 rounded-[3rem] overflow-hidden h-[400px] relative">
+          <img
+            src="/Gemini_Generated_Image_z286q7z286q7z286.webp"
+            alt="Mining Site Asset"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-brand-blue/20" />
+        </div>
       </div>
     </section>
   );

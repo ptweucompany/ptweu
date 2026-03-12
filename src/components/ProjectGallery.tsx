@@ -6,12 +6,15 @@ interface ProjectGalleryProps {
 }
 
 const images = [
-  'https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?auto=format&fit=crop&q=80&w=800',
-  'https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=800',
-  'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800',
-  'https://images.unsplash.com/photo-1541976590-713941681591?auto=format&fit=crop&q=80&w=800',
-  'https://images.unsplash.com/photo-1579975096649-e773152b04cb?auto=format&fit=crop&q=80&w=800',
-  'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&q=80&w=800',
+  '/Drone Webp/DJI_20260225092843_0288_D (1).webp',
+  '/Drone Webp/DJI_20260225093242_0291_D (1).webp',
+  '/Drone Webp/DJI_20260225093443_0293_D (1).webp',
+  '/Drone Webp/DJI_20260310143518_0298_D (1).webp',
+  '/Drone Webp/DJI_20260310143640_0300_D (1).webp',
+  '/Drone Webp/DJI_20260310143758_0302_D (1).webp',
+  '/Drone Webp/DJI_20260310144034_0308_D (1).webp',
+  '/Drone Webp/DJI_20260310144136_0309_D (1).webp',
+  '/Drone Webp/DJI_20260310144303_0310_D (1).webp',
 ];
 
 export default function ProjectGallery({ t }: ProjectGalleryProps) {

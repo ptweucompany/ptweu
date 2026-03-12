@@ -1,6 +1,9 @@
+'use client';
+
 import { Globe, Menu, X, Home as HomeIcon } from 'lucide-react';
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Language, Translation } from '../types';
 
 interface NavbarProps {
@@ -12,8 +15,8 @@ interface NavbarProps {
 
 export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
-  const isHome = location.pathname === '/';
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   const navLinks = [
     { name: t.about, href: isHome ? '#about' : '/#about' },
@@ -26,18 +29,20 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 bg-brand-gold rounded-lg flex items-center justify-center font-bold text-brand-blue text-xl transition-transform group-hover:scale-110">
-              W
+          <Link href="/" className="flex items-center space-x-3 group">
+            <div className="w-12 h-12 flex items-center justify-center transition-transform group-hover:scale-110">
+              <img src="/2.svg" alt="Wira Energi Utama Logo" className="w-full h-full" />
             </div>
-            <span className="font-bold text-xl tracking-tight hidden sm:block">PT Wira Energi Utama</span>
-            <span className="font-bold text-xl tracking-tight sm:hidden">WEU</span>
+            <div className="flex flex-col justify-center">
+              <span className="text-xl font-extrabold tracking-tight text-white leading-none group-hover:text-brand-gold transition-colors">WIRA ENERGI</span>
+              <span className="text-xs font-bold tracking-[0.2em] text-brand-gold/80 leading-tight">UTAMA</span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
             {!isHome && (
-              <Link to="/" className="text-sm font-medium hover:text-brand-gold transition-colors flex items-center">
+              <Link href="/" className="text-sm font-medium hover:text-brand-gold transition-colors flex items-center">
                 <HomeIcon size={16} className="mr-1" />
                 Home
               </Link>
@@ -54,7 +59,7 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
               ) : (
                 <Link
                   key={link.name}
-                  to={link.href}
+                  href={link.href}
                   className="text-sm font-medium hover:text-brand-gold transition-colors"
                 >
                   {link.name}
@@ -103,7 +108,7 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
         <div className="md:hidden bg-brand-blue border-t border-white/10 py-4 px-4 space-y-4 animate-in slide-in-from-top duration-300">
           {!isHome && (
             <Link
-              to="/"
+              href="/"
               onClick={() => setIsMenuOpen(false)}
               className="block text-lg font-medium hover:text-brand-gold"
             >
@@ -123,7 +128,7 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
             ) : (
               <Link
                 key={link.name}
-                to={link.href}
+                href={link.href}
                 onClick={() => setIsMenuOpen(false)}
                 className="block text-lg font-medium hover:text-brand-gold"
               >

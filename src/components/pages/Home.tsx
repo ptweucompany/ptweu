@@ -1,16 +1,16 @@
-import Hero from '../components/Hero';
-import AboutUs from '../components/AboutUs';
-import Products from '../components/Products';
-import QualityAssurance from '../components/QualityAssurance';
-import MappingLocation from '../components/MappingLocation';
-import Infrastructure from '../components/Infrastructure';
-import MarketPresence from '../components/MarketPresence';
-import SupplyChain from '../components/SupplyChain';
-import SafetyStandards from '../components/SafetyStandards';
-import CommunityImpact from '../components/CommunityImpact';
-import MiningInnovation from '../components/MiningInnovation';
-import FutureVision from '../components/FutureVision';
-import { Translation } from '../types';
+import Hero from '../Hero';
+import AboutUs from '../AboutUs';
+import Products from '../Products';
+import QualityAssurance from '../QualityAssurance';
+import MappingLocation from '../MappingLocation';
+import Infrastructure from '../Infrastructure';
+import MarketPresence from '../MarketPresence';
+import SupplyChain from '../SupplyChain';
+import SafetyStandards from '../SafetyStandards';
+import CommunityImpact from '../CommunityImpact';
+import MiningInnovation from '../MiningInnovation';
+import FutureVision from '../FutureVision';
+import { Translation } from '../../types';
 
 interface HomeProps {
   t: Translation;

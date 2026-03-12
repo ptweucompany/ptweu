@@ -39,7 +39,7 @@ export default function FleetEquipment({ t }: FleetEquipmentProps) {
 
         <div className="mt-16 rounded-[3rem] overflow-hidden h-[400px] relative">
           <img
-            src="https://images.unsplash.com/photo-1579975096649-e773152b04cb?auto=format&fit=crop&q=80&w=2000"
+            src="/Drone Webp/DJI_20260310143640_0300_D (1).webp"
             alt="Fleet on Site"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
