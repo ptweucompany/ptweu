@@ -51,7 +51,7 @@ export default function LaboratoryDetail({ t }: LaboratoryDetailProps) {
               <div className="flex -space-x-3">
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-gray-200 overflow-hidden">
-                    <img src={`https://i.pravatar.cc/150?u=${i}`} alt="Expert" />
+                    <img src={`https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=150&h=150&crop=faces&sat=-20`} alt={`Certified Laboratory Expert ${i} analyzing limestone samples`} referrerPolicy="no-referrer" />
                   </div>
                 ))}
               </div>
