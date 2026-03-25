@@ -19,6 +19,7 @@ export default function Hero({ t, onContactClick }: HeroProps) {
           alt="Mining Background"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-blue via-brand-blue/80 to-transparent" />
       </div>

@@ -46,7 +46,7 @@ export default function MappingLocation({ t }: MappingLocationProps) {
           >
             {/* Map Placeholder */}
             <img
-              src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=1000"
+              src="/WebpPTWEU4/_.webp"
               alt="Peta Geografis detail lokasi tambang batu kapur PT Wira Energi Utama di Ratatotok, Minahasa Tenggara"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"

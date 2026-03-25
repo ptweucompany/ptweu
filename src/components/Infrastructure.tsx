@@ -21,7 +21,7 @@ export default function Infrastructure({ t }: InfrastructureProps) {
             className="group relative h-[500px] rounded-3xl overflow-hidden shadow-xl"
           >
             <img
-              src="https://images.unsplash.com/photo-1578509370617-17ed471ee6ff?auto=format&fit=crop&q=80&w=1000"
+              src="/WebpPTWEU4/Dermaga%20Bitung.webp"
               alt="Fasilitas Jetty Dermaga Pemuatan Batu Kapur PT Wira Energi Utama di Ratatotok"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               referrerPolicy="no-referrer"
@@ -31,7 +31,7 @@ export default function Infrastructure({ t }: InfrastructureProps) {
               <div className="w-16 h-16 bg-brand-gold rounded-2xl flex items-center justify-center text-brand-blue mb-6">
                 <Anchor size={32} />
               </div>
-              <h4 className="text-2xl font-bold text-white mb-4">Strategic Jetty</h4>
+              <h4 className="text-2xl font-bold text-white mb-4">Dermaga Bitung</h4>
               <p className="text-gray-300 leading-relaxed">{t.jetty}</p>
             </div>
           </motion.div>
@@ -41,7 +41,7 @@ export default function Infrastructure({ t }: InfrastructureProps) {
             className="group relative h-[500px] rounded-3xl overflow-hidden shadow-xl"
           >
             <img
-              src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&q=80&w=1000"
+              src="/WebpPTWEU4/%23Gravel an %23Mason Sand_.webp"
               alt="Crushing Plant 250 TPH PT Wira Energi Utama untuk pemrosesan limestone"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               referrerPolicy="no-referrer"

@@ -45,7 +45,7 @@ export default function SupplyChain({ t }: SupplyChainProps) {
             className="relative rounded-[3rem] overflow-hidden shadow-2xl h-[500px]"
           >
             <img
-              src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=1000"
+              src="/WebpPTWEU4/Дорогие подписчики!  Цены на нефть….webp"
               alt="Armada logistik dumptruck dan jaringan distribusi batu gamping PT Wira Energi Utama"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"

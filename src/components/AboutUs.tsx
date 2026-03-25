@@ -20,15 +20,15 @@ export default function AboutUs({ t }: AboutUsProps) {
           >
             <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1621686417748-038234661bc5?auto=format&fit=crop&q=80&w=1000"
+                src="/WebpPTWEU4/TentangKami.webp"
                 alt="Fasilitas operasional pertambangan batu kapur dan limestone darat PT Wira Energi Utama yang berkelanjutan"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
             </div>
             <div className="absolute -bottom-8 -right-8 bg-brand-blue p-8 rounded-3xl shadow-xl hidden md:block">
-              <p className="text-brand-gold text-4xl font-bold mb-1">10+</p>
-              <p className="text-white text-sm font-medium uppercase tracking-wider">Years of Excellence</p>
+              <p className="text-brand-gold text-4xl font-bold mb-1">1#</p>
+              <p className="text-white text-sm font-medium uppercase tracking-wider">Trusted Company</p>
             </div>
           </motion.div>
 

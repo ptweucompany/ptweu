@@ -73,6 +73,7 @@ export default function RootLayout({
           <main>{children}</main>
           <FooterWrapper />
         </LanguageProvider>
+        <script src="https://instant.page/5.2.0" type="module" integrity="sha384-jnZcg0186dfqZPA01eGkkmk2i1A+Rj0/0r3eGzMwbQhZkS0c1rP1rC4v4Z+vO" defer></script>
       </body>
     </html>
   );

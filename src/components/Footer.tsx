@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone, Instagram, Facebook, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import { Translation } from '../types';
 
@@ -28,12 +28,15 @@ export default function Footer({ t, footerT, profileT }: FooterProps) {
               Dedicated to sustainable growth and excellence in the mining industry.
             </p>
             <div className="flex space-x-4">
-              {/* Social placeholders */}
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="w-10 h-10 bg-white/5 hover:bg-brand-gold hover:text-brand-blue transition-all rounded-full flex items-center justify-center cursor-pointer">
-                  <div className="w-5 h-5 border-2 border-current rounded-sm" />
-                </div>
-              ))}
+              <a href="https://www.instagram.com/pt_weu?igsh=cjZvMTA1NTFremNq" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 hover:bg-brand-gold hover:text-brand-blue transition-all rounded-full flex items-center justify-center cursor-pointer">
+                <Instagram size={20} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 hover:bg-brand-gold hover:text-brand-blue transition-all rounded-full flex items-center justify-center cursor-pointer">
+                <Facebook size={20} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 hover:bg-brand-gold hover:text-brand-blue transition-all rounded-full flex items-center justify-center cursor-pointer">
+                <Linkedin size={20} />
+              </a>
             </div>
           </div>
 

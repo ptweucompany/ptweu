@@ -119,7 +119,7 @@ export const translations: Record<'id' | 'en', Translation> = {
       title: 'Kehadiran Pasar',
       subtitle: 'Melayani berbagai industri strategis di seluruh Indonesia.',
       industries: [
-        { name: 'Smelter & Logam', icon: 'Factory' },
+        { name: 'Smelter, Logam & Pembangkit Listrik', icon: 'Factory' },
         { name: 'Konstruksi & Infrastruktur', icon: 'Building' },
         { name: 'Pertanian & Pupuk', icon: 'Sprout' },
         { name: 'Industri Kimia', icon: 'FlaskConical' },
@@ -128,7 +128,7 @@ export const translations: Record<'id' | 'en', Translation> = {
     logistics: {
       title: 'Rantai Pasok Efisien',
       subtitle: 'Distribusi tepat waktu melalui jalur darat dan laut.',
-      text: 'Dengan dukungan dermaga khusus (Jetty) dan armada logistik internal, kami menjamin kelancaran pengiriman produk ke lokasi pelanggan dengan efisiensi maksimal.',
+      text: 'Dengan dukungan Pelabuhan Bitung dan armada logistik internal, kami menjamin kelancaran pengiriman produk ke lokasi pelanggan dengan efisiensi maksimal.',
     },
     safety: {
       title: 'Keselamatan Kerja (K3)',
