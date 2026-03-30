@@ -53,7 +53,7 @@ export default function QualityAssurance({ t }: QualityAssuranceProps) {
               className="relative z-10"
             >
               <img
-                src="/WebpPTWEU4/NSSGA’s Platinum Awards Recognize the Industry’s….webp"
+                src="/WebpPTWEU4/industry-awards.webp"
                 alt="Pengujian komposisi kimia dan kemurnian batu gamping di laboratorium Quality Control PT WEU"
                 className="rounded-3xl shadow-2xl border-8 border-white/10"
                 referrerPolicy="no-referrer"

@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Instagram, Facebook, Linkedin } from 'lucide-react';
+import { Mail, MapPin, Phone, Instagram, Facebook, Linkedin,Globe } from 'lucide-react';
 import Link from 'next/link';
 import { Translation } from '../types';
 
@@ -47,15 +47,18 @@ export default function Footer({ t, footerT, profileT }: FooterProps) {
               <ul className="space-y-4">
                 <li className="flex items-start space-x-3 text-gray-400">
                   <MapPin className="text-brand-gold flex-shrink-0 mt-1" size={20} />
-                  <span className="text-sm leading-relaxed">{t.address}</span>
+                  <span className="text-sm leading-relaxed">Taman Sari Cluster Lihaga, Blok H3-3 Kelurahan Paniki Bawah, Manado - Sulawesi Utara 95256 Indonesia</span>
                 </li>
                 <li className="flex items-center space-x-3 text-gray-400">
                   <Phone className="text-brand-gold flex-shrink-0" size={20} />
                   <span className="text-sm">{t.phone}</span>
                 </li>
-                <li className="flex items-center space-x-3 text-gray-400">
+                <li className="flex items-center space-x-3 text-gray-400 text-break">
                   <Mail className="text-brand-gold flex-shrink-0" size={20} />
-                  <span className="text-sm">{t.email}</span>
+                  <div className="flex flex-col text-sm">
+                    <span>wiraenergiutama@yahoo.com</span>
+                    <span>contact@ptweu.company</span>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -69,6 +72,17 @@ export default function Footer({ t, footerT, profileT }: FooterProps) {
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <Link href="/blog" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    Blog & News
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/html-sitemap" className="text-gray-400 hover:text-white transition-colors text-sm flex items-center">
+                    <Globe size={14} className="mr-2" />
+                    Sitemap
+                  </Link>
+                </li>
                 <li>
                   <Link href="/company-profile" className="text-brand-gold hover:text-brand-gold-light transition-colors text-sm font-bold">
                     {profileT.link}

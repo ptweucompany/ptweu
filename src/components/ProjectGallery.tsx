@@ -7,8 +7,6 @@ interface ProjectGalleryProps {
 
 const images = [
   '/Drone Webp/DJI_20260225092843_0288_D (1).webp',
-  '/Drone Webp/DJI_20260225093242_0291_D (1).webp',
-  '/Drone Webp/DJI_20260225093443_0293_D (1).webp',
   '/Drone Webp/DJI_20260310143518_0298_D (1).webp',
   '/Drone Webp/DJI_20260310143640_0300_D (1).webp',
   '/Drone Webp/DJI_20260310143758_0302_D (1).webp',

@@ -2,10 +2,10 @@
 
 import { useLanguage } from '../../src/context/LanguageContext';
 import ContactModal from '../../src/components/ContactModal';
-import DetailModal from '../../src/components/DetailModal';
 import InteractiveCard from '../../src/components/InteractiveCard';
 import { useState } from 'react';
 import { motion } from 'motion/react';
+import Link from 'next/link';
 import { 
   Box, Layers, Thermometer, Filter, Microscope, 
   Truck, Ship, ShieldCheck, Factory, Zap, 
@@ -16,7 +16,6 @@ import {
 export default function ProductsPage() {
   const { t } = useLanguage();
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const [activeModal, setActiveModal] = useState<string | null>(null);
 
   const productIcons = [Box, Layers, Thermometer, Filter, Microscope];
   
@@ -81,20 +80,43 @@ export default function ProductsPage() {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-brand-blue mb-4">Industrial Grade Minerals</h2>
+            <h2 className="text-4xl font-black text-brand-blue mb-4 uppercase tracking-tight">Industrial Grade Minerals</h2>
             <div className="w-16 h-1 bg-brand-gold mx-auto" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {t.products.items.map((product, index) => (
-              <InteractiveCard
-                key={index}
-                title={product.name}
-                description={product.desc}
-                icon={productIcons[index % productIcons.length]}
-                onClick={() => setActiveModal(product.name)}
-                color={index % 2 === 0 ? 'blue' : 'gold'}
-              />
-            ))}
+            {t.products.items.map((product, index) => {
+              const langPrefix = t.nav.products === 'Produk' ? '/produk' : '/products';
+              const slugMapID: Record<string, string> = {
+                'Batu Kapur (Limestone)': 'batu-kapur',
+                'CaCO3 (Semua Ukuran)': 'kalsium-karbonat',
+                'Kapur Bakar (Burn Lime / CaO)': 'kapur-bakar',
+                'Kapur Padam (Hydrated Lime / Ca(OH)2)': 'kapur-padam',
+                'PCC (Precipitated Calcium Carbonate)': 'pcc'
+              };
+              const slugMapEN: Record<string, string> = {
+                'Limestone': 'limestone',
+                'CaCO3 (All Sizes)': 'caco3',
+                'Burn Lime (CaO)': 'burn-lime',
+                'Hydrated Lime (Ca(OH)2)': 'hydrated-lime',
+                'PCC (Precipitated Calcium Carbonate)': 'pcc'
+              };
+              
+              const slug = t.nav.products === 'Produk' 
+                ? slugMapID[product.name] 
+                : slugMapEN[product.name];
+
+              return (
+                <Link key={index} href={`${langPrefix}/${slug}`}>
+                  <InteractiveCard
+                    title={product.name}
+                    description={product.desc}
+                    icon={productIcons[index % productIcons.length]}
+                    onClick={() => {}} // Navigation handled by Link
+                    color={index % 2 === 0 ? 'blue' : 'gold'}
+                  />
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -151,7 +173,7 @@ export default function ProductsPage() {
               </div>
             </div>
             <div className="rounded-[4rem] overflow-hidden shadow-3xl h-[450px] border-[10px] border-white/10">
-              <img src="/Drone Webp/DJI_20260225093443_0293_D (1).webp" alt="Jetty Drone View" className="w-full h-full object-cover" />
+              <img src="/Drone Webp/DJI_20260310144034_0308_D (1).webp" alt="Jetty Drone View" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -287,44 +309,6 @@ export default function ProductsPage() {
           </div>
         </div>
       </section>
-
-      {/* Detail Modals */}
-      {t.products.items.map((product, index) => {
-        const detail = getProductDetail(product.name);
-        return (
-          <DetailModal
-            key={index}
-            isOpen={activeModal === product.name}
-            onClose={() => setActiveModal(null)}
-            title={product.name}
-          >
-            <div className="space-y-8">
-              <div>
-                <h4 className="text-brand-gold font-bold uppercase tracking-wider text-sm mb-3">OVERVIEW</h4>
-                <p className="text-gray-700 text-lg leading-relaxed">{detail.fullDesc}</p>
-              </div>
-              
-              <div>
-                <h4 className="text-brand-gold font-bold uppercase tracking-wider text-sm mb-4">{t.productDetails.specsTitle}</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {detail.specs.map((spec, sIndex) => (
-                    <div key={sIndex} className="bg-gray-50 p-4 rounded-2xl border border-gray-100 flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-brand-blue rounded-full" />
-                      <span className="font-medium text-gray-800">{spec}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="p-6 bg-brand-blue/5 rounded-3xl border border-brand-blue/10">
-                <p className="text-sm text-brand-blue font-medium italic">
-                  * For custom sizing or specific chemical requirements, please contact our technical sales team.
-                </p>
-              </div>
-            </div>
-          </DetailModal>
-        );
-      })}
 
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} t={t.contact} />
     </main>

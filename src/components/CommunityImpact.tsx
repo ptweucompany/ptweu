@@ -18,7 +18,7 @@ export default function CommunityImpact({ t }: CommunityImpactProps) {
             className="lg:w-1/2 relative rounded-[3rem] overflow-hidden h-[600px] shadow-2xl"
           >
             <img
-              src="/WebpPTWEU4/My management approach covers everything from….webp"
+              src="/WebpPTWEU4/management-approach.webp"
               alt="Karyawan tambang batu kapur berinteraksi dalam program pemberdayaan masyarakat dan CSR di wilayah operasional"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"

@@ -19,9 +19,10 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
   const isHome = pathname === '/';
 
   const navLinks = [
-    { name: t.about, href: isHome ? '#about' : '/#about' },
-    { name: t.products, href: isHome ? '#products' : '/#products' },
-    { name: t.qa, href: isHome ? '#qa' : '/#qa' },
+    { name: t.products, href: lang === 'id' ? '/produk' : '/products' },
+    { name: t.about, href: lang === 'id' ? '/tentang-kami' : '/about' },
+    { name: t.catalog, href: '/katalog' },
+    { name: t.blog, href: '/blog' },
   ];
 
   return (
@@ -34,37 +35,26 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
               <img src="/2.svg" alt="Wira Energi Utama Logo" className="w-full h-full" />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="text-xl font-extrabold tracking-tight text-white leading-none group-hover:text-brand-gold transition-colors">WIRA ENERGI</span>
-              <span className="text-xs font-bold tracking-[0.2em] text-brand-gold/80 leading-tight">UTAMA</span>
+              <span className="text-xl font-extrabold tracking-tight text-white leading-none group-hover:text-brand-gold transition-colors">PT.WEU</span>
+              <span className="text-xs font-bold tracking-[0.2em] text-brand-gold/80 leading-tight">Wira Energi Utama</span>
             </div>
           </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
-            {!isHome && (
-              <Link href="/" className="text-sm font-medium hover:text-brand-gold transition-colors flex items-center">
-                <HomeIcon size={16} className="mr-1" />
-                Home
-              </Link>
-            )}
+            <Link href="/" className={`text-sm font-medium hover:text-brand-gold transition-colors flex items-center ${isHome ? 'text-brand-gold' : ''}`}>
+              <HomeIcon size={16} className="mr-1" />
+              Home
+            </Link>
+            
             {navLinks.map((link) => (
-              link.href.startsWith('#') ? (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-sm font-medium hover:text-brand-gold transition-colors"
-                >
-                  {link.name}
-                </a>
-              ) : (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-sm font-medium hover:text-brand-gold transition-colors"
-                >
-                  {link.name}
-                </Link>
-              )
+              <Link
+                key={link.name}
+                href={link.href}
+                className={`text-sm font-medium hover:text-brand-gold transition-colors ${pathname === link.href ? 'text-brand-gold border-b-2 border-brand-gold pb-1' : ''}`}
+              >
+                {link.name}
+              </Link>
             ))}
             
             <div className="flex items-center space-x-2 border-l border-white/20 pl-6">
@@ -82,12 +72,12 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
               </button>
             </div>
 
-            <button
-              onClick={onContactClick}
+            <Link
+              href="/contact"
               className="bg-brand-gold hover:bg-brand-gold-light text-brand-blue font-bold py-2 px-5 rounded-full text-sm transition-all transform hover:scale-105"
             >
               {t.contact}
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -106,45 +96,30 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
       {/* Mobile Nav */}
       {isMenuOpen && (
         <div className="md:hidden bg-brand-blue border-t border-white/10 py-4 px-4 space-y-4 animate-in slide-in-from-top duration-300">
-          {!isHome && (
+          <Link
+            href="/"
+            onClick={() => setIsMenuOpen(false)}
+            className="block text-lg font-medium hover:text-brand-gold"
+          >
+            Home
+          </Link>
+          {navLinks.map((link) => (
             <Link
-              href="/"
+              key={link.name}
+              href={link.href}
               onClick={() => setIsMenuOpen(false)}
               className="block text-lg font-medium hover:text-brand-gold"
             >
-              Home
+              {link.name}
             </Link>
-          )}
-          {navLinks.map((link) => (
-            link.href.startsWith('#') ? (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="block text-lg font-medium hover:text-brand-gold"
-              >
-                {link.name}
-              </a>
-            ) : (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="block text-lg font-medium hover:text-brand-gold"
-              >
-                {link.name}
-              </Link>
-            )
           ))}
-          <button
-            onClick={() => {
-              onContactClick();
-              setIsMenuOpen(false);
-            }}
-            className="w-full bg-brand-gold text-brand-blue font-bold py-3 rounded-xl"
+          <Link
+            href="/contact"
+            onClick={() => setIsMenuOpen(false)}
+            className="block w-full text-center bg-brand-gold text-brand-blue font-bold py-3 rounded-xl"
           >
             {t.contact}
-          </button>
+          </Link>
         </div>
       )}
     </nav>

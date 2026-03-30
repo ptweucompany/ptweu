@@ -4,6 +4,8 @@ export interface Translation {
   nav: {
     about: string;
     products: string;
+    catalog: string;
+    blog: string;
     qa: string;
     contact: string;
   };
@@ -212,6 +214,17 @@ export interface Translation {
     hydratedLime: { title: string; fullDesc: string; specs: string[] };
     burnLime: { title: string; fullDesc: string; specs: string[] };
   };
+  productPages: {
+    limestone: ProductPageData;
+    caco3: ProductPageData;
+    burnLime: ProductPageData;
+    hydratedLime: ProductPageData;
+    pcc: ProductPageData;
+  };
+  advancedAbout: AdvancedAboutData;
+  advancedCatalog: AdvancedCatalogData;
+  advancedBlog: AdvancedBlogData;
+  advancedContact: AdvancedContactData;
   privacy: {
     title: string;
     lastUpdated: string;
@@ -220,5 +233,77 @@ export interface Translation {
   footer: {
     rights: string;
     links: { label: string; href: string }[];
+  };
+}
+
+export interface AdvancedAboutData {
+  hero: { title: string; subtitle: string; description: string; image: string };
+  history: { title: string; content: string; image: string; stats: { label: string; value: string }[] };
+  values: { title: string; subtitle: string; items: { title: string; desc: string; icon: string }[] };
+  leadership: { title: string; content: string; image: string };
+  sustainability: { title: string; content: string; initiatives: string[] };
+  safety: { title: string; content: string; certifications: string[] };
+  assets: { title: string; items: { name: string; value: string; icon: string }[] };
+  future: { title: string; content: string; targets: string[] };
+}
+
+export interface AdvancedCatalogData {
+  hero: { title: string; description: string; image: string };
+  categories: { title: string; description: string; items: { name: string; specs: string; tags: string[] }[] }[];
+  download: { title: string; description: string; button: string };
+  industrial: { title: string; items: { name: string; usage: string; icon: string }[] };
+}
+
+export interface AdvancedBlogData {
+  hero: { title: string; subtitle: string };
+  posts: { id: string; title: string; excerpt: string; date: string; category: string; image: string }[];
+}
+
+export interface AdvancedContactData {
+  hero: { title: string; subtitle: string };
+  offices: { title: string; address: string; mapUrl: string; image: string; email: string; phone: string }[];
+  faq: { title: string; items: { q: string; a: string }[] };
+}
+
+export interface ProductPageData {
+  hero: {
+    title: string;
+    subtitle: string;
+    description: string;
+    image: string;
+  };
+  stats: { label: string; value: string; icon: string }[];
+  overview: {
+    title: string;
+    content: string;
+    features: string[];
+  };
+  specifications: {
+    title: string;
+    table: { label: string; value: string }[];
+    chartData: { name: string; value: number; color: string }[];
+  };
+  applications: {
+    title: string;
+    items: { title: string; desc: string; icon: string }[];
+  };
+  process: {
+    title: string;
+    steps: { title: string; desc: string }[];
+  };
+  quality: {
+    title: string;
+    content: string;
+    certs: string[];
+  };
+  faq: {
+    title: string;
+    items: { q: string; a: string }[];
+  };
+  cta: {
+    title: string;
+    subtitle: string;
+    button: string;
+    whatsapp: string;
   };
 }

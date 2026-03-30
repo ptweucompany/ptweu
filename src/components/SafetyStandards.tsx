@@ -37,7 +37,7 @@ export default function SafetyStandards({ t }: SafetyStandardsProps) {
 
           <div className="lg:w-1/2 grid grid-cols-2 gap-6">
             <div className="aspect-square rounded-3xl overflow-hidden shadow-lg">
-              <img src="/WebpPTWEU4/Безопасность на горнодобывающем предприятии….webp" alt="Inspeksi standar keselamatan dan kesehatan kerja (K3) di area tambang PT WEU" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+              <img src="/WebpPTWEU4/safety-inspection.webp" alt="Inspeksi standar keselamatan dan kesehatan kerja (K3) di area tambang PT WEU" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
             </div>
             <div className="aspect-square rounded-3xl overflow-hidden shadow-lg mt-12">
               <img src="/WebpPTWEU4/Mine work.webp" alt="Penerapan Zero Accident policy dalam operasional pertambangan gamping Ratatotok" className="w-full h-full object-cover" referrerPolicy="no-referrer" />

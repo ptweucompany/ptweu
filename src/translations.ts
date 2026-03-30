@@ -5,12 +5,14 @@ export const translations: Record<'id' | 'en', Translation> = {
     nav: {
       about: 'Tentang Kami',
       products: 'Produk',
+      catalog: 'Katalog',
+      blog: 'Blog',
       qa: 'Kualitas',
       contact: 'Hubungi Kami',
     },
     hero: {
       title: 'PT Wira Energi Utama',
-      subtitle: 'Mining, General Trading & Industrial Supplier.',
+      subtitle: 'General Trade, Mining & Supplier.',
       cta: 'Hubungi Kami',
     },
     about: {
@@ -248,7 +250,7 @@ export const translations: Record<'id' | 'en', Translation> = {
     contact: {
       title: 'Hubungi Kami',
       address: 'Jalan Ratatotok Morea Soyowan, Desa Ratatotok Satu, Kec. Ratatotok, Kab. Minahasa Tenggara, Sulawesi Utara - Indonesia.',
-      phone: '0811-4344-168',
+      phone: '0434 260 3008',
       email: 'wiraenergiutama@yahoo.com',
       form: {
         name: 'Nama Lengkap',
@@ -403,6 +405,545 @@ export const translations: Record<'id' | 'en', Translation> = {
         specs: ['Available CaO: > 90%', 'Ukuran (Lumpy): 10-50mm', 'Suhu Reaksi: > 60°C']
       }
     },
+    productPages: {
+      limestone: {
+        hero: {
+          title: 'Batu Kapur Premium',
+          subtitle: 'Kualitas Tinggi dari Ratatotok',
+          description: 'Material dasar esensial dengan kadar kalsium oksida (CaO) superior untuk efisiensi industri maksimal.',
+          image: '/products/limestone.png'
+        },
+        stats: [
+          { label: 'Kadar CaO', value: '> 55%', icon: 'ShieldCheck' },
+          { label: 'Purity', value: 'High', icon: 'Star' },
+          { label: 'Kapasitas', value: '250 TPH', icon: 'Zap' },
+          { label: 'Stok', value: 'Ready', icon: 'Package' }
+        ],
+        overview: {
+          title: 'Ikhtisar Produk',
+          content: 'Batu kapur (Limestone) kami ditambang langsung dari formasi geologi Ratatotok yang unik, menghasilkan batu gamping dengan kemurnian kristal tinggi. Produk ini merupakan pilihan utama bagi industri yang membutuhkan reaktivitas kimia tinggi dan tingkat kontaminan rendah.',
+          features: [
+            'Kemurnian CaO di atas rata-rata industri',
+            'Kandungan silika dan magnesium sangat rendah',
+            'Ketahanan fisik ideal untuk konstruksi',
+            'Ukuran butir dapat disesuaikan (custom sizing)'
+          ]
+        },
+        specifications: {
+          title: 'Analisis Kimia & Fisik',
+          table: [
+            { label: 'Kalsium Oksida (CaO)', value: '55.20%' },
+            { label: 'Magnesium Oksida (MgO)', value: '0.80%' },
+            { label: 'Silika (SiO2)', value: '0.35%' },
+            { label: 'Iron Oxide (Fe2O3)', value: '0.12%' },
+            { label: 'Alumina (Al2O3)', value: '0.15%' },
+            { label: 'Loss on Ignition (LOI)', value: '43.30%' }
+          ],
+          chartData: [
+            { name: 'CaO', value: 55.2, color: '#0F3460' },
+            { name: 'LOI', value: 43.3, color: '#E94560' },
+            { name: 'Lainnya', value: 1.5, color: '#FFD700' }
+          ]
+        },
+        applications: {
+          title: 'Solusi untuk Berbagai Industri',
+          items: [
+            { title: 'Peleburan Baja', desc: 'Sebagai flux untuk memisahkan kotoran dari logam cair.', icon: 'Factory' },
+            { title: 'Industri Semen', desc: 'Bahan baku utama pembuatan klinker kualitas tinggi.', icon: 'Building' },
+            { title: 'Konstruksi', desc: 'Agregat kasar untuk beton dan stabilisasi tanah.', icon: 'Construction' },
+            { title: 'Pengolahan Air', desc: 'Menetralkan tingkat pH dalam limbah cair industri.', icon: 'Droplets' }
+          ]
+        },
+        process: {
+          title: 'Alur Produksi Modern',
+          steps: [
+            { title: 'Ekstraksi Terkendali', desc: 'Penambangan dengan metode ramah lingkungan untuk menjaga struktur mineral.' },
+            { title: 'Primary Crushing', desc: 'Pengecilan ukuran awal menggunakan jaw crusher kapasitas besar.' },
+            { title: 'Sieving & Sorting', desc: 'Pemisahan berdasarkan ukuran mesh sesuai permintaan pelanggan.' },
+            { title: 'Quality Validation', desc: 'Uji laboratorium per batch untuk memastikan konsistensi kadar.' }
+          ]
+        },
+        quality: {
+          title: 'Standar Kualitas Tanpa Kompromi',
+          content: 'Setiap ton batu kapur yang meninggalkan fasilitas kami telah melalui verifikasi ketat. Kami bermitra dengan Sucofindo dan Intertek untuk sertifikasi pihak ketiga guna memberikan ketenangan bagi mitra kami.',
+          certs: ['SNI Standard', 'ISO 9001:2015 Compliant', 'Certificate of Analysis (COA) per Order']
+        },
+        faq: {
+          title: 'Pertanyaan Umum',
+          items: [
+            { q: 'Berapa kapasitas produksi bulanan?', a: 'Saat ini kapasitas produksi kami mencapai 150.000 metrik ton per bulan.' },
+            { q: 'Apakah tersedia pengiriman melalui laut?', a: 'Ya, kami memiliki jetty pribadi yang mampu menampung tongkang ukuran 300 kaki.' },
+            { q: 'Bisakah memesan ukuran butir custom?', a: 'Tentu, sistem crushing plant kami dapat dikonfigurasi untuk menghasilkan ukuran butir spesifik (0-5mm, 5-10mm, dst).' }
+          ]
+        },
+        cta: {
+          title: 'Siap untuk Meningkatkan Produksi Anda?',
+          subtitle: 'Dapatkan penawaran harga kompetitif untuk kebutuhan batu kapur skala besar sekarang juga.',
+          button: 'ORDER SEKARANG',
+          whatsapp: 'Hubungi via WhatsApp'
+        }
+      },
+      caco3: {
+        hero: {
+          title: 'Kalsium Karbonat (CaCO3)',
+          subtitle: 'Presisi Ukuran untuk Industri Kreatif',
+          description: 'Tepung kalsium berkualitas tinggi dengan tingkat kecerahan maksimal untuk industri plastik, cat, dan karet.',
+          image: '/products/caco3.png'
+        },
+        stats: [
+          { label: 'Brightness', value: '> 94%', icon: 'Sun' },
+          { label: 'Mesh', value: 'Variatif', icon: 'Layers' },
+          { label: 'Purity', value: '99%', icon: 'Shield' },
+          { label: 'Ready', value: 'Stock', icon: 'Package' }
+        ],
+        overview: {
+          title: 'Performa Unggul CaCO3',
+          content: 'Kalsium Karbonat kami diproses menggunakan teknologi grinding mill modern untuk menghasilkan kehalusan butir yang konsisten. Dengan tingkat keputihan (brightness) yang tinggi, produk ini menjadi pengisi (filler) ideal yang meningkatkan kualitas visual produk akhir Anda.',
+          features: [
+            'Distribusi ukuran partikel yang sangat sempit',
+            'Tingkat penyerapan minyak yang rendah',
+            'Stabilitas kimia dalam berbagai aplikasi suhu',
+            'Bebas dari kontaminasi logam berat'
+          ]
+        },
+        specifications: {
+          title: 'Spesifikasi Teknis Tepung',
+          table: [
+            { label: 'CaCO3 Content', value: '98.8%' },
+            { label: 'Brightness (Whiteness)', value: '95%' },
+            { label: 'Kadar Air', value: '0.15%' },
+            { label: 'Residu (325 mesh)', value: 'min 0.05%' },
+            { label: 'pH Value', value: '8.5 - 9.5' },
+            { label: 'Gravitasi Spesifik', value: '2.7 g/cm3' }
+          ],
+          chartData: [
+            { name: 'Kalsium', value: 98.8, color: '#FFD700' },
+            { name: 'Impuritas', value: 1.2, color: '#0F3460' }
+          ]
+        },
+        applications: {
+          title: 'Aplikasi Teknis',
+          items: [
+            { title: 'Industri Plastik', desc: 'Meningkatkan rigiditas dan mengurangi biaya bahan baku polimer.', icon: 'Layers' },
+            { title: 'Cat & Coating', desc: 'Memberikan opasitas dan daya tutup yang baik pada lapisan cat.', icon: 'Palette' },
+            { title: 'Industri Karet', desc: 'Memperbaiki elastisitas dan ketahanan aus pada ban dan alas kaki.', icon: 'Zap' },
+            { title: 'Kertas', desc: 'Mencerahkan warna kertas dan meningkatkan daya serap tinta.', icon: 'FileText' }
+          ]
+        },
+        process: {
+          title: 'Proses Grinding Presisi',
+          steps: [
+            { title: 'Seleksi Kristalin', desc: 'Hanya batu kapur putih murni yang dipilih sebagai bahan baku.' },
+            { title: 'Ultrafine Grinding', desc: 'Penggilingan menggunakan ball mill atau ultra-centrifugal mill.' },
+            { title: 'Air Classification', desc: 'Pemisahan partikel halus menggunakan aliran udara bertekanan tinggi.' },
+            { title: 'Packaging', desc: 'Pengemasan dalam karung 25kg, 50kg, atau jumbo bag 1 ton.' }
+          ]
+        },
+        quality: {
+          title: 'Jaminan Keputihan',
+          content: 'Kami menggunakan colorimeter digital untuk memantau tingkat brightness pada setiap batch. Konsistensi warna adalah prioritas kami untuk menjaga standar estetika produk Anda.',
+          certs: ['Certificate of Analysis (COA)', 'Material Safety Data Sheet (MSDS)', 'Lab Analysis Intertek']
+        },
+        faq: {
+          title: 'Pertanyaan Produk',
+          items: [
+            { q: 'Mesh berapa saja yang tersedia?', a: 'Kami memproduksi ukuran mulai dari 400 mesh hingga 2500 mesh.' },
+            { q: 'Apa tingkat brightness produk ini?', a: 'Produk premium kami memiliki tingkat kecerahan di atas 94%.' },
+            { q: 'Apakah ada pengujian kalsium karbonat food grade?', a: 'Saat ini kami fokus pada grade industri dan teknis, namun kemurnian kami mendekati standar tinggi.' }
+          ]
+        },
+        cta: {
+          title: 'Hubungi Ahli Teknis Kami',
+          subtitle: 'Konsultasikan kebutuhan spesifikasi kalsium karbonat Anda untuk hasil produk yang lebih baik.',
+          button: 'DAPATKAN SAMPEL',
+          whatsapp: 'Chat di WhatsApp'
+        }
+      },
+      burnLime: {
+        hero: {
+          title: 'Kapur Bakar (Quicklime)',
+          subtitle: 'Energi Kimia untuk Reaksi Cepat',
+          description: 'Kalsium Oksida (CaO) aktif tinggi hasil kalsinasi suhu ekstrem untuk reaktivitas maksimal.',
+          image: '/products/burn-lime.png'
+        },
+        stats: [
+          { label: 'CaO Aktif', value: '> 90%', icon: 'Thermometer' },
+          { label: 'Reaktivitas', value: 'Tinggi', icon: 'Zap' },
+          { label: 'Suhu Kalsinasi', value: '1100°C', icon: 'Flame' },
+          { label: 'Order', value: 'Bulk', icon: 'Truck' }
+        ],
+        overview: {
+          title: 'Kekuatan Kalsium Oksida',
+          content: 'Kapur Bakar atau Quicklime kami diproduksi melalui proses dekomposisi termal terkontrol dalam kiln vertikal canggih. Hasilnya adalah material dengan porositas tinggi dan reaktivitas kimia yang sangat responsif, sangat penting untuk proses pemurnian logam dan industri kimia.',
+          features: [
+            'Kandungan CaO aktif di atas 90%',
+            'Slaking rate yang sangat cepat',
+            'Kandungan CO2 sisa minimal',
+            'Tersedia dalam bentuk bongkahan (lumpy) atau serbuk'
+          ]
+        },
+        specifications: {
+          title: 'Spesifikasi Kalsinasi',
+          table: [
+            { label: 'Available CaO', value: '92.1%' },
+            { label: 'Magnesium Oksida (MgO)', value: '0.55%' },
+            { label: 'Silika (SiO2)', value: '0.22%' },
+            { label: 'Loss on Ignition', value: '1.20%' },
+            { label: 'Sulfur (S)', value: '0.04%' },
+            { label: 'Reaktivitas (T60)', value: '< 2 menit' }
+          ],
+          chartData: [
+            { name: 'CaO Aktif', value: 92.1, color: '#E94560' },
+            { name: 'Sisa Pembakaran', value: 1.2, color: '#1A1A2E' }
+          ]
+        },
+        applications: {
+          title: 'Kegunaan Industri Berat',
+          items: [
+            { title: 'Industri Smelter', desc: 'Penghilang pengotor dalam pemurnian nikel dan bauksit.', icon: 'Anvil' },
+            { title: 'Produksi Gula', desc: 'Pemurnian nira tebu dalam proses klarifikasi.', icon: 'Filter' },
+            { title: 'Tanah & Tambang', desc: 'Stabilisasi tanah lunak dan pengelolaan pH tailing tambang.', icon: 'Mountain' },
+            { title: 'Bahan Kimia', desc: 'Bahan baku pembuatan kalsium karbida dan senyawa organik lainnya.', icon: 'FlaskConical' }
+          ]
+        },
+        process: {
+          title: 'Alur Kalsinasi Presisi',
+          steps: [
+            { title: 'Screening Bahan Baku', desc: 'Memastikan ukuran batu kapur seragam untuk pembakaran merata.' },
+            { title: 'Thermal Calcination', desc: 'Pemanasan pada suhu 1000°C - 1200°C dalam shaft kiln.' },
+            { title: 'Cooling & Oxygen Control', desc: 'Pendinginan cepat untuk menjaga aktivitas kimia CaO.' },
+            { title: 'Crushing & Packing', desc: 'Penghancuran sesuai ukuran permintaan dan pengemasan kedap udara.' }
+          ]
+        },
+        quality: {
+          title: 'Jaminan Reaktivitas',
+          content: 'Kami melakukan uji slaking (slaking test) setiap jam untuk memastikan kapur bakar kami bereaksi dengan air pada suhu yang tepat. Ini memastikan efisiensi konsumsi kapur bagi pengguna akhir.',
+          certs: ['Chemical Purity Certificate', 'Slaking Rate Analysis', 'Energy Efficiency Standard']
+        },
+        faq: {
+          title: 'FAQ Kapur Bakar',
+          items: [
+            { q: 'Bagaimana cara penyimpanan terbaik?', a: 'Harus disimpan di tempat kering dan tertutup rapat karena sifatnya yang sangat higroskopis (menyerap air dari udara).' },
+            { q: 'Berapa reaktivitas termalnya?', a: 'Rata-rata kenaikan suhu mencapai 60°C dalam waktu kurang dari 2 menit saat bereaksi dengan air.' },
+            { q: 'Apakah tersedia pengiriman dengan truk dump?', a: 'Ya, kami menyediakan truk dump untuk pengiriman curah (bulk) atau packing jumbo bag.' }
+          ]
+        },
+        cta: {
+          title: 'Optimalkan Proses Industri Anda',
+          subtitle: 'Kapur bakar reaktivitas tinggi kami dapat mengurangi biaya operasional Anda secara signifikan.',
+          button: 'KONSULTASI HARGA',
+          whatsapp: 'Tanya via WhatsApp'
+        }
+      },
+      hydratedLime: {
+        hero: {
+          title: 'Kapur Padam (Hydrated Lime)',
+          subtitle: 'Larutan Murni untuk Lingkungan',
+          description: 'Kalsium Hidroksida (Ca(OH)2) berkualitas halus untuk pengolahan air dan kontrol polusi udara.',
+          image: '/products/hydrated-lime.png'
+        },
+        stats: [
+          { label: 'Ca(OH)2', value: '> 92%', icon: 'Droplets' },
+          { label: 'Kehalusan', value: '325 Mesh', icon: 'Filter' },
+          { label: 'Color', value: 'Fine White', icon: 'Star' },
+          { label: 'Safety', value: 'MSDS', icon: 'ShieldCheck' }
+        ],
+        overview: {
+          title: 'Solusi Hidrasi Kalsium',
+          content: 'Kapur Padam (Hydrated Lime) kami adalah hasil hidrasi terkontrol dari kapur tohor (CaO) murni. Dengan tingkat kehalusan yang sangat tinggi, produk ini sangat mudah larut dan bereaksi, menjadikannya pilihan sempurna untuk aplikasi pengolahan limbah cair dan gas buang industri.',
+          features: [
+            'Kehalusan partikel hingga lolos mesh 325 (>95%)',
+            'Kadar kalsium hidroksida yang sangat stabil',
+            'Reaktivitas tinggi dalam penetralan asam',
+            'Penanganan yang lebih aman dibandingkan kapur bakar'
+          ]
+        },
+        specifications: {
+          title: 'Data Teknis Hidrasi',
+          table: [
+            { label: 'Kandungan Ca(OH)2', value: '94.5%' },
+            { label: 'Kalsium Oksida (CaO)', value: '71.5%' },
+            { label: 'Magnesium (MgO)', value: '0.40%' },
+            { label: 'Insoluble Matter', value: '0.45%' },
+            { label: 'Apparent Density', value: '0.45 - 0.55 g/ml' },
+            { label: 'Moisture Content', value: '< 1.0%' }
+          ],
+          chartData: [
+            { name: 'Kalsium Hidroksida', value: 94.5, color: '#3456A3' },
+            { name: 'Mineral Pendamping', value: 5.5, color: '#F1C40F' }
+          ]
+        },
+        applications: {
+          title: 'Manfaat untuk Lingkungan',
+          items: [
+            { title: 'Pengolahan Air Bersih', desc: 'Menghilangkan logam berat dan mengatur kesadahan air.', icon: 'Droplet' },
+            { title: 'Flue Gas Cleaning', desc: 'Menyerap gas asam (SO2, HCl) dari asap cerobong pabrik.', icon: 'Wind' },
+            { title: 'Konstruksi Jalan', desc: 'Meningkatkan stabilitas aspal dan daya tahan jalan.', icon: 'Truck' },
+            { title: 'Pengolahan Limbah', desc: 'Presipitasi fosfat dan flokulasi partikel dalam air limbah.', icon: 'Recycle' }
+          ]
+        },
+        process: {
+          title: 'Teknologi Hidrasi Otomatis',
+          steps: [
+            { title: 'Pilih Kapur Bakar', desc: 'Hanya menggunakan CaO reaktivitas tinggi sebagai bahan dasar.' },
+            { title: 'Controlled Hydration', desc: 'Penambahan air dalam jumlah tepat untuk reaksi hidrasi sempurna.' },
+            { title: 'Air Separation', desc: 'Pemisahan partikel kasar untuk mendapatkan kehalusan mesh 325.' },
+            { title: 'Silo Storage', desc: 'Penyimpanan dalam silo kedap air untuk menjaga kualitas serbuk.' }
+          ]
+        },
+        quality: {
+          title: 'Kemurnian yang Teruji',
+          content: 'Laboratorium kami memantau kehalusan butir secara berkala menggunakan metode laser diffraction. Kami menjamin efektivitas produk kami dalam sistem injeksi kering maupun basah pelanggan kami.',
+          certs: ['Kehalusan Mesh 325 Verified', 'Purity Analysis Certificate', 'Eco-Industrial Certification']
+        },
+        faq: {
+          title: 'FAQ Kapur Padam',
+          items: [
+            { q: 'Apakah produk ini berdebu?', a: 'Ya, karena kehalusannya yang tinggi. Kami menyarankan penggunaan sistem pneumatic atau penutup saat menuang.' },
+            { q: 'Berapa lama masa simpannya?', a: 'Dalam kemasan yang baik dan kering, dapat bertahan hingga 6 bulan tanpa penurunan kualitas signifikan.' },
+            { q: 'Apakah ada minimal pemesanan?', a: 'Minimal pemesanan adalah 10 ton, tersedia dalam karung 25kg atau jumbo bag.' }
+          ]
+        },
+        cta: {
+          title: 'Ciptakan Lingkungan yang Lebih Bersih',
+          subtitle: 'Gunakan kapur padam kualitas superior untuk efisiensi sistem pengolahan limbah Anda.',
+          button: 'MINTA PENAWARAN',
+          whatsapp: 'Hubungi Kami Sekarang'
+        }
+      },
+      pcc: {
+        hero: {
+          title: 'Precipitated Calcium Carbonate (PCC)',
+          subtitle: 'Kemurnian Molekuler untuk Industri Khusus',
+          description: 'Kalsium karbonat presipitasi dengan ukuran butir nano untuk aplikasi farmasi, kosmetik, dan kertas premium.',
+          image: '/products/pcc.png'
+        },
+        stats: [
+          { label: 'Purity', value: '99.9%', icon: 'ShieldCheck' },
+          { label: 'Crystal', value: 'Nano Size', icon: 'Microscope' },
+          { label: 'Brightness', value: '98%', icon: 'Sun' },
+          { label: 'Grade', value: 'Specialty', icon: 'Award' }
+        ],
+        overview: {
+          title: 'Inovasi Presipitasi Kalsium',
+          content: 'PCC kami diproduksi melalui proses kimiawi presipitasi yang memungkinkan kontrol total atas bentuk kristal dan ukuran partikel. Ini menghasilkan produk dengan tingkat keputihan ekstrem dan reaktivitas permukaan yang tinggi, melampaui kemampuan kalsium karbonat alam (GCC).',
+          features: [
+            'Kemurnian kimia luar biasa (>99.9% CaCO3)',
+            'Bentuk kristal dapat disesuaikan (Aragonit/Kalsit)',
+            'Ukuran partikel dalam skala mikron hingga nano',
+            'Nilai absorpsi minyak yang dapat dikontrol'
+          ]
+        },
+        specifications: {
+          title: 'Spesifikasi Grade Khusus',
+          table: [
+            { label: 'Kandungan CaCO3', value: '99.85%' },
+            { label: 'Brightness (R457)', value: '98.5%' },
+            { label: 'Specific Surface Area', value: '12 - 15 m2/g' },
+            { label: 'Ukuran Butir Rata-rata', value: '1.2 - 2.5 um' },
+            { label: 'Heavy Metals (Pb)', value: '< 1 ppm' },
+            { label: 'Kelarutan dalam Asam', value: 'Sempurna' }
+          ],
+          chartData: [
+            { name: 'CaCO3 Pure', value: 99.9, color: '#0F3460' },
+            { name: 'Trace Elements', value: 0.1, color: '#FFD700' }
+          ]
+        },
+        applications: {
+          title: 'Aplikasi High-End',
+          items: [
+            { title: 'Farmasi', desc: 'Suplemen kalsium dan bahan pengikat tablet obat.', icon: 'Stethoscope' },
+            { title: 'Kosmetik', desc: 'Bahan dasar bedak wajah dan produk perawatan pribadi premium.', icon: 'Sparkles' },
+            { title: 'Kertas Foto', desc: 'Pelapis kertas untuk hasil cetak dengan resolusi dan kontras tinggi.', icon: 'Printer' },
+            { title: 'Industri Sealant', desc: 'Pengatur reologi dan viskositas pada perekat otomotif.', icon: 'Zap' }
+          ]
+        },
+        process: {
+          title: 'Proses Sintesis Kimia',
+          steps: [
+            { title: 'Gas Carbonation', desc: 'Reaksi antara susu kapur dengan gas CO2 murni.' },
+            { title: 'Crystal Growth Control', desc: 'Pengaturan suhu dan tekanan untuk membentuk struktur kristal tertentu.' },
+            { title: 'Filtration & Washing', desc: 'Pembersihan sisa ion untuk mencapai kemurnian molekuler.' },
+            { title: 'Drying & Micronizing', desc: 'Pengeringan suhu rendah dan pemisahan partikel halus.' }
+          ]
+        },
+        quality: {
+          title: 'Kualitas Kelas Dunia',
+          content: 'Produk PCC kami diproduksi di bawah pengawasan ketat dengan standar kualitas yang memenuhi persyaratan industri makanan dan farmasi. Kami menjamin konsistensi yang presisi di setiap miligram produk.',
+          certs: ['High Purity Lab Test', 'Food Grade Compliance (Ready)', 'Pharmaceutical Analysis']
+        },
+        faq: {
+          title: 'FAQ PCC',
+          items: [
+            { q: 'Apa perbedaan PCC dengan kalsium biasa?', a: 'PCC dibuat melalui reaksi kimia sehingga ukurannya lebih kecil, lebih putih, dan bentuknya lebih seragam dibanding hasil gilingan alam.' },
+            { q: 'Bisakah kustomisasi bentuk kristal?', a: 'Ya, kami dapat mengatur proses untuk menghasilkan bentuk rhombohedral, scalenohedral, atau prismatic sesuai aplikasi Anda.' },
+            { q: 'Apakah tersedia sertifikasi halal/food grade?', a: 'Fasilitas kami dirancang untuk standar tinggi dan kami sedang dalam proses finalisasi sertifikasi tersebut.' }
+          ]
+        },
+        cta: {
+          title: 'Inovasi dengan Material Premium',
+          subtitle: 'Tingkatkan kualitas produk unggulan Anda dengan Precipitated Calcium Carbonate kami.',
+          button: 'HUBUNGI DIVISI TEKNIS',
+          whatsapp: 'WhatsApp Tim Ahli'
+        }
+      }
+    },
+    advancedAbout: {
+      hero: {
+        title: 'Membangun Masa Depan Berkelanjutan',
+        subtitle: 'PT Wira Energi Utama',
+        description: 'Kami adalah pemimpin dalam industri pertambangan batu kapur yang berkomitmen pada inovasi, keselamatan, dan keberlanjutan lingkungan di setiap operasional kami di Sulawesi Utara.',
+        image: '/about-hero.webp'
+      },
+      history: {
+        title: 'Sejarah & Warisan Kami',
+        content: 'Didirikan pada tahun 2019, PT Wira Energi Utama telah bertransformasi dari operasi tambang lokal di Ratatotok menjadi penyedia mineral industri terintegrasi yang melayani pasar nasional dan regional. Dengan cadangan mineral yang melimpah dan tim yang berdedikasi, kami terus membangun fondasi yang kuat bagi kemajuan industri Indonesia.',
+        image: '/history.webp',
+        stats: [
+          { label: 'Tahun Pendirian', value: '2019' },
+          { label: 'Total Hektar', value: '97.05' },
+          { label: 'Kapasitas Crusher', value: '250 TPH' }
+        ]
+      },
+      values: {
+        title: 'Nilai-Nilai Inti Kami',
+        subtitle: 'Prinsip yang membimbing setiap langkah kami menuju keunggulan.',
+        items: [
+          { title: 'Integritas', desc: 'Menjalankan bisnis dengan transparansi penuh dan standar etika tertinggi.', icon: 'Shield' },
+          { title: 'Inovasi', desc: 'Terus mengadopsi teknologi terbaru untuk efisiensi dan keamanan maksimal.', icon: 'Zap' },
+          { title: 'Keamanan', desc: 'Nol kecelakaan adalah prioritas utama bagi seluruh tim operasional kami.', icon: 'ShieldCheck' }
+        ]
+      },
+      leadership: {
+        title: 'Kepemimpinan Strategis',
+        content: 'Dipandu oleh dewan direksi yang memiliki pengalaman puluhan tahun di industri sumber daya alam, kami menggabungkan visi strategis dengan eksekusi operasional yang presisi.',
+        image: '/leadership.webp'
+      },
+      sustainability: {
+        title: 'Komitmen Hijau',
+        content: 'Kami percaya bahwa pertambangan dapat berjalan selaras dengan alam. Program reklamasi progresif kami memastikan setiap lahan yang selesai ditambang akan dikembalikan ke kondisi ekosistem yang produktif.',
+        initiatives: ['Sistem Sirkulasi Air Tertutup', 'Filtrasi Debu Multi-tahap', 'Penghijauan Padat Vegetasi']
+      },
+      safety: {
+        title: 'Kesehatan & Keselamatan Kerja',
+        content: 'Budaya keselamatan kami melampaui kepatuhan administratif. Setiap karyawan memiliki hak dan kewajiban untuk memastikan lingkungan kerja tetap aman bagi semua.',
+        certifications: ['Sertifikasi SMK3', 'Standar APD Lengkap', 'Audit Keselamatan Berkala']
+      },
+      assets: {
+        title: 'Aset Strategis',
+        items: [
+          { name: 'Dermaga Pribadi (Jetty)', value: 'Draft 12m', icon: 'Ship' },
+          { name: 'Crushing Plant', value: 'Otomatisasi Penuh', icon: 'Settings' },
+          { name: 'Armada Logistik', value: 'Isuzu Giga Series', icon: 'Truck' }
+        ]
+      },
+      future: {
+        title: 'Visi 2030',
+        content: 'Kami sedang mempersiapkan ekspansi besar-besaran untuk menjadi pusat mineral industri terlengkap di Asia Tenggara Selatan.',
+        targets: ['Digitalisasi Tambang 4.0', 'Kapasitas Ekspor Global', 'Nol Emisi Karbon']
+      }
+    },
+    advancedCatalog: {
+      hero: {
+        title: 'Katalog Produk Premium',
+        description: 'Jelajahi portofolio mineral industri berkualitas tinggi yang dirancang untuk performa maksimun di berbagai sektor industri.',
+        image: '/catalog-hero.webp'
+      },
+      categories: [
+        {
+          title: 'Batuan & Agregat',
+          description: 'Material dasar untuk konstruksi dan infrastruktur.',
+          items: [
+            { name: 'Limestone Lumpy', specs: '10-80mm, CaO >55%', tags: ['Fluxing', 'Construction'] },
+            { name: 'Agregat Beton', specs: 'Sesuai SNI', tags: ['Paving', 'Infrastruktur'] }
+          ]
+        },
+        {
+          title: 'Bubuk Kalsium',
+          description: 'Kalsium karbonat halus untuk filler dan reaktan.',
+          items: [
+            { name: 'Tepung CaCO3', specs: '325-2500 Mesh', tags: ['Paint', 'Plastic', 'Rubber'] },
+            { name: 'PCC Nanoscale', specs: 'High Purity', tags: ['Pharma', 'Paper'] }
+          ]
+        }
+      ],
+      download: {
+        title: 'Dokumentasi Teknis',
+        description: 'Unduh katalog lengkap kami dalam format PDF untuk akses spesifikasi terperinci di perangkat Anda.',
+        button: 'UNDUH KATALOG (PDF)'
+      },
+      industrial: {
+        title: 'Aplikasi Lintas Sektor',
+        items: [
+          { name: 'Industri Baja', usage: 'Fluxing agent utama', icon: 'Factory' },
+          { name: 'Pengolahan Air', usage: 'Penyesuaian pH & Purifikasi', icon: 'Droplets' },
+          { name: 'Agrikultur', usage: 'Pembenah tanah & penetral asam', icon: 'Sprout' }
+        ]
+      }
+    },
+    advancedBlog: {
+      hero: {
+        title: 'Warta Wira Energi',
+        subtitle: 'Wawasan Industri & Kabar Perusahaan'
+      },
+      posts: [
+        {
+          id: '1',
+          title: 'Peran Batu Kapur dalam Industri Baja Nasional',
+          excerpt: 'Batu kapur murni tinggi sangat krusial sebagai agen fluxing untuk menghilangkan pengotor dalam pembuatan baja...',
+          date: '15 Maret 2024',
+          category: 'Industri',
+          image: '/blog/steel.webp'
+        },
+        {
+          id: '2',
+          title: 'Komitmen Kami terhadap Reklamasi Berkelanjutan',
+          excerpt: 'Melihat lebih dekat bagaimana PT WEU mengembalikan ekosistem lokal setelah kegiatan penambangan selesai.',
+          date: '10 Maret 2024',
+          category: 'Lingkungan',
+          image: '/blog/reclamation.webp'
+        },
+        {
+          id: '3',
+          title: 'Inovasi Teknologi Crushing Terbaru di Ratatotok',
+          excerpt: 'Meningkatkan kapasitas produksi hingga 250 ton per jam dengan sistem otomatisasi terbaru.',
+          date: '5 Maret 2024',
+          category: 'Teknologi',
+          image: '/blog/tech.webp'
+        }
+      ]
+    },
+    advancedContact: {
+      hero: {
+        title: 'Hubungi Tim Kami',
+        subtitle: 'Kami siap membantu kebutuhan mineral industri Anda dengan solusi yang tepat.'
+      },
+      offices: [
+        {
+          title: 'Kantor Manado (Utama)',
+          address: 'Taman Sari Cluster Lihaga, Blok H3-3 Kelurahan Paniki Bawah, Manado - Sulawesi Utara 95256 Indonesia',
+          mapUrl: 'https://goo.gl/maps/placeholder-manado',
+          image: '/office-manado.webp',
+          email: 'contact@ptweu.company',
+          phone: '(0434) 260 3008'
+        },
+        {
+          title: 'Kantor Kotamobagu',
+          address: 'Jl. S.Parman No. 741B Kotamobagu - Sulawesi Utara 95711 Indonesia',
+          mapUrl: 'https://goo.gl/maps/placeholder-kota',
+          image: '/office-kota.webp',
+          email: 'wiraenergiutama@yahoo.com',
+          phone: '(0434) 260 3008 / 0811 4344 168'
+        }
+      ],
+      faq: {
+        title: 'Pertanyaan Terkait Layanan',
+        items: [
+          { q: 'Bagaimana cara meminta penawaran harga?', a: 'Anda dapat mengirimkan spesifikasi kebutuhan melalui formulir di bawah atau langsung menghubungi email sales kami.' },
+          { q: 'Apakah tersedia pengiriman ke luar pulau?', a: 'Ya, melalui dermaga pribadi kami, kami melayani pengiriman via tongkang ke seluruh wilayah Indonesia.' }
+        ]
+      }
+    },
     privacy: {
       title: 'Kebijakan Privasi',
       lastUpdated: 'Terakhir diperbarui: Maret 2024',
@@ -434,6 +975,8 @@ export const translations: Record<'id' | 'en', Translation> = {
     nav: {
       about: 'About Us',
       products: 'Products',
+      catalog: 'Catalog',
+      blog: 'Blog',
       qa: 'Quality',
       contact: 'Contact Us',
     },
@@ -830,6 +1373,545 @@ export const translations: Record<'id' | 'en', Translation> = {
         title: 'Burn Lime (CaO)',
         fullDesc: 'Produced through controlled calcination processes to produce quicklime with high thermal activity.',
         specs: ['Available CaO: > 90%', 'Size (Lumpy): 10-50mm', 'Reaction Temperature: > 60°C']
+      }
+    },
+    productPages: {
+      limestone: {
+        hero: {
+          title: 'Premium Limestone',
+          subtitle: 'High-Purity from Ratatotok',
+          description: 'Essential base material with superior Calcium Oxide (CaO) content for maximum industrial efficiency.',
+          image: '/products/limestone.png'
+        },
+        stats: [
+          { label: 'CaO Content', value: '> 55%', icon: 'ShieldCheck' },
+          { label: 'Purity', value: 'High', icon: 'Star' },
+          { label: 'Capacity', value: '250 TPH', icon: 'Zap' },
+          { label: 'Stock', value: 'Ready', icon: 'Package' }
+        ],
+        overview: {
+          title: 'Product Overview',
+          content: 'Our Limestone is mined directly from the unique Ratatotok geological formation, producing limestone with high crystalline purity. This product is the primary choice for industries requiring high chemical reactivity and low contaminant levels.',
+          features: [
+            'CaO purity above industry average',
+            'Extremely low silica and magnesium content',
+            'Ideal physical durability for construction',
+            'Customizable grain sizes'
+          ]
+        },
+        specifications: {
+          title: 'Chemical & Physical Analysis',
+          table: [
+            { label: 'Calcium Oxide (CaO)', value: '55.20%' },
+            { label: 'Magnesium Oxide (MgO)', value: '0.80%' },
+            { label: 'Silica (SiO2)', value: '0.35%' },
+            { label: 'Iron Oxide (Fe2O3)', value: '0.12%' },
+            { label: 'Alumina (Al2O3)', value: '0.15%' },
+            { label: 'Loss on Ignition (LOI)', value: '43.30%' }
+          ],
+          chartData: [
+            { name: 'CaO', value: 55.2, color: '#0F3460' },
+            { name: 'LOI', value: 43.3, color: '#E94560' },
+            { name: 'Others', value: 1.5, color: '#FFD700' }
+          ]
+        },
+        applications: {
+          title: 'Solutions for Various Industries',
+          items: [
+            { title: 'Steel Smelting', desc: 'As a flux to separate impurities from molten metal.', icon: 'Factory' },
+            { title: 'Cement Industry', desc: 'Primary raw material for high-quality clinker production.', icon: 'Building' },
+            { title: 'Construction', desc: 'Coarse aggregate for concrete and soil stabilization.', icon: 'Construction' },
+            { title: 'Water Treatment', desc: 'Neutralizing pH levels in industrial wastewater.', icon: 'Droplets' }
+          ]
+        },
+        process: {
+          title: 'Modern Production Workflow',
+          steps: [
+            { title: 'Controlled Extraction', desc: 'Mining with environmentally friendly methods to preserve mineral structure.' },
+            { title: 'Primary Crushing', desc: 'Initial size reduction using large-capacity jaw crushers.' },
+            { title: 'Sieving & Sorting', desc: 'Separation by mesh size according to customer requirements.' },
+            { title: 'Quality Validation', desc: 'Per-batch laboratory testing to ensure grade consistency.' }
+          ]
+        },
+        quality: {
+          title: 'Uncompromising Quality Standards',
+          content: 'Every ton of limestone leaving our facility has undergone rigorous verification. We partner with Sucofindo and Intertek for third-party certification to provide peace of mind for our partners.',
+          certs: ['SNI Standard', 'ISO 9001:2015 Compliant', 'Certificate of Analysis (COA) per Order']
+        },
+        faq: {
+          title: 'Frequently Asked Questions',
+          items: [
+            { q: 'What is the monthly production capacity?', a: 'Currently, our production capacity reaches 150,000 metric tons per month.' },
+            { q: 'Is sea delivery available?', a: 'Yes, we have a private jetty capable of accommodating 300ft barges.' },
+            { q: 'Can I order custom grain sizes?', a: 'Certainly, our crushing plant system can be configured to produce specific grain sizes (0-5mm, 5-10mm, etc.).' }
+          ]
+        },
+        cta: {
+          title: 'Ready to Scale Your Production?',
+          subtitle: 'Get a competitive price quote for your large-scale limestone needs today.',
+          button: 'ORDER NOW',
+          whatsapp: 'Contact via WhatsApp'
+        }
+      },
+      caco3: {
+        hero: {
+          title: 'Calcium Carbonate (CaCO3)',
+          subtitle: 'Sizing Precision for Creative Industries',
+          description: 'High-quality calcium powder with maximum brightness for the plastic, paint, and rubber industries.',
+          image: '/products/caco3.png'
+        },
+        stats: [
+          { label: 'Brightness', value: '> 94%', icon: 'Sun' },
+          { label: 'Mesh', value: 'Varied', icon: 'Layers' },
+          { label: 'Purity', value: '99%', icon: 'Shield' },
+          { label: 'Ready', value: 'Stock', icon: 'Package' }
+        ],
+        overview: {
+          title: 'Superior CaCO3 Performance',
+          content: 'Our Calcium Carbonate is processed using modern grinding mill technology to produce consistent grain fineness. With high whiteness (brightness), this product is an ideal filler that enhances the visual quality of your final products.',
+          features: [
+            'Very narrow particle size distribution',
+            'Low oil absorption rate',
+            'Chemical stability across various temperature applications',
+            'Free from heavy metal contamination'
+          ]
+        },
+        specifications: {
+          title: 'Powder Technical Specifications',
+          table: [
+            { label: 'CaCO3 Content', value: '98.8%' },
+            { label: 'Brightness (Whiteness)', value: '95%' },
+            { label: 'Moisture Content', value: '0.15%' },
+            { label: 'Residue (325 mesh)', value: 'min 0.05%' },
+            { label: 'pH Value', value: '8.5 - 9.5' },
+            { label: 'Specific Gravity', value: '2.7 g/cm3' }
+          ],
+          chartData: [
+            { name: 'Calcium', value: 98.8, color: '#FFD700' },
+            { name: 'Impurities', value: 1.2, color: '#0F3460' }
+          ]
+        },
+        applications: {
+          title: 'Technical Applications',
+          items: [
+            { title: 'Plastic Industry', desc: 'Increasing rigidity and reducing polymer raw material costs.', icon: 'Layers' },
+            { title: 'Paint & Coating', desc: 'Providing good opacity and hiding power in paint layers.', icon: 'Palette' },
+            { title: 'Rubber Industry', desc: 'Improving elasticity and wear resistance in tires and footwear.', icon: 'Zap' },
+            { title: 'Paper', desc: 'Brightening paper color and improving ink absorption.', icon: 'FileText' }
+          ]
+        },
+        process: {
+          title: 'Precision Grinding Process',
+          steps: [
+            { title: 'Crystalline Selection', desc: 'Only pure white limestone is selected as raw material.' },
+            { title: 'Ultrafine Grinding', desc: 'Grinding using ball mills or ultra-centrifugal mills.' },
+            { title: 'Air Classification', desc: 'Particle separation using high-pressure air flow.' },
+            { title: 'Packaging', desc: 'Packing in 25kg, 50kg bags, or 1-ton jumbo bags.' }
+          ]
+        },
+        quality: {
+          title: 'Whiteness Guarantee',
+          content: 'We use digital colorimeters to monitor brightness levels in every batch. Color consistency is our priority to maintain your product aesthetic standards.',
+          certs: ['Certificate of Analysis (COA)', 'Material Safety Data Sheet (MSDS)', 'Lab Analysis Intertek']
+        },
+        faq: {
+          title: 'Product FAQ',
+          items: [
+            { q: 'What mesh sizes are available?', a: 'We produce sizes ranging from 400 mesh to 2500 mesh.' },
+            { q: 'What is the brightness level?', a: 'Our premium products have a brightness level above 94%.' },
+            { q: 'Is there food grade testing?', a: 'Currently we focus on industrial and technical grades, but our purity levels approach high standards.' }
+          ]
+        },
+        cta: {
+          title: 'Talk to Our Technical Experts',
+          subtitle: 'Consult your calcium carbonate specification needs for better product results.',
+          button: 'GET SAMPLES',
+          whatsapp: 'Chat on WhatsApp'
+        }
+      },
+      burnLime: {
+        hero: {
+          title: 'Quicklime (CaO)',
+          subtitle: 'Chemical Energy for Fast Reaction',
+          description: 'High-activity Calcium Oxide (CaO) from extreme temperature calcination for maximum reactivity.',
+          image: '/products/burn-lime.png'
+        },
+        stats: [
+          { label: 'Active CaO', value: '> 90%', icon: 'Thermometer' },
+          { label: 'Reactivity', value: 'High', icon: 'Zap' },
+          { label: 'Calcination Temp', value: '1100°C', icon: 'Flame' },
+          { label: 'Order', value: 'Bulk', icon: 'Truck' }
+        ],
+        overview: {
+          title: 'The Power of Calcium Oxide',
+          content: 'Our Quicklime is produced through controlled thermal decomposition processes in advanced vertical kilns. The result is a material with high porosity and highly responsive chemical reactivity, essential for metal refining and chemical industries.',
+          features: [
+            'Active CaO content above 90%',
+            'Extremely fast slaking rate',
+            'Minimal residual CO2 content',
+            'Available in lumpy or powder form'
+          ]
+        },
+        specifications: {
+          title: 'Calcination Specifications',
+          table: [
+            { label: 'Available CaO', value: '92.1%' },
+            { label: 'Magnesium Oxide (MgO)', value: '0.55%' },
+            { label: 'Silica (SiO2)', value: '0.22%' },
+            { label: 'Loss on Ignition', value: '1.20%' },
+            { label: 'Sulfur (S)', value: '0.04%' },
+            { label: 'Reactivity (T60)', value: '< 2 minutes' }
+          ],
+          chartData: [
+            { name: 'Active CaO', value: 92.1, color: '#E94560' },
+            { name: 'Calcination Residue', value: 1.2, color: '#1A1A2E' }
+          ]
+        },
+        applications: {
+          title: 'Heavy Industrial Usage',
+          items: [
+            { title: 'Smelter Industry', desc: 'Impurity remover in nickel and bauxite refining.', icon: 'Anvil' },
+            { title: 'Sugar Production', desc: 'Sugarcane juice purification in the clarification process.', icon: 'Filter' },
+            { title: 'Soil & Mining', desc: 'Soft soil stabilization and mine tailing pH management.', icon: 'Mountain' },
+            { title: 'Chemicals', desc: 'Raw material for calcium carbide and other organic compounds.', icon: 'FlaskConical' }
+          ]
+        },
+        process: {
+          title: 'Precision Calcination Workflow',
+          steps: [
+            { title: 'Raw Material Screening', desc: 'Ensuring uniform limestone size for even combustion.' },
+            { title: 'Thermal Calcination', desc: 'Heating at 1000°C - 1200°C in shaft kilns.' },
+            { title: 'Cooling & Oxygen Control', desc: 'Fast cooling to maintain CaO chemical activity.' },
+            { title: 'Crushing & Packing', desc: 'Size reduction and air-tight packaging.' }
+          ]
+        },
+        quality: {
+          title: 'Reactivity Assurance',
+          content: 'We perform slaking tests every hour to ensure our quicklime reacts with water at the correct temperature. This ensures lime consumption efficiency for end users.',
+          certs: ['Chemical Purity Certificate', 'Slaking Rate Analysis', 'Energy Efficiency Standard']
+        },
+        faq: {
+          title: 'Quicklime FAQ',
+          items: [
+            { q: 'What is the best storage method?', a: 'Must be stored in a dry, tightly closed place due to its highly hygroscopic nature (absorbing water from the air).' },
+            { q: 'What is the thermal reactivity?', a: 'Average temperature rise reaches 60°C in less than 2 minutes when reacting with water.' },
+            { q: 'Is dump truck delivery available?', a: 'Yes, we provide dump trucks for bulk delivery or jumbo bag packing.' }
+          ]
+        },
+        cta: {
+          title: 'Optimize Your Industrial Process',
+          subtitle: 'Our high-reactivity quicklime can significantly reduce your operational costs.',
+          button: 'PRICING CONSULTATION',
+          whatsapp: 'Inquiry via WhatsApp'
+        }
+      },
+      hydratedLime: {
+        hero: {
+          title: 'Hydrated Lime',
+          subtitle: 'Pure Solution for the Environment',
+          description: 'Fine-grade Calcium Hydroxide (Ca(OH)2) for water treatment and air pollution control.',
+          image: '/products/hydrated-lime.png'
+        },
+        stats: [
+          { label: 'Ca(OH)2', value: '> 92%', icon: 'Droplets' },
+          { label: 'Fineness', value: '325 Mesh', icon: 'Filter' },
+          { label: 'Color', value: 'Fine White', icon: 'Star' },
+          { label: 'Safety', value: 'MSDS', icon: 'ShieldCheck' }
+        ],
+        overview: {
+          title: 'Calcium Hydration Solution',
+          content: 'Our Hydrated Lime is the result of controlled hydration of pure quicklime (CaO). With extremely high fineness, this product is very easy to dissolve and react, making it the perfect choice for industrial wastewater and flue gas treatment.',
+          features: [
+            'Particle fineness passing 325 mesh (>95%)',
+            'Very stable calcium hydroxide content',
+            'High reactivity in acid neutralization',
+            'Safer handling compared to quicklime'
+          ]
+        },
+        specifications: {
+          title: 'Hydration Technical Data',
+          table: [
+            { label: 'Ca(OH)2 Content', value: '94.5%' },
+            { label: 'Calcium Oxide (CaO)', value: '71.5%' },
+            { label: 'Magnesium (MgO)', value: '0.40%' },
+            { label: 'Insoluble Matter', value: '0.45%' },
+            { label: 'Apparent Density', value: '0.45 - 0.55 g/ml' },
+            { label: 'Moisture Content', value: '< 1.0%' }
+          ],
+          chartData: [
+            { name: 'Calcium Hydroxide', value: 94.5, color: '#3456A3' },
+            { name: 'Associated Minerals', value: 5.5, color: '#F1C40F' }
+          ]
+        },
+        applications: {
+          title: 'Environmental Benefits',
+          items: [
+            { title: 'Clean Water Treatment', desc: 'Removing heavy metals and adjusting water hardness.', icon: 'Droplet' },
+            { title: 'Flue Gas Cleaning', desc: 'Absorbing acid gases (SO2, HCl) from factory stacks.', icon: 'Wind' },
+            { title: 'Road Construction', desc: 'Improving asphalt stability and road durability.', icon: 'Truck' },
+            { title: 'Waste Management', desc: 'Phosphate precipitation and particle flocculation in wastewater.', icon: 'Recycle' }
+          ]
+        },
+        process: {
+          title: 'Automated Hydration Technology',
+          steps: [
+            { title: 'Select Quicklime', desc: 'Only using high-reactivity CaO as base material.' },
+            { title: 'Controlled Hydration', desc: 'Precise water addition for perfect hydration reaction.' },
+            { title: 'Air Separation', desc: 'Separating coarse particles to achieve 325 mesh fineness.' },
+            { title: 'Silo Storage', desc: 'Stored in water-tight silos to maintain powder quality.' }
+          ]
+        },
+        quality: {
+          title: 'Proven Purity',
+          content: 'Our laboratory monitors grain fineness periodically using laser diffraction methods. We guarantee our product effectiveness in both dry and wet injection systems.',
+          certs: ['325 Mesh Fineness Verified', 'Purity Analysis Certificate', 'Eco-Industrial Certification']
+        },
+        faq: {
+          title: 'Hydrated Lime FAQ',
+          items: [
+            { q: 'Is this product dusty?', a: 'Yes, due to its high fineness. We recommend pneumatic systems or enclosures during pouring.' },
+            { q: 'What is the shelf life?', a: 'In good, dry packaging, it can last up to 6 months without significant quality degradation.' },
+            { q: 'Is there a minimum order?', a: 'Minimum order is 10 tons, available in 25kg bags or jumbo bags.' }
+          ]
+        },
+        cta: {
+          title: 'Create a Cleaner Environment',
+          subtitle: 'Use superior quality hydrated lime for your waste treatment system efficiency.',
+          button: 'REQUEST QUOTE',
+          whatsapp: 'Contact Us Now'
+        }
+      },
+      pcc: {
+        hero: {
+          title: 'Precipitated Calcium Carbonate (PCC)',
+          subtitle: 'Molecular Purity for Specialty Industries',
+          description: 'Nanoscale precipitated calcium carbonate for pharmaceutical, cosmetic, and premium paper applications.',
+          image: '/products/pcc.png'
+        },
+        stats: [
+          { label: 'Purity', value: '99.9%', icon: 'ShieldCheck' },
+          { label: 'Crystal', value: 'Nano Size', icon: 'Microscope' },
+          { label: 'Brightness', value: '98%', icon: 'Sun' },
+          { label: 'Grade', value: 'Specialty', icon: 'Award' }
+        ],
+        overview: {
+          title: 'Calcium Precipitation Innovation',
+          content: 'Our PCC is produced through a chemical precipitation process that allows total control over crystal form and particle size. This produces a product with extreme whiteness and high surface reactivity, surpassing natural calcium carbonate (GCC) capabilities.',
+          features: [
+            'Exceptional chemical purity (>99.9% CaCO3)',
+            'Customizable crystal forms (Aragonite/Calcite)',
+            'Particle sizes in micron to nano scales',
+            'Controllable oil absorption values'
+          ]
+        },
+        specifications: {
+          title: 'Specialty Grade Specifications',
+          table: [
+            { label: 'CaCO3 Content', value: '99.85%' },
+            { label: 'Brightness (R457)', value: '98.5%' },
+            { label: 'Specific Surface Area', value: '12 - 15 m2/g' },
+            { label: 'Average Grain Size', value: '1.2 - 2.5 um' },
+            { label: 'Heavy Metals (Pb)', value: '< 1 ppm' },
+            { label: 'Acid Solubility', value: 'Perfect' }
+          ],
+          chartData: [
+            { name: 'CaCO3 Pure', value: 99.9, color: '#0F3460' },
+            { name: 'Trace Elements', value: 0.1, color: '#FFD700' }
+          ]
+        },
+        applications: {
+          title: 'High-End Applications',
+          items: [
+            { title: 'Pharmaceuticals', desc: 'Calcium supplements and tablet binders.', icon: 'Stethoscope' },
+            { title: 'Cosmetics', desc: 'Base material for face powder and premium personal care products.', icon: 'Sparkles' },
+            { title: 'Photo Paper', desc: 'Paper coating for high resolution and contrast printing.', icon: 'Printer' },
+            { title: 'Sealant Industry', desc: 'Rheology and viscosity regulator in automotive adhesives.', icon: 'Zap' }
+          ]
+        },
+        process: {
+          title: 'Chemical Synthesis Workflow',
+          steps: [
+            { title: 'Gas Carbonation', desc: 'Reaction between milk of lime and pure CO2 gas.' },
+            { title: 'Crystal Growth Control', desc: 'Adjusting temperature and pressure to form specific crystal structures.' },
+            { title: 'Filtration & Washing', desc: 'Cleaning residual ions to achieve molecular purity.' },
+            { title: 'Drying & Micronizing', desc: 'Low-temperature drying and fine particle separation.' }
+          ]
+        },
+        quality: {
+          title: 'World-Class Quality',
+          content: 'Our PCC products are produced under strict supervision with quality standards meeting food and pharmaceutical industry requirements. We guarantee precise consistency in every milligram.',
+          certs: ['High Purity Lab Test', 'Food Grade Compliance (Ready)', 'Pharmaceutical Analysis']
+        },
+        faq: {
+          title: 'PCC FAQ',
+          items: [
+            { q: 'What is the difference between PCC and regular calcium?', a: 'PCC is made through chemical reaction, so its size is smaller, whiter, and more uniform than natural ground results.' },
+            { q: 'Can I customize the crystal shape?', a: 'Yes, we can adjust the process to produce rhombohedral, scalenohedral, or prismatic shapes according to your application.' },
+            { q: 'Is halal/food grade certification available?', a: 'Our facility is designed for high standards and we are in the process of finalizing such certifications.' }
+          ]
+        },
+        cta: {
+          title: 'Innovate with Premium Materials',
+          subtitle: 'Enhance your flagship product quality with our Precipitated Calcium Carbonate.',
+          button: 'CONTACT TECHNICAL DIVISION',
+          whatsapp: 'WhatsApp Team Expert'
+        }
+      }
+    },
+    advancedAbout: {
+      hero: {
+        title: 'Building a Sustainable Future',
+        subtitle: 'PT Wira Energi Utama',
+        description: 'We are a leader in the limestone mining industry committed to innovation, safety, and environmental sustainability in every operation in North Sulawesi.',
+        image: '/about-hero.webp'
+      },
+      history: {
+        title: 'Our History & Heritage',
+        content: 'Founded in 2019, PT Wira Energi Utama has transformed from a local mining operation in Ratatotok into an integrated industrial mineral provider serving national and regional markets. With abundant mineral reserves and a dedicated team, we continue to build a strong foundation for Indonesia industrial progress.',
+        image: '/history.webp',
+        stats: [
+          { label: 'Year Founded', value: '2019' },
+          { label: 'Total Hectares', value: '97.05' },
+          { label: 'Crusher Capacity', value: '250 TPH' }
+        ]
+      },
+      values: {
+        title: 'Our Core Values',
+        subtitle: 'Principles that guide every step we take toward excellence.',
+        items: [
+          { title: 'Integrity', desc: 'Conducting business with full transparency and the highest ethical standards.', icon: 'Shield' },
+          { title: 'Innovation', desc: 'Continuously adopting the latest technology for maximum efficiency and safety.', icon: 'Zap' },
+          { title: 'Safety', desc: 'Zero accidents is the top priority for our entire operational team.', icon: 'ShieldCheck' }
+        ]
+      },
+      leadership: {
+        title: 'Strategic Leadership',
+        content: 'Guided by a board of directors with decades of experience in the natural resources industry, we combine strategic vision with precise operational execution.',
+        image: '/leadership.webp'
+      },
+      sustainability: {
+        title: 'Green Commitment',
+        content: 'We believe that mining can go hand in hand with nature. Our progressive reclamation program ensures each finished mining area will be returned to a productive ecosystem state.',
+        initiatives: ['Closed-Loop Water Circulation', 'Multi-stage Dust Filtration', 'Dense Vegetation Greening']
+      },
+      safety: {
+        title: 'Occupational Health & Safety',
+        content: 'Our safety culture goes beyond administrative compliance. Every employee has the right and obligation to ensure the work environment remains safe for all.',
+        certifications: ['SMK3 Certification', 'Full PPE Standards', 'Periodic Safety Audits']
+      },
+      assets: {
+        title: 'Strategic Assets',
+        items: [
+          { name: 'Private Jetty', value: 'Draft 12m', icon: 'Ship' },
+          { name: 'Crushing Plant', value: 'Full Automation', icon: 'Settings' },
+          { name: 'Logistics Fleet', value: 'Isuzu Giga Series', icon: 'Truck' }
+        ]
+      },
+      future: {
+        title: 'Vision 2030',
+        content: 'We are preparing for a massive expansion to become the most comprehensive industrial mineral hub in South East Asia.',
+        targets: ['Mine 4.0 Digitalization', 'Global Export Capacity', 'Zero Carbon Emission']
+      }
+    },
+    advancedCatalog: {
+      hero: {
+        title: 'Premium Product Catalog',
+        description: 'Explore our portfolio of high-quality industrial minerals designed for maximum performance across various industrial sectors.',
+        image: '/catalog-hero.webp'
+      },
+      categories: [
+        {
+          title: 'Rocks & Aggregates',
+          description: 'Basic materials for construction and infrastructure.',
+          items: [
+            { name: 'Limestone Lumpy', specs: '10-80mm, CaO >55%', tags: ['Fluxing', 'Construction'] },
+            { name: 'Concrete Aggregate', specs: 'According to SNI', tags: ['Paving', 'Infrastructure'] }
+          ]
+        },
+        {
+          title: 'Calcium Powder',
+          description: 'Fine calcium carbonate for fillers and reactants.',
+          items: [
+            { name: 'CaCO3 Powder', specs: '325-2500 Mesh', tags: ['Paint', 'Plastic', 'Rubber'] },
+            { name: 'PCC Nanoscale', specs: 'High Purity', tags: ['Pharma', 'Paper'] }
+          ]
+        }
+      ],
+      download: {
+        title: 'Technical Documentation',
+        description: 'Download our complete catalog in PDF format for detailed specification access on your device.',
+        button: 'DOWNLOAD CATALOG (PDF)'
+      },
+      industrial: {
+        title: 'Cross-Sector Applications',
+        items: [
+          { name: 'Steel Industry', usage: 'Major fluxing agent', icon: 'Factory' },
+          { name: 'Water Treatment', usage: 'pH Adjustment & Purification', icon: 'Droplets' },
+          { name: 'Agriculture', usage: 'Soil conditioner & acid neutralizer', icon: 'Sprout' }
+        ]
+      }
+    },
+    advancedBlog: {
+      hero: {
+        title: 'Wira Energi News',
+        subtitle: 'Industry Insights & Company Updates'
+      },
+      posts: [
+        {
+          id: '1',
+          title: 'The Role of Limestone in National Steel Industry',
+          excerpt: 'High purity limestone is crucial as a fluxing agent to remove impurities in steelmaking...',
+          date: 'March 15, 2024',
+          category: 'Industry',
+          image: '/blog/steel.webp'
+        },
+        {
+          id: '2',
+          title: 'Our Commitment to Sustainable Reclamation',
+          excerpt: 'A closer look at how PT WEU restores the local ecosystem after mining activities are completed.',
+          date: 'March 10, 2024',
+          category: 'Environment',
+          image: '/blog/reclamation.webp'
+        },
+        {
+          id: '3',
+          title: 'Latest Crushing Technology Innovation in Ratatotok',
+          excerpt: 'Increasing production capacity up to 250 tons per hour with the latest automation system.',
+          date: 'March 5, 2024',
+          category: 'Technology',
+          image: '/blog/tech.webp'
+        }
+      ]
+    },
+    advancedContact: {
+      hero: {
+        title: 'Contact Our Team',
+        subtitle: 'We are ready to assist your industrial mineral needs with the right solutions.'
+      },
+      offices: [
+        {
+          title: 'Manado Office (Main)',
+          address: 'Taman Sari Cluster Lihaga, Blok H3-3 Kelurahan Paniki Bawah, Manado - North Sulawesi 95256 Indonesia',
+          mapUrl: 'https://goo.gl/maps/placeholder-manado',
+          image: '/office-manado.webp',
+          email: 'contact@ptweu.company',
+          phone: '(0431) 812345'
+        },
+        {
+          title: 'Kotamobagu Office',
+          address: 'Jl. S.Parman No. 741B Kotamobagu - North Sulawesi 95711 Indonesia',
+          mapUrl: 'https://goo.gl/maps/placeholder-kota',
+          image: '/office-kota.webp',
+          email: 'wiraenergiutama@yahoo.com',
+          phone: '(0434) 260 3008'
+        }
+      ],
+      faq: {
+        title: 'Service Related FAQ',
+        items: [
+          { q: 'How to request a price quote?', a: 'You can send your requirement specifications via the form below or contact our sales email directly.' },
+          { q: 'Is shipping available outside the island?', a: 'Yes, through our private jetty, we serve shipping via barge to all regions of Indonesia.' }
+        ]
       }
     },
     privacy: {
