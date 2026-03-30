@@ -939,8 +939,12 @@ export const translations: Record<'id' | 'en', Translation> = {
       faq: {
         title: 'Pertanyaan Terkait Layanan',
         items: [
-          { q: 'Bagaimana cara meminta penawaran harga?', a: 'Anda dapat mengirimkan spesifikasi kebutuhan melalui formulir di bawah atau langsung menghubungi email sales kami.' },
-          { q: 'Apakah tersedia pengiriman ke luar pulau?', a: 'Ya, melalui dermaga pribadi kami, kami melayani pengiriman via tongkang ke seluruh wilayah Indonesia.' }
+          { q: 'Bagaimana cara meminta penawaran harga?', a: 'Anda dapat mengirimkan spesifikasi kebutuhan melalui formulir di bawah atau langsung menghubungi email sales kami (contact@ptweu.company).' },
+          { q: 'Apakah tersedia pengiriman ke luar pulau?', a: 'Ya, melalui dermaga pribadi (Private Jetty) kami, PT WEU melayani pengiriman via tongkang/barge ke seluruh wilayah Indonesia.' },
+          { q: 'Berapa jumlah pesanan minimum (MOQ)?', a: 'MOQ bergantung pada jenis produk. Untuk pengiriman domestik via laut, umumnya mulai dari kapasitas 1 tongkang (7,500 - 10,000 MT), sedangkan pengambilan darat dapat disesuaikan.' },
+          { q: 'Bagaimana prosedur untuk mendapatkan sampel batu kapur?', a: 'Sampel untuk pengujian laboratorium industri dapat diminta melalui departemen Quality Control kami dengan menyertakan profil perusahaan.' },
+          { q: 'Apakah PT WEU melayani kunjungan survey tambang?', a: 'Kunjungan lapangan diizinkan untuk calon mitra bisnis dengan koordinasi minimal 7 hari kerja sebelumnya guna memastikan standar keselamatan (K3) terpenuhi.' },
+          { q: 'Apa jenis armada yang digunakan untuk distribusi?', a: 'Kami mengoperasikan armada dumptruck Isuzu Giga untuk distribusi darat dan bermitra dengan line shipping terpercaya untuk distribusi laut.' }
         ]
       }
     },
@@ -1909,8 +1913,12 @@ export const translations: Record<'id' | 'en', Translation> = {
       faq: {
         title: 'Service Related FAQ',
         items: [
-          { q: 'How to request a price quote?', a: 'You can send your requirement specifications via the form below or contact our sales email directly.' },
-          { q: 'Is shipping available outside the island?', a: 'Yes, through our private jetty, we serve shipping via barge to all regions of Indonesia.' }
+          { q: 'How to request a price quote?', a: 'You can send your requirement specifications via the form below or contact our sales email directly at contact@ptweu.company.' },
+          { q: 'Is shipping available outside the island?', a: 'Yes, through our private jetty, PT WEU serves shipping via barge to all regions of Indonesia.' },
+          { q: 'What is the minimum order quantity (MOQ)?', a: 'MOQ depends on the product type. For domestic sea shipping, it starts from 1 barge capacity (7,500 - 10,000 MT), while land-based pickup can be adjusted.' },
+          { q: 'What is the procedure for obtaining limestone samples?', a: 'Samples for industrial laboratory testing can be requested through our Quality Control department with a company profile attached.' },
+          { q: 'Does PT WEU allow mine survey visits?', a: 'Field visits are permitted for potential business partners with at least 7 working days coordination to ensure safety (K3) standards are met.' },
+          { q: 'What type of fleet is used for distribution?', a: 'We operate our own Isuzu Giga dump truck fleet for land distribution and partner with trusted shipping lines for sea distribution.' }
         ]
       }
     },

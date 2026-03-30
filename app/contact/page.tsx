@@ -125,9 +125,32 @@ export default function ContactPage() {
               </div>
 
               {/* Contact Form Wrapper */}
-              <div className="bg-white rounded-[3rem] p-8 md:p-12 shadow-3xl text-gray-900">
+              <div className="bg-white rounded-[3rem] p-8 md:p-12 shadow-3xl text-gray-900 leading-none">
                 <h3 className="text-3xl font-black text-brand-blue mb-8">Send Inquiries</h3>
                 <ContactForm t={t.contact} />
+                
+                {/* Direct Support CTAs */}
+                <div className="mt-12 pt-10 border-t border-gray-100 italic">
+                  <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6 font-sans">For Faster Response:</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <a 
+                      href="https://wa.me/628114344168" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center space-x-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-black py-4 px-6 rounded-2xl transition-all transform hover:scale-105 shadow-lg shadow-green-500/20"
+                    >
+                      <MessageSquare size={20} fill="white" />
+                      <span>WhatsApp</span>
+                    </a>
+                    <a 
+                      href="tel:+624342603008" 
+                      className="flex items-center justify-center space-x-3 bg-brand-blue hover:bg-brand-blue/90 text-white font-black py-4 px-6 rounded-2xl transition-all transform hover:scale-105 shadow-lg shadow-blue-500/20"
+                    >
+                      <Phone size={20} fill="white" />
+                      <span>Official Call</span>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
