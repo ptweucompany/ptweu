@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { allProducts } from '../../src/data/products';
+import CTASection from '../../src/components/CTASection';
 
 export const metadata: Metadata = {
   title: 'PT Wira Energi Utama | Limestone & CaCO3 Industrial Supplier — North Sulawesi',
@@ -28,12 +29,18 @@ export default function EnHomePage() {
             Production <strong className="text-[#C8A84B]">150,000 MT/month</strong> · Distribution via Port Bitung · 250 TPH Crusher
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <Link href="/en/products" className="inline-flex items-center justify-center px-8 py-4 bg-[#C8A84B] hover:bg-[#b8933b] text-[#0A1628] font-bold rounded-lg transition-colors duration-200">
-              View Our Products
+            <Link
+              href="/en/contact"
+              className="inline-flex items-center justify-center px-10 py-4 bg-[#C8A84B] hover:bg-[#b8933b] text-[#0A1628] font-bold rounded-xl text-base transition-all duration-200 shadow-xl hover:scale-105"
+            >
+              Start Export Inquiry
             </Link>
-            <a href="https://wa.me/628114344168" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors duration-200">
-              WhatsApp Inquiry
-            </a>
+            <Link
+              href="/en/products"
+              className="inline-flex items-center justify-center px-10 py-4 border border-white/30 hover:border-[#C8A84B] text-white font-semibold rounded-xl text-base transition-all duration-200"
+            >
+              View Products
+            </Link>
           </div>
         </div>
       </section>
@@ -57,6 +64,11 @@ export default function EnHomePage() {
           </div>
         </div>
       </section>
+      <CTASection
+        type="quote"
+        lang="en"
+        variant="dark"
+      />
     </main>
   );
 }

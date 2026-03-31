@@ -72,10 +72,12 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
             </div>
 
             <Link
-              href="/contact"
-              className="bg-brand-gold hover:bg-brand-gold-light text-brand-blue font-bold py-2 px-5 rounded-full text-sm transition-all transform hover:scale-105"
+              href={lang === 'id' ? '/kontak' : '/en/contact'}
+              className="relative overflow-hidden bg-brand-gold hover:bg-brand-gold-light text-brand-blue font-bold py-2.5 px-6 rounded-full text-sm transition-all transform hover:scale-105 shadow-lg group"
             >
-              {t.contact}
+              <span className="relative z-10">{t.contact}</span>
+              <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-[-20deg]" />
+              <div className="absolute -inset-1 bg-brand-gold/30 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity animate-pulse" />
             </Link>
           </div>
 
@@ -113,9 +115,9 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
             </Link>
           ))}
           <Link
-            href="/contact"
+            href={lang === 'id' ? '/kontak' : '/en/contact'}
             onClick={() => setIsMenuOpen(false)}
-            className="block w-full text-center bg-brand-gold text-brand-blue font-bold py-3 rounded-xl"
+            className="block w-full text-center bg-brand-gold text-brand-blue font-bold py-3 rounded-xl shadow-lg"
           >
             {t.contact}
           </Link>

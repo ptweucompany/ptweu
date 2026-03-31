@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { productsBySlugID, productSlugsID, allProducts } from '../../../src/data/products';
 import { quarry } from '../../../src/data/company';
 import { ports, shippingMethods, leadTimes, exportData } from '../../../src/data/logistics';
+import CTASection from '../../../src/components/CTASection';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -101,17 +102,20 @@ export default async function ProdukDetailPage({ params }: Props) {
           <h1 className="text-white text-4xl sm:text-5xl font-bold leading-tight max-w-3xl">{product.name_id}</h1>
           <p className="text-[#C8A84B] text-xl mt-3 font-medium">{product.hero_subtitle_id}</p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <a
-              href={`https://wa.me/628114344168?text=Halo%20PT%20WEU%2C%20saya%20ingin%20menanyakan%20${encodeURIComponent(product.name_id)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#C8A84B] hover:bg-[#b8933b] text-[#0A1628] font-bold rounded-lg transition-colors duration-200"
+            <Link
+              href={`/kontak?product=${product.slug_id}`}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#C8A84B] hover:bg-[#b8933b] text-[#0A1628] font-bold rounded-lg transition-colors duration-200"
             >
               Request Quote / Penawaran
-            </a>
-            <Link href="/contact" className="inline-flex items-center px-6 py-3 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors duration-200">
-              Minta Sampel
             </Link>
+            <a
+              href={`https://wa.me/628114344168?text=Halo%20PT%20WEU%2C%20saya%20ingin%20konsultasi%20mengenai%20${encodeURIComponent(product.name_id)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors duration-200"
+            >
+              WhatsApp Sales
+            </a>
           </div>
         </div>
       </section>
@@ -457,32 +461,26 @@ export default async function ProdukDetailPage({ params }: Props) {
       </section>
 
       {/* ── 15. CTA ─────────────────────────────────────────────── */}
-      <section className="bg-[#0A1628] py-20" aria-label="Hubungi PT WEU">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-white text-2xl sm:text-3xl font-bold">
-            Siap Memesan {product.name_id}?
-          </h2>
-          <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
-            Hubungi tim teknis kami untuk penawaran harga, jadwal pengiriman, dan uji sampel laboratorium.
-          </p>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={`https://wa.me/628114344168?text=Halo%20PT%20WEU%2C%20saya%20ingin%20penawaran%20${encodeURIComponent(product.name_id)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold rounded-lg transition-colors duration-200"
-            >
-              WhatsApp: 0811 4344 168
-            </a>
-            <a href="tel:+62434260308" className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors duration-200">
-              (0434) 260 3008
-            </a>
-            <Link href="/contact" className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors duration-200">
-              Form Penawaran
-            </Link>
-          </div>
+      <CTASection
+        type="quote"
+        product={product.slug_id}
+        lang="id"
+        variant="dark"
+      />
+
+      {/* ── 16. STICKY MOBILE CTA ───────────────────────────────── */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-white/80 backdrop-blur-md border-t border-gray-200 lg:hidden flex items-center justify-between shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+        <div>
+          <p className="text-[#0A1628] font-bold text-sm leading-tight">{product.name_id}</p>
+          <p className="text-gray-500 text-[10px] uppercase font-semibold">Ready for Supply</p>
         </div>
-      </section>
+        <Link
+          href={`/kontak?product=${product.slug_id}`}
+          className="px-6 py-2.5 bg-[#C8A84B] text-[#0A1628] font-bold text-sm rounded-lg shadow-sm"
+        >
+          Minta Harga
+        </Link>
+      </div>
     </>
   );
 }

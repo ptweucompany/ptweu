@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { exportDestBySlug, exportSlugs } from '../../../../src/data/locations';
 import { allProducts } from '../../../../src/data/products';
+import CTASection from '../../../../src/components/CTASection';
 
 interface Props { params: Promise<{ slug: string }>; }
 export async function generateStaticParams() { return exportSlugs.map((slug) => ({ slug })); }
@@ -51,9 +52,21 @@ export default async function EnLocationsPage({ params }: Props) {
           <p className="text-[#C8A84B] text-sm font-bold uppercase tracking-widest mb-2">{dest.region_en} · Export Market</p>
           <h1 className="text-white text-4xl sm:text-5xl font-bold max-w-3xl">Export Limestone &amp; Minerals to {dest.country_en}</h1>
           <p className="text-gray-300 text-lg mt-3">From Port Bitung, North Sulawesi — PT Wira Energi Utama</p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a href={`https://wa.me/628114344168?text=Hello%20PT%20WEU%2C%20I%20need%20export%20quote%20to%20${encodeURIComponent(dest.country_en)}`} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-[#C8A84B] text-[#0A1628] font-bold rounded-lg hover:bg-[#b8933b] transition-colors">Request Export Quote</a>
-            <Link href="/contact" className="px-6 py-3 border border-white/30 text-white rounded-lg hover:border-[#C8A84B] transition-colors">Contact Export Team</Link>
+          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <Link
+              href={`/en/contact?delivery=${dest.country_en}`}
+              className="px-8 py-4 bg-[#C8A84B] text-[#0A1628] font-bold rounded-lg hover:bg-[#b8933b] transition-colors shadow-lg text-center"
+            >
+              Request Export Quote to {dest.country_en}
+            </Link>
+            <a
+              href={`https://wa.me/628114344168?text=Hello%20PT%20WEU%2C%20I%20would%20like%20to%20inquire%20export%20logistics%20to%20${encodeURIComponent(dest.country_en)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors text-center"
+            >
+              WhatsApp Export Team
+            </a>
           </div>
         </div>
       </section>
@@ -176,16 +189,12 @@ export default async function EnLocationsPage({ params }: Props) {
       </section>
 
       {/* 9. CTA */}
-      <section className="bg-[#0A1628] py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-white text-2xl sm:text-3xl font-bold">Ready to Import from Indonesia to {dest.country_en}?</h2>
-          <p className="text-gray-300 mt-4">Contact our export team for FOB/CIF pricing, shipping schedule, and sample request.</p>
-          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-            <a href={`https://wa.me/628114344168?text=Hello%20PT%20WEU%2C%20I%20need%20export%20quote%20to%20${encodeURIComponent(dest.country_en)}`} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold rounded-lg">WhatsApp Export Team</a>
-            <Link href="/contact" className="w-full sm:w-auto inline-flex justify-center items-center px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors">Export Inquiry Form</Link>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        type="availability"
+        delivery={dest.country_en}
+        lang="en"
+        variant="dark"
+      />
     </>
   );
 }

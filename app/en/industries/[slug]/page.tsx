@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { industriesFullBySlugEN, industrySlugsEN } from '../../../../src/data/industryFull';
 import { allProducts } from '../../../../src/data/products';
 import { ports } from '../../../../src/data/logistics';
+import CTASection from '../../../../src/components/CTASection';
 
 interface Props { params: Promise<{ slug: string }>; }
 export async function generateStaticParams() { return industrySlugsEN.map((slug) => ({ slug })); }
@@ -57,9 +58,21 @@ export default async function EnIndustriesPage({ params }: Props) {
           <span className="inline-block px-3 py-1 bg-[#C8A84B]/20 border border-[#C8A84B]/40 text-[#C8A84B] text-xs font-bold rounded-full mb-3">{ind.hero_tag}</span>
           <h1 className="text-white text-4xl sm:text-5xl font-bold max-w-3xl">{ind.name_en}</h1>
           <p className="text-gray-300 text-lg mt-3">Industrial mineral solutions — PT Wira Energi Utama, North Sulawesi</p>
-          <div className="mt-8 flex gap-4">
-            <a href={`https://wa.me/628114344168?text=Hello%20PT%20WEU%2C%20inquiry%20for%20${encodeURIComponent(ind.name_en)}`} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-[#C8A84B] text-[#0A1628] font-bold rounded-lg hover:bg-[#b8933b] transition-colors">Request Quote</a>
-            <Link href="/contact" className="px-6 py-3 border border-white/30 text-white rounded-lg hover:border-[#C8A84B] transition-colors">Contact Us</Link>
+          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <Link
+              href={`/en/contact?industry=${slug}`}
+              className="px-8 py-4 bg-[#C8A84B] text-[#0A1628] font-bold rounded-lg hover:bg-[#b8933b] transition-colors shadow-lg text-center"
+            >
+              Request Quote
+            </Link>
+            <a
+              href={`https://wa.me/628114344168?text=Hello%20PT%20WEU%2C%20I%20would%20like%20to%20consult%20regarding%20minerals%20for%20${encodeURIComponent(ind.name_en)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors text-center"
+            >
+              WhatsApp Sales
+            </a>
           </div>
         </div>
       </section>
@@ -171,16 +184,12 @@ export default async function EnIndustriesPage({ params }: Props) {
           </div>
         </div>
       </section>
-      <section className="bg-[#0A1628] py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-white text-2xl sm:text-3xl font-bold">Need Minerals for {ind.name_en}?</h2>
-          <p className="text-gray-300 mt-4">Our technical team is ready to help with specifications and competitive pricing.</p>
-          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-            <a href={`https://wa.me/628114344168?text=Hello%20PT%20WEU%2C%20I%20need%20minerals%20for%20${encodeURIComponent(ind.name_en)}`} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold rounded-lg">WhatsApp: +62 811 4344 168</a>
-            <Link href="/contact" className="w-full sm:w-auto inline-flex justify-center items-center px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors">Inquiry Form</Link>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        type="consult"
+        industry={slug}
+        lang="en"
+        variant="dark"
+      />
     </>
   );
 }

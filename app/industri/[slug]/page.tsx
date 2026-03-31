@@ -6,6 +6,7 @@ import { industriesFullBySlug, industrySlugsID } from '../../../src/data/industr
 import { allProducts } from '../../../src/data/products';
 import { ports } from '../../../src/data/logistics';
 import { company } from '../../../src/data/company';
+import CTASection from '../../../src/components/CTASection';
 
 interface Props { params: Promise<{ slug: string }>; }
 
@@ -74,13 +75,20 @@ export default async function IndustriPage({ params }: Props) {
           <h1 className="text-white text-4xl sm:text-5xl font-bold leading-tight max-w-3xl">{ind.name_id}</h1>
           <p className="text-gray-300 text-lg mt-3 max-w-2xl">Solusi mineral industri dari PT Wira Energi Utama — Ratatotok, Sulawesi Utara</p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <a href={`https://wa.me/628114344168?text=Halo%20PT%20WEU%2C%20saya%20dari%20${encodeURIComponent(ind.name_id)}`} target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#C8A84B] hover:bg-[#b8933b] text-[#0A1628] font-bold rounded-lg transition-colors">
-              Request Penawaran
-            </a>
-            <Link href="/catalog" className="inline-flex items-center px-6 py-3 border border-white/30 text-white rounded-lg hover:border-[#C8A84B] transition-colors">
-              Unduh Katalog
+            <Link
+              href={`/kontak?industry=${slug}`}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#C8A84B] hover:bg-[#b8933b] text-[#0A1628] font-bold rounded-lg transition-colors shadow-lg"
+            >
+              Request Penawaran Industri
             </Link>
+            <a
+              href={`https://wa.me/628114344168?text=Halo%20PT%20WEU%2C%20saya%20ingin%20konsultasi%20mineral%20untuk%20sektor%20${encodeURIComponent(ind.name_id)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors"
+            >
+              WhatsApp Sales
+            </a>
           </div>
         </div>
       </section>
@@ -311,21 +319,12 @@ export default async function IndustriPage({ params }: Props) {
       </section>
 
       {/* 15. CTA */}
-      <section className="bg-[#0A1628] py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-white text-2xl sm:text-3xl font-bold">Butuh Mineral Industri untuk {ind.name_id}?</h2>
-          <p className="text-gray-300 mt-4">Tim teknis kami siap membantu menentukan spesifikasi dan memberikan penawaran kompetitif.</p>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href={`https://wa.me/628114344168?text=Halo%20PT%20WEU%2C%20saya%20dari%20${encodeURIComponent(ind.name_id)}%20dan%20membutuhkan%20penawaran`} target="_blank" rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold rounded-lg transition-colors">
-              WhatsApp: 0811 4344 168
-            </a>
-            <Link href="/contact" className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors">
-              Formulir Penawaran
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        type="consult"
+        industry={slug}
+        lang="id"
+        variant="dark"
+      />
     </>
   );
 }

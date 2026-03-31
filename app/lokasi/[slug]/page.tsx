@@ -7,6 +7,7 @@ import { allProducts } from '../../../src/data/products';
 import { industriesFull } from '../../../src/data/industryFull';
 import { legal } from '../../../src/data/company';
 import { ports, leadTimes } from '../../../src/data/logistics';
+import CTASection from '../../../src/components/CTASection';
 
 interface Props { params: Promise<{ slug: string }>; }
 
@@ -75,10 +76,12 @@ export default async function LokasiPage({ params }: Props) {
           <h1 className="text-white text-4xl sm:text-5xl font-bold max-w-3xl">{loc.name_id}</h1>
           <p className="text-gray-300 text-lg mt-3">Distribusi Mineral Industri — PT Wira Energi Utama</p>
           <div className="mt-8">
-            <a href="https://wa.me/628114344168" target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#C8A84B] hover:bg-[#b8933b] text-[#0A1628] font-bold rounded-lg transition-colors">
-              Tanya Distribusi ke {loc.name_id}
-            </a>
+            <Link
+              href={`/kontak?location=${loc.name_id}`}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#C8A84B] hover:bg-[#b8933b] text-[#0A1628] font-bold rounded-lg transition-colors shadow-lg"
+            >
+              Cek Biaya Distribusi ke {loc.name_id}
+            </Link>
           </div>
         </div>
       </section>
@@ -256,20 +259,12 @@ export default async function LokasiPage({ params }: Props) {
         </div>
       </section>
 
-      {/* 12. CTA */}
-      <section className="bg-[#0A1628] py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-white text-2xl sm:text-3xl font-bold">Distribusi ke {loc.name_id}</h2>
-          <p className="text-gray-300 mt-4">Hubungi kami untuk informasi pengiriman, jadwal tongkang, dan penawaran harga ke wilayah Anda.</p>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="https://wa.me/628114344168" target="_blank" rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold rounded-lg">
-              WhatsApp: 0811 4344 168
-            </a>
-            <Link href="/contact" className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors">Form Penawaran</Link>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        type="availability"
+        delivery={loc.name_id}
+        lang="id"
+        variant="dark"
+      />
     </>
   );
 }

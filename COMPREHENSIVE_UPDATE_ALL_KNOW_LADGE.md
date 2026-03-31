@@ -91,15 +91,29 @@ Moving to Next.js 16.1.6 would provide:
   - **Material-Focused Visuals**: Redesigned the Landing Page product cards to use **High-Resolution Macro Imagery** of actual minerals (Limestone, CaCO3, Burn Lime, Hydrated Lime, PCC) with 700ms zoom-in hover effects.
 - **Asset Reorganization**: Optimized the `public/products/` directory with clean, descriptive naming conventions to resolve 404 indexing issues and improve asset management.
 
-## 8. Build & Route Topology
+## 9. Recent Upgrades (March 2026 Phase 3 — Lead Engine & Conversion)
+- **Smart Inquiry System**: Implemented a professional **4-step B2B multi-step form** (`InquiryForm.tsx`) featuring per-step validation (Contact → Product → Logistics → Details).
+- **Deep Parameter Integration**: The system now supports **URL pre-filling** (`?product`, `?industry`, `?delivery`), allowing users from specific SEO clusters to skip selection steps and jump directly into the qualification flow.
+- **Lead Qualification Flow**: Redesigned `/kontak` and `/en/contact` as high-trust lead acquisition hubs, incorporating office maps, FAQ, and real-time WhatsApp structured message generation.
+- **Contextual CTA Architecture**: Deployed a high-conversion `CTASection.tsx` with three specialized variants:
+  - **Quote**: Focused on direct mineral pricing (Products & Landing).
+  - **Consult**: Focused on industrial specifications (Industry Clusters).
+  - **Availability**: Focused on shipping lead times and FOB/CIF (Location/Export Clusters).
+- **Conversion-Optimized UX**:
+  - **Mobile Sticky Bar**: Persistent "Mulai Penawaran" bars on product pages for maximum thumb-reach conversion.
+  - **Navbar Lead Highlight**: Shimmer and pulsate effects on the Navbar "Kontak" button to guide users toward the primary business objective.
+- **Technical Resilience**: Resolved Next.js static prerendering issues by modularizing interactive scroll handlers into the `LeadScrollButton.tsx` client component.
+
+## 10. Build & Route Topology
 The application is optimized for **Static Site Generation (SSG)** via Next.js 16.1.6 (Turbopack).
 
-### Build Metrics (Latest)
+### Build Metrics (Phase 3 Final)
+- **Total Prerendered Pages:** 63+
 - **Compilation Time:** 22.9s
 - **TypeScript Verification:** 12.6s
 - **Page Data Collection:** 1339.8ms
 
-### Application Sitemap
+### Application Sitemap (Updated)
 ```text
 Route (app)
 ┌ ○ /                           (Home)
@@ -110,19 +124,26 @@ Route (app)
 ├ ● /blog/[id]                  (Dynamic Article: 1, 2, 3)
 ├ ○ /catalog                    (Product Catalog)
 ├ ○ /company-profile            (Corporate Hub)
-├ ○ /contact                    (Direct Inquiry)
+├ ○ /en/contact                 (EN Inquiry Hub)
+├ ● /en/industries/[slug]       (EN Industries: Steel, PLTU, etc.)
+├ ● /en/locations/[slug]        (EN Export: Global, Australia, etc.)
+├ ● /en/products/[slug]         (EN Products: Limestone, etc.)
 ├ ○ /governance-standards       (EN Governance)
 ├ ○ /governansi-standar         (ID Governansi)
 ├ ○ /html-sitemap               (SEO Sitemap)
+├ ○ /industri                   (ID Industri Hub)
+├ ● /industri/[slug]            (ID Industri: Semen, Baja, etc.)
 ├ ○ /katalog                    (ID Katalog)
+├ ○ /kontak                     (ID Inquiry Hub)
+├ ○ /lokasi                     (ID Lokasi Hub)
+├ ● /lokasi/[slug]              (ID Lokasi: Manado, Bitung, etc.)
 ├ ○ /privacy                    (Legal Privacy)
 ├ ○ /products                   (Product Overview)
-├ ● /products/[slug]            (EN Deep-dive: Limestone, CaCO3, etc.)
-├ ○ /produk                     (ID Produk)
-├ ● /produk/[slug]              (ID Deep-dive: Batu Kapur, etc.)
+├ ○ /produk                     (ID Produk Summary)
+├ ● /produk/[slug]              (ID Produk Deep-dive)
 ├ ○ /robots.txt                 (Crawler Policy)
-├ ○ /sitemap.xml                (Search Index)
+├ ○ /sitemap.xml                (Search Index Index)
 └ ○ /tentang-kami               (ID Tentang Kami)
 ```
 
-*Last Updated: March 31, 2026*
+*Last Updated: March 31, 2026 (Completion of Phase 3)*
