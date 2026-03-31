@@ -77,6 +77,52 @@ Moving to Next.js 16.1.6 would provide:
 - **Visual Overhaul:** Replaced all generic and mock AI images with high-resolution, industry-contextual visuals (drone shots, heavy machinery, labs) accompanied by highly descriptive, SEO-optimized `alt` tags emphasizing PT Wira Energi Utama's operations.
 - **PDF Generation:** Implemented a robust A4 PDF exporter for the `/company-profile` utilizing `html2canvas` and `jsPDF`, complete with UX loading states.
 - **SEO Mastery:** Structured global and route-specific metadata across the Next.js App Router (OG, Twitter, Keywords), leveraging `og-image.webp`, and programmatically generating `sitemap.xml` and `robots.txt` for absolute crawler optimization.
-- **Deployment Strategy:** Configured pure static HTML export (`output: 'export'`) in `next.config.js` to guarantee seamless, error-free deployment on Cloudflare Pages.
+- **Deployment Strategy:** Configured pure static HTML export (`output: 'export'`) in `next.config.js` to guarantee seamless, error-free deployment on Cloudflare Pages or Vercel.
 
-*Last Updated: March 12, 2026*
+---
+
+## 7. Recent Upgrades (March 2026 Phase 6 - Governance & Visuals)
+- **Governance & ISO Readiness**: 
+  - Implemented the **Governance & Standards** portal (`/governansi-standar` & `/governance-standards`) to support ISO 9001, 14001, and 45001 certification.
+  - Features an interactive **ISO Certification Roadmap** and live **Safety/Environmental Dashboards** (LTI, Fatality, Reclamation rates).
+  - Explicitly indexed official legal registry data (NIB, IUP) to demonstrate corporate transparency to auditors.
+- **UI/UX Modernization**:
+  - **Navbar Optimization**: Removed the "Home" icon and "Blog" link from the top navigation for a text-first, high-end professional aesthetic.
+  - **Material-Focused Visuals**: Redesigned the Landing Page product cards to use **High-Resolution Macro Imagery** of actual minerals (Limestone, CaCO3, Burn Lime, Hydrated Lime, PCC) with 700ms zoom-in hover effects.
+- **Asset Reorganization**: Optimized the `public/products/` directory with clean, descriptive naming conventions to resolve 404 indexing issues and improve asset management.
+
+## 8. Build & Route Topology
+The application is optimized for **Static Site Generation (SSG)** via Next.js 16.1.6 (Turbopack).
+
+### Build Metrics (Latest)
+- **Compilation Time:** 22.9s
+- **TypeScript Verification:** 12.6s
+- **Page Data Collection:** 1339.8ms
+
+### Application Sitemap
+```text
+Route (app)
+┌ ○ /                           (Home)
+├ ○ /_not-found                 (404)
+├ ○ /about                      (About Us)
+├ ○ /api/status                 (Health Check)
+├ ○ /blog                       (News Archive)
+├ ● /blog/[id]                  (Dynamic Article: 1, 2, 3)
+├ ○ /catalog                    (Product Catalog)
+├ ○ /company-profile            (Corporate Hub)
+├ ○ /contact                    (Direct Inquiry)
+├ ○ /governance-standards       (EN Governance)
+├ ○ /governansi-standar         (ID Governansi)
+├ ○ /html-sitemap               (SEO Sitemap)
+├ ○ /katalog                    (ID Katalog)
+├ ○ /privacy                    (Legal Privacy)
+├ ○ /products                   (Product Overview)
+├ ● /products/[slug]            (EN Deep-dive: Limestone, CaCO3, etc.)
+├ ○ /produk                     (ID Produk)
+├ ● /produk/[slug]              (ID Deep-dive: Batu Kapur, etc.)
+├ ○ /robots.txt                 (Crawler Policy)
+├ ○ /sitemap.xml                (Search Index)
+└ ○ /tentang-kami               (ID Tentang Kami)
+```
+
+*Last Updated: March 31, 2026*

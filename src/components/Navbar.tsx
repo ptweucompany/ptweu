@@ -1,6 +1,6 @@
 'use client';
 
-import { Globe, Menu, X, Home as HomeIcon } from 'lucide-react';
+import { Globe, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -22,7 +22,7 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
     { name: t.products, href: lang === 'id' ? '/produk' : '/products' },
     { name: t.about, href: lang === 'id' ? '/tentang-kami' : '/about' },
     { name: t.catalog, href: '/katalog' },
-    { name: t.blog, href: '/blog' },
+    { name: t.governance, href: lang === 'id' ? '/governansi-standar' : '/governance-standards' },
   ];
 
   return (
@@ -43,13 +43,12 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/" className={`text-sm font-medium hover:text-brand-gold transition-colors flex items-center ${isHome ? 'text-brand-gold' : ''}`}>
-              <HomeIcon size={16} className="mr-1" />
               Home
             </Link>
             
             {navLinks.map((link) => (
               <Link
-                key={link.name}
+                key={link.href}
                 href={link.href}
                 className={`text-sm font-medium hover:text-brand-gold transition-colors ${pathname === link.href ? 'text-brand-gold border-b-2 border-brand-gold pb-1' : ''}`}
               >

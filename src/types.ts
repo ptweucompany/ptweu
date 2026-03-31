@@ -7,6 +7,7 @@ export interface Translation {
     catalog: string;
     blog: string;
     qa: string;
+    governance: string;
     contact: string;
   };
   hero: {
@@ -234,6 +235,7 @@ export interface Translation {
     rights: string;
     links: { label: string; href: string }[];
   };
+  advancedGovernance: AdvancedGovernanceData;
 }
 
 export interface AdvancedAboutData {
@@ -306,4 +308,14 @@ export interface ProductPageData {
     button: string;
     whatsapp: string;
   };
+}
+
+export interface AdvancedGovernanceData {
+  hero: { title: string; subtitle: string; description: string; image: string };
+  roadmap: { title: string; subtitle: string; steps: { title: string; desc: string; status: 'completed' | 'in-progress' | 'planned' }[] };
+  standards: { title: string; subtitle: string; items: { id: string; title: string; desc: string; status: string }[] };
+  policies: { title: string; items: { title: string; content: string; icon: string }[] };
+  legal: { title: string; subtitle: string; items: { label: string; value: string }[] };
+  safety: { title: string; content: string; kpis: { label: string; value: string }[] };
+  environmental: { title: string; content: string; metrics: { label: string; value: string }[] };
 }

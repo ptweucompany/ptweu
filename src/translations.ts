@@ -1,6 +1,7 @@
 import { Translation } from './types';
 
 export const translations: Record<'id' | 'en', Translation> = {
+  // PT Wira Energi Utama - Corporate Data
   id: {
     nav: {
       about: 'Tentang Kami',
@@ -8,6 +9,7 @@ export const translations: Record<'id' | 'en', Translation> = {
       catalog: 'Katalog',
       blog: 'Blog',
       qa: 'Kualitas',
+      governance: 'Governansi',
       contact: 'Hubungi Kami',
     },
     hero: {
@@ -967,13 +969,78 @@ export const translations: Record<'id' | 'en', Translation> = {
       ]
     },
     footer: {
-      rights: 'Hak Cipta Terpelihara.',
+      rights: 'Seluruh Hak Cipta Dilindungi.',
       links: [
-        { label: 'Tentang', href: '/about' },
-        { label: 'Produk', href: '/products' },
+        { label: 'Tentang', href: '/tentang-kami' },
+        { label: 'Produk', href: '/produk' },
+        { label: 'Governansi', href: '/governansi-standar' },
         { label: 'Privasi', href: '/privacy' }
       ]
     },
+    advancedGovernance: {
+      hero: {
+        title: 'Governansi & Standar Operasional',
+        subtitle: 'Integritas melalui Kepatuhan dan Keamanan Tanpa Kompromi.',
+        description: 'PT Wira Energi Utama menjunjung tinggi standar internasional dalam setiap aspek operasional pertambangan, memastikan kualitas berkelanjutan demi kepuasan mitra dan kelestarian lingkungan.',
+        image: '/mining-bg.webp'
+      },
+      roadmap: {
+        title: 'Roadmap Sertifikasi ISO',
+        subtitle: 'Komitmen kami menuju standarisasi global tingkat tinggi.',
+        steps: [
+          { title: 'Persiapan & Gap Analysis', desc: 'Peninjauan mendalam terhadap SOP internal dan penyesuaian dengan standar ISO.', status: 'completed' },
+          { title: 'Implementasi Sistem Mangement', desc: 'Penerapan protokol ISO di seluruh lini operasional tambang dan kantor.', status: 'in-progress' },
+          { title: 'Audit Internal & Review', desc: 'Validasi kepatuhan sistem sebelum audit eksternal formal.', status: 'planned' },
+          { title: 'Sertifikasi Final', desc: 'Audit akhir dan penerbitan sertifikat ISO resmi.', status: 'planned' }
+        ]
+      },
+      standards: {
+        title: 'Kerangka Kerja Standar',
+        subtitle: 'Pilar-pilar kualitas yang kami jalankan setiap hari.',
+        items: [
+          { id: 'ISO 9001:2015', title: 'Manajemen Mutu', desc: 'Menjamin konsistensi kualitas mineral dan efisiensi rantai pasok.', status: 'Candidate' },
+          { id: 'ISO 14001:2015', title: 'Manajemen Lingkungan', desc: 'Meminimalkan jejak ekologis melalui reklamasi progresif.', status: 'Candidate' },
+          { id: 'ISO 45001:2018', title: 'Keselamatan & Kesehatan', desc: 'Standar global untuk perlindungan tenaga kerja di area tambang.', status: 'Implementation' },
+          { id: 'SMK3', title: 'K3 Nasional', desc: 'Sistem Manajemen Keselamatan dan Kesehatan Kerja sesuai regulasi RI.', status: 'Certified' }
+        ]
+      },
+      policies: {
+        title: 'Kebijakan Perusahaan',
+        items: [
+          { title: 'Kebijakan Mutu', content: 'Memberikan produk mineral dengan kemurnian tinggi secara transparan dan tepat waktu.', icon: 'Award' },
+          { title: 'Kebijakan Lingkungan', content: 'Melakukan penambangan yang bertanggung jawab dengan komitmen reklamasi 100%.', icon: 'Leaf' },
+          { title: 'Kebijakan K7', content: 'Keamanan, Ketertiban, Keindahan, Kebersihan, Kekeluargaan, Kerindangan, dan Kesehatan.', icon: 'Shield' }
+        ]
+      },
+      legal: {
+        title: 'Legalitas & Perizinan',
+        subtitle: 'Entitas hukum yang terdaftar dan patuh pada regulasi Indonesia.',
+        items: [
+          { label: 'NIB (Nomor Induk Berusaha)', value: '812000xxxxxxx (Terverifikasi)' },
+          { label: 'IUP (Izin Usaha Pertambangan)', value: 'OP No. 503/xxxx (Aktif)' },
+          { label: 'Domisili Perusahaan', value: 'Manado & Kotamobagu' },
+          { label: 'Status Pajak', value: 'PKP (Pengusaha Kena Pajak) Aktif' }
+        ]
+      },
+      safety: {
+        title: 'KPI Keselamatan (K3)',
+        content: 'Kami memantau setiap metrik keselamatan untuk memastikan lingkungan kerja risiko rendah.',
+        kpis: [
+          { label: 'Fatality Rate', value: '0%' },
+          { label: 'Lost Time Injury (LTI)', value: '0' },
+          { label: 'Safety Induction', value: '100%' }
+        ]
+      },
+      environmental: {
+        title: 'Metrik Lingkungan',
+        content: 'Data operasional terkait pelestarian alam di area Ratatotok.',
+        metrics: [
+          { label: 'Area Reklamasi', value: 'Target 1:1' },
+          { label: 'Pengelolaan Limbah', value: 'Zero Waste Policy' },
+          { label: 'Kualitas Air', value: 'Sesuai Baku Mutu' }
+        ]
+      }
+    }
   },
   en: {
     nav: {
@@ -982,6 +1049,7 @@ export const translations: Record<'id' | 'en', Translation> = {
       catalog: 'Catalog',
       blog: 'Blog',
       qa: 'Quality',
+      governance: 'Governance',
       contact: 'Contact Us',
     },
     hero: {
@@ -1945,8 +2013,73 @@ export const translations: Record<'id' | 'en', Translation> = {
       links: [
         { label: 'About', href: '/about' },
         { label: 'Products', href: '/products' },
+        { label: 'Governance', href: '/governance-standards' },
         { label: 'Privacy', href: '/privacy' }
       ]
     },
+    advancedGovernance: {
+      hero: {
+        title: 'Governance & Operational Standards',
+        subtitle: 'Integrity through Uncompromising Compliance and Safety.',
+        description: 'PT Wira Energi Utama upholds international standards in every aspect of mining operations, ensuring sustainable quality for partner satisfaction and environmental preservation.',
+        image: '/mining-bg.webp'
+      },
+      roadmap: {
+        title: 'ISO Certification Roadmap',
+        subtitle: 'Our commitment toward high-level global standardization.',
+        steps: [
+          { title: 'Preparation & Gap Analysis', desc: 'In-depth review of internal SOPs and alignment with ISO standards.', status: 'completed' },
+          { title: 'IMS Implementation', desc: 'Application of ISO protocols across all mining and office operational lines.', status: 'in-progress' },
+          { title: 'Internal Audit & Review', desc: 'System compliance validation before formal external audits.', status: 'planned' },
+          { title: 'Final Certification', desc: 'Final audit and issuance of official ISO certificates.', status: 'planned' }
+        ]
+      },
+      standards: {
+        title: 'Standard Framework',
+        subtitle: 'Quality pillars we operate by every day.',
+        items: [
+          { id: 'ISO 9001:2015', title: 'Quality Management', desc: 'Ensuring consistency in mineral quality and supply chain efficiency.', status: 'Candidate' },
+          { id: 'ISO 14001:2015', title: 'Environmental Management', desc: 'Minimizing ecological footprint through progressive reclamation.', status: 'Candidate' },
+          { id: 'ISO 45001:2018', title: 'Health & Safety', desc: 'Global standards for labor protection in mining areas.', status: 'Implementation' },
+          { id: 'SMK3', title: 'National OHS', desc: 'Occupational Health and Safety Management System per RI regulations.', status: 'Certified' }
+        ]
+      },
+      policies: {
+        title: 'Corporate Policies',
+        items: [
+          { title: 'Quality Policy', content: 'Delivering high-purity mineral products transparently and on time.', icon: 'Award' },
+          { title: 'Environmental Policy', content: 'Conducting responsible mining with 100% reclamation commitment.', icon: 'Leaf' },
+          { title: 'HSE Culture', content: 'Health, Safety, and Environment prioritized across all logistics and production.', icon: 'Shield' }
+        ]
+      },
+      legal: {
+        title: 'Legalities & Licensing',
+        subtitle: 'A legally registered entity compliant with Indonesian regulations.',
+        items: [
+          { label: 'NIB (Business ID)', value: '812000xxxxxxx (Verified)' },
+          { label: 'IUP (Mining License)', value: 'OP No. 503/xxxx (Active)' },
+          { label: 'Domicile', value: 'Manado & Kotamobagu' },
+          { label: 'Tax Status', value: 'PKP (Taxable Entrepreneur) Active' }
+        ]
+      },
+      safety: {
+        title: 'Safety KPIs (OHS)',
+        content: 'We monitor every safety metric to ensure a low-risk working environment.',
+        kpis: [
+          { label: 'Fatality Rate', value: '0%' },
+          { label: 'Lost Time Injury (LTI)', value: '0' },
+          { label: 'Safety Induction', value: '100%' }
+        ]
+      },
+      environmental: {
+        title: 'Environmental Metrics',
+        content: 'Operational data related to natural preservation in the Ratatotok area.',
+        metrics: [
+          { label: 'Reclamation Area', value: 'Target 1:1' },
+          { label: 'Waste Management', value: 'Zero Waste Policy' },
+          { label: 'Water Quality', value: 'Meets Standards' }
+        ]
+      }
+    }
   },
-};
+}
