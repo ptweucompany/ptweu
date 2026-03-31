@@ -1,0 +1,26 @@
+{
+  "name": "PT Wira Energi Utama",
+  "short_name": "PT WEU",
+  "description": "Industrial limestone mining and mineral supply from Sulawesi Utara, Indonesia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A1628",
+  "theme_color": "#C8A84B",
+  "lang": "id",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "related_applications": []
+}
