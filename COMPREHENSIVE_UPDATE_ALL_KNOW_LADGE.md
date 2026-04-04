@@ -146,4 +146,24 @@ Route (app)
 └ ○ /tentang-kami               (ID Tentang Kami)
 ```
 
-*Last Updated: March 31, 2026 (Completion of Phase 3)*
+## 11. Recent Upgrades (April 2026 Phase: Final Hardening & B2B Leads)
+- **Interactive "Mini Page" Modal System**:
+  - Implemented a motion-powered modal system in `AdvancedCatalog.tsx` to provide deep technical insights without page transitions.
+  - Deployed premium macro product photography for *Limestone Lumpy, Concrete Aggregate, CaCO3 Powder, and PCC Nanoscale*.
+  - Enhanced B2B trust by integrating catalog download metadata (File Size, Versioning) into the primary PDF CTA.
+- **Structural SEO Authority Engine**:
+  - Refactored `src/data/internalLinks.ts` to provide a robust, multi-language bidirectional mapping between Industries and Products.
+  - Standardized URL pairs (`id` and `en`) for all major route clusters, ensuring 100% crawl integrity for search engines.
+- **Technical Softening & Build Reliability**:
+  - Resolved critical Next.js 16 static export errors triggered by undefined property access (`auth` destructuring errors) during prerendering.
+  - Eliminated build-time blockers by optimizing component imports and ensuring all data schemas are strictly validated against the App Router.
+- **Conversion Pressure Integration**:
+  - Successfully deployed `ScrollIntentWrapper`, `ScrollIntentCTA`, and `TrustMicroSection` as global layout components to capture and qualify B2B traffic.
+  - Finalized the **InstaPage Performance** baseline with optimized `.webp` hero assets and zero client-side routing latency.
+
+### Build Metrics (Final Hardened Release)
+- **Total Prerendered Pages:** 65+
+- **Build Outcome:** **SUCCESSFUL** ✅
+- **Static Export Status:** Optimized for Cloudflare Pages / Vercel Edge.
+
+*Last Updated: April 4, 2026 (Completion of Initial Technical Hardening)*
