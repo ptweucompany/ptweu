@@ -13,8 +13,9 @@ export const translations: Record<'id' | 'en', Translation> = {
       contact: 'Hubungi Kami',
     },
     hero: {
+      badge: 'Mining, General Trading & Industrial Supplier',
       title: 'PT Wira Energi Utama',
-      subtitle: 'General Trade, Mining & Supplier.',
+      subtitle: '- Supplier Batu Kapur & CaCO3 Industri\n- Produksi 150.000 MT/bulan • Distribusi via Pelabuhan Bitung, Belang & Kotabunan\n- Crushing Plant 250 TPH',
       cta: 'Hubungi Kami',
     },
     about: {
@@ -856,23 +857,49 @@ export const translations: Record<'id' | 'en', Translation> = {
           title: 'Batuan & Agregat',
           description: 'Material dasar untuk konstruksi dan infrastruktur.',
           items: [
-            { name: 'Limestone Lumpy', specs: '10-80mm, CaO >55%', tags: ['Fluxing', 'Construction'] },
-            { name: 'Agregat Beton', specs: 'Sesuai SNI', tags: ['Paving', 'Infrastruktur'] }
+            { 
+              name: 'Limestone Lumpy', 
+              specs: '10-80mm, CaO >55%', 
+              tags: ['Fluxing', 'Construction'],
+              image: '/products/limestone-lumpy.png',
+              details: ['Kemurnian CaO > 55%', 'Ukuran 10-80mm', 'Kadar air rendah', 'Ideal untuk industri baja & semen']
+            },
+            { 
+              name: 'Agregat Beton', 
+              specs: 'Sesuai SNI', 
+              tags: ['Paving', 'Infrastruktur'],
+              image: '/products/agregat-beton.png',
+              details: ['Sesuai standar SNI', 'Tekstur kasar & tajam', 'Minimum porisitas', 'Untuk konstruksi bangunan & jalan']
+            }
           ]
         },
         {
           title: 'Bubuk Kalsium',
           description: 'Kalsium karbonat halus untuk filler dan reaktan.',
           items: [
-            { name: 'Tepung CaCO3', specs: '325-2500 Mesh', tags: ['Paint', 'Plastic', 'Rubber'] },
-            { name: 'PCC Nanoscale', specs: 'High Purity', tags: ['Pharma', 'Paper'] }
+            { 
+              name: 'Tepung CaCO3', 
+              specs: '325-2500 Mesh', 
+              tags: ['Paint', 'Plastic', 'Rubber'],
+              image: '/products/tepung-caco3.png',
+              details: ['Super fine 325-2500 Mesh', 'Tingkat keputihan > 95%', 'Filler industri cat & plastik', 'Konsistensi ukuran partikel']
+            },
+            { 
+              name: 'PCC Nanoscale', 
+              specs: 'High Purity', 
+              tags: ['Pharma', 'Paper'],
+              image: '/products/pcc-nanoscale.png',
+              details: ['Precipitated Calcium Carbonate', 'Kemurnian farmasi', 'Struktur kristal terkontrol', 'Aplikasi kertas & obat-obatan']
+            }
           ]
         }
       ],
       download: {
         title: 'Dokumentasi Teknis',
         description: 'Unduh katalog lengkap kami dalam format PDF untuk akses spesifikasi terperinci di perangkat Anda.',
-        button: 'UNDUH KATALOG (PDF)'
+        button: 'UNDUH KATALOG (PDF)',
+        fileSize: '4.8 MB',
+        version: 'v2.4 (Mar 2024)'
       },
       industrial: {
         title: 'Aplikasi Lintas Sektor',
@@ -1053,8 +1080,9 @@ export const translations: Record<'id' | 'en', Translation> = {
       contact: 'Contact Us',
     },
     hero: {
+      badge: 'Mining, General Trading & Industrial Supplier',
       title: 'PT Wira Energi Utama',
-      subtitle: 'Leading Global Limestone & Lime Mining Industry.',
+      subtitle: '- Industrial Limestone & CaCO3 Supplier\n- Production 150,000 MT/month • Distribution via Bitung, Belang & Kotabunan Port\n- 250 TPH Crushing Plant',
       cta: 'Contact Us',
     },
     about: {
@@ -1896,23 +1924,49 @@ export const translations: Record<'id' | 'en', Translation> = {
           title: 'Rocks & Aggregates',
           description: 'Basic materials for construction and infrastructure.',
           items: [
-            { name: 'Limestone Lumpy', specs: '10-80mm, CaO >55%', tags: ['Fluxing', 'Construction'] },
-            { name: 'Concrete Aggregate', specs: 'According to SNI', tags: ['Paving', 'Infrastructure'] }
+            { 
+              name: 'Limestone Lumpy', 
+              specs: '10-80mm, CaO >55%', 
+              tags: ['Fluxing', 'Construction'],
+              image: '/products/limestone-lumpy.png',
+              details: ['CaO Purity > 55%', 'Size 10-80mm', 'Low moisture content', 'Ideal for steel & cement industry']
+            },
+            { 
+              name: 'Concrete Aggregate', 
+              specs: 'According to SNI', 
+              tags: ['Paving', 'Infrastructure'],
+              image: '/products/agregat-beton.png',
+              details: ['Complies with SNI standards', 'Rough & sharp texture', 'Minimum porosity', 'For building & road construction']
+            }
           ]
         },
         {
           title: 'Calcium Powder',
           description: 'Fine calcium carbonate for fillers and reactants.',
           items: [
-            { name: 'CaCO3 Powder', specs: '325-2500 Mesh', tags: ['Paint', 'Plastic', 'Rubber'] },
-            { name: 'PCC Nanoscale', specs: 'High Purity', tags: ['Pharma', 'Paper'] }
+            { 
+              name: 'CaCO3 Powder', 
+              specs: '325-2500 Mesh', 
+              tags: ['Paint', 'Plastic', 'Rubber'],
+              image: '/products/tepung-caco3.png',
+              details: ['Super fine 325-2500 Mesh', 'Whiteness level > 95%', 'Paint & plastic industry filler', 'Particle size consistency']
+            },
+            { 
+              name: 'PCC Nanoscale', 
+              specs: 'High Purity', 
+              tags: ['Pharma', 'Paper'],
+              image: '/products/pcc-nanoscale.png',
+              details: ['Precipitated Calcium Carbonate', 'Pharmaceutical purity', 'Controlled crystal structure', 'Paper & medicine applications']
+            }
           ]
         }
       ],
       download: {
         title: 'Technical Documentation',
         description: 'Download our complete catalog in PDF format for detailed specification access on your device.',
-        button: 'DOWNLOAD CATALOG (PDF)'
+        button: 'DOWNLOAD CATALOG (PDF)',
+        fileSize: '4.8 MB',
+        version: 'v2.4 (Mar 2024)'
       },
       industrial: {
         title: 'Cross-Sector Applications',

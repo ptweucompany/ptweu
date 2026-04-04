@@ -33,14 +33,14 @@ export default function Hero({ t, onContactClick }: HeroProps) {
         >
           <div className="inline-flex items-center space-x-2 bg-brand-gold/20 border border-brand-gold/30 px-3 py-1 rounded-full mb-6">
             <span className="w-2 h-2 bg-brand-gold rounded-full animate-pulse" />
-            <span className="text-brand-gold text-xs font-bold uppercase tracking-widest">Mining & Industrial Supplier</span>
+            <span className="text-brand-gold text-xs font-bold uppercase tracking-widest">{t.badge}</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
             {t.title}
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed whitespace-pre-line">
             {t.subtitle}
           </p>
 

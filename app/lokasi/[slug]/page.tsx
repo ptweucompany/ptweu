@@ -8,6 +8,7 @@ import { industriesFull } from '../../../src/data/industryFull';
 import { legal } from '../../../src/data/company';
 import { ports, leadTimes } from '../../../src/data/logistics';
 import CTASection from '../../../src/components/CTASection';
+import TrustMicroSection from '../../../src/components/TrustMicroSection';
 
 interface Props { params: Promise<{ slug: string }>; }
 
@@ -85,12 +86,33 @@ export default async function LokasiPage({ params }: Props) {
           </div>
         </div>
       </section>
+      
+      {/* 🔧 CONVERSION: TRUST REINFORCEMENT */}
+      <TrustMicroSection lang="id" />
 
       {/* 2. REGIONAL OVERVIEW */}
       <section className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-[#0A1628] text-2xl font-bold mb-4">Ikhtisar Regional</h2>
           <p className="text-gray-600 text-lg leading-relaxed max-w-4xl">{loc.overview_id}</p>
+        </div>
+      </section>
+
+      {/* 🔧 CONVERSION: MID-CONTENT CTA */}
+      <section className="bg-gray-50 py-12 border-y border-gray-200">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="max-w-2xl">
+            <h3 className="text-[#0A1628] text-2xl font-bold mb-2 uppercase tracking-tight">Cek Biaya Logistik ke {loc.name_id}</h3>
+            <p className="text-gray-500 font-medium">
+              Dapatkan estimasi biaya pengiriman dan jadwal sandar tongkang untuk wilayah {loc.name_id} dan sekitarnya.
+            </p>
+          </div>
+          <Link 
+            href={`/kontak?location=${slug}&inquiry=logistics`}
+            className="w-full md:w-auto px-10 py-5 bg-[#0A1628] text-white font-black rounded-2xl hover:bg-[#1a2b45] transition-all shadow-xl text-center whitespace-nowrap"
+          >
+            Minta Estimasi Logistik →
+          </Link>
         </div>
       </section>
 
@@ -259,11 +281,14 @@ export default async function LokasiPage({ params }: Props) {
         </div>
       </section>
 
+      {/* 11. CTA */}
       <CTASection
         type="availability"
         delivery={loc.name_id}
         lang="id"
         variant="dark"
+        customHeading={`Cek Ketersediaan Stok untuk area ${loc.name_id}`}
+        customCTA="Cek Jadwal Pengiriman Sekarang →"
       />
     </>
   );

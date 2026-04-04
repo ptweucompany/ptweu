@@ -6,6 +6,8 @@ import { industriesFullBySlugEN, industrySlugsEN } from '../../../../src/data/in
 import { allProducts } from '../../../../src/data/products';
 import { ports } from '../../../../src/data/logistics';
 import CTASection from '../../../../src/components/CTASection';
+import { internalLinks } from '../../../../src/data/internalLinks';
+import TrustMicroSection from '../../../../src/components/TrustMicroSection';
 
 interface Props { params: Promise<{ slug: string }>; }
 export async function generateStaticParams() { return industrySlugsEN.map((slug) => ({ slug })); }
@@ -43,8 +45,17 @@ export default async function EnIndustriesPage({ params }: Props) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       {/* HERO */}
-      <section className="relative bg-[#0A1628] min-h-[55vh] flex items-end overflow-hidden">
-        <Image src="/mining-bg.webp" alt={ind.name_en} fill priority quality={80} sizes="100vw" className="object-cover opacity-35" />
+      <section className="relative bg-[#0A1628] min-h-[55vh] flex items-end overflow-hidden" aria-label={`Hero - ${ind.name_en}`}>
+        <Image 
+          src="/mining-bg.webp" 
+          alt={ind.name_en} 
+          fill 
+          priority 
+          loading="eager" 
+          quality={80} 
+          sizes="100vw" 
+          className="object-cover opacity-35" 
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/60 to-transparent" aria-hidden />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pb-16 pt-32">
           <nav aria-label="Breadcrumb" className="mb-4">
@@ -66,7 +77,7 @@ export default async function EnIndustriesPage({ params }: Props) {
               Request Quote
             </Link>
             <a
-              href={`https://wa.me/628114344168?text=Hello%20PT%20WEU%2C%20I%20would%20like%20to%20consult%20regarding%20minerals%20for%20${encodeURIComponent(ind.name_en)}`}
+              href={`https://wa.me/628114344168?text=${encodeURIComponent(`Hello PT WEU, I am interested in ${ind.name_en} mineral solutions. Can I get more information?\n\nIndustry: ${ind.name_en}\nURL: ${BASE}/en/industries/${slug}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors text-center"
@@ -76,8 +87,12 @@ export default async function EnIndustriesPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* 🔧 PART 3 — TRUST REINFORCEMENT */}
+      <TrustMicroSection lang="en" />
+
       {/* OVERVIEW */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-16" aria-label="Industry Overview">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
             <h2 className="text-[#0A1628] text-2xl font-bold mb-4">{ind.name_en} Overview</h2>
@@ -97,14 +112,14 @@ export default async function EnIndustriesPage({ params }: Props) {
         </div>
       </section>
       {/* LIMESTONE ROLE */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-16" aria-label="Mineral Role">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-[#0A1628] text-2xl font-bold mb-4">Role of Limestone / CaCO3 in {ind.name_en}</h2>
           <p className="text-gray-600 text-lg leading-relaxed max-w-4xl">{ind.limestone_role_en}</p>
         </div>
       </section>
       {/* SPECS TABLE */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-16" aria-label="Technical Requirements">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-[#0A1628] text-2xl font-bold mb-8">Technical Requirements</h2>
           <div className="overflow-x-auto rounded-xl border border-gray-200">
@@ -116,7 +131,7 @@ export default async function EnIndustriesPage({ params }: Props) {
         </div>
       </section>
       {/* PROCESS STEPS */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-16" aria-label="Process Integration">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-[#0A1628] text-2xl font-bold mb-8">Process Integration</h2>
           <ol className="space-y-4">
@@ -130,7 +145,7 @@ export default async function EnIndustriesPage({ params }: Props) {
         </div>
       </section>
       {/* PAIN POINTS */}
-      <section className="bg-[#0A1628] py-16">
+      <section className="bg-[#0A1628] py-16" aria-label="Industry Challenges">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-white text-2xl font-bold mb-8">Industry Pain Points</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -138,15 +153,33 @@ export default async function EnIndustriesPage({ params }: Props) {
           </div>
         </div>
       </section>
+      {/* 🔧 CONVERSION: MID-CONTENT CTA */}
+      <section className="bg-white py-12 border-y border-gray-100" aria-label="Quick Consultation">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="max-w-2xl text-left">
+            <h3 className="text-[#0A1628] text-2xl font-bold mb-2 uppercase tracking-tight">Optimize Your {ind.name_en} Supply Chain</h3>
+            <p className="text-gray-500 font-medium leading-relaxed">
+              Consult your specific industrial technical and logistics requirements with PT WEU experts for maximum operational efficiency.
+            </p>
+          </div>
+          <Link 
+            href={`/en/contact?industry=${slug}&inquiry=consultation`}
+            className="w-full md:w-auto px-10 py-5 bg-[#0A1628] text-white font-black rounded-2xl hover:bg-[#1a2b45] transition-all shadow-xl uppercase tracking-widest text-sm whitespace-nowrap"
+          >
+            Start Industry Consultation →
+          </Link>
+        </div>
+      </section>
+
       {/* WEU VALUE */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-16" aria-label="PT WEU Value Proposition">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-[#0A1628] text-2xl font-bold mb-4">PT WEU Value Proposition</h2>
           <p className="text-gray-600 text-lg leading-relaxed max-w-4xl">{ind.weu_value_en}</p>
         </div>
       </section>
       {/* PRODUCTION */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-16" aria-label="Production Capability">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-[#0A1628] text-2xl font-bold mb-8">Production Capability</h2>
           <dl className="grid grid-cols-2 sm:grid-cols-4 gap-6">
@@ -157,7 +190,7 @@ export default async function EnIndustriesPage({ params }: Props) {
         </div>
       </section>
       {/* CASE + FAQ */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-16" aria-label="Use Case and FAQ">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-[#0A1628] text-2xl font-bold mb-4">Use Case Simulation</h2>
           <div className="bg-gray-50 rounded-2xl border border-[#C8A84B]/30 p-8 mb-12">
@@ -174,13 +207,64 @@ export default async function EnIndustriesPage({ params }: Props) {
           </div>
         </div>
       </section>
-      {/* INTERNAL LINKS + CTA */}
-      <section className="bg-gray-50 py-12">
+      {/* ── 14. INTERNAL LINKS (SEO AUTHORITY ENGINE) ──────────── */}
+      <section className="bg-gray-50 py-16 border-t border-gray-100" aria-label="Related pages">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-[#0A1628] text-lg font-bold mb-4">Related Pages</h2>
-          <div className="flex flex-wrap gap-2 mb-12">
-            {ind.products_used.map((p) => (<Link key={p.slug_en} href={`/en/products/${p.slug_en}`} className="px-4 py-2 border border-gray-200 rounded-full text-sm text-gray-600 hover:border-[#C8A84B] transition-colors">{p.name_en}</Link>))}
-            {[{ href: '/en/locations/singapore', label: 'Singapore Distribution' }, { href: '/en/locations/australia', label: 'Australia Export' }].map((l) => (<Link key={l.href} href={l.href} className="px-4 py-2 border border-gray-200 rounded-full text-sm text-gray-600 hover:border-[#C8A84B] transition-colors">{l.label}</Link>))}
+          <h2 className="text-[#0A1628] text-2xl font-bold mb-8">Related Industrial Exploration</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {/* Contextual Products */}
+            <div>
+              <h3 className="text-sm font-bold text-[#C8A84B] uppercase tracking-widest mb-4">Core Products</h3>
+              <ul className="space-y-3">
+                {(internalLinks as any)[slug]?.products.map((link: any) => (
+                  <li key={link.href.en}>
+                    <Link href={link.href.en} className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                      <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      {link.en}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Logistics & Location */}
+            <div>
+              <h3 className="text-sm font-bold text-[#C8A84B] uppercase tracking-widest mb-4">Logistics & Export</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href={(internalLinks as any)[slug]?.location.href.en} className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                    <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    {(internalLinks as any)[slug]?.location.en}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/en/locations" className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                    <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    Global Distribution Network
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Support */}
+            <div>
+              <h3 className="text-sm font-bold text-[#C8A84B] uppercase tracking-widest mb-4">Business Support</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/en/contact" className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                    <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    Technical Consultation
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/en/about" className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                    <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    PT WEU Corporate Profile
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -189,6 +273,8 @@ export default async function EnIndustriesPage({ params }: Props) {
         industry={slug}
         lang="en"
         variant="dark"
+        customHeading={`Ready to Scale Your ${ind.name_en} Operations?`}
+        customCTA="Request Industrial Consultation →"
       />
     </>
   );

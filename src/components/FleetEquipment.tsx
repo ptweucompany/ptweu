@@ -1,6 +1,7 @@
 import { Truck, HardHat } from 'lucide-react';
 import { Translation } from '../types';
 import { motion } from 'motion/react';
+import Image from 'next/image';
 
 interface FleetEquipmentProps {
   t: Translation['fleet'];
@@ -8,7 +9,7 @@ interface FleetEquipmentProps {
 
 export default function FleetEquipment({ t }: FleetEquipmentProps) {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white" aria-label="Our Industrial Fleet and Equipment">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div className="max-w-2xl">
@@ -38,11 +39,12 @@ export default function FleetEquipment({ t }: FleetEquipmentProps) {
         </div>
 
         <div className="mt-16 rounded-[3rem] overflow-hidden h-[400px] relative">
-          <img
+          <Image
             src="/Drone Webp/DJI_20260310143640_0300_D (1).webp"
-            alt="Fleet on Site"
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
+            alt="PT Wira Energi Utama Heavy Machinery and Fleet Portfolio"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1280px) 100vw, 1280px"
           />
           <div className="absolute inset-0 bg-brand-blue/30" />
         </div>

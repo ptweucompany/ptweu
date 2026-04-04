@@ -4,13 +4,16 @@ import { motion } from 'motion/react';
 import { Calendar, Tag, ArrowLeft, Share2, Printer, MessageSquare, ShieldCheck, Zap } from 'lucide-react';
 import { Translation } from '../types';
 import Link from 'next/link';
+import Image from 'next/image';
+import { internalLinks } from '../data/internalLinks';
 
 interface AdvancedBlogDetailProps {
   post: Translation['advancedBlog']['posts'][0];
   heroT: Translation['advancedBlog']['hero'];
+  lang?: 'id' | 'en';
 }
 
-export default function AdvancedBlogDetail({ post, heroT }: AdvancedBlogDetailProps) {
+export default function AdvancedBlogDetail({ post, heroT, lang = 'id' }: AdvancedBlogDetailProps) {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -21,7 +24,14 @@ export default function AdvancedBlogDetail({ post, heroT }: AdvancedBlogDetailPr
           transition={{ duration: 1.5 }}
           className="absolute inset-0"
         >
-          <img src={post.image} alt={post.title} className="w-full h-full object-cover opacity-60" />
+          <Image 
+            src={post.image} 
+            alt={post.title} 
+            fill 
+            priority
+            loading="eager"
+            className="w-full h-full object-cover opacity-60" 
+          />
         </motion.div>
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-brand-blue via-brand-blue/80 to-transparent" />
         
@@ -152,19 +162,45 @@ export default function AdvancedBlogDetail({ post, heroT }: AdvancedBlogDetailPr
             </div>
 
             <div className="space-y-8">
-              <h3 className="text-xl font-black text-brand-blue uppercase tracking-widest border-b-2 border-brand-gold pb-2 inline-block">Related News</h3>
-              <div className="space-y-8">
-                 {[1, 2].map((i) => (
-                   <div key={i} className="group cursor-pointer">
-                      <div className="aspect-video rounded-3xl overflow-hidden mb-4 bg-gray-100">
-                        <img src={`/blog/${i === 1 ? 'reclamation' : 'tech'}.webp`} alt="Related" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                      </div>
-                      <h4 className="text-lg font-black text-brand-blue group-hover:text-brand-gold transition-colors leading-tight mb-2 uppercase tracking-tight">
-                        {i === 1 ? 'Reklamasi Hijau di Ratatotok Satu' : 'Digitalisasi Manajemen Rantai Pasok'}
-                      </h4>
-                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">March 2024</p>
-                   </div>
-                 ))}
+              <h3 className="text-xl font-black text-brand-blue uppercase tracking-widest border-b-2 border-brand-gold pb-2 inline-block">
+                {lang === 'en' ? 'Related Solutions' : 'Solusi Terkait'}
+              </h3>
+              <div className="space-y-4">
+                 {/* Internal Links Engine - Products */}
+                 <div>
+                   <p className="text-xs font-bold text-[#C8A84B] uppercase tracking-widest mb-3">
+                     {lang === 'en' ? 'Core Products' : 'Produk Utama'}
+                   </p>
+                   <ul className="space-y-2">
+                     {['limestone', 'caco3'].map((prod) => (
+                       <li key={prod}>
+                         <Link 
+                           href={lang === 'en' ? `/en/products/${prod}` : `/produk/${prod === 'limestone' ? 'batu-kapur' : 'kalsium-karbonat'}`}
+                           className="text-brand-blue font-bold hover:text-brand-gold transition-colors text-sm"
+                         >
+                           {lang === 'en' ? (prod === 'limestone' ? 'Limestone' : 'CaCO3') : (prod === 'limestone' ? 'Batu Kapur' : 'Kalsium Karbonat')}
+                         </Link>
+                       </li>
+                     ))}
+                   </ul>
+                 </div>
+
+                 {/* Internal Links Engine - Industry */}
+                 <div className="pt-4">
+                   <p className="text-xs font-bold text-[#C8A84B] uppercase tracking-widest mb-3">
+                     {lang === 'en' ? 'Industrial Focus' : 'Fokus Industri'}
+                   </p>
+                   <ul className="space-y-2">
+                     <li>
+                       <Link 
+                         href={lang === 'en' ? '/en/industries/cement' : '/industri/semen'}
+                         className="text-brand-blue font-bold hover:text-brand-gold transition-colors text-sm"
+                       >
+                         {lang === 'en' ? 'Cement Manufacturing' : 'Manufaktur Semen'}
+                       </Link>
+                     </li>
+                   </ul>
+                 </div>
               </div>
             </div>
           </aside>

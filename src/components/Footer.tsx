@@ -78,7 +78,7 @@ export default function Footer({ t, footerT, profileT }: FooterProps) {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/html-sitemap" className="text-gray-400 hover:text-white transition-colors text-sm flex items-center">
+                  <Link href="/site-map" className="text-gray-400 hover:text-white transition-colors text-sm flex items-center">
                     <Globe size={14} className="mr-2" />
                     Sitemap
                   </Link>

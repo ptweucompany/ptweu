@@ -11,6 +11,7 @@ export interface Translation {
     contact: string;
   };
   hero: {
+    badge: string;
     title: string;
     subtitle: string;
     cta: string;
@@ -251,8 +252,24 @@ export interface AdvancedAboutData {
 
 export interface AdvancedCatalogData {
   hero: { title: string; description: string; image: string };
-  categories: { title: string; description: string; items: { name: string; specs: string; tags: string[] }[] }[];
-  download: { title: string; description: string; button: string };
+  categories: { 
+    title: string; 
+    description: string; 
+    items: { 
+      name: string; 
+      specs: string; 
+      tags: string[];
+      image?: string;
+      details?: string[];
+    }[] 
+  }[];
+  download: { 
+    title: string; 
+    description: string; 
+    button: string;
+    fileSize?: string;
+    version?: string;
+  };
   industrial: { title: string; items: { name: string; usage: string; icon: string }[] };
 }
 

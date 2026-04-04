@@ -7,6 +7,8 @@ import { allProducts } from '../../../src/data/products';
 import { ports } from '../../../src/data/logistics';
 import { company } from '../../../src/data/company';
 import CTASection from '../../../src/components/CTASection';
+import { internalLinks } from '../../../src/data/internalLinks';
+import TrustMicroSection from '../../../src/components/TrustMicroSection';
 
 interface Props { params: Promise<{ slug: string }>; }
 
@@ -58,8 +60,17 @@ export default async function IndustriPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
       {/* 1. HERO */}
-      <section className="relative bg-[#0A1628] min-h-[60vh] flex items-end overflow-hidden">
-        <Image src={ind.hero_bg} alt={`${ind.name_id} — PT Wira Energi Utama`} fill priority quality={80} sizes="100vw" className="object-cover opacity-35" />
+      <section className="relative bg-[#0A1628] min-h-[60vh] flex items-end overflow-hidden" aria-label={`Hero - ${ind.name_id}`}>
+        <Image 
+          src={ind.hero_bg} 
+          alt={`${ind.name_id} — PT Wira Energi Utama`} 
+          fill 
+          priority 
+          loading="eager" 
+          quality={80} 
+          sizes="100vw" 
+          className="object-cover opacity-35" 
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/60 to-transparent" aria-hidden />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pb-16 pt-32">
           <nav aria-label="Breadcrumb" className="mb-4">
@@ -82,7 +93,7 @@ export default async function IndustriPage({ params }: Props) {
               Request Penawaran Industri
             </Link>
             <a
-              href={`https://wa.me/628114344168?text=Halo%20PT%20WEU%2C%20saya%20ingin%20konsultasi%20mineral%20untuk%20sektor%20${encodeURIComponent(ind.name_id)}`}
+              href={`https://wa.me/628114344168?text=${encodeURIComponent(`Halo PT WEU, saya tertarik konsultasi mineral untuk industri: ${ind.name_id}. Bisa minta info lebih lanjut?\n\nIndustri: ${ind.name_id}\nURL: ${BASE}/industri/${slug}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors"
@@ -93,8 +104,11 @@ export default async function IndustriPage({ params }: Props) {
         </div>
       </section>
 
+      {/* 🔧 PART 3 — TRUST REINFORCEMENT */}
+      <TrustMicroSection lang="id" />
+
       {/* 2. INDUSTRY OVERVIEW */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-16" aria-label="Ikhtisar Industri">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
             <h2 className="text-[#0A1628] text-2xl font-bold mb-4">Ikhtisar {ind.name_id}</h2>
@@ -117,7 +131,7 @@ export default async function IndustriPage({ params }: Props) {
       </section>
 
       {/* 3. ROLE OF LIMESTONE */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-16" aria-label="Peran Mineral">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-[#0A1628] text-2xl font-bold mb-4">Peran Batu Kapur / CaCO3 dalam {ind.name_id}</h2>
           <p className="text-gray-600 text-lg leading-relaxed max-w-4xl">{ind.limestone_role_id}</p>
@@ -125,7 +139,7 @@ export default async function IndustriPage({ params }: Props) {
       </section>
 
       {/* 4. TECHNICAL REQUIREMENTS */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-16" aria-label="Persyaratan Teknis">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-[#0A1628] text-2xl font-bold mb-2">Persyaratan Teknis Mineral</h2>
           <p className="text-gray-500 mb-8">Spesifikasi minimum yang diperlukan industri ini — semua terpenuhi oleh produk PT WEU.</p>
@@ -146,7 +160,7 @@ export default async function IndustriPage({ params }: Props) {
       </section>
 
       {/* 5. PROCESS INTEGRATION */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-16" aria-label="Integrasi Proses">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-[#0A1628] text-2xl font-bold mb-8">Integrasi dalam Proses Industri</h2>
           <ol className="space-y-4">
@@ -164,7 +178,7 @@ export default async function IndustriPage({ params }: Props) {
       </section>
 
       {/* 6. PAIN POINTS */}
-      <section className="bg-[#0A1628] py-16">
+      <section className="bg-[#0A1628] py-16" aria-label="Tantangan Industri">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-white text-2xl font-bold mb-2">Tantangan Utama Industri</h2>
           <p className="text-gray-400 mb-8">Masalah yang sering dihadapi dan bagaimana PT WEU mengatasinya.</p>
@@ -181,8 +195,26 @@ export default async function IndustriPage({ params }: Props) {
         </div>
       </section>
 
+      {/* 🔧 CONVERSION: MID-CONTENT CTA */}
+      <section className="bg-white py-12 border-y border-gray-100" aria-label="Konsultasi Cepat">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="max-w-2xl">
+            <h3 className="text-[#0A1628] text-2xl font-bold mb-2 uppercase tracking-tight">Optimalkan Rantai Pasok {ind.name_id} Anda</h3>
+            <p className="text-gray-500 font-medium leading-relaxed">
+              Konsultasikan kebutuhan teknis dan logistik spesifik industri Anda dengan tim ahli PT WEU untuk efisiensi maksimal.
+            </p>
+          </div>
+          <Link 
+            href={`/kontak?industry=${slug}&inquiry=consultation`}
+            className="w-full md:w-auto px-10 py-5 bg-[#0A1628] text-white font-black rounded-2xl hover:bg-[#1a2b45] transition-all shadow-xl uppercase tracking-widest text-sm"
+          >
+            Mulai Konsultasi Industri →
+          </Link>
+        </div>
+      </section>
+
       {/* 7. WEU VALUE PROPOSITION */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-16" aria-label="Solusi PT WEU">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-[#0A1628] text-2xl font-bold mb-4">Solusi PT Wira Energi Utama</h2>
           <p className="text-gray-600 text-lg leading-relaxed max-w-4xl">{ind.weu_value_id}</p>
@@ -190,7 +222,7 @@ export default async function IndustriPage({ params }: Props) {
       </section>
 
       {/* 8. PRODUCTION CAPABILITY */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-16" aria-label="Kapabilitas Produksi">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-[#0A1628] text-2xl font-bold mb-8">Kapabilitas Produksi</h2>
           <dl className="grid grid-cols-2 sm:grid-cols-4 gap-6">
@@ -210,7 +242,7 @@ export default async function IndustriPage({ params }: Props) {
       </section>
 
       {/* 9. SUPPLY CHAIN FLOW */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-16" aria-label="Rantai Pasok">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-[#0A1628] text-2xl font-bold mb-8">Alur Rantai Pasokan</h2>
           <div className="flex flex-col sm:flex-row items-center gap-3">
@@ -225,7 +257,7 @@ export default async function IndustriPage({ params }: Props) {
       </section>
 
       {/* 10. LOGISTICS */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-16" aria-label="Logistik">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-[#0A1628] text-2xl font-bold mb-8">Logistik &amp; Distribusi</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -241,7 +273,7 @@ export default async function IndustriPage({ params }: Props) {
       </section>
 
       {/* 11. QUALITY CONTROL */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-16" aria-label="Kualitas dan Sertifikasi">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h2 className="text-[#0A1628] text-2xl font-bold mb-6">Quality Control &amp; Laboratorium</h2>
@@ -263,7 +295,7 @@ export default async function IndustriPage({ params }: Props) {
       </section>
 
       {/* 12. CASE SIMULATION */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-16" aria-label="Simulasi Kasus">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-[#0A1628] text-2xl font-bold mb-4">Simulasi Kasus Nyata</h2>
           <div className="bg-white rounded-2xl border border-[#C8A84B]/30 p-8">
@@ -273,7 +305,7 @@ export default async function IndustriPage({ params }: Props) {
       </section>
 
       {/* 13. FAQ */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-16" aria-label="Pertanyaan Umum">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-[#0A1628] text-2xl font-bold mb-8">FAQ — {ind.name_id}</h2>
           <div className="space-y-4">
@@ -290,29 +322,63 @@ export default async function IndustriPage({ params }: Props) {
         </div>
       </section>
 
-      {/* 14. INTERNAL LINKS */}
-      <section className="bg-gray-50 py-12">
+      {/* ── 14. INTERNAL LINKS (SEO AUTHORITY ENGINE) ──────────── */}
+      <section className="bg-gray-50 py-16 border-t border-gray-100" aria-label="Halaman terkait">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-[#0A1628] text-lg font-bold mb-6">Halaman Terkait</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <h2 className="text-[#0A1628] text-2xl font-bold mb-8">Eksplorasi Industri Terkait</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {/* Contextual Products */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Produk Relevan</h3>
-              <div className="flex flex-wrap gap-2">
-                {ind.products_used.map((p) => (
-                  <Link key={p.slug_id} href={`/produk/${p.slug_id}`} className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-700 hover:border-[#C8A84B] hover:text-[#0A1628] transition-colors">{p.name_id}</Link>
+              <h3 className="text-sm font-bold text-[#C8A84B] uppercase tracking-widest mb-4">Produk Utama</h3>
+              <ul className="space-y-3">
+                {(internalLinks as any)[ind.slug_en]?.products.map((link: any) => (
+                  <li key={link.href.id}>
+                    <Link href={link.href.id} className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                      <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      {link.id}
+                    </Link>
+                  </li>
                 ))}
-                {allProducts.filter((p) => !ind.products_used.find((u) => u.slug_id === p.slug_id)).slice(0, 2).map((p) => (
-                  <Link key={p.slug_id} href={`/produk/${p.slug_id}`} className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-600 hover:border-[#C8A84B] transition-colors">{p.name_id}</Link>
-                ))}
-              </div>
+              </ul>
             </div>
+
+            {/* Logistics & Location */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Lokasi Distribusi</h3>
-              <div className="flex flex-wrap gap-2">
-                {[{ href: '/lokasi/bitung', label: 'Distribusi via Bitung' }, { href: '/lokasi/sulawesi-utara', label: 'Sulawesi Utara' }, { href: '/lokasi/indonesia', label: 'Nasional Indonesia' }].map((link) => (
-                  <Link key={link.href} href={link.href} className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-600 hover:border-[#C8A84B] hover:text-[#0A1628] transition-colors">{link.label}</Link>
-                ))}
-              </div>
+              <h3 className="text-sm font-bold text-[#C8A84B] uppercase tracking-widest mb-4">Logistik & Lokasi</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href={(internalLinks as any)[ind.slug_en]?.location.href.id} className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                    <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    {(internalLinks as any)[ind.slug_en]?.location.id}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/lokasi" className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                    <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    Jaringan Distribusi Nasional
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Support */}
+            <div>
+              <h3 className="text-sm font-bold text-[#C8A84B] uppercase tracking-widest mb-4">Dukungan Bisnis</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/kontak" className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                    <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    Konsultasi Teknis Produk
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/company-profile" className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                    <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    Profil Perusahaan PT WEU
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -324,6 +390,8 @@ export default async function IndustriPage({ params }: Props) {
         industry={slug}
         lang="id"
         variant="dark"
+        customHeading={`Butuh Konsultasi Teknis untuk Sektor ${ind.name_id}?`}
+        customCTA="Jadwalkan Konsultasi Gratis →"
       />
     </>
   );

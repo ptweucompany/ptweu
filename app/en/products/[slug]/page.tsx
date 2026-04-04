@@ -6,6 +6,8 @@ import { productsBySlugEN, productSlugsEN, allProducts } from '../../../../src/d
 import { quarry } from '../../../../src/data/company';
 import { ports, leadTimes, exportData } from '../../../../src/data/logistics';
 import CTASection from '../../../../src/components/CTASection';
+import { internalLinks } from '../../../../src/data/internalLinks';
+import TrustMicroSection from '../../../../src/components/TrustMicroSection';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -87,7 +89,7 @@ export default async function EnProductDetailPage({ params }: Props) {
               Request Quote
             </Link>
             <a
-              href={`https://wa.me/628114344168?text=Hello%20PT%20WEU%2C%20I%20would%20like%20to%20consult%20regarding%20${encodeURIComponent(product.name_en)}`}
+              href={`https://wa.me/628114344168?text=${encodeURIComponent(`Hello PT WEU, I am interested in ${product.name_en}. Can I get more information?\n\nUnit: ${product.name_en}\nURL: ${BASE}/en/products/${slug}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors duration-200"
@@ -97,6 +99,9 @@ export default async function EnProductDetailPage({ params }: Props) {
           </div>
         </div>
       </section>
+      
+      {/* 🔧 PART 3 — TRUST REINFORCEMENT */}
+      <TrustMicroSection lang="en" />
 
       {/* OVERVIEW */}
       <section className="bg-white py-16">
@@ -133,6 +138,20 @@ export default async function EnProductDetailPage({ params }: Props) {
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* 🔧 CONVERSION: MID-CONTENT CTA */}
+          <div className="mt-10 flex flex-col sm:flex-row items-center gap-6 p-8 bg-[#0A1628] rounded-2xl text-white font-bold">
+            <div className="grow">
+              <h3 className="text-xl font-bold mb-1 uppercase tracking-tight">Need Full Technical Specifications?</h3>
+              <p className="text-gray-400 text-sm">Download the latest COA and TDS for this production batch.</p>
+            </div>
+            <Link 
+              href={`/en/contact?product=${product.slug_id}&inquiry=spec`}
+              className="w-full sm:w-auto px-8 py-4 bg-[#C8A84B] text-[#0A1628] font-black rounded-xl hover:bg-[#b8933b] transition-all whitespace-nowrap uppercase tracking-widest text-xs"
+            >
+              Request Tech Docs →
+            </Link>
           </div>
         </div>
       </section>
@@ -295,16 +314,63 @@ export default async function EnProductDetailPage({ params }: Props) {
         </div>
       </section>
 
-      {/* INTERNAL LINKS */}
-      <section className="bg-white py-12">
+      {/* ── 14. INTERNAL LINKS (SEO AUTHORITY ENGINE) ──────────── */}
+      <section className="bg-gray-50 py-16 border-t border-gray-100" aria-label="Related pages">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-[#0A1628] text-lg font-bold mb-4">Related Pages</h2>
-          <div className="flex flex-wrap gap-3">
-            {allProducts.filter((p) => p.id !== product.id).map((p) => (
-              <Link key={p.slug_en} href={`/en/products/${p.slug_en}`} className="px-4 py-2 border border-gray-200 rounded-full text-sm text-gray-600 hover:border-[#C8A84B] hover:text-[#0A1628] transition-colors">
-                {p.name_en}
-              </Link>
-            ))}
+          <h2 className="text-[#0A1628] text-2xl font-bold mb-8">Related Exploration</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {/* Industry Relevance */}
+            <div>
+              <h3 className="text-sm font-bold text-[#C8A84B] uppercase tracking-widest mb-4">Industrial Applications</h3>
+              <ul className="space-y-3">
+                {(internalLinks as any)[slug]?.industries.map((link: any) => (
+                  <li key={link.href.en}>
+                    <Link href={link.href.en} className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                      <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      {link.en}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Product Cluster */}
+            <div>
+              <h3 className="text-sm font-bold text-[#C8A84B] uppercase tracking-widest mb-4">Supporting Products</h3>
+              <ul className="space-y-3">
+                {allProducts
+                  .filter((p) => p.slug_en !== slug)
+                  .slice(0, 3)
+                  .map((p) => (
+                    <li key={p.slug_en}>
+                      <Link href={`/en/products/${p.slug_en}`} className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                        <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        {p.name_en}
+                      </Link>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+
+            {/* Knowledge Base */}
+            <div>
+              <h3 className="text-sm font-bold text-[#C8A84B] uppercase tracking-widest mb-4">Technical Insights</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href={(internalLinks as any)[slug]?.blog.href.en} className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                    <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    {(internalLinks as any)[slug]?.blog.en}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/en/about" className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                    <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    PT WEU Corporate Profile
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -315,6 +381,8 @@ export default async function EnProductDetailPage({ params }: Props) {
         product={product.slug_id}
         lang="en"
         variant="dark"
+        customHeading={`Ready for Bulk ${product.name_en} Supply?`}
+        customCTA="Get Wholesale Quotation Now →"
       />
 
       {/* STICKY MOBILE CTA */}

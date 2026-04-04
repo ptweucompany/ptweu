@@ -41,7 +41,7 @@ export default function MiningProcess({ t }: MiningProcessProps) {
                 >
                   <div className="w-20 h-20 bg-brand-blue text-white rounded-full flex items-center justify-center mb-8 shadow-xl relative border-4 border-white">
                     <Icon size={32} />
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-brand-gold text-brand-blue rounded-full flex items-center justify-center font-bold text-sm">
+                    <div className="absolute top-0 right-0 translate-x-1/3 -translate-y-1/3 w-8 h-8 bg-brand-gold text-brand-blue rounded-full flex items-center justify-center font-bold text-sm border-2 border-brand-blue shadow-lg">
                       {index + 1}
                     </div>
                   </div>

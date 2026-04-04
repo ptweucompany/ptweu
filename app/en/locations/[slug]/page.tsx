@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { exportDestBySlug, exportSlugs } from '../../../../src/data/locations';
 import { allProducts } from '../../../../src/data/products';
 import CTASection from '../../../../src/components/CTASection';
+import TrustMicroSection from '../../../../src/components/TrustMicroSection';
 
 interface Props { params: Promise<{ slug: string }>; }
 export async function generateStaticParams() { return exportSlugs.map((slug) => ({ slug })); }
@@ -71,11 +72,32 @@ export default async function EnLocationsPage({ params }: Props) {
         </div>
       </section>
 
+      {/* 🔧 CONVERSION: TRUST REINFORCEMENT */}
+      <TrustMicroSection lang="en" />
+
       {/* 2. EXPORT OVERVIEW */}
       <section className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-[#0A1628] text-2xl font-bold mb-4">Export Overview — {dest.country_en}</h2>
           <p className="text-gray-600 text-lg leading-relaxed max-w-4xl">{dest.overview_en}</p>
+        </div>
+      </section>
+
+      {/* 🔧 CONVERSION: MID-CONTENT CTA */}
+      <section className="bg-gray-50 py-12 border-y border-gray-200">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="max-w-2xl text-left">
+            <h3 className="text-[#0A1628] text-2xl font-bold mb-2 uppercase tracking-tight">Export Logistics to {dest.country_en}</h3>
+            <p className="text-gray-500 font-medium">
+              Get detailed shipping estimates, transit times, and required documentation for the {dest.country_en} market.
+            </p>
+          </div>
+          <Link 
+            href={`/en/contact?delivery=${dest.country_en}&inquiry=export-logistics`}
+            className="w-full md:w-auto px-10 py-5 bg-[#0A1628] text-white font-black rounded-2xl hover:bg-[#1a2b45] transition-all shadow-xl text-center whitespace-nowrap uppercase tracking-widest text-sm"
+          >
+            Get Export Estimate →
+          </Link>
         </div>
       </section>
 
@@ -194,6 +216,8 @@ export default async function EnLocationsPage({ params }: Props) {
         delivery={dest.country_en}
         lang="en"
         variant="dark"
+        customHeading={`Check Stock for ${dest.country_en} Export`}
+        customCTA="Check Delivery Schedule Now →"
       />
     </>
   );

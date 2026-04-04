@@ -4,6 +4,7 @@ import { Globe, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import { Language, Translation } from '../types';
 
 interface NavbarProps {
@@ -26,13 +27,20 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
   ];
 
   return (
-    <nav className="fixed w-full z-40 bg-brand-blue/95 backdrop-blur-md text-white shadow-lg">
+    <nav className="fixed w-full z-40 bg-brand-blue/95 backdrop-blur-md text-white shadow-lg" aria-label="Main Navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 flex items-center justify-center transition-transform group-hover:scale-110">
-              <img src="/2.svg" alt="Wira Energi Utama Logo" className="w-full h-full" />
+          <Link href="/" className="flex items-center space-x-3 group" aria-label="PT Wira Energi Utama Home">
+            <div className="relative w-12 h-12 flex items-center justify-center transition-transform group-hover:scale-110">
+              <Image 
+                src="/2.svg" 
+                alt="PT Wira Energi Utama Logo" 
+                fill 
+                priority 
+                className="object-contain"
+                sizes="48px"
+              />
             </div>
             <div className="flex flex-col justify-center">
               <span className="text-xl font-extrabold tracking-tight text-white leading-none group-hover:text-brand-gold transition-colors">PT.WEU</span>

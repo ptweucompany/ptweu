@@ -6,8 +6,12 @@ import NavbarWrapper from './NavbarWrapper';
 import FooterWrapper from './FooterWrapper';
 import ScrollToTopWrapper from './ScrollToTopWrapper';
 import Script from 'next/script';
+import ScrollIntentWrapper from '../src/components/ScrollIntentWrapper';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 const BASE_URL = 'https://ptweu.company';
 
@@ -287,6 +291,9 @@ export default function RootLayout({
           strategy="afterInteractive"
           integrity="sha384-jnZcg0186dfqZPA01eGkkmk2i1A+Rj0/0r3eGzMwbQhZkS0c1rP1rC4v4Z+vO"
         />
+
+        {/* 🔧 CONVERSION PRESSURE SYSTEM: SCROLL INTENT TRIGGER */}
+        <ScrollIntentWrapper />
       </body>
     </html>
   );

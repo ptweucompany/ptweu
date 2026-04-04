@@ -7,6 +7,8 @@ interface CTASectionProps {
   delivery?: string;
   lang?: 'id' | 'en';
   variant?: 'dark' | 'light';
+  customHeading?: string;
+  customCTA?: string;
 }
 
 const CONTENT = {
@@ -24,7 +26,16 @@ const CONTENT = {
   },
 };
 
-export default function CTASection({ type = 'quote', product, industry, delivery, lang = 'id', variant = 'dark' }: CTASectionProps) {
+export default function CTASection({ 
+  type = 'quote', 
+  product, 
+  industry, 
+  delivery, 
+  lang = 'id', 
+  variant = 'dark',
+  customHeading,
+  customCTA
+}: CTASectionProps) {
   const c = CONTENT[type][lang];
 
   const inquiryHref = lang === 'en'
@@ -32,14 +43,20 @@ export default function CTASection({ type = 'quote', product, industry, delivery
     : `/kontak?${product ? `product=${product}` : ''}${industry ? `&industry=${industry}` : ''}${delivery ? `&delivery=${delivery}` : ''}`;
 
   const waText = encodeURIComponent(
-    product ? `${c.wa} — Produk: ${product}` : c.wa
+    `Halo PT Wira Energi Utama, saya ingin meminta penawaran harga:
+
+Produk: ${product || '-'}
+Industri: ${industry || '-'}
+Estimasi Volume: 
+Lokasi Pengiriman: 
+`
   );
 
   return (
     <section className={`py-16 ${variant === 'dark' ? 'bg-[#0A1628]' : 'bg-gray-50'}`}>
       <div className="max-w-5xl mx-auto px-6 text-center">
         <h2 className={`text-2xl sm:text-3xl font-bold mb-3 ${variant === 'dark' ? 'text-white' : 'text-[#0A1628]'}`}>
-          {c.heading}
+          {customHeading || c.heading}
         </h2>
         <p className={`mb-8 max-w-2xl mx-auto ${variant === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
           {c.sub}
@@ -62,8 +79,8 @@ export default function CTASection({ type = 'quote', product, industry, delivery
         {/* BUTTONS */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link href={inquiryHref}
-            className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-[#C8A84B] hover:bg-[#b8933b] text-[#0A1628] font-bold rounded-xl transition-colors">
-            {c.cta}
+            className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-[#C8A84B] hover:bg-[#b8933b] text-[#0A1628] font-black rounded-xl transition-colors">
+            {customCTA || c.cta}
           </Link>
           <a href={`https://wa.me/628114344168?text=${waText}`} target="_blank" rel="noopener noreferrer"
             className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold transition-colors ${

@@ -6,6 +6,8 @@ import { productsBySlugID, productSlugsID, allProducts } from '../../../src/data
 import { quarry } from '../../../src/data/company';
 import { ports, shippingMethods, leadTimes, exportData } from '../../../src/data/logistics';
 import CTASection from '../../../src/components/CTASection';
+import { internalLinks } from '../../../src/data/internalLinks';
+import TrustMicroSection from '../../../src/components/TrustMicroSection';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -109,7 +111,7 @@ export default async function ProdukDetailPage({ params }: Props) {
               Request Quote / Penawaran
             </Link>
             <a
-              href={`https://wa.me/628114344168?text=Halo%20PT%20WEU%2C%20saya%20ingin%20konsultasi%20mengenai%20${encodeURIComponent(product.name_id)}`}
+              href={`https://wa.me/628114344168?text=${encodeURIComponent(`Halo PT WEU, saya tertarik dengan produk: ${product.name_id}. Bisa minta info lebih lanjut?\n\nUnit: ${product.name_id}\nURL: ${BASE}/produk/${slug}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors duration-200"
@@ -119,6 +121,9 @@ export default async function ProdukDetailPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* 🔧 PART 3 — TRUST REINFORCEMENT */}
+      <TrustMicroSection lang="id" />
 
       {/* ── 2. OVERVIEW ─────────────────────────────────────────── */}
       <section className="bg-white py-16" aria-label={`Ikhtisar ${product.name_id}`}>
@@ -139,7 +144,6 @@ export default async function ProdukDetailPage({ params }: Props) {
           </ul>
         </div>
       </section>
-
       {/* ── 3. TECHNICAL SPECIFICATIONS ─────────────────────────── */}
       <section className="bg-gray-50 py-16" aria-label="Spesifikasi teknis">
         <div className="max-w-6xl mx-auto px-6">
@@ -162,6 +166,20 @@ export default async function ProdukDetailPage({ params }: Props) {
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* 🔧 CONVERSION: MID-CONTENT CTA */}
+          <div className="mt-10 flex flex-col sm:flex-row items-center gap-6 p-8 bg-[#0A1628] rounded-2xl text-white">
+            <div className="grow">
+              <h3 className="text-xl font-bold mb-1">Butuh Spesifikasi Teknis Lengkap?</h3>
+              <p className="text-gray-400 text-sm">Download COA dan TDS terbaru untuk batch produksi ini.</p>
+            </div>
+            <Link 
+              href={`/kontak?product=${product.slug_id}&inquiry=spec`}
+              className="w-full sm:w-auto px-8 py-4 bg-[#C8A84B] text-[#0A1628] font-bold rounded-xl hover:bg-[#b8933b] transition-all whitespace-nowrap"
+            >
+              Request Dokumen Teknis →
+            </Link>
           </div>
         </div>
       </section>
@@ -431,31 +449,63 @@ export default async function ProdukDetailPage({ params }: Props) {
         </div>
       </section>
 
-      {/* ── 14. INTERNAL LINKS (SEO CLUSTER FOUNDATION) ──────────── */}
-      <section className="bg-gray-50 py-12" aria-label="Halaman terkait">
+      {/* ── 14. INTERNAL LINKS (SEO AUTHORITY ENGINE) ──────────── */}
+      <section className="bg-gray-50 py-16 border-t border-gray-100" aria-label="Halaman terkait">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-[#0A1628] text-lg font-bold mb-4">Halaman Terkait</h2>
-          <div className="flex flex-wrap gap-3">
-            {product.internal_links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="px-4 py-2 border border-gray-200 rounded-full text-sm text-gray-600 hover:border-[#C8A84B] hover:text-[#0A1628] transition-colors duration-150"
-              >
-                {link.label}
-              </Link>
-            ))}
-            {allProducts
-              .filter((p) => p.id !== product.id)
-              .map((p) => (
-                <Link
-                  key={p.slug_id}
-                  href={`/produk/${p.slug_id}`}
-                  className="px-4 py-2 border border-gray-200 rounded-full text-sm text-gray-600 hover:border-[#C8A84B] hover:text-[#0A1628] transition-colors duration-150"
-                >
-                  {p.name_id}
-                </Link>
-              ))}
+          <h2 className="text-[#0A1628] text-2xl font-bold mb-8">Eksplorasi Terkait</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {/* Industry Relevance */}
+            <div>
+              <h3 className="text-sm font-bold text-[#C8A84B] uppercase tracking-widest mb-4">Aplikasi Industri</h3>
+              <ul className="space-y-3">
+                {(internalLinks as any)[product.slug_en]?.industries.map((link: any) => (
+                  <li key={link.href.id}>
+                    <Link href={link.href.id} className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                      <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      {link.id}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Product Cluster */}
+            <div>
+              <h3 className="text-sm font-bold text-[#C8A84B] uppercase tracking-widest mb-4">Produk Pendukung</h3>
+              <ul className="space-y-3">
+                {allProducts
+                  .filter((p) => p.id !== product.id)
+                  .slice(0, 3)
+                  .map((p) => (
+                    <li key={p.slug_id}>
+                      <Link href={`/produk/${p.slug_id}`} className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                        <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        {p.name_id}
+                      </Link>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+
+            {/* Knowledge Base */}
+            <div>
+              <h3 className="text-sm font-bold text-[#C8A84B] uppercase tracking-widest mb-4">Wawasan Teknis</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href={(internalLinks as any)[product.slug_en]?.blog.href.id} className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                    <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    {(internalLinks as any)[product.slug_en]?.blog.id}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/company-profile" className="text-[#0A1628] hover:text-[#C8A84B] font-semibold transition-colors flex items-center group">
+                    <span className="w-1.5 h-1.5 bg-[#C8A84B] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    Profil Perusahaan PT WEU
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -466,6 +516,8 @@ export default async function ProdukDetailPage({ params }: Props) {
         product={product.slug_id}
         lang="id"
         variant="dark"
+        customHeading={`Butuh Suplai ${product.name_id} Skala Besar?`}
+        customCTA="Dapatkan Harga Grosir Sekarang →"
       />
 
       {/* ── 16. STICKY MOBILE CTA ───────────────────────────────── */}

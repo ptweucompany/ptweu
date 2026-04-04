@@ -81,7 +81,7 @@ export default function Products({ t }: ProductsProps) {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-brand-blue/10 group-hover:bg-transparent transition-colors duration-500" />
-                  <div className="absolute top-4 left-4 bg-brand-blue text-white w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm">
+                  <div className="absolute top-4 right-4 bg-brand-blue/60 backdrop-blur-md text-white border border-brand-gold/30 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shadow-xl z-10 transition-transform group-hover:scale-110">
                     {index + 1}
                   </div>
                 </div>

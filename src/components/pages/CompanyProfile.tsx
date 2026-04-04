@@ -34,48 +34,116 @@ export default function CompanyProfile({ t }: CompanyProfileProps) {
     setIsGenerating(true);
     
     try {
-      // Scroll to top to ensure clean capture
-      window.scrollTo(0, 0);
-      // Wait for any scroll-triggered animations or layout shifts to settle
+      const element = pdfRef.current;
+      
+      // Professional delay for font/asset readiness
       await new Promise(r => setTimeout(r, 500));
       
-      const element = pdfRef.current;
       const canvas = await html2canvas(element, { 
-        scale: 1.5, // Slightly reduced scale for stability/memory
+        scale: 2, 
         useCORS: true,
-        allowTaint: false,
+        logging: false,
         backgroundColor: '#ffffff',
-        scrollX: 0,
-        scrollY: 0,
-        windowWidth: document.documentElement.offsetWidth,
-        windowHeight: document.documentElement.offsetHeight,
-        logging: false
+        windowWidth: 1200, // Balanced width for A4 proportion
+        onclone: (clonedDoc) => {
+          const container = clonedDoc.body;
+          
+          // 1. Hide unwanted elements
+          clonedDoc.querySelectorAll('[data-html2canvas-ignore="true"]').forEach(el => {
+            (el as HTMLElement).style.display = 'none';
+          });
+
+          // 2. Comprehensive CSS Sanitization for Tailwind 4 / Modern Colors
+          // This is critical to prevent the "lab()" parsing crash
+          const allElements = clonedDoc.querySelectorAll('*');
+          allElements.forEach((el) => {
+            const htmlEl = el as HTMLElement;
+            if (!htmlEl.style) return;
+
+            // Map of common Tailwind 4 colors used in PT WEU to safe HEX
+            const style = window.getComputedStyle(htmlEl);
+            
+            // Fix text colors
+            if (style.color.includes('oklch') || style.color.includes('lab')) {
+              // Default to brand blue if text is dark, brand gold if light
+              htmlEl.style.setProperty('color', '#0A1628', 'important');
+            }
+            
+            // Fix background colors
+            if (style.backgroundColor.includes('oklch') || style.backgroundColor.includes('lab')) {
+                if (htmlEl.classList.contains('bg-brand-blue')) htmlEl.style.backgroundColor = '#0A1628';
+                else if (htmlEl.classList.contains('bg-brand-gold')) htmlEl.style.backgroundColor = '#C8A84B';
+                else htmlEl.style.backgroundColor = 'transparent';
+            }
+
+            // Fix border colors
+            if (style.borderColor.includes('oklch') || style.borderColor.includes('lab')) {
+              htmlEl.style.borderColor = '#e5e7eb';
+            }
+          });
+
+          // 3. Inject print-specific styles
+          const styleSheet = clonedDoc.createElement('style');
+          styleSheet.innerHTML = `
+            * { 
+              color-adjust: exact !important; 
+              -webkit-print-color-adjust: exact !important;
+              font-family: sans-serif !important; 
+            }
+            .bg-brand-blue { background-color: #0A1628 !important; color: white !important; }
+            .bg-brand-gold { background-color: #C8A84B !important; color: #0A1628 !important; }
+            .text-brand-gold { color: #C8A84B !important; }
+            .text-brand-blue { color: #0A1628 !important; }
+            section { page-break-inside: avoid !important; }
+            h1, h2, h3 { page-break-after: avoid !important; }
+          `;
+          clonedDoc.head.appendChild(styleSheet);
+        }
       });
-      const imgData = canvas.toDataURL('image/jpeg', 0.95);
-      
+
+      const imgData = canvas.toDataURL('image/jpeg', 0.9);
       const pdf = new jsPDF('p', 'mm', 'a4');
       const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+      const pdfHeight = pdf.internal.pageSize.getHeight();
       
-      let heightLeft = pdfHeight;
+      const imgProps = pdf.getImageProperties(imgData);
+      const ratio = pdfWidth / imgProps.width;
+      const totalPdfHeight = imgProps.height * ratio;
+      
+      let heightLeft = totalPdfHeight;
       let position = 0;
-      const pageHeight = pdf.internal.pageSize.getHeight();
+      let pageNumber = 1;
+
+      // Render First Page
+      pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, totalPdfHeight, undefined, 'FAST');
       
-      // Multi-page logic
-      pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight, undefined, 'FAST');
-      heightLeft -= pageHeight;
-      
-      while (heightLeft >= 0) {
-        position = heightLeft - pdfHeight;
+      // Professional Footer
+      pdf.setFontSize(8);
+      pdf.setTextColor(150);
+      pdf.text(`PT WIRA ENERGI UTAMA - OFFICIAL COMPANY PROFILE | Page ${pageNumber}`, pdfWidth / 2, pdfHeight - 10, { align: 'center' });
+
+      heightLeft -= pdfHeight;
+
+      // Subsequent Pages
+      while (heightLeft > 0) {
+        position = heightLeft - totalPdfHeight;
         pdf.addPage();
-        pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight, undefined, 'FAST');
-        heightLeft -= pageHeight;
+        pageNumber++;
+        pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, totalPdfHeight, undefined, 'FAST');
+        
+        pdf.setFontSize(8);
+        pdf.setTextColor(150);
+        pdf.text(`PT WIRA ENERGI UTAMA - OFFICIAL COMPANY PROFILE | Page ${pageNumber}`, pdfWidth / 2, pdfHeight - 10, { align: 'center' });
+        
+        heightLeft -= pdfHeight;
       }
       
-      pdf.save('Company_Profile_PT_Wira_Energi_Utama.pdf');
+      const date = new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long' });
+      pdf.save(`PT_Wira_Energi_Utama_Profile_${date.replace(/ /g, '_')}.pdf`);
+      
     } catch (error) {
-      console.error('Failed to generate PDF', error);
-      alert('Failed to generate PDF. Please try again.');
+      console.error('PDF Generation Error:', error);
+      alert('Unable to generate professional PDF due to browser limitations. Please use the Print (Ctrl+P) option.');
     } finally {
       setIsGenerating(false);
     }

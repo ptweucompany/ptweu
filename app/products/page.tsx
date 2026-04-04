@@ -279,7 +279,7 @@ export default function ProductsPage() {
             {/* Vertical/Horizontal Line */}
             <div className="absolute top-0 bottom-0 lg:top-[60px] lg:bottom-auto left-[39px] lg:left-[5%] lg:right-[5%] w-1 lg:w-auto lg:h-1 bg-brand-gold/20" />
             
-            <div className="space-y-12 lg:space-y-0 lg:grid lg:grid-cols-4 lg:gap-8">
+            <div className="space-y-12 lg:space-y-0 lg:grid lg:grid-cols-4 lg:gap-12">
               {t.productExpansion.partnership.steps.map((step, idx) => (
                 <motion.div 
                   key={idx}
@@ -287,13 +287,21 @@ export default function ProductsPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.1 }}
                   viewport={{ once: true }}
-                  className="relative pl-16 lg:pl-0 lg:pt-16"
+                  className="flex flex-col lg:block relative"
                 >
-                  <div className="absolute left-0 lg:left-0 lg:top-0 w-20 h-20 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-2xl z-10 border-8 border-white shadow-xl">
-                    {idx + 1}
+                  <div className="flex items-center lg:block mb-6 lg:mb-0 lg:absolute lg:top-0 lg:left-0">
+                    <div className="w-16 h-16 lg:w-20 lg:h-20 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-xl lg:text-2xl z-10 border-4 lg:border-8 border-white shadow-xl shrink-0">
+                      {idx + 1}
+                    </div>
+                    <div className="lg:hidden ml-6">
+                      <h4 className="text-xl font-bold text-gray-900 leading-tight">{step.title}</h4>
+                    </div>
                   </div>
-                  <h4 className="text-2xl font-bold text-gray-900 mb-4">{step.title}</h4>
-                  <p className="text-gray-600 leading-relaxed font-medium">{step.desc}</p>
+                  
+                  <div className="lg:pt-32">
+                    <h4 className="hidden lg:block text-2xl font-bold text-gray-900 mb-4">{step.title}</h4>
+                    <p className="text-gray-600 leading-relaxed font-medium">{step.desc}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
