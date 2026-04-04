@@ -237,6 +237,7 @@ export interface Translation {
     links: { label: string; href: string }[];
   };
   advancedGovernance: AdvancedGovernanceData;
+  projectGallery: { title: string; subtitle: string; images: string[] };
 }
 
 export interface AdvancedAboutData {
@@ -248,6 +249,7 @@ export interface AdvancedAboutData {
   safety: { title: string; content: string; certifications: string[] };
   assets: { title: string; items: { name: string; value: string; icon: string }[] };
   future: { title: string; content: string; targets: string[] };
+  gallery: { title: string; subtitle: string; images: string[] };
 }
 
 export interface AdvancedCatalogData {
@@ -271,6 +273,7 @@ export interface AdvancedCatalogData {
     version?: string;
   };
   industrial: { title: string; items: { name: string; usage: string; icon: string }[] };
+  documentation: { title: string; subtitle: string; images: string[] };
 }
 
 export interface AdvancedBlogData {

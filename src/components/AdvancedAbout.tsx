@@ -1,8 +1,7 @@
-'use client';
-
 import { motion } from 'motion/react';
 import { Shield, Zap, ShieldCheck, Ship, Settings, Truck, Leaf, Target, History, Users, Award, TrendingUp } from 'lucide-react';
 import { Translation } from '../types';
+import PhotoSlider from './PhotoSlider';
 
 interface AdvancedAboutProps {
   t: Translation['advancedAbout'];
@@ -124,6 +123,36 @@ export default function AdvancedAbout({ t }: AdvancedAboutProps) {
         </div>
       </section>
 
+      {/* Leadership Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative aspect-[4/5] rounded-[4rem] overflow-hidden shadow-2xl order-2 lg:order-1"
+            >
+              <img src={t.leadership.image} alt="Leadership" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/60 to-transparent" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="order-1 lg:order-2"
+            >
+              <h2 className="text-4xl md:text-5xl font-black text-brand-blue mb-8 uppercase tracking-tight">
+                {t.leadership.title}
+              </h2>
+              <p className="text-xl text-gray-600 leading-relaxed font-black border-l-8 border-brand-gold pl-8">
+                {t.leadership.content}
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Assets Showcase */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -202,6 +231,13 @@ export default function AdvancedAbout({ t }: AdvancedAboutProps) {
           </div>
         </div>
       </section>
+
+      {/* Photo Collage Slider */}
+      <PhotoSlider 
+        images={t.gallery.images} 
+        title={t.gallery.title} 
+        subtitle={t.gallery.subtitle} 
+      />
 
       {/* CTA / Vision */}
       <section className="py-32 bg-gray-900 overflow-hidden relative">

@@ -793,120 +793,126 @@ export const translations: Record<'id' | 'en', Translation> = {
     },
     advancedAbout: {
       hero: {
-        title: 'Membangun Masa Depan Berkelanjutan',
-        subtitle: 'PT Wira Energi Utama',
-        description: 'Kami adalah pemimpin dalam industri pertambangan batu kapur yang berkomitmen pada inovasi, keselamatan, dan keberlanjutan lingkungan di setiap operasional kami di Sulawesi Utara.',
-        image: '/about-hero.webp'
+        title: 'Batu Kapur & Mineral',
+        subtitle: 'Tentang PT Wira Energi Utama',
+        description: 'Menjadi pilar utama dalam penyediaan material industri berkualitas tinggi dari Sulawesi Utara untuk kemajuan nasional.',
+        image: '/mining-bg.webp'
       },
       history: {
         title: 'Sejarah & Warisan Kami',
-        content: 'Didirikan pada tahun 2019, PT Wira Energi Utama telah bertransformasi dari operasi tambang lokal di Ratatotok menjadi penyedia mineral industri terintegrasi yang melayani pasar nasional dan regional. Dengan cadangan mineral yang melimpah dan tim yang berdedikasi, kami terus membangun fondasi yang kuat bagi kemajuan industri Indonesia.',
-        image: '/history.webp',
+        content: 'Didirikan dengan manajemen yang visioner, PT Wira Energi Utama telah bertransformasi dari operasi tambang lokal Ratatotok menjadi pemain industri strategis dengan crushing plant 250 TPH and akses dermaga khusus.',
+        image: '/Drone Webp/DJI_20260310143518_0298_D (1).webp',
         stats: [
-          { label: 'Tahun Pendirian', value: '2019' },
-          { label: 'Total Hektar', value: '97.05' },
-          { label: 'Kapasitas Crusher', value: '250 TPH' }
+          { label: 'Tahun Didirikan', value: '2019' },
+          { label: 'Kapasitas Bulanan', value: '150k MT' },
+          { label: 'Luas Wilayah', value: '97 Ha' }
         ]
       },
       values: {
-        title: 'Nilai-Nilai Inti Kami',
-        subtitle: 'Prinsip yang membimbing setiap langkah kami menuju keunggulan.',
+        title: 'Nilai Nilai Kami',
+        subtitle: 'Integritas • Inovasi • Keberlanjutan',
         items: [
-          { title: 'Integritas', desc: 'Menjalankan bisnis dengan transparansi penuh dan standar etika tertinggi.', icon: 'Shield' },
-          { title: 'Inovasi', desc: 'Terus mengadopsi teknologi terbaru untuk efisiensi dan keamanan maksimal.', icon: 'Zap' },
-          { title: 'Keamanan', desc: 'Nol kecelakaan adalah prioritas utama bagi seluruh tim operasional kami.', icon: 'ShieldCheck' }
+          { title: 'Integritas', desc: 'Melakukan penambangan dengan transparansi penuh dan kepatuhan hukum yang ketat.', icon: 'ShieldCheck' },
+          { title: 'Inovasi', desc: 'Mengadopsi teknologi pemrosesan mineral terbaru untuk efisiensi maksimal.', icon: 'Zap' },
+          { title: 'Komunitas', desc: 'Pemberdayaan tenaga kerja lokal Ratatotok sebagai prioritas utama perkembangan kami.', icon: 'Users' }
         ]
       },
       leadership: {
-        title: 'Kepemimpinan Strategis',
-        content: 'Dipandu oleh dewan direksi yang memiliki pengalaman puluhan tahun di industri sumber daya alam, kami menggabungkan visi strategis dengan eksekusi operasional yang presisi.',
-        image: '/leadership.webp'
+        title: 'Kepemimpinan Kami',
+        content: 'Dipandu oleh keahlian teknis and integritas bisnis untuk menjamin keberlanjutan operasional.',
+        image: '/Drone Webp/DJI_20260310143640_0300_D (1).webp'
       },
       sustainability: {
-        title: 'Komitmen Hijau',
-        content: 'Kami percaya bahwa pertambangan dapat berjalan selaras dengan alam. Program reklamasi progresif kami memastikan setiap lahan yang selesai ditambang akan dikembalikan ke kondisi ekosistem yang produktif.',
-        initiatives: ['Sistem Sirkulasi Air Tertutup', 'Filtrasi Debu Multi-tahap', 'Penghijauan Padat Vegetasi']
+        title: 'Komitmen Lingkungan',
+        content: 'Kami berkomitmen penuh pada reklamasi pasca-tambang and reboisasi area operasional.',
+        initiatives: ['Reklamasi Berkelanjutan', 'Manajemen Limbah', 'Konservasi Air']
       },
       safety: {
-        title: 'Kesehatan & Keselamatan Kerja',
-        content: 'Budaya keselamatan kami melampaui kepatuhan administratif. Setiap karyawan memiliki hak dan kewajiban untuk memastikan lingkungan kerja tetap aman bagi semua.',
-        certifications: ['Sertifikasi SMK3', 'Standar APD Lengkap', 'Audit Keselamatan Berkala']
+        title: 'Keselamatan Kerja',
+        content: 'Keselamatan tanpa kompromi melalui standar K3 (Kesehatan dan Keselamatan Kerja) industri kelas dunia.',
+        certifications: ['ISO 45001', 'K3 Pertambangan', 'Zero Accident Policy']
       },
       assets: {
-        title: 'Aset Strategis',
+        title: 'Fasilitas & Aset',
         items: [
-          { name: 'Dermaga Pribadi (Jetty)', value: 'Draft 12m', icon: 'Ship' },
-          { name: 'Crushing Plant', value: 'Otomatisasi Penuh', icon: 'Settings' },
-          { name: 'Armada Logistik', value: 'Isuzu Giga Series', icon: 'Truck' }
+          { name: 'Crushing Plant', value: '250 TPH', icon: 'Settings' },
+          { name: 'Pelabuhan Khusus', value: '3 Jetty', icon: 'Ship' },
+          { name: 'Armada Logistik', value: '15+ Units', icon: 'Truck' }
         ]
       },
       future: {
-        title: 'Visi 2030',
-        content: 'Kami sedang mempersiapkan ekspansi besar-besaran untuk menjadi pusat mineral industri terlengkap di Asia Tenggara Selatan.',
-        targets: ['Digitalisasi Tambang 4.0', 'Kapasitas Ekspor Global', 'Nol Emisi Karbon']
+        title: 'Visi Masa Depan',
+        content: 'Menjadi pemimpin pasar Kalsium Karbonat di Asia Tenggara pada tahun 2030.',
+        targets: ['Ekspansi Kapasitas', 'PCC Nanoscale', 'Net Zero Carbon']
+      },
+      gallery: {
+        title: 'Gambaran Kerja Nyata',
+        subtitle: 'Dokumentasi operasional dan fasilitas di lokasi tambang',
+        images: [
+          '/Foto webp/IMG_1135.webp', '/Foto webp/IMG_1136.webp', '/Foto webp/IMG_1138.webp',
+          '/Foto webp/IMG_1139.webp', '/Foto webp/IMG_1141.webp', '/Foto webp/IMG_1142.webp',
+          '/Foto webp/IMG_1144.webp', '/Foto webp/IMG_1146.webp', '/Foto webp/IMG_1148.webp',
+          '/Foto webp/IMG_1149.webp', '/Foto webp/IMG_1154.webp', '/Foto webp/IMG_1156.webp',
+          '/Foto webp/IMG_1160.webp', '/Foto webp/IMG_1162.webp', '/Foto webp/IMG_1163.webp',
+          '/Foto webp/IMG_1165.webp', '/Foto webp/IMG_1167.webp', '/Foto webp/IMG_1170.webp',
+          '/Foto webp/IMG_1172.webp', '/Foto webp/IMG_1176.webp', '/Foto webp/IMG_1180.webp',
+          '/Foto webp/IMG_1186.webp', '/Foto webp/IMG_1200.webp', '/Foto webp/IMG_1212.webp',
+          '/Foto webp/IMG_1216.webp', '/Foto webp/IMG_1221.webp', '/Foto webp/IMG_1224.webp'
+        ]
       }
     },
     advancedCatalog: {
       hero: {
-        title: 'Katalog Produk Premium',
-        description: 'Jelajahi portofolio mineral industri berkualitas tinggi yang dirancang untuk performa maksimun di berbagai sektor industri.',
-        image: '/catalog-hero.webp'
+        title: 'Katalog Produk Teknis',
+        description: 'Spesifikasi material terlengkap untuk kebutuhan industri presisi.',
+        image: '/mining-bg.webp'
       },
       categories: [
         {
-          title: 'Batuan & Agregat',
-          description: 'Material dasar untuk konstruksi dan infrastruktur.',
+          title: 'Industri Peleburan & Logam',
+          description: 'Material fluks dengan kemurnian tinggi untuk smelter.',
           items: [
-            { 
-              name: 'Limestone Lumpy', 
-              specs: '10-80mm, CaO >55%', 
-              tags: ['Fluxing', 'Construction'],
-              image: '/products/limestone-lumpy.png',
-              details: ['Kemurnian CaO > 55%', 'Ukuran 10-80mm', 'Kadar air rendah', 'Ideal untuk industri baja & semen']
-            },
-            { 
-              name: 'Agregat Beton', 
-              specs: 'Sesuai SNI', 
-              tags: ['Paving', 'Infrastruktur'],
-              image: '/products/agregat-beton.png',
-              details: ['Sesuai standar SNI', 'Tekstur kasar & tajam', 'Minimum porisitas', 'Untuk konstruksi bangunan & jalan']
-            }
+            { name: 'Limestone Lumpy', specs: 'CaO > 55%, 40-150mm', tags: ['Smelter', 'Flux'], image: '/products/limestone-lumpy.png', details: ['High Calcium Content', 'Consistent Size Range', 'Low Silicate'] },
+            { name: 'Quicklime', specs: 'Active CaO > 90%', tags: ['Steel', 'Chemical'], image: '/products/burn-lime.png', details: ['Fast Reactivity', 'High Purity', 'Moisture Controlled'] }
           ]
         },
         {
-          title: 'Bubuk Kalsium',
-          description: 'Kalsium karbonat halus untuk filler dan reaktan.',
+          title: 'Konstruksi & Infrastruktur',
+          description: 'Agregat standar SNI untuk daya tahan maksimal.',
           items: [
-            { 
-              name: 'Tepung CaCO3', 
-              specs: '325-2500 Mesh', 
-              tags: ['Paint', 'Plastic', 'Rubber'],
-              image: '/products/tepung-caco3.png',
-              details: ['Super fine 325-2500 Mesh', 'Tingkat keputihan > 95%', 'Filler industri cat & plastik', 'Konsistensi ukuran partikel']
-            },
-            { 
-              name: 'PCC Nanoscale', 
-              specs: 'High Purity', 
-              tags: ['Pharma', 'Paper'],
-              image: '/products/pcc-nanoscale.png',
-              details: ['Precipitated Calcium Carbonate', 'Kemurnian farmasi', 'Struktur kristal terkontrol', 'Aplikasi kertas & obat-obatan']
-            }
+            { name: 'Agregat Beton', specs: 'Sesuai SNI 1750', tags: ['Infrastruktur', 'Beton'], image: '/products/agregat-beton.png', details: ['Cubical Shape', 'Clean Surfaces', 'Vibrated Material'] }
+          ]
+        },
+        {
+          title: 'Kalsium Karbonat (CaCO3)',
+          description: 'Tepung mineral untuk kertas, plastik, and kimia.',
+          items: [
+            { name: 'Tepung CaCO3', specs: 'D97 < 10 micron', tags: ['Plastic', 'Paper'], image: '/products/tepung-caco3.png', details: ['Ultra Fine Grinding', 'High Whiteness', 'Strict PSD Control'] },
+            { name: 'PCC Nanoscale', specs: 'Purity > 99%', tags: ['Pharma', 'Paint'], image: '/products/pcc-nanoscale.png', details: ['Precipitated Tech', 'Nano Particle Size', 'Pharma Grade'] }
           ]
         }
       ],
+      industrial: {
+        title: 'Aplikasi Material',
+        items: [
+          { name: 'Pembuatan Baja', usage: 'Penghilangan pengotor fosfor & sulfur', icon: 'Flame' },
+          { name: 'Pengolahan Air', usage: 'Penyesuaian pH & koagulasi', icon: 'Droplets' },
+          { name: 'Kertas & Plastik', usage: 'Material pengisi (filler) kualitas tinggi', icon: 'Layers' }
+        ]
+      },
       download: {
         title: 'Dokumentasi Teknis',
         description: 'Unduh katalog lengkap kami dalam format PDF untuk akses spesifikasi terperinci di perangkat Anda.',
-        button: 'UNDUH KATALOG (PDF)',
+        button: 'Unduh Katalog (PDF)',
         fileSize: '4.8 MB',
-        version: 'v2.4 (Mar 2024)'
+        version: 'v2.4 (Mar 2026)'
       },
-      industrial: {
-        title: 'Aplikasi Lintas Sektor',
-        items: [
-          { name: 'Industri Baja', usage: 'Fluxing agent utama', icon: 'Factory' },
-          { name: 'Pengolahan Air', usage: 'Penyesuaian pH & Purifikasi', icon: 'Droplets' },
-          { name: 'Agrikultur', usage: 'Pembenah tanah & penetral asam', icon: 'Sprout' }
+      documentation: {
+        title: 'Dokumentasi Teknis (Photo)',
+        subtitle: 'Bukti kualitas visual dari laboratorium dan fasilitas crushing plant kami.',
+        images: [
+          '/Foto webp/IMG_1135.webp', '/Foto webp/IMG_1136.webp', '/Foto webp/IMG_1138.webp',
+          '/Foto webp/IMG_1139.webp', '/Foto webp/IMG_1141.webp', '/Foto webp/IMG_1142.webp'
         ]
       }
     },
@@ -939,6 +945,38 @@ export const translations: Record<'id' | 'en', Translation> = {
           date: '5 Maret 2024',
           category: 'Teknologi',
           image: '/blog/tech.webp'
+        },
+        {
+          id: '4',
+          title: 'Optimalisasi Peleburan Baja dengan Batu Kapur Kemurnian Tinggi',
+          excerpt: 'Batu kapur dengan kadar CaO tinggi berperan krusial sebagai agen fluxing untuk menghilangkan pengotor dalam pembuatan baja modern.',
+          date: '20 Maret 2024',
+          category: 'Industri',
+          image: '/blog/steel.webp'
+        },
+        {
+          id: '5',
+          title: 'Daya Tahan Infrastruktur: Peran Kalsium Karbonat Standar SNI',
+          excerpt: 'Mengapa agregat beton dan bubuk kalsium berkualitas tinggi menjadi kunci kekuatan proyek strategis nasional Indonesia.',
+          date: '22 Maret 2024',
+          category: 'Teknologi',
+          image: '/blog/tech.webp'
+        },
+        {
+          id: '6',
+          title: 'Praktik Tambang Etis & Dampak Positif bagi Komunitas Ratatotok',
+          excerpt: 'PT WEU berkomitmen pada pemberdayaan tenaga kerja lokal dan tanggung jawab sosial sebagai fondasi keberlanjutan operasional.',
+          date: '25 Maret 2024',
+          category: 'Sosial',
+          image: '/blog/reclamation.webp'
+        },
+        {
+          id: '7',
+          title: 'Masa Depan Nano-PCC dalam Industri Farmasi dan Kimia Khusus',
+          excerpt: 'Eksplorasi potensi Precipitated Calcium Carbonate skala nano untuk aplikasi bernilai tinggi di pasar global.',
+          date: '28 Maret 2024',
+          category: 'Inovasi',
+          image: '/Gemini_Generated_Image_5gf0lo5gf0lo5gf0.webp'
         }
       ]
     },
@@ -998,9 +1036,7 @@ export const translations: Record<'id' | 'en', Translation> = {
     footer: {
       rights: 'Seluruh Hak Cipta Dilindungi.',
       links: [
-        { label: 'Tentang', href: '/tentang-kami' },
         { label: 'Produk', href: '/produk' },
-        { label: 'Governansi', href: '/governansi-standar' },
         { label: 'Privasi', href: '/privacy' }
       ]
     },
@@ -1067,6 +1103,15 @@ export const translations: Record<'id' | 'en', Translation> = {
           { label: 'Kualitas Air', value: 'Sesuai Baku Mutu' }
         ]
       }
+    },
+    projectGallery: {
+      title: 'Galeri Proyek',
+      subtitle: 'Dokumentasi operasional dan fasilitas di lokasi tambang',
+      images: [
+        '/Foto webp/IMG_1135.webp', '/Foto webp/IMG_1136.webp', '/Foto webp/IMG_1138.webp',
+        '/Foto webp/IMG_1139.webp', '/Foto webp/IMG_1141.webp', '/Foto webp/IMG_1142.webp',
+        '/Foto webp/IMG_1144.webp', '/Foto webp/IMG_1145.webp', '/Foto webp/IMG_1146.webp'
+      ]
     }
   },
   en: {
@@ -1860,120 +1905,126 @@ export const translations: Record<'id' | 'en', Translation> = {
     },
     advancedAbout: {
       hero: {
-        title: 'Building a Sustainable Future',
-        subtitle: 'PT Wira Energi Utama',
-        description: 'We are a leader in the limestone mining industry committed to innovation, safety, and environmental sustainability in every operation in North Sulawesi.',
-        image: '/about-hero.webp'
+        title: 'Limestone & Minerals',
+        subtitle: 'About PT Wira Energi Utama',
+        description: 'To be the main pillar in providing high-quality industrial materials from North Sulawesi for national progress.',
+        image: '/mining-bg.webp'
       },
       history: {
         title: 'Our History & Heritage',
-        content: 'Founded in 2019, PT Wira Energi Utama has transformed from a local mining operation in Ratatotok into an integrated industrial mineral provider serving national and regional markets. With abundant mineral reserves and a dedicated team, we continue to build a strong foundation for Indonesia industrial progress.',
-        image: '/history.webp',
+        content: 'Founded with visionary management, PT Wira Energi Utama has transformed from a local Ratatotok mining operation into a strategic industrial player with a 250 TPH crushing plant and special jetty access.',
+        image: '/Drone Webp/DJI_20260310143518_0298_D (1).webp',
         stats: [
-          { label: 'Year Founded', value: '2019' },
-          { label: 'Total Hectares', value: '97.05' },
-          { label: 'Crusher Capacity', value: '250 TPH' }
+          { label: 'Established', value: '2019' },
+          { label: 'Monthly Capacity', value: '150k MT' },
+          { label: 'Area Size', value: '97 Ha' }
         ]
       },
       values: {
-        title: 'Our Core Values',
-        subtitle: 'Principles that guide every step we take toward excellence.',
+        title: 'Our Corporate Values',
+        subtitle: 'Integrity • Innovation • Sustainability',
         items: [
-          { title: 'Integrity', desc: 'Conducting business with full transparency and the highest ethical standards.', icon: 'Shield' },
-          { title: 'Innovation', desc: 'Continuously adopting the latest technology for maximum efficiency and safety.', icon: 'Zap' },
-          { title: 'Safety', desc: 'Zero accidents is the top priority for our entire operational team.', icon: 'ShieldCheck' }
+          { title: 'Integrity', desc: 'Conducting mining with full transparency and strict legal compliance.', icon: 'ShieldCheck' },
+          { title: 'Innovation', desc: 'Adopting the latest mineral processing technology for maximum efficiency.', icon: 'Zap' },
+          { title: 'Community', desc: 'Empowering the local Ratatotok workforce as our top development priority.', icon: 'Users' }
         ]
       },
       leadership: {
-        title: 'Strategic Leadership',
-        content: 'Guided by a board of directors with decades of experience in the natural resources industry, we combine strategic vision with precise operational execution.',
-        image: '/leadership.webp'
+        title: 'Our Leadership',
+        content: 'Guided by technical expertise and business integrity to ensure operational sustainability.',
+        image: '/Drone Webp/DJI_20260310143640_0300_D (1).webp'
       },
       sustainability: {
-        title: 'Green Commitment',
-        content: 'We believe that mining can go hand in hand with nature. Our progressive reclamation program ensures each finished mining area will be returned to a productive ecosystem state.',
-        initiatives: ['Closed-Loop Water Circulation', 'Multi-stage Dust Filtration', 'Dense Vegetation Greening']
+        title: 'Ecological Commitment',
+        content: 'We are fully committed to post-mining reclamation and reforestation of operational areas.',
+        initiatives: ['Sustainable Reclamation', 'Waste Management', 'Water Conservation']
       },
       safety: {
-        title: 'Occupational Health & Safety',
-        content: 'Our safety culture goes beyond administrative compliance. Every employee has the right and obligation to ensure the work environment remains safe for all.',
-        certifications: ['SMK3 Certification', 'Full PPE Standards', 'Periodic Safety Audits']
+        title: 'Occupational Safety',
+        content: 'Safety without compromise through world-class industry K3 (Health and Safety) standards.',
+        certifications: ['ISO 45001', 'Mining K3', 'Zero Accident Policy']
       },
       assets: {
-        title: 'Strategic Assets',
+        title: 'Facilities & Assets',
         items: [
-          { name: 'Private Jetty', value: 'Draft 12m', icon: 'Ship' },
-          { name: 'Crushing Plant', value: 'Full Automation', icon: 'Settings' },
-          { name: 'Logistics Fleet', value: 'Isuzu Giga Series', icon: 'Truck' }
+          { name: 'Crushing Plant', value: '250 TPH', icon: 'Settings' },
+          { name: 'Special Port', value: '3 Jetty', icon: 'Ship' },
+          { name: 'Logistics Fleet', value: '15+ Units', icon: 'Truck' }
         ]
       },
       future: {
-        title: 'Vision 2030',
-        content: 'We are preparing for a massive expansion to become the most comprehensive industrial mineral hub in South East Asia.',
-        targets: ['Mine 4.0 Digitalization', 'Global Export Capacity', 'Zero Carbon Emission']
+        title: 'Future Vision',
+        content: 'To be the Calcium Carbonate market leader in Southeast Asia by 2030.',
+        targets: ['Capacity Expansion', 'Nano PCC', 'Net Zero Carbon']
+      },
+      gallery: {
+        title: 'Real Work Vision',
+        subtitle: 'Operational and facility documentation at the mine site',
+        images: [
+          '/Foto webp/IMG_1135.webp', '/Foto webp/IMG_1136.webp', '/Foto webp/IMG_1138.webp',
+          '/Foto webp/IMG_1139.webp', '/Foto webp/IMG_1141.webp', '/Foto webp/IMG_1142.webp',
+          '/Foto webp/IMG_1144.webp', '/Foto webp/IMG_1146.webp', '/Foto webp/IMG_1148.webp',
+          '/Foto webp/IMG_1149.webp', '/Foto webp/IMG_1154.webp', '/Foto webp/IMG_1156.webp',
+          '/Foto webp/IMG_1160.webp', '/Foto webp/IMG_1162.webp', '/Foto webp/IMG_1163.webp',
+          '/Foto webp/IMG_1165.webp', '/Foto webp/IMG_1167.webp', '/Foto webp/IMG_1170.webp',
+          '/Foto webp/IMG_1172.webp', '/Foto webp/IMG_1176.webp', '/Foto webp/IMG_1180.webp',
+          '/Foto webp/IMG_1186.webp', '/Foto webp/IMG_1200.webp', '/Foto webp/IMG_1212.webp',
+          '/Foto webp/IMG_1216.webp', '/Foto webp/IMG_1221.webp', '/Foto webp/IMG_1224.webp'
+        ]
       }
     },
     advancedCatalog: {
       hero: {
-        title: 'Premium Product Catalog',
-        description: 'Explore our portfolio of high-quality industrial minerals designed for maximum performance across various industrial sectors.',
-        image: '/catalog-hero.webp'
+        title: 'Technical Product Catalog',
+        description: 'The most complete material specifications for precision industry needs.',
+        image: '/mining-bg.webp'
       },
       categories: [
         {
-          title: 'Rocks & Aggregates',
-          description: 'Basic materials for construction and infrastructure.',
+          title: 'Smelter & Metal Industry',
+          description: 'High-purity flux materials for smelters.',
           items: [
-            { 
-              name: 'Limestone Lumpy', 
-              specs: '10-80mm, CaO >55%', 
-              tags: ['Fluxing', 'Construction'],
-              image: '/products/limestone-lumpy.png',
-              details: ['CaO Purity > 55%', 'Size 10-80mm', 'Low moisture content', 'Ideal for steel & cement industry']
-            },
-            { 
-              name: 'Concrete Aggregate', 
-              specs: 'According to SNI', 
-              tags: ['Paving', 'Infrastructure'],
-              image: '/products/agregat-beton.png',
-              details: ['Complies with SNI standards', 'Rough & sharp texture', 'Minimum porosity', 'For building & road construction']
-            }
+            { name: 'Limestone Lumpy', specs: 'CaO > 55%, 40-150mm', tags: ['Smelter', 'Flux'], image: '/products/limestone-lumpy.png', details: ['High Calcium Content', 'Consistent Size Range', 'Low Silicate'] },
+            { name: 'Quicklime', specs: 'Active CaO > 90%', tags: ['Steel', 'Chemical'], image: '/products/burn-lime.png', details: ['Fast Reactivity', 'High Purity', 'Moisture Controlled'] }
           ]
         },
         {
-          title: 'Calcium Powder',
-          description: 'Fine calcium carbonate for fillers and reactants.',
+          title: 'Construction & Infrastructure',
+          description: 'SNI standard aggregates for maximum durability.',
           items: [
-            { 
-              name: 'CaCO3 Powder', 
-              specs: '325-2500 Mesh', 
-              tags: ['Paint', 'Plastic', 'Rubber'],
-              image: '/products/tepung-caco3.png',
-              details: ['Super fine 325-2500 Mesh', 'Whiteness level > 95%', 'Paint & plastic industry filler', 'Particle size consistency']
-            },
-            { 
-              name: 'PCC Nanoscale', 
-              specs: 'High Purity', 
-              tags: ['Pharma', 'Paper'],
-              image: '/products/pcc-nanoscale.png',
-              details: ['Precipitated Calcium Carbonate', 'Pharmaceutical purity', 'Controlled crystal structure', 'Paper & medicine applications']
-            }
+            { name: 'Concrete Aggregate', specs: 'SNI 1750 Compliant', tags: ['Infrastruktur', 'Beton'], image: '/products/agregat-beton.png', details: ['Cubical Shape', 'Clean Surfaces', 'Vibrated Material'] }
+          ]
+        },
+        {
+          title: 'Calcium Carbonate (CaCO3)',
+          description: 'Mineral powder for paper, plastic, and chemical industries.',
+          items: [
+            { name: 'CaCO3 Powder', specs: 'D97 < 10 micron', tags: ['Plastic', 'Paper'], image: '/products/tepung-caco3.png', details: ['Ultra Fine Grinding', 'High Whiteness', 'Strict PSD Control'] },
+            { name: 'Nano PCC', specs: 'Purity > 99%', tags: ['Pharma', 'Paint'], image: '/products/pcc-nanoscale.png', details: ['Precipitated Tech', 'Nano Particle Size', 'Pharma Grade'] }
           ]
         }
       ],
+      industrial: {
+        title: 'Material Applications',
+        items: [
+          { name: 'Steel Making', usage: 'Phosphorus & sulfur impurity removal', icon: 'Flame' },
+          { name: 'Water Treatment', usage: 'pH adjustment & coagulation', icon: 'Droplets' },
+          { name: 'Paper & Plastic', usage: 'High-quality filler material', icon: 'Layers' }
+        ]
+      },
       download: {
         title: 'Technical Documentation',
-        description: 'Download our complete catalog in PDF format for detailed specification access on your device.',
-        button: 'DOWNLOAD CATALOG (PDF)',
+        description: 'Download our complete catalog in PDF format for detailed specifications at your fingertips.',
+        button: 'Download Catalog (PDF)',
         fileSize: '4.8 MB',
-        version: 'v2.4 (Mar 2024)'
+        version: 'v2.4 (Mar 2026)'
       },
-      industrial: {
-        title: 'Cross-Sector Applications',
-        items: [
-          { name: 'Steel Industry', usage: 'Major fluxing agent', icon: 'Factory' },
-          { name: 'Water Treatment', usage: 'pH Adjustment & Purification', icon: 'Droplets' },
-          { name: 'Agriculture', usage: 'Soil conditioner & acid neutralizer', icon: 'Sprout' }
+      documentation: {
+        title: 'Technical Documentation (Photo)',
+        subtitle: 'Visual proof of quality from our laboratory and crushing plant facilities.',
+        images: [
+          '/Foto webp/IMG_1135.webp', '/Foto webp/IMG_1136.webp', '/Foto webp/IMG_1138.webp',
+          '/Foto webp/IMG_1139.webp', '/Foto webp/IMG_1141.webp', '/Foto webp/IMG_1142.webp'
         ]
       }
     },
@@ -2006,6 +2057,38 @@ export const translations: Record<'id' | 'en', Translation> = {
           date: 'March 5, 2024',
           category: 'Technology',
           image: '/blog/tech.webp'
+        },
+        {
+          id: '4',
+          title: 'Steel Smelting Optimization with High-Purity Limestone',
+          excerpt: 'High-purity limestone with high CaO content plays a crucial role as a fluxing agent to remove impurities in modern steelmaking.',
+          date: 'March 20, 2024',
+          category: 'Industry',
+          image: '/blog/steel.webp'
+        },
+        {
+          id: '5',
+          title: 'Infrastructure Durability: The Role of SNI-Standard Calcium Carbonate',
+          excerpt: 'Why high-quality concrete aggregates and calcium powder are key to the strength of Indonesia\'s national strategic projects.',
+          date: 'March 22, 2024',
+          category: 'Technology',
+          image: '/blog/tech.webp'
+        },
+        {
+          id: '6',
+          title: 'Ethical Mining Practices & Positive Impact for the Ratatotok Community',
+          excerpt: 'PT WEU is committed to local workforce empowerment and social responsibility as the foundation of operational sustainability.',
+          date: 'March 25, 2024',
+          category: 'Social',
+          image: '/blog/reclamation.webp'
+        },
+        {
+          id: '7',
+          title: 'The Future of Nano-PCC in Pharmaceutical and Specialty Chemicals',
+          excerpt: 'Exploring the potential of nano-scale Precipitated Calcium Carbonate for high-value applications in the global market.',
+          date: 'March 28, 2024',
+          category: 'Innovation',
+          image: '/Gemini_Generated_Image_5gf0lo5gf0lo5gf0.webp'
         }
       ]
     },
@@ -2065,9 +2148,7 @@ export const translations: Record<'id' | 'en', Translation> = {
     footer: {
       rights: 'All Rights Reserved.',
       links: [
-        { label: 'About', href: '/about' },
         { label: 'Products', href: '/products' },
-        { label: 'Governance', href: '/governance-standards' },
         { label: 'Privacy', href: '/privacy' }
       ]
     },
@@ -2134,6 +2215,15 @@ export const translations: Record<'id' | 'en', Translation> = {
           { label: 'Water Quality', value: 'Meets Standards' }
         ]
       }
+    },
+    projectGallery: {
+      title: 'Project Gallery',
+      subtitle: 'Operational documentation and facilities at the mine site',
+      images: [
+        '/Foto webp/IMG_1135.webp', '/Foto webp/IMG_1136.webp', '/Foto webp/IMG_1138.webp',
+        '/Foto webp/IMG_1139.webp', '/Foto webp/IMG_1141.webp', '/Foto webp/IMG_1142.webp',
+        '/Foto webp/IMG_1144.webp', '/Foto webp/IMG_1145.webp', '/Foto webp/IMG_1146.webp'
+      ]
     }
   },
 }

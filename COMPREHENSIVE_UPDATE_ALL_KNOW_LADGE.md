@@ -161,9 +161,23 @@ Route (app)
   - Successfully deployed `ScrollIntentWrapper`, `ScrollIntentCTA`, and `TrustMicroSection` as global layout components to capture and qualify B2B traffic.
   - Finalized the **InstaPage Performance** baseline with optimized `.webp` hero assets and zero client-side routing latency.
 
-### Build Metrics (Final Hardened Release)
-- **Total Prerendered Pages:** 65+
-- **Build Outcome:** **SUCCESSFUL** ✅
-- **Static Export Status:** Optimized for Cloudflare Pages / Vercel Edge.
+## 12. Recent Upgrades (April 4, 2026 - Corporate Visual & Content Expansion)
+- **High-Resolution Drone Imagery Integration**:
+  - Replaced the primary Landing Page background (`mining-bg.webp`) with high-resolution drone photography from the Ratatotok site.
+  - Implemented `PhotoSlider.tsx`, a premium motion-driven slider component for operational documentation ("Gambaran Kerja Nyata").
+- **Comprehensive Corporate Data Enrichment**:
+  - Injected 4+ new corporate sections into `/tentang-kami` and the company profile, including **Leadership & Management**, **Mining History**, and **Asset/Equipment Inventory**.
+  - Expanded the B2B Technical documentation section in `/katalog` ("Dokumentasi Teknis") with high-resolution laboratory and operational grids.
+- **Interactive Visual Storytelling**:
+  - Deployed the `PhotoSlider` across both the About page and the Corporate Profile to showcase real-world operational facilities.
+  - Implemented `TechnicalDocumentationSection.tsx` as a reusable component for showcasing transparency in quality control and laboratory processes.
+- **Localization Synchronicity**:
+  - Fully synchronized Indonesian and English locales for all new sections within `translations.ts`.
+  - Maintained 100% build stability with `output: 'export'` ensuring low-latency static delivery.
 
-*Last Updated: April 4, 2026 (Completion of Initial Technical Hardening)*
+### Build Metrics (Final Expansion Release)
+- **Total Prerendered Pages:** 65+
+- **Build Outcome:** **SUCCESSFUL** ✅ (Pending Verification)
+- **Static Export Status:** Production Grade Optimized.
+
+*Last Updated: April 4, 2026 (Completion of Corporate Visual Expansion)*

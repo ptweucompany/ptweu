@@ -1,19 +1,22 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import dynamic from 'next/dynamic';
+import nextDynamic from 'next/dynamic';
 import { allProducts } from '../src/data/products';
 
+export const dynamic = 'force-static';
+export const revalidate = 86400;
+
 // 🔧 PART 3 — PERFORMANCE: DYNAMIC IMPORTS FOR BELOW-THE-FOLD SECTIONS
-const TrustBar = dynamic(() => import('../src/components/landing/TrustBar'), { 
+const TrustBar = nextDynamic(() => import('../src/components/landing/TrustBar'), { 
   ssr: true,
   loading: () => <div className="h-96 bg-gray-50 animate-pulse" /> 
 });
-const ProductPreview = dynamic(() => import('../src/components/landing/ProductPreview'), { 
+const ProductPreview = nextDynamic(() => import('../src/components/landing/ProductPreview'), { 
   ssr: true,
   loading: () => <div className="h-[600px] bg-white animate-pulse" />
 });
-const CTASection = dynamic(() => import('../src/components/CTASection'), { 
+const CTASection = nextDynamic(() => import('../src/components/CTASection'), { 
   ssr: true 
 });
 

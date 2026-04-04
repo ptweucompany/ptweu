@@ -1,9 +1,8 @@
-'use client';
-
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { FileText, Download, Factory, Droplets, Sprout, ChevronRight, ShieldCheck, Zap, Layers, Beaker, X, CheckCircle2, ChevronDown } from 'lucide-react';
 import { Translation } from '../types';
+import TechnicalDocumentationSection from './TechnicalDocumentationSection';
 
 interface AdvancedCatalogProps {
   t: Translation['advancedCatalog'];
@@ -179,35 +178,6 @@ export default function AdvancedCatalog({ t }: AdvancedCatalogProps) {
         )}
       </AnimatePresence>
 
-      {/* Download CTA */}
-      <section className="py-24 bg-gray-900 border-y border-white/5 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent" />
-        <div className="max-w-5xl mx-auto px-4 text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-8 uppercase tracking-tight">{t.download.title}</h2>
-          <p className="text-2xl text-gray-400 font-medium mb-12">
-            {t.download.description}
-          </p>
-          <div className="flex flex-col items-center gap-6">
-            <motion.a
-              href="/company-profile.pdf"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center bg-brand-gold text-brand-blue font-black px-12 py-6 rounded-full text-xl uppercase tracking-tight shadow-2xl shadow-brand-gold/20"
-            >
-              <Download size={28} className="mr-4" />
-              {t.download.button}
-            </motion.a>
-            {t.download.fileSize && (
-              <div className="flex items-center gap-4 text-gray-500 font-bold uppercase tracking-widest text-sm">
-                <span>{t.download.fileSize}</span>
-                <span className="w-1.5 h-1.5 bg-brand-gold rounded-full" />
-                <span>{t.download.version}</span>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
       {/* Industrial Applications Section */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -235,6 +205,60 @@ export default function AdvancedCatalog({ t }: AdvancedCatalogProps) {
                 </motion.div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Documentation Section */}
+      <TechnicalDocumentationSection t={t.documentation} />
+
+      {/* Decorative Focus Image */}
+      <section className="relative h-[60vh] overflow-hidden">
+        <img 
+          src="/Gemini_Generated_Image_z286q7z286q7z286.webp" 
+          alt="Technical Excellence" 
+          className="w-full h-full object-cover transition-transform duration-1000" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent flex items-end justify-center pb-20">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <h3 className="text-white text-3xl md:text-5xl font-black uppercase tracking-tighter mb-4 px-4 leading-tight">
+              Kualitas Teruji di Setiap Butir Mineral
+            </h3>
+            <div className="w-20 h-2 bg-brand-gold mx-auto rounded-full" />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Download CTA */}
+      <section className="py-24 bg-gray-900 border-y border-white/5 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent" />
+        <div className="max-w-5xl mx-auto px-4 text-center relative z-10">
+          <h2 className="text-4xl md:text-6xl font-black text-white mb-8 uppercase tracking-tight">{t.download.title}</h2>
+          <p className="text-2xl text-gray-400 font-medium mb-12">
+            {t.download.description}
+          </p>
+          <div className="flex flex-col items-center gap-6">
+            <motion.a
+              href="/company-profile.pdf"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center bg-brand-gold text-brand-blue font-black px-12 py-6 rounded-full text-xl uppercase tracking-tight shadow-2xl shadow-brand-gold/20"
+            >
+              <Download size={28} className="mr-4" />
+              {t.download.button}
+            </motion.a>
+            {t.download.fileSize && (
+              <div className="flex items-center gap-4 text-gray-500 font-bold uppercase tracking-widest text-sm">
+                <span>{t.download.fileSize}</span>
+                <span className="w-1.5 h-1.5 bg-brand-gold rounded-full" />
+                <span>{t.download.version}</span>
+              </div>
+            )}
           </div>
         </div>
       </section>

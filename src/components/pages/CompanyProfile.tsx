@@ -10,7 +10,7 @@ import FleetEquipment from '../FleetEquipment';
 import LaboratoryDetail from '../LaboratoryDetail';
 import CorporateGovernance from '../CorporateGovernance';
 import EnvironmentCommitment from '../EnvironmentCommitment';
-import ProjectGallery from '../ProjectGallery';
+import PhotoSlider from '../PhotoSlider';
 import MiningProcess from '../MiningProcess';
 import GeologicalAdvantage from '../GeologicalAdvantage';
 import EconomicBenefits from '../EconomicBenefits';
@@ -221,7 +221,17 @@ export default function CompanyProfile({ t }: CompanyProfileProps) {
       
       <EnvironmentCommitment t={t.environment} />
       
-      <ProjectGallery t={t.gallery} />
+      <PhotoSlider 
+        images={t.advancedAbout.gallery.images} 
+        title={t.advancedAbout.gallery.title} 
+        subtitle={t.advancedAbout.gallery.subtitle} 
+      />
+
+      <PhotoSlider 
+        images={t.projectGallery.images} 
+        title={t.projectGallery.title} 
+        subtitle={t.projectGallery.subtitle} 
+      />
 
       {/* Bottom CTA */}
       <section className="py-20 bg-gray-50 text-center">
