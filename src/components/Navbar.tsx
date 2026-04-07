@@ -52,13 +52,13 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
           {/* Logo */}
           <Link href={lang === 'id' ? '/' : '/en'} className="flex items-center space-x-3 group" aria-label="PT Wira Energi Utama Home">
             <div className="relative w-12 h-12 flex items-center justify-center transition-transform group-hover:scale-110">
-              <Image 
-                src="/2.svg" 
-                alt="PT Wira Energi Utama Logo" 
-                fill 
-                priority 
-                className="object-contain"
-                sizes="48px"
+              <Image
+                src="/2.webp"
+                alt="PT Wira Energi Utama"
+                width={56}
+                height={56}
+                className="h-14 w-auto object-contain"
+                priority
               />
             </div>
             <div className="flex flex-col justify-center">

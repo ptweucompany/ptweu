@@ -101,7 +101,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
-      { url: '/2.svg', type: 'image/svg+xml' },
+      { url: '/2.webp', type: 'image/webp' },
       { url: '/icon.png', type: 'image/png', sizes: '32x32' },
       { url: '/icon.png', type: 'image/png', sizes: '48x48' },
       { url: '/icon.png', type: 'image/png', sizes: '96x96' },
@@ -271,10 +271,6 @@ export default function RootLayout({
   return (
     <html lang="id" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://edxawclzktunjdxsirpv.supabase.co" />
-        <link rel="dns-prefetch" href="https://edxawclzktunjdxsirpv.supabase.co" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={`${inter.className} min-h-screen font-sans text-gray-900 bg-white`}>

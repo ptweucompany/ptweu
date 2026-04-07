@@ -44,7 +44,7 @@ const PDFCompanyProfile = forwardRef<HTMLDivElement, PDFCompanyProfileProps>(({ 
         
         <div className="relative z-10">
           <div className="flex items-center gap-10 mb-32">
-            <img src="/2.svg" alt="Logo" className="w-32 h-32" />
+            <img src="/2.webp" alt="Logo" className="w-32 h-32" />
             <div className="h-24 w-1.5" style={{ backgroundColor: colors.brandGold }} />
             <div>
               <h1 className="text-5xl font-black tracking-tighter uppercase">PT WIRA ENERGI UTAMA</h1>
@@ -79,7 +79,7 @@ const PDFCompanyProfile = forwardRef<HTMLDivElement, PDFCompanyProfileProps>(({ 
       <div className="pdf-page p-24 min-h-[1697px] flex flex-col" style={{ backgroundColor: colors.white }}>
         <div className="flex justify-between items-center mb-16 pb-6 border-b-4" style={{ borderBottomColor: colors.brandBlue }}>
            <h3 className="text-3xl font-black uppercase text-brand-blue" style={{ color: colors.brandBlue }}>Legal Standing & Compliance</h3>
-           <img src="/2.svg" alt="Logo" className="w-16 h-16" />
+           <img src="/2.webp" alt="Logo" className="w-16 h-16" />
         </div>
 
         <div className="grid grid-cols-1 gap-12">
@@ -324,7 +324,7 @@ const PDFCompanyProfile = forwardRef<HTMLDivElement, PDFCompanyProfileProps>(({ 
         </div>
         
         <div className="relative z-10 w-full max-w-4xl">
-           <img src="/2.svg" alt="Logo" className="w-48 h-48 mx-auto mb-16" />
+           <img src="/2.webp" alt="Logo" className="w-48 h-48 mx-auto mb-16" />
            <h2 className="text-8xl font-black mb-10 uppercase tracking-tighter leading-none">Your <span style={{ color: colors.brandGold }}>Strategic</span> Mineral Partner</h2>
            <p className="text-3xl text-gray-400 font-medium mb-32 max-w-2xl mx-auto italic">Delivering industrial-grade limestone with precision and integrity.</p>
            

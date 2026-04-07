@@ -20,7 +20,7 @@ export default function Footer({ t, footerT, profileT }: FooterProps) {
               <Link href="/" className="flex items-center space-x-2 group" aria-label="PT Wira Energi Utama Home">
                 <div className="relative w-14 h-14 flex items-center justify-center transition-transform group-hover:scale-110">
                   <Image 
-                    src="/2.svg" 
+                    src="/2.webp" 
                     alt="PT Wira Energi Utama Logo" 
                     fill 
                     className="object-contain"

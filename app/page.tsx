@@ -68,7 +68,7 @@ export default function HomePage() {
             Mining, General Trading & Industrial Supplier
           </p>
           <h1 className="text-white text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-[1.1] max-w-4xl tracking-tight">
-            PT <span className="text-[#C8A84B]">Wira Energi</span> Utama
+            PT <span className="text-[#C8A84B]">.</span> Wira Energi Utama
           </h1>
           <div className="mt-6 flex flex-col gap-1.5 border-l-4 border-[#C8A84B] pl-6 py-1">
             <p className="text-white text-xl sm:text-2xl font-bold tracking-tight">

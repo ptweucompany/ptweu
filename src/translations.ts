@@ -1349,7 +1349,7 @@ export const translations: { id: Translation; en: Partial<Translation> & Record<
         content: 'Founded with visionary management, PT Wira Energi Utama has transformed from a local Ratatotok mining operation into a strategic industrial player with a 250 TPH crushing plant and special jetty access.',
         image: '/Drone Webp/DJI_20260310143518_0298_D (1).webp',
         stats: [
-          { label: 'Established', value: '2019' },
+          { label: 'Established', value: '2023' },
           { label: 'Monthly Capacity', value: '150k MT' },
           { label: 'Area Size', value: '97 Ha' }
         ]

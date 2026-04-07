@@ -50,7 +50,7 @@ const PDFProductCatalog = forwardRef<HTMLDivElement, PDFProductCatalogProps>(({ 
         
         <div className="relative z-10">
           <div className="flex items-center gap-6 mb-20">
-            <img src="/2.svg" alt="Logo" className="w-24 h-24" />
+            <img src="/2.webp" alt="Logo" className="w-24 h-24" />
             <div className="h-20 w-1" style={{ backgroundColor: colors.brandGold }} />
             <div>
               <h1 className="text-4xl font-black tracking-tighter uppercase">PT WIRA ENERGI UTAMA</h1>
@@ -84,7 +84,7 @@ const PDFProductCatalog = forwardRef<HTMLDivElement, PDFProductCatalogProps>(({ 
       {/* INTRODUCTION PAGE - PAGE 2 */}
       <div className="pdf-page p-24 min-h-[1697px] flex flex-col" style={{ backgroundColor: colors.white }}>
         <div className="flex justify-between items-center mb-24 pb-8 border-b-2" style={{ borderBottomColor: colors.gray100 }}>
-           <img src="/2.svg" alt="Logo" className="w-12 h-12" />
+           <img src="/2.webp" alt="Logo" className="w-12 h-12" />
            <span className="text-xs font-black uppercase tracking-widest" style={{ color: colors.gray400 }}>Company Overview</span>
         </div>
 
@@ -194,7 +194,7 @@ const PDFProductCatalog = forwardRef<HTMLDivElement, PDFProductCatalogProps>(({ 
                       <span className="text-xs font-black uppercase tracking-widest block mb-2" style={{ color: colors.gray400 }}>TECHNICAL DATASHEET | {product.category.toUpperCase()}</span>
                       <h3 className="text-7xl font-black uppercase tracking-tighter" style={{ color: colors.brandBlue }}>{product.hero.title}</h3>
                    </div>
-                   <img src="/2.svg" alt="Logo" className="w-16 h-16" />
+                   <img src="/2.webp" alt="Logo" className="w-16 h-16" />
                 </div>
 
                 {/* Hero / Specs Grid */}
@@ -282,7 +282,7 @@ const PDFProductCatalog = forwardRef<HTMLDivElement, PDFProductCatalogProps>(({ 
           {t.industrial.items.map((item, idx) => (
             <div key={idx} className="p-12 rounded-[3.5rem] border text-center" style={{ backgroundColor: 'rgba(255,255,255,0.05)', borderColor: 'rgba(255,255,255,0.1)' }}>
                <div className="w-24 h-24 flex items-center justify-center mx-auto mb-10 shadow-xl rounded-[2rem]" style={{ backgroundColor: colors.brandGold }}>
-                 <img src={idx % 2 === 0 ? "/2.svg" : "/favicon.svg"} alt="" className="w-12 h-12 grayscale brightness-0 invert opacity-40 shrink-0" />
+                 <img src={idx % 2 === 0 ? "/2.webp" : "/icon.png"} alt="" className="w-12 h-12 grayscale brightness-0 invert opacity-40 shrink-0" />
                </div>
                <h4 className="text-4xl font-black mb-4 uppercase tracking-tight">{item.name}</h4>
                <p className="text-xl font-medium leading-relaxed italic" style={{ color: colors.gray400 }}>{item.usage}</p>
@@ -306,7 +306,7 @@ const PDFProductCatalog = forwardRef<HTMLDivElement, PDFProductCatalogProps>(({ 
         </div>
         
         <div className="relative z-10 w-full max-w-4xl">
-           <img src="/2.svg" alt="Logo" className="w-48 h-48 mx-auto mb-16" />
+           <img src="/2.webp" alt="Logo" className="w-48 h-48 mx-auto mb-16" />
            <h2 className="text-8xl font-black mb-10 uppercase tracking-tighter leading-[0.9]">Ready to <span style={{ color: colors.brandGold }}>Elevate</span> your production?</h2>
            <p className="text-3xl font-medium mb-32 max-w-2xl mx-auto italic" style={{ color: colors.gray400 }}>Contact our technical sales team for customized mineral solutions and precision industrial quotations.</p>
            

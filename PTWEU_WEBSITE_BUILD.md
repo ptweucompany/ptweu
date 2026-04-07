@@ -1,6 +1,6 @@
 # PT Wira Energi Utama: Ultimate Build Documentation
-**Document Version**: 2.0 (Comprehensive)
-**Project Status**: Production Hardened
+**Document Version**: 3.0 (Final Handover)
+**Project Status**: Production Hardened & Optimized
 **Build Reference**: Next.js Static Export (April 2026)
 
 ---
@@ -14,6 +14,7 @@
 - **Styling Engine**: Tailwind CSS 4.x (Utility-first, Custom HSL Color Tokens)
 - **Animation Framework**: Motion (formerly Framer Motion) for scroll-locked and trigger-based micro-interactions.
 - **Icons**: Lucide React (Industrial subset)
+- **Performance**: Integrated `instant.page` for 65ms pre-hover navigation speed.
 
 ### Backend & AI Intelligence
 - **Database Layer**: Supabase (PostgreSQL)
@@ -24,113 +25,93 @@
 - **Deployment Strategy**: **100% Static HTML Export**
     - `output: 'export'` configuration in `next.config.js`.
     - Guarantees zero-latency, zero-server-side-vulnerability, and instant global delivery.
+- **Lead Management**: **Formspree Integration**
+    - Inquiry forms are routed to `https://formspree.io/f/xykbeevg`.
+    - Primary business email: `contact@ptweu.company` (Forwarded via Cloudflare).
 
 ---
 
-## 📁 2. Project Folder Topology
+## 📁 2. Project Folder Topology (The Build Structure)
 
-| Directory | Purpose | Contents |
+| Directory | Purpose | Detailed Contents |
 | :--- | :--- | :--- |
-| `/app` | Routing Layer | localized pages, layouts, sitemaps, and robots.tsx. |
-| `/src/components` | UI Logic | 40+ reusable industrial components and page fragments. |
-| `/src/context` | State Management | `LanguageContext` handling global ID/EN switching. |
-| `/src/data` | Static Data Store | Technical parameters for Products, Industries, and Locations. |
-| `/src/styles` | Global CSS | Tailwind directives and base HSL color system. |
-| `/public` | Asset Hub | High-resolution drone shots, product macro photography, and fonts. |
+| `/app` | Routing & Metadata | `page.tsx`, `layout.tsx`, `robots.ts`, `sitemap.ts`. Handles the core URL structure. |
+| `/src/components` | UI Logic Hub | Atomic components (Button, Input) to complex blocks (Hero, InquiryForm). |
+| `/src/context` | Application State | `LanguageContext.tsx`: Manages the ID/EN toggle across the entire tree. |
+| `/src/data` | Structured Intelligence | `products.ts`, `industries.ts`, `internalLinks.ts`. Defines the site's knowledge base. |
+| `/src/lib` | Core Utilities | `gemini.ts` (AI logic), `utils.ts` (Tailwind merging). |
+| `/src/styles` | Design System | `globals.css`: Contains CSS variables for brand colors and global resets. |
+| `/public` | Static Assets | Favicons, optimized WebP images, and fonts. |
 
 ---
 
-## 🧭 3. Exhaustive Sitemap (69+ Prerendered Routes)
+## 🧭 3. Exhaustive Sitemap & Route Architecture
 
-The application features a bidirectional bilingual mapping system. Every Indonesian (ID) route has a corresponding English (EN) partner.
+The application uses dynamic segment generation for products, industries, and locations, resulting in **69+ unique pages**.
 
-### Primary Authority Pages
-- **Home**: `/` (ID) / `/en` (EN)
-- **Corporate Profile**: `/company-profile`
-- **About Us**: `/tentang-kami` (ID) / `/about` (EN)
-- **Governance**: `/governansi-standar` (ID) / `/governance-standards` (EN)
-- **Sustainability**: `/berkelanjutan` (ID) / `/sustainability` (EN)
-- **Catalog Hub**: `/katalog` (ID) / `/catalog` (EN)
+### Authority Core
+- **Home (ID/EN)**: `/` | `/en`
+- **Corporate Profile**: `/company-profile` | `/en/company-profile`
+- **Sustainability**: `/keberlanjutan` | `/sustainability`
+- **Governance**: `/governansi-standar` | `/governance-standards`
+- **About Us**: `/tentang-kami` | `/about`
+- **Technical Catalog**: `/katalog` | `/catalog`
 
-### Industrial Deep-Dives (Industri & Products)
-- **Products**: `/produk` & `/en/products`
-    - Slugs: `batu-kapur`, `kalsium-karbonat`, `kapur-bakar`, `kapur-padam`, `pcc`, `agregat`.
-- **Industries**: `/industri` & `/en/industries`
-    - 15+ Slugs: `semen`, `baja`, `pltu`, `kimia`, `pertanian`, `konstruksi`, `pengolahan-air`, `kertas-plastik`, `gula`, `kaca`, `kulit`, `pakan-ternak`, `cat-coating`, `emas`, `keramik`.
-
-### Geographic Presence (Lokasi)
-- **Regional Hubs**: 14+ ID Slugs (Manado, Bitung, Jakarta, Surabaya, Makassar, Cilegon, etc.)
-- **Global Export Hubs**: Australia, China, Singapore, Asia Hub.
+### The Industrial Matrix (Slugs)
+- **Product Depth**: `batu-kapur`, `kalsium-karbonat`, `kapur-bakar`, `kapur-padam`, `pcc`, `agregat`.
+- **Market Segments**: 15 industries including `semen`, `baja`, `pltu`, `kimia`, `pertanian`, `emas`, and `konstruksi`.
+- **Regional Footprint**: 25+ locations mapping the Indonesian mining landscape (Manado, Jakarta, Surabaya, etc.) and global hubs.
 
 ---
 
-## 🛠️ 4. Component Inventory (The Industrial UI System)
+## 🛠️ 4. Premium Component Inventory
 
-### Landing & Conversion
-- `Hero`: High-impact landing with CTA transition.
-- `InquiryForm`: 4-step B2B qualification engine.
-- `ScrollIntentCTA`: Smart trigger for lead acquisition.
-- `TrustBar`: Industrial partnership visualizer.
+### Conversion & Engagement
+- **`InquiryForm`**: A sophisticated 4-step B2B gateway that qualifies leads by technical requirement.
+- **`LeadScrollButton`**: A conversion-optimized floating action bar for mobile users.
+- **`Hero`**: Next-gen visual landing with performance-prioritized imagery.
 
-### Technical & Operational
-- `PhotoSlider`: HD Operational Documentation (27-image array).
-- `ProductionStats`: Recharts-powered capacity visualizer.
-- `AdvancedSustainability`: ESG & Reclamation metrics dashboard.
-- `AdvancedGovernance`: ISO readiness and legal transparency portal.
-- `TechnicalDocumentationSection`: Laboratory and QC verification grid.
+### Data Visualization
+- **`ProductionStats`**: Real-time capacity charts for production transparency.
+- **`AdvancedSustainability`**: Interactive ESG component demonstrating environmental stewardship.
+- **`AdvancedAbout`**: Storytelling component with integrated Sustainability CTAs.
 
-### UI Infrastructure
-- `Navbar` & `Footer`: Synchronized bilingual navigation.
-- `PDFProductCatalog`: Dynamic A4 technical synthesis engine.
-- `LeadScrollButton`: Sticky mobile conversion pressured bar.
+### Document Generation
+- **`PDFProductCatalog` / `PDFCompanyProfile`**: High-fidelity HTML-to-Canvas engines for technical PDF generation without page reloads.
 
 ---
 
-## 💾 5. Data Architecture & Localization
+## ⚡ 5. Performance Hardening (100/100 Strategy)
 
-### The Single Source of Truth
-The platform is entirely content-driven by **`src/translations.ts`**. This dictionary contains 10,000+ words across both locations, allowing for instant site-wide updates by editing a single file.
-
-### Internal SEO Link Mapping
-Managed via **`src/data/internalLinks.ts`**, this layer provides:
-- Bidirectional INDUSTRY-PRODUCT association.
-- Search Engine crawler path optimization.
-- Contextual related-page recommendations for b2b users.
+The platform is engineered for **instant-open** capabilities:
+1. **Asset Optimization**: Transitioned from heavy SVGs/PNGs to next-gen **WebP** formats (e.g., `2.webp` logo transition).
+2. **Metadata Hygiene**: Removed redundant preconnects (Google Fonts, Supabase) to minimize DNS lookups.
+3. **LCP Priority**: Hero images use `priority` and `fetchPriority="high"` to render instantly.
+4. **Bypass Hydration**: Strategic use of `suppressHydrationWarning` and `next/dynamic` to handle bilingual switching without layout shift.
 
 ---
 
-## ⚡ 6. Advanced Industrial Engines
+## ⚙️ 6. Environment & Configuration (.env)
 
-### B2B Inquiry Workflow
-1. **Contact Identification**: Validates name and corporate email.
-2. **Product Selection**: Maps industry interest to specific mineral grades.
-3. **Logistics Engine**: Captures shipping requirements (FOB/CNF/CIF).
-4. **Parameter Validation**: Final technical notes for the sales team.
-
-### Hardened PDF Engine
-Utilizes `html2canvas` and `jsPDF` with advanced **CSS Sanitization (Hex-Fallback Mode)** to ensure accurate technical documentation exports without browser-side crashes.
+The current production environment is managed via the following variables:
+- `APP_URL`: The canonical domain for SEO indexation (`https://wiraenergiutama.com`).
+- `GEMINI_API_KEY`: Secure key for industrial AI queries.
+- `NEXT_PUBLIC_FORMSPREE_ID`: `xykbeevg` (Routes inquiry data).
+- `SUPABASE_URL` / `ANON_KEY`: Database handshake for real-time syncing.
+- `DATABASE_URL`: PostgreSQL connection string for heavy data operations.
 
 ---
 
-## ⚙️ 7. Environmental Configuration (.env)
+## 🚀 7. Operations & Maintenance
 
-The project is governed by a secure environment architecture:
-- `APP_URL`: Drives SEO canonical links and sitemap absolute paths.
-- `GEMINI_API_KEY`: Industrial AI integration.
-- `SUPABASE_URL` & `ANON_KEY`: Database handshake variables.
-- `DATABASE_URL`: Direct PostgreSQL connectivity for scaling.
+### Daily Development
+- `npm run dev`: High-speed development mode with Turbopack.
 
----
-
-## 🚀 8. Build & Maintenance Commands
-
-### Development
-- `npm run dev`: Starts Turbopack development server.
-
-### Production
-- `npm run build`: Executes full static export logic.
-- Result: **`dist/`** folder containing production-ready minified HTML/JS/CSS assets.
+### Deployment Cycle
+1. `npm run build`: Generates the static production bundle.
+2. `dist/`: The resulting folder is ready for direct deployment to Cloudflare Pages or any static host.
 
 ---
-**Official Build Documentation - April 2026**
-*Standardizing Industrial Digital Excellence.*
+**Official Build Documentation - Final Release v3.0**
+*PT Wira Energi Utama: Standardizing Industrial Digital Excellence.*
+*Last System Audit: April 2026*

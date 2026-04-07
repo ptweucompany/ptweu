@@ -11,7 +11,7 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         allow: [
           '/',
-          '/2.svg',
+          '/2.webp',
           '/icon.png',
           '/Hero.webp',
           '/Drone%20Webp/',

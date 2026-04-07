@@ -193,18 +193,18 @@ export default function AdvancedSustainability({ data }: SustainabilityProps) {
             <div className="lg:w-1/2 grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="aspect-[4/5] rounded-[3rem] overflow-hidden bg-gray-100">
-                  <img src="/Foto webp/IMG_1142.webp" alt="Community 1" className="w-full h-full object-cover" />
+                  <img src="/keberlanjutan/Gemini_Generated_Image_b3ur9jb3ur9jb3ur (1).webp" alt="Community 1" className="w-full h-full object-cover" />
                 </div>
                 <div className="aspect-square rounded-[3rem] overflow-hidden bg-gray-100">
-                  <img src="/Foto webp/IMG_1144.webp" alt="Community 2" className="w-full h-full object-cover" />
+                  <img src="/keberlanjutan/640118035_5202820413275387_7735365861843729150_n.webp" alt="Community 2" className="w-full h-full object-cover" />
                 </div>
               </div>
               <div className="space-y-4 pt-12">
                 <div className="aspect-square rounded-[3rem] overflow-hidden bg-gray-100">
-                  <img src="/Foto webp/IMG_1146.webp" alt="Community 3" className="w-full h-full object-cover" />
+                  <img src="/keberlanjutan/641183278_5202820506608711_4835772239932399965_n.webp" alt="Community 3" className="w-full h-full object-cover" />
                 </div>
                 <div className="aspect-[4/5] rounded-[3rem] overflow-hidden bg-gray-100">
-                  <img src="/Foto webp/IMG_1148.webp" alt="Community 4" className="w-full h-full object-cover" />
+                  <img src="/keberlanjutan/Gemini_Generated_Image_2ymm2w2ymm2w2ymm (1).webp" alt="Community 4" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
