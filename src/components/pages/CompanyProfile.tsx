@@ -1,5 +1,7 @@
+'use client';
+
 import { useState, useRef } from 'react';
-import { FileDown, ChevronLeft, Loader2 } from 'lucide-react';
+import { FileDown, ChevronLeft, Loader2, FileText, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -19,7 +21,8 @@ import ComplianceQuality from '../ComplianceQuality';
 import IndustrialApplications from '../IndustrialApplications';
 import QualityControlWorkflow from '../QualityControlWorkflow';
 import { Translation } from '../../types';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
+import PDFCompanyProfile from '../PDFCompanyProfile';
 
 interface CompanyProfileProps {
   t: Translation;
@@ -34,122 +37,88 @@ export default function CompanyProfile({ t }: CompanyProfileProps) {
     setIsGenerating(true);
     
     try {
-      const element = pdfRef.current;
+      const rootElement = pdfRef.current;
+      const pages = rootElement.querySelectorAll('.pdf-page');
       
+      if (pages.length === 0) {
+        throw new Error('No profile pages found to export. Possible rendering delay.');
+      }
+
       // Professional delay for font/asset readiness
-      await new Promise(r => setTimeout(r, 500));
+      await new Promise(r => setTimeout(r, 2000));
       
-      const canvas = await html2canvas(element, { 
-        scale: 2, 
-        useCORS: true,
-        logging: false,
-        backgroundColor: '#ffffff',
-        windowWidth: 1200, // Balanced width for A4 proportion
-        onclone: (clonedDoc) => {
-          const container = clonedDoc.body;
-          
-          // 1. Hide unwanted elements
-          clonedDoc.querySelectorAll('[data-html2canvas-ignore="true"]').forEach(el => {
-            (el as HTMLElement).style.display = 'none';
-          });
-
-          // 2. Aggressive CSS Sanitization for Modern Colors (OKLCH, LAB, etc.)
-          clonedDoc.querySelectorAll('*').forEach((el) => {
-            const htmlEl = el as HTMLElement;
-            if (!htmlEl.style) return;
-
-            const computedStyle = window.getComputedStyle(htmlEl);
-            const properties = ['color', 'backgroundColor', 'borderColor', 'outlineColor', 'fill', 'stroke'];
-            
-            properties.forEach(prop => {
-              const value = (computedStyle as any)[prop];
-              if (value && (value.includes('oklch') || value.includes('lab') || value.includes('oklab') || value.includes('lch'))) {
-                // Fallback to absolute colors based on class or default
-                if (prop === 'backgroundColor') {
-                  if (htmlEl.classList.contains('bg-brand-blue')) htmlEl.style.backgroundColor = '#0A1628';
-                  else if (htmlEl.classList.contains('bg-brand-gold')) htmlEl.style.backgroundColor = '#C8A84B';
-                  else htmlEl.style.backgroundColor = 'transparent';
-                } else if (prop === 'color') {
-                  if (htmlEl.classList.contains('text-brand-gold')) htmlEl.style.color = '#C8A84B';
-                  else if (htmlEl.classList.contains('text-brand-blue')) htmlEl.style.color = '#0A1628';
-                  else htmlEl.style.color = '#0A1628'; // Default dark
-                } else {
-                  htmlEl.style.setProperty(prop, 'inherit', 'important');
-                }
-              }
-            });
-          });
-
-          // 3. Inject print-specific styles
-          const styleSheet = clonedDoc.createElement('style');
-          styleSheet.innerHTML = `
-            * { 
-              color-adjust: exact !important; 
-              -webkit-print-color-adjust: exact !important;
-              font-family: sans-serif !important; 
-            }
-            .bg-brand-blue { background-color: #0A1628 !important; color: white !important; }
-            .bg-brand-gold { background-color: #C8A84B !important; color: #0A1628 !important; }
-            .text-brand-gold { color: #C8A84B !important; }
-            .text-brand-blue { color: #0A1628 !important; }
-            section { page-break-inside: avoid !important; }
-            h1, h2, h3 { page-break-after: avoid !important; }
-          `;
-          clonedDoc.head.appendChild(styleSheet);
-        }
-      });
-
-      const imgData = canvas.toDataURL('image/jpeg', 0.9);
       const pdf = new jsPDF('p', 'mm', 'a4');
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-      
-      const imgProps = pdf.getImageProperties(imgData);
-      const ratio = pdfWidth / imgProps.width;
-      const totalPdfHeight = imgProps.height * ratio;
-      
-      let heightLeft = totalPdfHeight;
-      let position = 0;
-      let pageNumber = 1;
+      const pdfWidth = 210;
+      const pdfHeight = 297;
 
-      // Render First Page
-      pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, totalPdfHeight, undefined, 'FAST');
-      
-      // Professional Footer
-      pdf.setFontSize(8);
-      pdf.setTextColor(150);
-      pdf.text(`PT WIRA ENERGI UTAMA - OFFICIAL COMPANY PROFILE | Page ${pageNumber}`, pdfWidth / 2, pdfHeight - 10, { align: 'center' });
-
-      heightLeft -= pdfHeight;
-
-      // Subsequent Pages
-      while (heightLeft > 0) {
-        position = heightLeft - totalPdfHeight;
-        pdf.addPage();
-        pageNumber++;
-        pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, totalPdfHeight, undefined, 'FAST');
+      for (let i = 0; i < pages.length; i++) {
+        const pageElement = pages[i] as HTMLElement;
         
-        pdf.setFontSize(8);
-        pdf.setTextColor(150);
-        pdf.text(`PT WIRA ENERGI UTAMA - OFFICIAL COMPANY PROFILE | Page ${pageNumber}`, pdfWidth / 2, pdfHeight - 10, { align: 'center' });
-        
-        heightLeft -= pdfHeight;
+        try {
+          const canvas = await html2canvas(pageElement, { 
+            scale: 2, 
+            useCORS: true,
+            logging: false,
+            backgroundColor: '#ffffff',
+            width: 1200,
+            height: 1697,
+            onclone: (clonedDoc) => {
+              // Ultra-Aggressive CSS Sanitization for Modern Colors (lab, oklch, lch, etc.)
+              clonedDoc.querySelectorAll('*').forEach((el) => {
+                const htmlEl = el as HTMLElement;
+                if (!htmlEl.style || !window.getComputedStyle) return;
+                
+                const computedStyle = window.getComputedStyle(htmlEl);
+                const criticalProps = ['color', 'backgroundColor', 'borderColor', 'fill', 'stroke', 'outlineColor'];
+                
+                criticalProps.forEach(prop => {
+                  const val = (computedStyle as any)[prop];
+                  if (val && (val.includes('oklch') || val.includes('lab') || val.includes('oklab') || val.includes('lch'))) {
+                    if (prop === 'backgroundColor') {
+                      if (htmlEl.classList.contains('bg-brand-blue')) htmlEl.style.setProperty(prop, '#0A2463', 'important');
+                      else if (htmlEl.classList.contains('bg-brand-gold')) htmlEl.style.setProperty(prop, '#FFD700', 'important');
+                      else if (htmlEl.classList.contains('bg-gray-900')) htmlEl.style.setProperty(prop, '#111827', 'important');
+                      else htmlEl.style.setProperty(prop, '#ffffff', 'important');
+                    } else if (prop === 'color') {
+                      if (htmlEl.classList.contains('text-brand-gold')) htmlEl.style.setProperty(prop, '#FFD700', 'important');
+                      else if (htmlEl.classList.contains('text-white')) htmlEl.style.setProperty(prop, '#ffffff', 'important');
+                      else htmlEl.style.setProperty(prop, '#111827', 'important');
+                    } else {
+                      htmlEl.style.setProperty(prop, 'inherit', 'important');
+                    }
+                  }
+                });
+
+                if (htmlEl.getAttribute('style')?.match(/(lab|oklch|oklab|lch)\(/)) {
+                   const cleanStyle = htmlEl.getAttribute('style')?.replace(/(lab|oklch|oklab|lch)\([^)]*\)/g, '#888888');
+                   if (cleanStyle) htmlEl.setAttribute('style', cleanStyle);
+                }
+              });
+            }
+          });
+
+          const imgData = canvas.toDataURL('image/jpeg', 0.95);
+          if (i > 0) pdf.addPage();
+          pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight, undefined, 'FAST');
+        } catch (canvasErr: any) {
+          console.error(`Page ${i} rendering failed:`, canvasErr);
+          throw new Error(`Failed to render page ${i + 1}: ${canvasErr.message}`);
+        }
       }
       
       const date = new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long' });
-      pdf.save(`PT_Wira_Energi_Utama_Profile_${date.replace(/ /g, '_')}.pdf`);
+      pdf.save(`PT_WEU_Company_Profile_${date.replace(/ /g, '_')}.pdf`);
       
-    } catch (error) {
+    } catch (error: any) {
       console.error('PDF Generation Error:', error);
-      alert('Unable to generate professional PDF due to browser limitations. Please use the Print (Ctrl+P) option.');
+      alert(`Download Error: ${error.message || 'Technical rendering timeout'}. Please check your internet connection and try again.`);
     } finally {
       setIsGenerating(false);
     }
   };
 
   return (
-    <div className="pt-20" ref={pdfRef}>
-
+    <div className="pt-20">
       {/* Header Section */}
       <section className="bg-brand-blue text-white py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -167,21 +136,20 @@ export default function CompanyProfile({ t }: CompanyProfileProps) {
             </div>
             
             <motion.button
-              data-html2canvas-ignore="true"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleDownload}
               disabled={isGenerating}
-              className="bg-brand-gold hover:bg-brand-gold-light text-brand-blue font-bold py-4 px-8 rounded-2xl flex items-center shadow-xl transition-all disabled:opacity-75 disabled:cursor-not-allowed"
+              className="bg-brand-gold hover:bg-brand-gold-light text-brand-blue font-black py-5 px-10 rounded-2xl flex items-center shadow-2xl transition-all disabled:opacity-75 disabled:cursor-not-allowed uppercase tracking-tight"
             >
               {isGenerating ? (
                 <>
-                  <Loader2 size={24} className="mr-2 animate-spin" />
-                  Generating PDF...
+                  <Loader2 size={24} className="mr-3 animate-spin" />
+                  Preparing Profile...
                 </>
               ) : (
                 <>
-                  <FileDown size={24} className="mr-2" />
+                  <FileDown size={24} className="mr-3" />
                   {t.profile.download}
                 </>
               )}
@@ -194,29 +162,17 @@ export default function CompanyProfile({ t }: CompanyProfileProps) {
       </section>
 
       <LegalStanding t={t.legal} />
-      
       <MiningProcess t={t.process} />
-      
       <GeologicalAdvantage t={t.geology} />
-      
       <ProductionStats t={t.stats} />
-      
       <EconomicBenefits t={t.economic} benefitsT={t.benefits} />
-      
       <FleetEquipment t={t.fleet} />
-      
       <OperationalExcellence t={t.operational} resourcesT={t.resources} />
-      
       <LaboratoryDetail t={t.qa} />
-      
       <QualityControlWorkflow t={t.qcWorkflow} />
-      
       <IndustrialApplications t={t.applications} />
-      
       <CorporateGovernance t={t.about} />
-      
       <ComplianceQuality qcT={t.qc} investmentT={t.investment} standardsT={t.standards} />
-      
       <EnvironmentCommitment t={t.environment} />
       
       <PhotoSlider 
@@ -232,29 +188,84 @@ export default function CompanyProfile({ t }: CompanyProfileProps) {
       />
 
       {/* Bottom CTA */}
-      <section className="py-20 bg-gray-50 text-center">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Need a physical copy?</h2>
-          <button
-            data-html2canvas-ignore="true"
+      <section className="py-24 bg-gray-50 text-center relative overflow-hidden border-t border-gray-100">
+        <div className="max-w-3xl mx-auto px-4 relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black text-brand-blue mb-8 uppercase tracking-tight">Technical Assets & <span className="text-brand-gold">Compliance</span></h2>
+          <p className="text-xl text-gray-400 font-medium mb-12 italic max-w-xl mx-auto">
+            Ready for a high-resolution, print-optimized document of our operations and legal standing?
+          </p>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={handleDownload}
             disabled={isGenerating}
-            className="inline-flex items-center bg-brand-blue hover:bg-brand-blue/90 text-white font-bold py-4 px-10 rounded-2xl transition-all disabled:opacity-75 disabled:cursor-not-allowed"
+            className="inline-flex items-center bg-brand-blue text-white font-black py-5 px-12 rounded-2xl transition-all shadow-xl shadow-brand-blue/20 uppercase tracking-widest disabled:opacity-75"
           >
             {isGenerating ? (
               <>
-                <Loader2 size={24} className="mr-2 animate-spin" />
-                Generating PDF...
+                <Loader2 size={24} className="mr-3 animate-spin" />
+                Processing PDF...
               </>
             ) : (
               <>
-                <FileDown size={24} className="mr-2" />
+                <FileDown size={24} className="mr-3" />
                 {t.profile.download}
               </>
             )}
-          </button>
+          </motion.button>
         </div>
       </section>
+
+      {/* Hidden Advanced PDF Content - Zero Overlap Architecture */}
+      <div 
+        style={{ 
+          position: 'fixed', 
+          left: '-9999px', 
+          top: 0, 
+          pointerEvents: 'none', 
+          zIndex: -100,
+          opacity: 0
+        }}
+        aria-hidden="true"
+      >
+        <PDFCompanyProfile 
+          ref={pdfRef} 
+          t={t} 
+          contactT={t.contact}
+        />
+      </div>
+
+      {/* Preparing Overlay */}
+      <AnimatePresence>
+        {isGenerating && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] bg-brand-blue/95 flex flex-col items-center justify-center text-center p-6"
+          >
+            <div className="relative mb-12">
+               <motion.div 
+                 animate={{ rotate: 360 }}
+                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                 className="w-40 h-40 border-4 border-brand-gold/20 border-t-brand-gold rounded-full"
+               />
+               <div className="absolute inset-0 flex items-center justify-center">
+                 <FileText size={48} className="text-brand-gold animate-pulse" />
+               </div>
+            </div>
+            <h2 className="text-4xl font-black text-white mb-4 uppercase tracking-tighter">Synthesizing Corporate Profile</h2>
+            <p className="text-xl text-gray-400 max-w-md font-medium">
+              We are generating your 9-page high-resolution technical document. Please wait...
+            </p>
+            <div className="mt-12 flex gap-1 items-center">
+               <span className="w-2 h-2 bg-brand-gold rounded-full animate-bounce [animation-delay:-0.3s]" />
+               <span className="w-2 h-2 bg-brand-gold rounded-full animate-bounce [animation-delay:-0.15s]" />
+               <span className="w-2 h-2 bg-brand-gold rounded-full animate-bounce" />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
