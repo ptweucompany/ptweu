@@ -175,7 +175,7 @@ export default function ProductsPage() {
             </div>
             <div className="rounded-[4rem] overflow-hidden shadow-3xl h-[450px] border-[10px] border-white/10 relative">
               <Image
-                src="/Drone Webp/DJI_20260310144034_0308_D (1).webp"
+                src="/WebpPTWEU4/Dermaga Bitung.webp"
                 alt="Jetty Drone View"
                 fill
                 className="object-cover"
@@ -251,7 +251,7 @@ export default function ProductsPage() {
             </div>
             <div className="lg:w-1/2 rounded-[4rem] overflow-hidden h-[500px] shadow-2xl relative">
               <Image
-                src="/Foto webp/IMG_1154.webp"
+                src="/Foto webp/IMG_1221.webp"
                 alt="Precision Mining"
                 fill
                 className="object-cover"

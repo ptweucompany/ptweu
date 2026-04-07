@@ -100,8 +100,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon_v3.webp', sizes: 'any' },
-      { url: '/favicon_v3.webp', type: 'image/webp' },
+      { url: '/2.webp', sizes: 'any' },
+      { url: '/2.webp', type: 'image/webp' },
       { url: '/icon.png', type: 'image/png', sizes: '32x32' },
       { url: '/icon.png', type: 'image/png', sizes: '48x48' },
       { url: '/icon.png', type: 'image/png', sizes: '96x96' },
@@ -109,7 +109,7 @@ export const metadata: Metadata = {
       { url: '/icon.png', type: 'image/png', sizes: '512x512' },
     ],
     apple: [
-      { url: '/favicon_v3.webp', sizes: '180x180', type: 'image/webp' },
+      { url: '/2.webp', sizes: '180x180', type: 'image/webp' },
     ],
     shortcut: '/favicon.ico',
   },
