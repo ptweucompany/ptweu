@@ -53,35 +53,42 @@ export default function AdvancedCatalog({ t }: AdvancedCatalogProps) {
             width: 1200,
             height: 1697,
             onclone: (clonedDoc) => {
-              // Aggressive CSS Sanitization for Modern Colors
+              // Ultra-Aggressive CSS Sanitization for Modern Colors (lab, oklch, lch, etc.)
+              // These colors cause html2canvas to fail with "unsupported color function"
               clonedDoc.querySelectorAll('*').forEach((el) => {
                 const htmlEl = el as HTMLElement;
-                if (!htmlEl.style) return;
+                if (!htmlEl.style || !window.getComputedStyle) return;
                 
-                const style = window.getComputedStyle(htmlEl);
-                const props = ['color', 'backgroundColor', 'borderColor', 'fill', 'stroke'];
+                const computedStyle = window.getComputedStyle(htmlEl);
                 
-                props.forEach(prop => {
-                  const val = (style as any)[prop];
-                  
-                  // If the color contains modern functions (lab, oklch, lch, etc.), html2canvas will crash.
-                  // We force these to safe Hex alternatives.
+                // Detailed check for common offending properties
+                const criticalProps = ['color', 'backgroundColor', 'borderColor', 'fill', 'stroke', 'outlineColor'];
+                
+                criticalProps.forEach(prop => {
+                  const val = (computedStyle as any)[prop];
                   if (val && (val.includes('oklch') || val.includes('lab') || val.includes('oklab') || val.includes('lch'))) {
+                    // Force a safe fallback based on the property and element context
                     if (prop === 'backgroundColor') {
-                      if (htmlEl.classList.contains('bg-brand-blue')) htmlEl.style.backgroundColor = '#0A2463';
-                      else if (htmlEl.classList.contains('bg-brand-gold')) htmlEl.style.backgroundColor = '#FFD700';
-                      else if (htmlEl.classList.contains('bg-gray-900')) htmlEl.style.backgroundColor = '#111824';
-                      else if (htmlEl.classList.contains('bg-white')) htmlEl.style.backgroundColor = '#ffffff';
-                      else htmlEl.style.backgroundColor = 'transparent';
+                      if (htmlEl.classList.contains('bg-brand-blue')) htmlEl.style.setProperty(prop, '#0A2463', 'important');
+                      else if (htmlEl.classList.contains('bg-brand-gold')) htmlEl.style.setProperty(prop, '#FFD700', 'important');
+                      else if (htmlEl.classList.contains('bg-gray-900')) htmlEl.style.setProperty(prop, '#111827', 'important');
+                      else if (htmlEl.classList.contains('bg-white')) htmlEl.style.setProperty(prop, '#ffffff', 'important');
+                      else htmlEl.style.setProperty(prop, '#ffffff', 'important'); // Default to white for backgrounds if unknown lab color found
                     } else if (prop === 'color') {
-                      if (htmlEl.classList.contains('text-brand-gold')) htmlEl.style.color = '#FFD700';
-                      else if (htmlEl.classList.contains('text-white')) htmlEl.style.color = '#ffffff';
-                      else if ((htmlEl.textContent?.trim().length ?? 0) > 0) htmlEl.style.color = '#0A2463';
+                      if (htmlEl.classList.contains('text-brand-gold')) htmlEl.style.setProperty(prop, '#FFD700', 'important');
+                      else if (htmlEl.classList.contains('text-white')) htmlEl.style.setProperty(prop, '#ffffff', 'important');
+                      else htmlEl.style.setProperty(prop, '#111827', 'important'); // Default to dark grey for text
                     } else {
                       htmlEl.style.setProperty(prop, 'inherit', 'important');
                     }
                   }
                 });
+
+                // Global regex sweep for any inline style that might have been dynamically added
+                if (htmlEl.getAttribute('style')?.match(/(lab|oklch|oklab|lch)\(/)) {
+                   const cleanStyle = htmlEl.getAttribute('style')?.replace(/(lab|oklch|oklab|lch)\([^)]*\)/g, '#888888');
+                   if (cleanStyle) htmlEl.setAttribute('style', cleanStyle);
+                }
               });
             }
           });
