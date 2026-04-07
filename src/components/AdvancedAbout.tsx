@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Shield, Zap, ShieldCheck, Ship, Settings, Truck, Leaf, Target, History, Users, Award, TrendingUp } from 'lucide-react';
 import { Translation } from '../types';
 import PhotoSlider from './PhotoSlider';
@@ -23,7 +24,14 @@ export default function AdvancedAbout({ t }: AdvancedAboutProps) {
           transition={{ duration: 1.5 }}
           className="absolute inset-0 opacity-40"
         >
-          <img src={t.hero.image} alt="Company Hero" className="w-full h-full object-cover" />
+          <Image
+            src={t.hero.image}
+            alt="Company Hero"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-brand-blue/80 via-transparent to-white" />
         
@@ -86,7 +94,13 @@ export default function AdvancedAbout({ t }: AdvancedAboutProps) {
               viewport={{ once: true }}
               className="relative aspect-square rounded-[4rem] overflow-hidden shadow-2xl"
             >
-              <img src={t.history.image} alt="Mining History" className="w-full h-full object-cover" />
+              <Image
+                src={t.history.image}
+                alt="Mining History"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
               <div className="absolute inset-0 bg-brand-blue/20" />
             </motion.div>
           </div>
@@ -134,7 +148,13 @@ export default function AdvancedAbout({ t }: AdvancedAboutProps) {
               viewport={{ once: true }}
               className="relative aspect-[4/5] rounded-[4rem] overflow-hidden shadow-2xl order-2 lg:order-1"
             >
-              <img src={t.leadership.image} alt="Leadership" className="w-full h-full object-cover" />
+              <Image
+                src={t.leadership.image}
+                alt="Leadership"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/60 to-transparent" />
             </motion.div>
             <motion.div
@@ -252,7 +272,13 @@ export default function AdvancedAbout({ t }: AdvancedAboutProps) {
       {/* CTA / Vision */}
       <section className="py-32 bg-gray-900 overflow-hidden relative">
         <div className="absolute inset-0 opacity-20">
-          <img src="/mining-bg.webp" alt="Vision BG" className="w-full h-full object-cover grayscale" />
+          <Image
+            src="/mining-bg.webp"
+            alt="Vision BG"
+            fill
+            className="object-cover grayscale"
+            sizes="100vw"
+          />
         </div>
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <Target className="text-brand-gold mx-auto mb-10" size={80} />

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useLanguage } from '../../src/context/LanguageContext';
 import ContactForm from '../../src/components/ContactForm';
 import { motion } from 'motion/react';
@@ -28,7 +29,14 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-brand-blue overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <img src="/Hero.webp" alt="Background" className="w-full h-full object-cover" />
+          <Image
+            src="/Hero.webp"
+            alt="Background"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.h1 
@@ -59,7 +67,13 @@ export default function ContactPage() {
                 className="bg-white rounded-[3rem] shadow-2xl border border-gray-100 overflow-hidden group hover:translate-y-[-10px] transition-all duration-500"
               >
                 <div className="h-64 relative overflow-hidden">
-                  <img src={office.image || '/Hero.webp'} alt={office.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <Image
+                    src={office.image || '/Hero.webp'}
+                    alt={office.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                   <div className={`absolute top-6 left-6 px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest ${idx === 0 ? 'bg-brand-blue text-white' : 'bg-brand-gold text-brand-blue'}`}>
                     {idx === 0 ? 'Main Office' : 'Regional Office'}
                   </div>

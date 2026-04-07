@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
+import Image from 'next/image';
 import { 
   ShieldCheck, 
   Leaf, 
@@ -42,7 +43,14 @@ export default function AdvancedGovernance({ data }: GovernanceProps) {
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 bg-brand-blue overflow-hidden">
         <div className="absolute inset-0 opacity-15">
-          <img src={data.hero.image} alt="Mining Operation" className="w-full h-full object-cover" />
+          <Image
+            src={data.hero.image}
+            alt="Mining Operation"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">

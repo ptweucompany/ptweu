@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useLanguage } from '../../src/context/LanguageContext';
 import ContactModal from '../../src/components/ContactModal';
 import InteractiveCard from '../../src/components/InteractiveCard';
@@ -27,20 +28,20 @@ export default function ProductsPage() {
     'Sprout': Sprout
   };
 
-  const getProductDetail = (name: string) => {
-    if (name.includes('Limestone')) return t.productDetails.limestone;
-    if (name.includes('Hydrated')) return t.productDetails.hydratedLime;
-    if (name.includes('Burn')) return t.productDetails.burnLime;
-    return t.productDetails.limestone;
-  };
-
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-brand-blue overflow-hidden">
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white to-transparent" />
         <div className="absolute inset-0 opacity-10">
-          <img src="/Hero.webp" alt="Background" className="w-full h-full object-cover" />
+          <Image
+            src="/Hero.webp"
+            alt="Background"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.h1 
@@ -62,7 +63,7 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* 1. Operational Capabilities Stats */}
+      {/* Stats ... */}
       <section className="py-12 -mt-10 relative z-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="bg-white rounded-[3rem] shadow-2xl border border-gray-100 p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -76,7 +77,7 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* 2. Core Products Display */}
+      {/* Grid ... */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -111,7 +112,7 @@ export default function ProductsPage() {
                     title={product.name}
                     description={product.desc}
                     icon={productIcons[index % productIcons.length]}
-                    onClick={() => {}} // Navigation handled by Link
+                    onClick={() => {}} 
                     color={index % 2 === 0 ? 'blue' : 'gold'}
                   />
                 </Link>
@@ -121,7 +122,7 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* 3. Supply Chain Flow (Visual Journey) */}
+      {/* Supply Chain ... */}
       <section className="py-24 bg-gray-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
@@ -131,9 +132,7 @@ export default function ProductsPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative">
-            {/* Connecting line for desktop */}
             <div className="hidden lg:block absolute top-[60px] left-[10%] right-[10%] h-1 bg-brand-gold/20" />
-            
             {t.productExpansion.supplyChain.steps.map((step, idx) => (
               <motion.div 
                 key={idx}
@@ -154,10 +153,16 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* 4. Deep-Sea Logistics (Infrastructure Highlight) */}
+      {/* Logistics ... */}
       <section className="py-24 bg-brand-blue text-white relative">
         <div className="absolute inset-0 opacity-15">
-          <img src="/Drone Webp/DJI_20260310143758_0302_D (1).webp" alt="Logistics" className="w-full h-full object-cover" />
+          <Image
+            src="/Drone Webp/DJI_20260310143758_0302_D (1).webp"
+            alt="Logistics"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -167,19 +172,21 @@ export default function ProductsPage() {
               <p className="text-xl text-gray-300 leading-relaxed mb-10 italic border-l-4 border-brand-gold pl-8">
                 With a 12-meter draft jetty, we handle large-capacity barges (300ft), reducing loading time and logistics costs for our global partners.
               </p>
-              <div className="flex gap-4">
-                <div className="px-6 py-3 bg-white/10 rounded-full text-sm font-bold tracking-widest uppercase">Self-Owned Jetty</div>
-                <div className="px-6 py-3 bg-white/10 rounded-full text-sm font-bold tracking-widest uppercase">Fast Loading</div>
-              </div>
             </div>
-            <div className="rounded-[4rem] overflow-hidden shadow-3xl h-[450px] border-[10px] border-white/10">
-              <img src="/Drone Webp/DJI_20260310144034_0308_D (1).webp" alt="Jetty Drone View" className="w-full h-full object-cover" />
+            <div className="rounded-[4rem] overflow-hidden shadow-3xl h-[450px] border-[10px] border-white/10 relative">
+              <Image
+                src="/Drone Webp/DJI_20260310144034_0308_D (1).webp"
+                alt="Jetty Drone View"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. Industries We Serve (Grid of Icons) */}
+      {/* Industries ... */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -204,11 +211,11 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* 6. Quality Assurance & Sustainability (Split) */}
+      {/* Quality ... */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="bg-white p-12 rounded-[4rem] shadow-xl border border-gray-100 shadow-brand-blue/5">
+            <div className="bg-white p-12 rounded-[4rem] shadow-xl border border-gray-100">
               <div className="flex items-center gap-4 mb-8">
                 <ShieldCheck size={40} className="text-brand-blue" />
                 <h3 className="text-3xl font-bold text-brand-blue">{t.productExpansion.qcLifecycle.title}</h3>
@@ -224,97 +231,57 @@ export default function ProductsPage() {
             </div>
             
             <div className="bg-brand-blue p-12 rounded-[4rem] shadow-xl text-white relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-[4rem] group-hover:scale-110 transition-transform" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-[4rem]" />
               <Leaf size={40} className="text-brand-gold mb-8" />
               <h3 className="text-3xl font-bold mb-6">{t.productExpansion.sustainability.title}</h3>
-              <p className="text-xl text-gray-300 leading-relaxed font-medium">
-                {t.productExpansion.sustainability.text}
-              </p>
-              <div className="mt-8 flex gap-6">
-                <div className="p-4 bg-white/5 rounded-2xl flex items-center justify-center">
-                   <p className="text-sm font-bold text-brand-gold">Dust-Free Tech</p>
-                </div>
-                <div className="p-4 bg-white/5 rounded-2xl flex items-center justify-center">
-                   <p className="text-sm font-bold text-brand-gold">Eco Cert.</p>
-                </div>
-              </div>
+              <p className="text-xl text-gray-300 leading-relaxed font-medium">{t.productExpansion.sustainability.text}</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 7. Precision & Custom Mineral Engineering */}
+      {/* Custom Solutions ... */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gray-100 rounded-[5rem] p-12 md:p-24 flex flex-col lg:flex-row items-center gap-16 overflow-hidden relative">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent" />
             <div className="lg:w-1/2">
-              <Settings size={60} className="text-brand-blue mb-8 animate-spin-slow" />
+              <Settings size={60} className="text-brand-blue mb-8" />
               <h2 className="text-4xl md:text-5xl font-extrabold text-brand-blue mb-8">{t.productExpansion.customSolutions.title}</h2>
-              <p className="text-xl text-gray-600 leading-relaxed mb-10 font-medium">
-                {t.productExpansion.customSolutions.text}
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <span className="px-6 py-2 bg-brand-blue text-white rounded-xl text-sm font-bold uppercase tracking-widest">Custom Mesh</span>
-                <span className="px-6 py-2 bg-brand-gold text-brand-blue rounded-xl text-sm font-bold uppercase tracking-widest">Chemical Tuning</span>
-              </div>
+              <p className="text-xl text-gray-600 leading-relaxed mb-10 font-medium">{t.productExpansion.customSolutions.text}</p>
             </div>
-            <div className="lg:w-1/2 rounded-[4rem] overflow-hidden h-[500px] shadow-2xl">
-              <img src="/Foto webp/IMG_1154.webp" alt="Precision Mining" className="w-full h-full object-cover" />
+            <div className="lg:w-1/2 rounded-[4rem] overflow-hidden h-[500px] shadow-2xl relative">
+              <Image
+                src="/Foto webp/IMG_1154.webp"
+                alt="Precision Mining"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* 8. The Partnership Roadmap (Roadmap to Customer) */}
+      {/* Partnership ... */}
       <section className="py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <Users size={48} className="text-brand-blue mx-auto mb-6" />
-            <h2 className="text-4xl font-bold text-brand-blue mb-4">{t.productExpansion.partnership.title}</h2>
-            <div className="w-16 h-1 bg-brand-gold mx-auto" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center leading-none">
+          <Users size={48} className="text-brand-blue mx-auto mb-6" />
+          <h2 className="text-4xl font-bold text-brand-blue mb-12">{t.productExpansion.partnership.title}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
+            {t.productExpansion.partnership.steps.map((step, idx) => (
+              <div key={idx} className="text-left">
+                <div className="w-12 h-12 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold mb-4">{idx + 1}</div>
+                <h4 className="text-xl font-bold mb-2">{step.title}</h4>
+                <p className="text-gray-600 text-sm font-medium">{step.desc}</p>
+              </div>
+            ))}
           </div>
-
-          <div className="relative">
-            {/* Vertical/Horizontal Line */}
-            <div className="absolute top-0 bottom-0 lg:top-[60px] lg:bottom-auto left-[39px] lg:left-[5%] lg:right-[5%] w-1 lg:w-auto lg:h-1 bg-brand-gold/20" />
-            
-            <div className="space-y-12 lg:space-y-0 lg:grid lg:grid-cols-4 lg:gap-12">
-              {t.productExpansion.partnership.steps.map((step, idx) => (
-                <motion.div 
-                  key={idx}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex flex-col lg:block relative"
-                >
-                  <div className="flex items-center lg:block mb-6 lg:mb-0 lg:absolute lg:top-0 lg:left-0">
-                    <div className="w-16 h-16 lg:w-20 lg:h-20 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-xl lg:text-2xl z-10 border-4 lg:border-8 border-white shadow-xl shrink-0">
-                      {idx + 1}
-                    </div>
-                    <div className="lg:hidden ml-6">
-                      <h4 className="text-xl font-bold text-gray-900 leading-tight">{step.title}</h4>
-                    </div>
-                  </div>
-                  
-                  <div className="lg:pt-32">
-                    <h4 className="hidden lg:block text-2xl font-bold text-gray-900 mb-4">{step.title}</h4>
-                    <p className="text-gray-600 leading-relaxed font-medium">{step.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-24 text-center">
-            <button
-              onClick={() => setIsContactOpen(true)}
-              className="bg-brand-blue text-white px-16 py-6 rounded-full font-black text-2xl hover:bg-brand-blue-light transition-all shadow-[0_20px_50px_rgba(52,86,163,0.3)] hover:-translate-y-2 uppercase tracking-tight"
-            >
-              Start Partnership
-            </button>
-          </div>
+          <button
+            onClick={() => setIsContactOpen(true)}
+            className="bg-brand-blue text-white px-16 py-6 rounded-full font-black text-2xl hover:bg-brand-blue-light transition-all shadow-xl"
+          >
+            Start Partnership
+          </button>
         </div>
       </section>
 
