@@ -1,5 +1,6 @@
 import { Mail, MapPin, Phone, Instagram, Facebook, Linkedin,Globe } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Translation } from '../types';
 
 interface FooterProps {
@@ -16,9 +17,15 @@ export default function Footer({ t, footerT, profileT }: FooterProps) {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-8">
-              <Link href="/" className="flex items-center space-x-2 group">
-                <div className="w-14 h-14 flex items-center justify-center transition-transform group-hover:scale-110">
-                  <img src="/2.svg" alt="Wira Energi Utama Logo" className="w-full h-full" />
+              <Link href="/" className="flex items-center space-x-2 group" aria-label="PT Wira Energi Utama Home">
+                <div className="relative w-14 h-14 flex items-center justify-center transition-transform group-hover:scale-110">
+                  <Image 
+                    src="/2.svg" 
+                    alt="PT Wira Energi Utama Logo" 
+                    fill 
+                    className="object-contain"
+                    sizes="56px"
+                  />
                 </div>
                 <span className="font-bold text-2xl tracking-tight text-white group-hover:text-brand-gold transition-colors">PT Wira Energi Utama</span>
               </Link>
@@ -28,13 +35,31 @@ export default function Footer({ t, footerT, profileT }: FooterProps) {
               Dedicated to sustainable growth and excellence in the mining industry.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.instagram.com/pt_weu?igsh=cjZvMTA1NTFremNq" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 hover:bg-brand-gold hover:text-brand-blue transition-all rounded-full flex items-center justify-center cursor-pointer">
+              <a 
+                href="https://www.instagram.com/pt_weu?igsh=cjZvMTA1NTFremNq" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Follow us on Instagram"
+                className="w-10 h-10 bg-white/5 hover:bg-brand-gold hover:text-brand-blue transition-all rounded-full flex items-center justify-center cursor-pointer"
+              >
                 <Instagram size={20} />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 hover:bg-brand-gold hover:text-brand-blue transition-all rounded-full flex items-center justify-center cursor-pointer">
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Follow us on Facebook"
+                className="w-10 h-10 bg-white/5 hover:bg-brand-gold hover:text-brand-blue transition-all rounded-full flex items-center justify-center cursor-pointer"
+              >
                 <Facebook size={20} />
               </a>
-              <a href="https://www.linkedin.com/in/pt-wira-energi-utama-company-b1941b401/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 hover:bg-brand-gold hover:text-brand-blue transition-all rounded-full flex items-center justify-center cursor-pointer">
+              <a 
+                href="https://www.linkedin.com/in/pt-wira-energi-utama-company-b1941b401/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Follow us on LinkedIn"
+                className="w-10 h-10 bg-white/5 hover:bg-brand-gold hover:text-brand-blue transition-all rounded-full flex items-center justify-center cursor-pointer"
+              >
                 <Linkedin size={20} />
               </a>
             </div>

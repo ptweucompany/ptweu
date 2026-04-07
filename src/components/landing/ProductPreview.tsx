@@ -46,7 +46,7 @@ export default function ProductPreview({ products }: ProductPreviewProps) {
               <div className="p-5">
                 <h3 className="text-[#0A1628] font-bold text-lg leading-snug">{product.name}</h3>
                 <p className="text-gray-500 text-sm mt-1 line-clamp-2">{product.subtitle}</p>
-                <span className="mt-4 inline-flex items-center text-[#C8A84B] font-semibold text-sm">
+                <span className="mt-4 inline-flex items-center text-[#A68A3B] font-semibold text-sm">
                   Lihat Spesifikasi
                   <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

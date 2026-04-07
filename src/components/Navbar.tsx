@@ -84,16 +84,18 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
               </Link>
             ))}
             
-            <div className="flex items-center space-x-2 border-l border-white/20 pl-6">
+            <div className="flex items-center space-x-2 border-l border-white/20 pl-6" role="group" aria-label="Switch Language">
               <button
                 onClick={() => handleLangChange('id')}
-                className={`text-xs font-bold px-2 py-1 rounded ${lang === 'id' ? 'bg-brand-gold text-brand-blue' : 'hover:text-brand-gold'}`}
+                aria-label="Bahasa Indonesia"
+                className={`text-xs font-bold px-2 py-1 rounded transition-colors ${lang === 'id' ? 'bg-brand-gold text-brand-blue' : 'hover:text-brand-gold'}`}
               >
                 ID
               </button>
               <button
                 onClick={() => handleLangChange('en')}
-                className={`text-xs font-bold px-2 py-1 rounded ${lang === 'en' ? 'bg-brand-gold text-brand-blue' : 'hover:text-brand-gold'}`}
+                aria-label="English Language"
+                className={`text-xs font-bold px-2 py-1 rounded transition-colors ${lang === 'en' ? 'bg-brand-gold text-brand-blue' : 'hover:text-brand-gold'}`}
               >
                 EN
               </button>
@@ -111,11 +113,16 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-4">
-             <div className="flex items-center space-x-1 bg-white/10 rounded-full px-2 py-1">
-              <button onClick={() => setLang('id')} className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${lang === 'id' ? 'bg-brand-gold text-brand-blue' : ''}`}>ID</button>
-              <button onClick={() => setLang('en')} className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${lang === 'en' ? 'bg-brand-gold text-brand-blue' : ''}`}>EN</button>
+             <div className="flex items-center space-x-1 bg-white/10 rounded-full px-2 py-1" role="group" aria-label="Switch Language Mobile">
+              <button onClick={() => setLang('id')} aria-label="Bahasa Indonesia" className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${lang === 'id' ? 'bg-brand-gold text-brand-blue' : ''}`}>ID</button>
+              <button onClick={() => setLang('en')} aria-label="English Language" className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${lang === 'en' ? 'bg-brand-gold text-brand-blue' : ''}`}>EN</button>
             </div>
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2">
+            <button 
+              onClick={() => setIsMenuOpen(!isMenuOpen)} 
+              className="p-2 text-white hover:text-brand-gold transition-colors"
+              aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+              aria-expanded={isMenuOpen}
+            >
               {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>

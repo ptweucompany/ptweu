@@ -30,7 +30,7 @@ export default function TrustBar({ lang = 'id' }: { lang?: 'id' | 'en' }) {
       aria-label="Kapasitas dan kemampuan produksi PT WEU"
     >
       <div className="max-w-6xl mx-auto px-6 py-16">
-        <p className="text-center text-[#C8A84B] text-xs font-bold tracking-widest uppercase mb-2">
+        <p className="text-center text-[#A68A3B] text-xs font-bold tracking-widest uppercase mb-2">
           {c.tag}
         </p>
         <h2 className="text-center text-[#0A1628] text-2xl sm:text-3xl font-bold mb-12">
@@ -43,7 +43,7 @@ export default function TrustBar({ lang = 'id' }: { lang?: 'id' | 'en' }) {
               className="flex flex-col items-center text-center p-8 rounded-2xl bg-gray-50 border border-gray-100"
             >
               <dt className="text-4xl font-extrabold text-[#0A1628]">{stat.value}</dt>
-              <dd className="mt-2 text-base font-semibold text-[#C8A84B]">{stat.label}</dd>
+              <dd className="mt-2 text-base font-semibold text-[#A68A3B]">{stat.label}</dd>
               <p className="mt-1 text-sm text-gray-500">{stat.desc}</p>
             </div>
           ))}

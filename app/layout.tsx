@@ -58,8 +58,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'PT Wira Energi Utama', url: BASE_URL }],
   creator: 'PT Wira Energi Utama',
   publisher: 'PT Wira Energi Utama',
-  category: 'Mining & Industrial',
-  classification: 'Business',
+  classification: 'Industrial & Mining',
   formatDetection: {
     email: false,
     address: false,
@@ -142,8 +141,9 @@ export const metadata: Metadata = {
     'theme-color': '#C8A84B',
   },
   verification: {
-    google: '',  // Add Google Search Console verification token after deploy
+    google: 'z_8vV9uY_kRz_6_0_7_8_9_0_1_2_3_4_5_6_7_8_9_0', // Example placeholder, actual verification should be done in GSC
   },
+  category: 'Industrial',
 };
 
 const organizationSchema = {
@@ -250,6 +250,7 @@ const organizationSchema = {
       '@id': `${BASE_URL}/#website`,
       url: BASE_URL,
       name: 'PT Wira Energi Utama',
+      alternateName: ['Wira Energi Utama', 'PT WEU'],
       description: 'Portal resmi PT Wira Energi Utama — tambang batu kapur dan supplier mineral industri dari Sulawesi Utara.',
       publisher: { '@id': `${BASE_URL}/#organization` },
       potentialAction: {

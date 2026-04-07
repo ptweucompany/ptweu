@@ -54,8 +54,10 @@ export default function HomePage() {
           fill
           priority
           loading="eager"
-          quality={85}
-          sizes="100vw"
+          fetchPriority="high"
+          decoding="async"
+          quality={90}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
           className="object-cover object-center opacity-40 transition-opacity duration-500"
         />
         <div

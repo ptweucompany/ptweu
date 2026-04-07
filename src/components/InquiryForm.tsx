@@ -159,25 +159,42 @@ function InquiryFormInner({ lang = 'id' }: { lang?: 'id' | 'en' }) {
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setSubmitting(true);
 
-    const payload = { ...data, timestamp: new Date().toISOString(), source: typeof window !== 'undefined' ? window.location.href : '' };
+    const payload = {
+      ...data,
+      timestamp: new Date().toISOString(),
+      source: typeof window !== 'undefined' ? window.location.href : '',
+      _subject: `New B2B Inquiry from ${data.name} (${data.company})`,
+    };
 
-    // Try Formspree/custom endpoint if configured
+    // 🚀 PRODUCTION FORM SUBMISSION (Formspree)
     const endpoint = process.env.NEXT_PUBLIC_INQUIRY_ENDPOINT;
     if (endpoint) {
       try {
-        await fetch(endpoint, {
+        const response = await fetch(endpoint, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
           body: JSON.stringify(payload),
         });
-      } catch { /* fail silently — WA is primary */ }
+        
+        if (!response.ok) {
+          console.error('Formspree submission failed:', response.statusText);
+        }
+      } catch (err) {
+        console.error('Form submission error:', err);
+      }
     }
 
     setSubmitting(false);
     setDone(true);
-    // Open WhatsApp with pre-filled message
+    
+    // 🔔 WHATSAPP FALLBACK (Secondary Notification)
     const msg = buildWAMessage(data);
-    setTimeout(() => { window.open(`https://wa.me/628114344168?text=${msg}`, '_blank'); }, 600);
+    setTimeout(() => { 
+      window.open(`https://wa.me/628114344168?text=${msg}`, '_blank'); 
+    }, 600);
   }
 
   /* SUCCESS STATE */
