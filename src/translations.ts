@@ -1066,7 +1066,7 @@ export const translations: Record<'id' | 'en', Translation> = {
           excerpt: 'Batu kapur dengan kadar CaO tinggi berperan krusial sebagai agen fluxing untuk menghilangkan pengotor dalam pembuatan baja modern.',
           date: '20 Maret 2024',
           category: 'Industri',
-          image: '/blog/steel.webp'
+          image: '/blog/steel_advanced.png'
         },
         {
           id: '5',
@@ -1074,7 +1074,7 @@ export const translations: Record<'id' | 'en', Translation> = {
           excerpt: 'Mengapa agregat beton dan bubuk kalsium berkualitas tinggi menjadi kunci kekuatan proyek strategis nasional Indonesia.',
           date: '22 Maret 2024',
           category: 'Teknologi',
-          image: '/blog/tech.webp'
+          image: '/blog/infrastructure_durability.png'
         },
         {
           id: '6',
@@ -1082,7 +1082,7 @@ export const translations: Record<'id' | 'en', Translation> = {
           excerpt: 'PT WEU berkomitmen pada pemberdayaan tenaga kerja lokal dan tanggung jawab sosial sebagai fondasi keberlanjutan operasional.',
           date: '25 Maret 2024',
           category: 'Sosial',
-          image: '/blog/reclamation.webp'
+          image: '/blog/ethical_community.png'
         },
         {
           id: '7',
@@ -2288,27 +2288,27 @@ export const translations: Record<'id' | 'en', Translation> = {
         },
         {
           id: '4',
-          title: 'Steel Smelting Optimization with High-Purity Limestone',
-          excerpt: 'High-purity limestone with high CaO content plays a crucial role as a fluxing agent to remove impurities in modern steelmaking.',
+          title: 'Optimizing Steel Smelting with High-Purity Limestone',
+          excerpt: 'High CaO limestone plays a crucial role as a fluxing agent to remove impurities in modern steelmaking.',
           date: 'March 20, 2024',
           category: 'Industry',
-          image: '/blog/steel.webp'
+          image: '/blog/steel_advanced.png'
         },
         {
           id: '5',
-          title: 'Infrastructure Durability: The Role of SNI-Standard Calcium Carbonate',
-          excerpt: 'Why high-quality concrete aggregates and calcium powder are key to the strength of Indonesia\'s national strategic projects.',
+          title: 'Infrastructure Durability: The Role of SNI Standard Calcium Carbonate',
+          excerpt: 'Why high-quality concrete aggregates and calcium powder are key to the strength of Indonesia’s national strategic projects.',
           date: 'March 22, 2024',
           category: 'Technology',
-          image: '/blog/tech.webp'
+          image: '/blog/infrastructure_durability.png'
         },
         {
           id: '6',
           title: 'Ethical Mining Practices & Positive Impact for the Ratatotok Community',
-          excerpt: 'PT WEU is committed to local workforce empowerment and social responsibility as the foundation of operational sustainability.',
+          excerpt: 'PT WEU is committed to local labor empowerment and social responsibility as the foundation of operational sustainability.',
           date: 'March 25, 2024',
           category: 'Social',
-          image: '/blog/reclamation.webp'
+          image: '/blog/ethical_community.png'
         },
         {
           id: '7',

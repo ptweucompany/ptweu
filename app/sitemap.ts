@@ -53,7 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // 0.6 → Blog Content (Supporting Authority)
     u('/blog', 0.6, 'weekly'),
-    ...[1, 2, 3].map((id) => u(`/blog/${id}`, 0.6)),
+    ...[1, 2, 3, 4, 5, 6, 7].map((id) => u(`/blog/${id}`, 0.6)),
 
     // 0.5 → Utility & Legal
     u('/privacy', 0.5),
