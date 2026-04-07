@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: dest.overview_en.slice(0, 160),
       url: `${BASE}/en/locations/${slug}`,
       siteName: 'PT Wira Energi Utama',
-      images: [{ url: '/Hero.webp', width: 1200, height: 630, alt: `Export to ${dest.country_en}` }],
+      images: [{ url: '/Hero_v3.webp', width: 1200, height: 630, alt: `Export to ${dest.country_en}` }],
       locale: 'en_US',
       type: 'website',
     },
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: `PT Wira Energi Utama | Export to ${dest.country_en}`,
       description: dest.overview_en.slice(0, 160),
-      images: ['/Hero.webp'],
+      images: ['/Hero_v3.webp'],
     }
   };
 }

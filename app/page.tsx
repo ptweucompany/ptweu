@@ -49,7 +49,7 @@ export default function HomePage() {
         aria-label="Hero — PT Wira Energi Utama"
       >
         <Image
-          src="/Hero.webp"
+          src="/Hero_v3.webp"
           alt="Tambang batu kapur PT Wira Energi Utama di Ratatotok, Minahasa Tenggara, Sulawesi Utara"
           fill
           priority

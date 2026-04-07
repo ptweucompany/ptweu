@@ -35,7 +35,7 @@ export default function ProductsPage() {
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white to-transparent" />
         <div className="absolute inset-0 opacity-10">
           <Image
-            src="/Hero.webp"
+            src="/Hero_v3.webp"
             alt="Background"
             fill
             priority

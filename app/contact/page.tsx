@@ -30,7 +30,7 @@ export default function ContactPage() {
       <section className="relative pt-32 pb-20 bg-brand-blue overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image
-            src="/Hero.webp"
+            src="/Hero_v3.webp"
             alt="Background"
             fill
             priority
@@ -68,7 +68,7 @@ export default function ContactPage() {
               >
                 <div className="h-64 relative overflow-hidden">
                   <Image
-                    src={office.image || '/Hero.webp'}
+                    src={office.image || '/Hero_v3.webp'}
                     alt={office.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"

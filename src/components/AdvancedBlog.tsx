@@ -17,7 +17,7 @@ export default function AdvancedBlog({ t }: AdvancedBlogProps) {
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-brand-blue relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('/Hero.webp')] bg-cover bg-center grayscale" />
+        <div className="absolute inset-0 opacity-10 bg-[url('/Hero_v3.webp')] bg-cover bg-center grayscale" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}

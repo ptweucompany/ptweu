@@ -13,7 +13,7 @@ export default function robots(): MetadataRoute.Robots {
           '/',
           '/2.webp',
           '/icon.png',
-          '/Hero.webp',
+          '/Hero_v3.webp',
           '/Drone%20Webp/',
           '/Foto%20webp/',
           '/*.png',

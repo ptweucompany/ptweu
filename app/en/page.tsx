@@ -45,7 +45,7 @@ export default function EnHomePage() {
       {/* ── HERO (PERFORMANCE OPTIMIZED) ─────────────────────────────────── */}
       <section className="relative h-[100svh] lg:h-[90vh] flex items-center overflow-hidden bg-[#0A1628]">
         <Image 
-          src="/Hero.webp" 
+          src="/Hero_v3.webp" 
           alt="PT Wira Energi Utama limestone quarry in Ratatotok, North Sulawesi" 
           fill 
           priority 

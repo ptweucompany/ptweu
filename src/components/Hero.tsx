@@ -15,7 +15,7 @@ export default function Hero({ t, onContactClick }: HeroProps) {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/Hero.webp"
+          src="/Hero_v3.webp"
           alt="Mining Background"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
