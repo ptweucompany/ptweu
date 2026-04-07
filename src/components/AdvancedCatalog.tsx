@@ -504,6 +504,7 @@ export default function AdvancedCatalog({ t }: AdvancedCatalogProps) {
         <PDFProductCatalog 
           ref={pdfRef} 
           t={t} 
+          productPages={fullT.productPages} 
           profileT={fullT.profile} 
           contactT={fullT.contact} 
         />
