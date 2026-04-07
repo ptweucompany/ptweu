@@ -45,7 +45,7 @@ export default function Footer({ t, footerT, profileT }: FooterProps) {
                 <Instagram size={20} />
               </a>
               <a 
-                href="#" 
+                href="https://www.facebook.com/share/r/1CDn2C1xCV/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 aria-label="Follow us on Facebook"

@@ -905,9 +905,9 @@ export const translations: { id: Translation; en: Partial<Translation> & Record<
       history: {
         title: 'Sejarah & Warisan Kami',
         content: 'Didirikan dengan manajemen yang visioner, PT Wira Energi Utama telah bertransformasi dari operasi tambang lokal Ratatotok menjadi pemain industri strategis dengan crushing plant 250 TPH and akses dermaga khusus.',
-        image: '/Drone Webp/DJI_20260310143518_0298_D (1).webp',
+        image: '/WebpPTWEU4/management-approach.webp',
         stats: [
-          { label: 'Tahun Didirikan', value: '2019' },
+          { label: 'Tahun Didirikan', value: '2023' },
           { label: 'Kapasitas Bulanan', value: '150k MT' },
           { label: 'Luas Wilayah', value: '97 Ha' }
         ]
@@ -924,12 +924,13 @@ export const translations: { id: Translation; en: Partial<Translation> & Record<
       leadership: {
         title: 'Kepemimpinan Kami',
         content: 'Dipandu oleh keahlian teknis and integritas bisnis untuk menjamin keberlanjutan operasional.',
-        image: '/Drone Webp/DJI_20260310143640_0300_D (1).webp'
+        image: '/WebpPTWEU4/TentangKami.webp'
       },
       sustainability: {
         title: 'Komitmen Lingkungan',
-        content: 'Kami berkomitmen penuh pada reklamasi pasca-tambang and reboisasi area operasional.',
-        initiatives: ['Reklamasi Berkelanjutan', 'Manajemen Limbah', 'Konservasi Air']
+        content: 'Kami berkomitmen penuh pada reklamasi pasca tambang and penghijauan kembali area operasional.',
+        initiatives: ['Reklamasi Berkelanjutan', 'Manajemen Limbah', 'Konservasi Air'],
+        sustainabilityCTA: 'Lihat Komitmen Keberlanjutan Lengkap'
       },
       safety: {
         title: 'Keselamatan Kerja',
@@ -1370,7 +1371,8 @@ export const translations: { id: Translation; en: Partial<Translation> & Record<
       sustainability: {
         title: 'Ecological Commitment',
         content: 'We are fully committed to post-mining reclamation and reforestation of operational areas.',
-        initiatives: ['Sustainable Reclamation', 'Waste Management', 'Water Conservation']
+        initiatives: ['Sustainable Reclamation', 'Waste Management', 'Water Conservation'],
+        sustainabilityCTA: 'View Full Sustainability Commitment'
       },
       safety: {
         title: 'Occupational Safety',

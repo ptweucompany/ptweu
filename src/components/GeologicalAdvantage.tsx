@@ -1,6 +1,7 @@
 import { Gem, Layers, Mountain } from 'lucide-react';
 import { Translation } from '../types';
 import { motion } from 'motion/react';
+import Image from 'next/image';
 
 interface GeologicalAdvantageProps {
   t: Translation['geology'];
@@ -17,11 +18,13 @@ export default function GeologicalAdvantage({ t }: GeologicalAdvantageProps) {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-square rounded-[3rem] overflow-hidden shadow-2xl">
-              <img
-                src="/Drone Webp/DJI_20260310144303_0310_D (1).webp"
+            <div className="aspect-square rounded-[3rem] overflow-hidden shadow-2xl relative">
+              <Image
+                src="/catalog-hero.webp"
                 alt="Geological Formations"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-brand-blue/20" />
             </div>

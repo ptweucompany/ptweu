@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import Link from 'next/link';
 import { Shield, Zap, ShieldCheck, Ship, Settings, Truck, Leaf, Target, History, Users, Award, TrendingUp } from 'lucide-react';
 import { Translation } from '../types';
 import PhotoSlider from './PhotoSlider';
@@ -203,6 +204,15 @@ export default function AdvancedAbout({ t }: AdvancedAboutProps) {
                     <span className="font-bold text-green-800">{item}</span>
                   </div>
                 ))}
+              </div>
+              <div className="mt-10">
+                <Link
+                  href={t.sustainability.sustainabilityCTA.startsWith('View') ? "/sustainability" : "/berkelanjutan"}
+                  className="inline-flex items-center space-x-3 px-8 py-4 bg-green-600 text-white font-black rounded-2xl hover:bg-green-700 transition-all shadow-xl shadow-green-200 group/btn"
+                >
+                  <span>{t.sustainability.sustainabilityCTA}</span>
+                  <Target size={20} className="group-hover/btn:rotate-45 transition-transform" />
+                </Link>
               </div>
             </motion.div>
 

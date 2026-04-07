@@ -42,7 +42,6 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
   const navLinks = [
     { name: t.products, href: lang === 'id' ? '/produk' : '/products' },
     { name: t.about, href: lang === 'id' ? '/tentang-kami' : '/about' },
-    { name: lang === 'id' ? 'Keberlanjutan' : 'Sustainability', href: lang === 'id' ? '/berkelanjutan' : '/sustainability' },
     { name: t.catalog, href: '/katalog' },
   ];
 

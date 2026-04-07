@@ -247,7 +247,7 @@ export interface AdvancedAboutData {
   history: { title: string; content: string; image: string; stats: { label: string; value: string }[] };
   values: { title: string; subtitle: string; items: { title: string; desc: string; icon: string }[] };
   leadership: { title: string; content: string; image: string };
-  sustainability: { title: string; content: string; initiatives: string[] };
+  sustainability: { title: string; content: string; initiatives: string[]; sustainabilityCTA: string };
   safety: { title: string; content: string; certifications: string[] };
   assets: { title: string; items: { name: string; value: string; icon: string }[] };
   future: { title: string; content: string; targets: string[] };

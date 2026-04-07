@@ -53,7 +53,6 @@ export default function HomePage() {
           alt="Tambang batu kapur PT Wira Energi Utama di Ratatotok, Minahasa Tenggara, Sulawesi Utara"
           fill
           priority
-          loading="eager"
           fetchPriority="high"
           decoding="async"
           quality={90}

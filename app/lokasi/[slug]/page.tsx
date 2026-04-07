@@ -168,7 +168,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             <p className="text-gray-600 leading-relaxed">{loc.geological_advantage_id}</p>
           </div>
           <div className="relative h-64 rounded-2xl overflow-hidden">
-            <Image src="/mining-bg.webp" alt="Tambang Ratatotok — PT Wira Energi Utama" fill loading="lazy" sizes="50vw" className="object-cover" />
+            <Image src="/catalog-hero.webp" alt="Tambang Ratatotok — PT Wira Energi Utama" fill loading="lazy" sizes="50vw" className="object-cover" />
           </div>
         </div>
       </section>
