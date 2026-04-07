@@ -100,9 +100,11 @@ export default async function EnLocationsPage({ params }: Props) {
         <div className="relative z-10 max-w-6xl mx-auto px-6 pb-16 pt-32">
           <nav aria-label="Breadcrumb" className="mb-4">
             <ol className="flex flex-wrap gap-2 text-sm text-gray-400">
-              <li><Link href="/en" className="hover:text-[#C8A84B]">Home</Link></li><li>/</li>
-              <li><Link href="/en/locations" className="hover:text-[#C8A84B]">Locations</Link></li><li>/</li>
-              <li className="text-[#C8A84B]" aria-current="page">{dest.country_en}</li>
+              <li><Link href="/en" className="hover:text-[#C8A84B]">Home</Link></li>
+              <li aria-hidden="true">/</li>
+              <li><Link href="/en/locations" className="hover:text-[#C8A84B]">Locations</Link></li>
+              <li aria-hidden="true">/</li>
+              <li className="text-[#C8A84B] font-bold" aria-current="page">{dest.country_en}</li>
             </ol>
           </nav>
           <p className="text-[#C8A84B] text-sm font-bold uppercase tracking-widest mb-2">{dest.region_en} · Export Market</p>

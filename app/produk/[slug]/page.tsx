@@ -139,8 +139,8 @@ export default async function ProdukDetailPage({ params }: Props) {
               <li><ChevronRight size={10} /></li>
               <li><Link href="/katalog" className="hover:text-brand-gold transition-colors">Katalog</Link></li>
               {path.map((step, i) => (
-                <li key={step.id} className="flex items-center gap-2">
-                  <li><ChevronRight size={10} /></li>
+                <div key={step.id} className="flex items-center gap-2 contents">
+                  <li><ChevronRight size={10} aria-hidden="true" /></li>
                   <li className={i === path.length - 1 ? 'text-brand-gold font-black' : ''}>
                     {i === path.length - 1 ? step.hero.title : (
                       <Link href={`/produk/${Object.keys(slugToId).find(key => slugToId[key] === step.id)}`} className="hover:text-brand-gold transition-colors">
@@ -148,7 +148,7 @@ export default async function ProdukDetailPage({ params }: Props) {
                       </Link>
                     )}
                   </li>
-                </li>
+                </div>
               ))}
             </ol>
           </nav>

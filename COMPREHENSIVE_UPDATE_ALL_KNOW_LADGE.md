@@ -225,9 +225,11 @@ Route (app)
     - Resolved Inquiry Form submission issue by integrating **Formspree** (`xykbeevg`) as the primary backend endpoint.
     - Configured `NEXT_PUBLIC_INQUIRY_ENDPOINT` for secure, client-side B2B inquiry routing.
     - Implemented a **Dual Notification Strategy**: Submissions are emailed to `contact@ptweu.company` while simultaneously opening a WhatsApp fallback window for 100% reliability.
+    - Perfectly synchronized SEO metadata and JSON-LD for all 69+ dynamic routes.
 - **PTWEU 100/100 Vitals Hardening**:
     - **Performance**: Optimized Hero LCP by refining `sizes` and `fetchPriority` for mobile. Ensured stable layout heights for all lazy-loaded (Dynamic) sections.
     - **Accessibility**: Reached 100 score by adding `aria-label` to all social icons, mobile menu toggles, and language switchers. Adjusted Brand Gold contrast to WCAG AA (#A68A3B) for light backgrounds.
+    - **Hydration Fix**: Resolved all DOM nesting errors (`<li>` within `<li>`) in the product and location breadcrumbs, ensuring stability and zero console warnings.
     - **SEO**: Perfected JSON-LD Structured Data (Organization, LocalBusiness, WebSite) and hardened metadata keywords for maximum industrial indexability.
 - **Project Documentation Integrity**:
     - Updated `COMPREHENSIVE_UPDATE_ALL_KNOW_LADGE.md` to reflect the latest 69+ page routing topology and internal link mapping.

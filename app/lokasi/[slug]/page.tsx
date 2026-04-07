@@ -111,10 +111,10 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           <nav aria-label="Breadcrumb" className="mb-4">
             <ol className="flex flex-wrap gap-2 text-sm text-gray-400">
               <li><Link href="/" className="hover:text-[#C8A84B]">Beranda</Link></li>
-              <li>/</li>
+              <li aria-hidden="true">/</li>
               <li><Link href="/lokasi" className="hover:text-[#C8A84B]">Lokasi</Link></li>
-              <li>/</li>
-              <li className="text-[#C8A84B]" aria-current="page">{loc.name_id}</li>
+              <li aria-hidden="true">/</li>
+              <li className="text-[#C8A84B] font-bold" aria-current="page">{loc.name_id}</li>
             </ol>
           </nav>
           <p className="text-[#C8A84B] text-sm font-bold tracking-widest uppercase mb-2">{loc.region_id}</p>
