@@ -100,7 +100,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/2.webp', sizes: 'any' },
       { url: '/2.webp', type: 'image/webp' },
       { url: '/icon.png', type: 'image/png', sizes: '32x32' },
       { url: '/icon.png', type: 'image/png', sizes: '48x48' },
@@ -109,7 +109,7 @@ export const metadata: Metadata = {
       { url: '/icon.png', type: 'image/png', sizes: '512x512' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/2.webp', sizes: '180x180', type: 'image/webp' },
     ],
     shortcut: '/favicon.ico',
   },
