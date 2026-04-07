@@ -1021,8 +1021,12 @@ export const translations: Record<'id' | 'en', Translation> = {
         title: 'Dokumentasi Teknis (Photo)',
         subtitle: 'Bukti kualitas visual dari Lapangan dan fasilitas crushing plant kami.',
         images: [
-          '/Foto webp/IMG_1135.webp', '/Foto webp/IMG_1136.webp', '/Foto webp/IMG_1138.webp',
-          '/Foto webp/IMG_1139.webp', '/Foto webp/IMG_1141.webp', '/Foto webp/IMG_1142.webp'
+          '/Drone Webp/DJI_20260310143758_0302_D (1).webp',
+          '/Drone Webp/DJI_20260310144034_0308_D (1).webp',
+          '/Foto webp/IMG_1138.webp',
+          '/Foto webp/IMG_1139.webp',
+          '/Foto webp/IMG_1141.webp',
+          '/Foto webp/IMG_1142.webp'
         ]
       }
     },
@@ -2243,8 +2247,12 @@ export const translations: Record<'id' | 'en', Translation> = {
         title: 'Technical Documentation (Photo)',
         subtitle: 'Visual proof of quality from our laboratory and crushing plant facilities.',
         images: [
-          '/Foto webp/IMG_1135.webp', '/Foto webp/IMG_1136.webp', '/Foto webp/IMG_1138.webp',
-          '/Foto webp/IMG_1139.webp', '/Foto webp/IMG_1141.webp', '/Foto webp/IMG_1142.webp'
+          '/Drone Webp/DJI_20260310143758_0302_D (1).webp',
+          '/Drone Webp/DJI_20260310144034_0308_D (1).webp',
+          '/Foto webp/IMG_1138.webp',
+          '/Foto webp/IMG_1139.webp',
+          '/Foto webp/IMG_1141.webp',
+          '/Foto webp/IMG_1142.webp'
         ]
       }
     },
