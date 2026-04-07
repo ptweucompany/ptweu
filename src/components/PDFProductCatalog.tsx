@@ -1,3 +1,6 @@
+'use client';
+
+import React, { forwardRef } from 'react';
 import { Translation } from '../types';
 
 interface PDFProductCatalogProps {
@@ -6,7 +9,7 @@ interface PDFProductCatalogProps {
   contactT: Translation['contact'];
 }
 
-export default function PDFProductCatalog({ t, profileT, contactT }: PDFProductCatalogProps) {
+const PDFProductCatalog = forwardRef<HTMLDivElement, PDFProductCatalogProps>(({ t, profileT, contactT }, ref) => {
   // Hardcoded colors to bypass modern CSS parsing issues in html2canvas
   const colors = {
     brandBlue: '#0A2463',
@@ -17,7 +20,12 @@ export default function PDFProductCatalog({ t, profileT, contactT }: PDFProductC
   };
 
   return (
-    <div id="pdf-catalog-root" className="bg-white text-gray-900 font-sans" style={{ width: '1200px' }}>
+    <div 
+      ref={ref}
+      id="pdf-catalog-root" 
+      className="bg-white text-gray-900 font-sans" 
+      style={{ width: '1200px' }}
+    >
       {/* FRONT COVER */}
       <div 
         className="pdf-page text-white relative flex flex-col justify-between p-20 min-h-[1697px]"
@@ -229,4 +237,8 @@ export default function PDFProductCatalog({ t, profileT, contactT }: PDFProductC
       `}</style>
     </div>
   );
-}
+});
+
+PDFProductCatalog.displayName = 'PDFProductCatalog';
+
+export default PDFProductCatalog;

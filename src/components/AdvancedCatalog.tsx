@@ -1,4 +1,6 @@
-import { useState, useRef } from 'react';
+'use client';
+
+import { useState, useRef, forwardRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { FileText, Download, Factory, Droplets, Sprout, ChevronRight, ShieldCheck, Zap, Layers, Beaker, X, CheckCircle2, ChevronDown, Loader2, Flame, Construction, Microscope } from 'lucide-react';
 import { Translation } from '../types';
@@ -26,8 +28,10 @@ export default function AdvancedCatalog({ t }: AdvancedCatalogProps) {
       const rootElement = pdfRef.current;
       const pages = rootElement.querySelectorAll('.pdf-page');
       
+      console.log('PDF Generation starting...', { pagesFound: pages.length });
+
       if (pages.length === 0) {
-        throw new Error('No catalog pages found to export.');
+        throw new Error('No catalog pages found to export. Possible rendering delay.');
       }
 
       // Professional delay for font/asset readiness
@@ -40,58 +44,63 @@ export default function AdvancedCatalog({ t }: AdvancedCatalogProps) {
       for (let i = 0; i < pages.length; i++) {
         const pageElement = pages[i] as HTMLElement;
         
-        const canvas = await html2canvas(pageElement, { 
-          scale: 2, 
-          useCORS: true,
-          logging: false,
-          backgroundColor: '#ffffff',
-          width: 1200,
-          height: 1697,
-          onclone: (clonedDoc) => {
-            // Aggressive CSS Sanitization for Modern Colors
-            clonedDoc.querySelectorAll('*').forEach((el) => {
-              const htmlEl = el as HTMLElement;
-              if (!htmlEl.style) return;
-              
-              const style = window.getComputedStyle(htmlEl);
-              const props = ['color', 'backgroundColor', 'borderColor', 'fill', 'stroke'];
-              
-              props.forEach(prop => {
-                const val = (style as any)[prop];
+        try {
+          const canvas = await html2canvas(pageElement, { 
+            scale: 2, 
+            useCORS: true,
+            logging: false,
+            backgroundColor: '#ffffff',
+            width: 1200,
+            height: 1697,
+            onclone: (clonedDoc) => {
+              // Aggressive CSS Sanitization for Modern Colors
+              clonedDoc.querySelectorAll('*').forEach((el) => {
+                const htmlEl = el as HTMLElement;
+                if (!htmlEl.style) return;
                 
-                // If the color contains modern functions (lab, oklch, lch, etc.), html2canvas will crash.
-                // We force these to safe Hex alternatives.
-                if (val && (val.includes('oklch') || val.includes('lab') || val.includes('oklab') || val.includes('lch'))) {
-                  if (prop === 'backgroundColor') {
-                    if (htmlEl.classList.contains('bg-brand-blue')) htmlEl.style.backgroundColor = '#0A2463';
-                    else if (htmlEl.classList.contains('bg-brand-gold')) htmlEl.style.backgroundColor = '#FFD700';
-                    else if (htmlEl.classList.contains('bg-gray-900')) htmlEl.style.backgroundColor = '#111824';
-                    else if (htmlEl.classList.contains('bg-white')) htmlEl.style.backgroundColor = '#ffffff';
-                    else htmlEl.style.backgroundColor = 'transparent';
-                  } else if (prop === 'color') {
-                    if (htmlEl.classList.contains('text-brand-gold')) htmlEl.style.color = '#FFD700';
-                    else if (htmlEl.classList.contains('text-white')) htmlEl.style.color = '#ffffff';
-                    else if ((htmlEl.textContent?.trim().length ?? 0) > 0) htmlEl.style.color = '#0A2463';
-                  } else {
-                    htmlEl.style.setProperty(prop, 'inherit', 'important');
+                const style = window.getComputedStyle(htmlEl);
+                const props = ['color', 'backgroundColor', 'borderColor', 'fill', 'stroke'];
+                
+                props.forEach(prop => {
+                  const val = (style as any)[prop];
+                  
+                  // If the color contains modern functions (lab, oklch, lch, etc.), html2canvas will crash.
+                  // We force these to safe Hex alternatives.
+                  if (val && (val.includes('oklch') || val.includes('lab') || val.includes('oklab') || val.includes('lch'))) {
+                    if (prop === 'backgroundColor') {
+                      if (htmlEl.classList.contains('bg-brand-blue')) htmlEl.style.backgroundColor = '#0A2463';
+                      else if (htmlEl.classList.contains('bg-brand-gold')) htmlEl.style.backgroundColor = '#FFD700';
+                      else if (htmlEl.classList.contains('bg-gray-900')) htmlEl.style.backgroundColor = '#111824';
+                      else if (htmlEl.classList.contains('bg-white')) htmlEl.style.backgroundColor = '#ffffff';
+                      else htmlEl.style.backgroundColor = 'transparent';
+                    } else if (prop === 'color') {
+                      if (htmlEl.classList.contains('text-brand-gold')) htmlEl.style.color = '#FFD700';
+                      else if (htmlEl.classList.contains('text-white')) htmlEl.style.color = '#ffffff';
+                      else if ((htmlEl.textContent?.trim().length ?? 0) > 0) htmlEl.style.color = '#0A2463';
+                    } else {
+                      htmlEl.style.setProperty(prop, 'inherit', 'important');
+                    }
                   }
-                }
+                });
               });
-            });
-          }
-        });
+            }
+          });
 
-        const imgData = canvas.toDataURL('image/jpeg', 0.95);
-        
-        if (i > 0) pdf.addPage();
-        pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight, undefined, 'FAST');
+          const imgData = canvas.toDataURL('image/jpeg', 0.95);
+          
+          if (i > 0) pdf.addPage();
+          pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight, undefined, 'FAST');
+        } catch (canvasErr: any) {
+          console.error(`Page ${i} rendering failed:`, canvasErr);
+          throw new Error(`Failed to render page ${i + 1}: ${canvasErr.message}`);
+        }
       }
       
       pdf.save(`PT_WEU_Product_Catalog_${new Date().getFullYear()}.pdf`);
       
-    } catch (error) {
+    } catch (error: any) {
       console.error('Catalog Generation Error:', error);
-      alert('Unable to generate professional PDF. Please contact support.');
+      alert(`Download Error: ${error.message || 'Technical rendering timeout'}. Please check your internet connection and try again.`);
     } finally {
       setIsGenerating(false);
     }
@@ -474,10 +483,23 @@ export default function AdvancedCatalog({ t }: AdvancedCatalogProps) {
       </section>
 
       {/* Hidden PDF Content */}
-      <div className="fixed left-[-9999px] top-[-9999px] pointer-events-none overflow-hidden">
-        <div ref={pdfRef}>
-           <PDFProductCatalog t={t} profileT={fullT.profile} contactT={fullT.contact} />
-        </div>
+      <div 
+        style={{ 
+          position: 'fixed', 
+          left: '-9999px', 
+          top: 0, 
+          pointerEvents: 'none', 
+          zIndex: -100,
+          opacity: 0
+        }}
+        aria-hidden="true"
+      >
+        <PDFProductCatalog 
+          ref={pdfRef} 
+          t={t} 
+          profileT={fullT.profile} 
+          contactT={fullT.contact} 
+        />
       </div>
 
       {/* Preparing Overlay */}
