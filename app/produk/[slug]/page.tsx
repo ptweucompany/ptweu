@@ -28,25 +28,46 @@ export async function generateStaticParams() {
   return productSlugsID.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const productId = slugToId[slug];
   const product = (idT.productPages as any)[productId];
   if (!product) return {};
-  
-  const BASE = 'https://ptweu.company';
+
+  const BASE = 'https://wiraenergiutama.com';
+
   return {
-    title: `${product.hero.title} | PT Wira Energi Utama — Sulawesi Utara`,
-    description: product.description.slice(0, 155),
+    title: `${product.hero.title} | Supplier Mineral Industri | PT Wira Energi Utama`,
+    description: product.description.slice(0, 160),
+    keywords: [
+      product.hero.title, 
+      `supplier ${product.hero.title}`, 
+      'mineral industri Indonesia', 
+      'batu kapur Sulawesi Utara', 
+      'PT WEU high purity mineral'
+    ],
     alternates: {
       canonical: `${BASE}/produk/${slug}`,
+      languages: {
+        'id-ID': `${BASE}/produk/${slug}`,
+        'en-US': `${BASE}/en/products/${slug.replace('batu-kapur', 'limestone').replace('kalsium-karbonat', 'caco3').replace('kapur-bakar', 'burn-lime').replace('kapur-padam', 'hydrated-lime').replace('agregat', 'aggregate')}`,
+      },
     },
     openGraph: {
       title: `${product.hero.title} | PT Wira Energi Utama`,
-      description: product.description.slice(0, 155),
+      description: product.description.slice(0, 160),
       url: `${BASE}/produk/${slug}`,
+      siteName: 'PT Wira Energi Utama',
       images: [{ url: product.hero.image, width: 1200, height: 630, alt: product.hero.title }],
+      locale: 'id_ID',
+      type: 'website',
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${product.hero.title} | PT Wira Energi Utama`,
+      description: product.description.slice(0, 160),
+      images: [product.hero.image],
+    }
   };
 }
 
@@ -56,7 +77,18 @@ export default async function ProdukDetailPage({ params }: Props) {
   const product = (idT.productPages as any)[productId];
   if (!product) notFound();
 
-  const BASE = 'https://ptweu.company';
+  const BASE = 'https://wiraenergiutama.com';
+  
+  // 🧭 SEO MAXIMIZE: BREADCRUMB SCHEMA
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': BASE },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Produk', 'item': `${BASE}/produk` },
+      { '@type': 'ListItem', 'position': 3, 'name': product.hero.title, 'item': `${BASE}/produk/${slug}` }
+    ]
+  };
 
   const productSchema = {
     '@context': 'https://schema.org',

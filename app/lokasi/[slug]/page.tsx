@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { locationsBySlug, locationSlugs } from '../../../src/data/locations';
+import { locationsBySlug, locationSlugs, locations } from '../../../src/data/locations';
 import { allProducts } from '../../../src/data/products';
 import { industriesFull } from '../../../src/data/industryFull';
 import { legal } from '../../../src/data/company';
@@ -16,35 +16,79 @@ export async function generateStaticParams() {
   return locationSlugs.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const loc = locationsBySlug[slug];
+  const loc = locations.find(l => l.slug === slug);
   if (!loc) return {};
-  const BASE = 'https://ptweu.company';
+
+  const BASE = 'https://wiraenergiutama.com';
+
   return {
-    title: `${loc.name_id} | Distribusi Mineral Industri PT Wira Energi Utama`,
-    description: loc.overview_id.slice(0, 155),
+    title: `Supplier Batu Kapur ${loc.name_id} | PT Wira Energi Utama`,
+    description: loc.overview_id.slice(0, 160),
+    keywords: [
+      `batu kapur ${loc.name_id}`, 
+      `supplier limestone ${loc.name_id}`, 
+      `jual kapur bakar ${loc.name_id}`, 
+      'PT WEU regional hub', 
+      `distribusi mineral ${loc.name_id}`
+    ],
     alternates: {
-      canonical: `${BASE}/lokasi/${slug}`,
-      languages: { id: `${BASE}/lokasi/${slug}`, en: `${BASE}/en/locations/${slug}` },
+      canonical: `${BASE}/lokasi/${loc.slug}`,
+      languages: {
+        'id-ID': `${BASE}/lokasi/${loc.slug}`,
+        'en-US': `${BASE}/en/locations/${loc.slug}`,
+      },
     },
-    openGraph: { title: `${loc.name_id} | PT Wira Energi Utama`, description: loc.overview_id.slice(0, 155), url: `${BASE}/lokasi/${slug}` },
+    openGraph: {
+      title: `PT Wira Energi Utama — Hub Regional ${loc.name_id}`,
+      description: loc.overview_id.slice(0, 160),
+      url: `${BASE}/lokasi/${loc.slug}`,
+      siteName: 'PT Wira Energi Utama',
+      images: [{ url: '/mining-bg.webp', width: 1200, height: 630, alt: loc.name_id }],
+      locale: 'id_ID',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `PT Wira Energi Utama | ${loc.name_id}`,
+      description: loc.overview_id.slice(0, 160),
+      images: ['/mining-bg.webp'],
+    }
   };
 }
 
-export default async function LokasiPage({ params }: Props) {
+export default async function LocationPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const loc = locationsBySlug[slug];
+  const loc = locations.find(l => l.slug === slug);
   if (!loc) notFound();
-  const BASE = 'https://ptweu.company';
+
+  const BASE = 'https://wiraenergiutama.com';
+
+  // 🧭 SEO MAXIMIZE: BREADCRUMB SCHEMA
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': BASE },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Lokasi', 'item': `${BASE}/lokasi` },
+      { '@type': 'ListItem', 'position': 3, 'name': loc.name_id, 'item': `${BASE}/lokasi/${slug}` }
+    ]
+  };
 
   const localBusinessSchema = {
-    '@context': 'https://schema.org', '@type': 'LocalBusiness',
-    name: 'PT Wira Energi Utama',
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: `PT Wira Energi Utama - Hub ${loc.name_id}`,
     description: loc.overview_id.slice(0, 200),
     url: BASE,
     telephone: '+62-0434-260-3008',
-    address: { '@type': 'PostalAddress', addressLocality: 'Manado', addressRegion: 'Sulawesi Utara', addressCountry: 'ID' },
+    address: { 
+      '@type': 'PostalAddress', 
+      addressLocality: loc.name_id, 
+      addressRegion: 'Indonesia', 
+      addressCountry: 'ID' 
+    },
     ...(loc.geo ? { geo: { '@type': 'GeoCoordinates', latitude: loc.geo.lat, longitude: loc.geo.lng } } : {}),
     areaServed: loc.name_id,
   };

@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   description: 'Daftar lengkap semua halaman PT Wira Energi Utama untuk memudahkan navigasi dan pengindeksan mesin pencari.',
   keywords: ['sitemap PT WEU', 'peta situs PT Wira Energi Utama', 'daftar halaman website'],
   alternates: {
-    canonical: 'https://ptweu.company/site-map',
+    canonical: 'https://wiraenergiutama.com/site-map',
   },
   openGraph: {
     title: 'Peta Situs | PT Wira Energi Utama',
     description: 'Daftar lengkap semua halaman website PT Wira Energi Utama.',
-    url: 'https://ptweu.company/site-map',
+    url: 'https://wiraenergiutama.com/site-map',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'PT Wira Energi Utama Sitemap' }],
   },
   robots: {

@@ -76,7 +76,7 @@ const PDFProductCatalog = forwardRef<HTMLDivElement, PDFProductCatalogProps>(({ 
           </div>
           <div className="text-right">
             <p style={{ color: colors.brandGold }} className="text-sm font-black uppercase tracking-widest mb-2">Edition 2024</p>
-            <p className="text-3xl font-black tracking-tight">PTWEU.COMPANY</p>
+            <p className="text-3xl font-black tracking-tight">WIRAENERGIUTAMA.COM</p>
           </div>
         </div>
       </div>
@@ -321,7 +321,7 @@ const PDFProductCatalog = forwardRef<HTMLDivElement, PDFProductCatalogProps>(({ 
                  <div className="space-y-6">
                     <p className="text-3xl font-black">{contactT.phone}</p>
                     <p className="text-2xl font-black">wiraenergiutama@yahoo.com</p>
-                    <p className="text-4xl font-black mt-10" style={{ color: colors.brandGold }}>PTWEU.COMPANY</p>
+                    <p className="text-4xl font-black mt-10" style={{ color: colors.brandGold }}>WIRAENERGIUTAMA.COM</p>
                  </div>
               </div>
            </div>

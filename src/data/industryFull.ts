@@ -135,13 +135,181 @@ export const industriesFull: IndustryFull[] = [
     weu_value_en: 'PT WEU\'s hydrated lime has 94.5% Ca(OH)2, >95% passing 325 mesh fineness, and <1% moisture. With 150,000 MT/month capacity and Sulawesi location, we are the closest supplier for PLTUs in Sulawesi, Maluku, and Papua. Barge delivery from Ratatotok Jetty to coastal PLTU sites takes 3–14 days.',
     case_scenario_id: 'PLTU 200 MW dengan konsumsi sorbent 500 MT/bulan dapat dipenuhi dengan 1 pengiriman jumbo bag/bulan dari PT WEU. COA per batch membuktikan kehalusan 325 mesh dan Ca(OH)2 >92% untuk audit KLHK. Jadwal pengiriman bulanan tetap memastikan stok sorbent minimal 30 hari.',
     faq_id: [
-      { q: 'Apakah kapur padam PT WEU cocok untuk sistem FGD-SDA (Spray Dryer Absorber)?', a: 'Ya. Dengan kehalusan >95% passing 325 mesh dan reaktivitas tinggi, produk kami sesuai untuk SDA dan system turbosorp yang membutuhkan dispersi partikel halus dalam gas buang.' },
-      { q: 'Berapa rasio stoikiometri Ca/S yang direkomendasikan?', a: 'Untuk target removal SO2 >80%, rasio Ca/S = 2.0–2.5 umumnya efektif menggunakan produk kami dengan Ca(OH)2 94.5%. Konsultasikan dengan tim teknis kami untuk optimasi spesifik sistem Anda.' },
+{ q: 'Berapa rasio stoikiometri Ca/S yang direkomendasikan?', a: 'Untuk target removal SO2 >80%, rasio Ca/S = 2.0–2.5 umumnya efektif menggunakan produk kami dengan Ca(OH)2 94.5%. Konsultasikan dengan tim teknis kami untuk optimasi spesifik sistem Anda.' },
       { q: 'Apakah tersedia analisis reaktivitas untuk sistem FGD kami?', a: 'Ya. Kami menyediakan data reaktivitas pH dan surface area analysis yang diperlukan untuk verifikasi performa dalam sistem FGD spesifik Anda.' },
       { q: 'Bagaimana pengemasan yang tepat untuk menghindari penggumpalan?', a: 'Produk dikemas dalam jumbo bag liner PE berlapis dengan valve seal. Untuk storage >30 hari, disarankan silo tertutup dengan sistem deaeration untuk menjaga fluiditas powder.' },
       { q: 'Apakah PT WEU dapat menyediakan technical support untuk commissioning FGD?', a: 'Tim teknis kami dapat hadir untuk supervisi commissioning dan optimasi sistem injeksi untuk memastikan efisiensi SO2 removal sesuai target compliance KLHK.' },
     ],
     schema_service_id: 'Penyediaan Kapur Padam untuk Sistem FGD Pembangkit Listrik',
+  },
+  {
+    id: 'pengolahan-air', slug_id: 'pengolahan-air', slug_en: 'water-treatment',
+    name_id: 'Pengolahan Air & Limbah', name_en: 'Water & Wastewater Treatment',
+    hero_bg: '/mining-bg.webp', hero_tag: 'Solusi Penjernihan & Netralisasi Air',
+    overview_id: 'Kapur padam (Hydrated Lime) adalah bahan kimia paling ekonomis dan efektif untuk pengolahan air minum dan air limbah industri. Industri di Indonesia, mulai dari tekstil hingga makanan, memerlukan sistem IPAL yang andal untuk memenuhi standar baku mutu lingkungan. PT WEU menyediakan kapur padam dengan reaktivitas tinggi yang memastikan efisiensi netralisasi maksimal.',
+    overview_en: 'Hydrated Lime is the most economical and effective chemical for drinking water and industrial wastewater treatment.',
+    limestone_role_id: 'Kapur berfungsi sebagai regulator pH, koagulan, dan agen presipitasi. Ia mengendapkan logam berat, mematikan bakteri patogen lewat peningkatan pH, dan melunakkan air (softening) dengan menghilangkan kesadahan kalsium dan magnesium bikarbonat.',
+    limestone_role_en: 'Lime functions as a pH regulator, coagulant, and precipitating agent. It removes heavy metals and pathogens through pH elevation.',
+    products_used: [
+      { slug_id: 'kapur-padam', slug_en: 'hydrated-lime', name_id: 'Kapur Padam (Ca(OH)2)', name_en: 'Hydrated Lime', role_id: 'Agen netralisasi pH dan koagulasi utama dalam sistem IPAL' },
+      { slug_id: 'kapur-bakar', slug_en: 'burn-lime', name_id: 'Kapur Bakar', name_en: 'Quicklime', role_id: 'Digunakan untuk pelunakan air skala besar (soda-ash softening)' },
+    ],
+    tech_requirements: [
+      { param: 'Ca(OH)2 Content', value: '> 92%' }, { param: 'Available CaO', value: '> 70%' },
+      { param: 'Acid Insoluble', value: '< 1.5%' }, { param: 'Particle Size', value: '325 mesh (>95% passing)' },
+    ],
+    process_steps_id: [
+      { title: 'Injeksi Kapur', desc: 'Kapur padam diumpankan ke clarifier atau reaktor dalam bentuk slurry (lime milk).' },
+      { title: 'Koagulasi & Presipitasi', desc: 'pH dinaikkan ke 9.5–11 untuk mengendapkan ion logam dan memicu flokulasi.' },
+      { title: 'Sedimentasi', desc: 'Flok yang terbentuk mengendap di dasar tangki sebagai lumpur (sludge).' },
+      { title: 'Sludge Dewatering', desc: 'Lumpur kapur dikeluarkan dan dikeringkan untuk dibuang atau dimanfaatkan kembali.' },
+    ],
+    pain_points_id: [
+      'Grit (kerikil) tinggi dalam kapur menyumbat nozzle injeksi dan merusak pompa slurry',
+      'Reaktivitas rendah memperlambat koreksi pH, berisiko melanggar baku mutu emisi cair',
+      'Kapur yang menggumpal (caking) sulit dilarutkan secara otomatis',
+    ],
+    weu_value_id: 'Kapur padam kami diproduksi dengan proses hidrasi terkontrol menghasilkan powder ultra-halus 325 mesh dengan grit <0.5%. Ini menjamin operasional sistem IPAL otomatis Anda berjalan tanpa hambatan mekanis.',
+    weu_value_en: 'Our hydrated lime is produced with controlled hydration, yielding 325 mesh ultra-fine powder with <0.5% grit, ensuring clog-free automated IPAL operations.',
+    case_scenario_id: 'Pabrik tekstil di Bandung dengan debit limbah 2.000 m3/hari menggunakan kapur PT WEU untuk menurunkan kadar logam berat dan menormalkan pH dari 3 ke 7. Efisiensi biaya 15% dibanding penggunaan NaOH.',
+    faq_id: [
+      { q: 'Apakah kapur padam PT WEU bisa menghilangkan bau limbah?', a: 'Peningkatan pH oleh kapur padam dapat mengontrol pertumbuhan bakteri anaerob penyebab bau H2S pada kolam limbah.' }
+    ],
+    schema_service_id: 'Penyediaan Kapur Padam untuk Treatment Air Industri',
+  },
+  {
+    id: 'kertas-plastik', slug_id: 'kertas-plastik', slug_en: 'paper-plastic',
+    name_id: 'Industri Kertas & Plastik', name_en: 'Paper & Plastic Industry',
+    hero_bg: '/mining-bg.webp', hero_tag: 'Mineral Filler untuk Brightness & Durabilitas',
+    overview_id: 'Kalsium Karbonat (CaCO3) dan PCC adalah filler fungsional yang paling banyak digunakan di dunia. Dalam industri kertas, ia meningkatkan kecerahan (brightness); dalam plastik, ia meningkatkan kekakuan dan menurunkan biaya bahan baku polimer.',
+    overview_en: 'Calcium Carbonate and PCC are the most widely used functional fillers, enhancing brightness in paper and stiffness in plastics.',
+    limestone_role_id: 'Di industri kertas, CaCO3 menggantikan clay sebagai filler karena memberikan opacity yang lebih baik. Di industri plastik (PVC, PP), ia berfungsi sebagai anti-blocking agent dan penguat struktural.',
+    limestone_role_en: 'In paper, CaCO3 provides superior opacity. In plastics (PVC, PP), it acts as an anti-blocking agent and structural reinforcer.',
+    products_used: [
+      { slug_id: 'kalsium-karbonat', slug_en: 'caco3', name_id: 'CaCO3 Ultra-Halus', name_en: 'Ultra-Fine CaCO3', role_id: 'Filler plastik dan coating kertas' },
+      { slug_id: 'pcc', slug_en: 'pcc', name_id: 'PCC', name_en: 'PCC', role_id: 'Filler premium untuk kertas art-paper dan plastik high-grade' },
+    ],
+    tech_requirements: [
+      { param: 'Brightness', value: '> 94%' }, { param: 'Purity (CaCO3)', value: '> 98.5%' },
+      { param: 'Absorpsi Minyak', value: '18–22 g/100g' }, { param: 'D50 Particle Size', value: '1.2–2.5 µm' },
+    ],
+    process_steps_id: [
+      { title: 'Mixing & Compounding', desc: 'CaCO3 dicampur dengan resin polimer (untuk plastik) atau pulp (untuk kertas).' },
+      { title: 'Extrusion/Sheeting', desc: 'Campuran diproses melalui extruder atau mesin kertas Foudrinier.' },
+      { title: 'Quality Inspection', desc: 'Pengujian kekuatan tarik, brightness, dan opacity pada produk akhir.' },
+    ],
+    pain_points_id: [
+      'Brightness rendah membuat produk kertas terlihat kusam atau kuning',
+      'Kandungan abrasif tinggi merusak screw extruder plastik',
+      'Distribusi ukuran partikel tidak merata menyebabkan cacat permukaan (surface pinholes)',
+    ],
+    weu_value_id: 'PCC dan CaCO3 kami memiliki indeks brightness ≥96% berkat kemurnian deposit Ratatotok yang exceptional. Kami menggunakan teknologi penggilingan vertikal untuk menjamin kurva distribusi partikel yang sempit (narrow PSD).',
+    weu_value_en: 'Our PCC and CaCO3 feature ≥96% brightness. We utilize vertical milling technology to ensure a narrow particle size distribution curve.',
+    case_scenario_id: 'Pabrik pipa PVC di Tangerang menggunakan CaCO3 800 mesh PT WEU sebagai filler 20% massa. Hasil uji menunjukkan peningkatan kekuatan impact sebesar 10% dibanding filler lokal Jawa.',
+    faq_id: [
+      { q: 'Apakah tersedia CaCO3 dengan surface treatment (stearic acid)?', a: 'Ya, kami menyediakan CaCO3 coating stearic acid khusus untuk industri plastik guna meningkatkan dispersi dalam matriks polimer.' }
+    ],
+    schema_service_id: 'Penyediaan Mineral Filler untuk Industri Polymer & Kertas',
+  },
+  {
+    id: 'gula', slug_id: 'gula', slug_en: 'sugar-refinery',
+    name_id: 'Industri Gula', name_en: 'Sugar Refinery',
+    hero_bg: '/mining-bg.webp', hero_tag: 'Agen Pemurnian Karbonatasi Gula',
+    overview_id: 'Proses pemurnian nira tebu membutuhkan kapur bakar atau susu kapur (lime milk) untuk menghilangkan pengotor non-gula melalui proses klarifikasi. Tanpa kapur berkualitas tinggi, kristal gula yang dihasilkan akan berwarna gelap dan tidak memenuhi standar konsumsi.',
+    overview_en: 'The sugar refining process requires quicklime or lime milk to remove non-sugar impurities through clarification.',
+    limestone_role_id: 'Kapur (CaO) bereaksi dengan asam fosfat dalam nira membentuk kalsium fosfat yang mengikat kotoran (defekasi). Dalam proses karbonatasi, kapur berlebih ditiup CO2 untuk menjaring pengotor organik halus.',
+    limestone_role_en: 'Lime reacts with phosphoric acid in juice to form calcium phosphate, binding impurities (defecation).',
+    products_used: [
+      { slug_id: 'kapur-bakar', slug_en: 'burn-lime', name_id: 'Kapur Bakar Lumpy', name_en: 'Quicklime Lumpy', role_id: 'Bahan utama pembuatan susu kapur (lime milk) di pabrik gula' },
+      { slug_id: 'batu-kapur', slug_en: 'limestone', name_id: 'Batu Kapur', name_en: 'Limestone', role_id: 'Umpan kiln kapur internal pabrik gula' },
+    ],
+    tech_requirements: [
+      { param: 'Available CaO', value: '> 90%' }, { param: 'MgO Maksimum', value: '< 1.0%' },
+      { param: 'Reaktivitas', value: 'High Reactivity (T60 < 2 min)' }, { param: 'Fe2O3', value: '< 0.1%' },
+    ],
+    process_steps_id: [
+      { title: 'Slaking', desc: 'Kapur bakar dicampur air panas untuk menjadi lime milk berkepadatan terukur.' },
+      { title: 'Liming/Defekasi', desc: 'Lime milk ditambahkan ke nira mentah untuk menetralkan asam organik.' },
+      { title: 'Carbonation', desc: 'Gas CO2 dialirkan untuk mengendapkan kalsium karbonat bersama pengotor.' },
+      { title: 'Filtrasi', desc: 'Endapan dipisahkan, menghasilkan nira jernih siap kristalisasi.' },
+    ],
+    pain_points_id: [
+      'Kadar MgO tinggi menyebabkan kerak (scaling) pada evaporator pabrik gula',
+      'Kapur yang lambat bereaksi meninggalkan sisa CaO bebas yang merusak rasa gula',
+    ],
+    weu_value_id: 'Kandungan MgO kami yang sangat rendah (<0.4%) secara drastis mengurangi biaya maintenance evaporator karena minimnya pembentukan kerak silika-magnesium.',
+    weu_value_en: 'Our ultra-low MgO content (<0.4%) drastically reduces evaporator maintenance costs by minimizing silica-magnesium scaling.',
+    case_scenario_id: 'Pabrik gula di Gorontalo beralih ke kapur PT WEU dan melaporkan penurunan jadwal pembersihan evaporator dari 14 hari menjadi 21 hari.',
+    faq_id: [
+      { q: 'Apakah kapur PT WEU aman untuk pangan (food grade)?', a: 'Kapur kami diproduksi dari deposit alami kemurnian tinggi dan memenuhi parameter teknis untuk pemurnian gula nasional.' }
+    ],
+    schema_service_id: 'Penyediaan Kapur Pemurnian untuk Pabrik Gula',
+  },
+  {
+    id: 'kaca', slug_id: 'kaca', slug_en: 'glass-industry',
+    name_id: 'Industri Kaca', name_en: 'Glass Industry',
+    hero_bg: '/mining-bg.webp', hero_tag: 'Stabilizer Kimia untuk Kaca Bening',
+    overview_id: 'Batu kapur (Limestone) adalah komponen ketiga terbesar dalam pembuatan kaca soda-limun (soda-lime glass). Ia memberikan stabilitas kimia dan daya tahan air pada produk kaca akhir.',
+    overview_en: 'Limestone is the third-largest component in soda-lime glass manufacturing, providing chemical stability.',
+    limestone_role_id: 'CaO dari batu kapur bertindak sebagai stabilizer yang membuat kaca tahan terhadap pelarutan air dan bahan kimia. Ia juga menurunkan viskositas kaca cair selama proses pembentukan.',
+    limestone_role_en: 'CaO acts as a stabilizer, making glass resistant to water and chemical dissolution.',
+    products_used: [
+      { slug_id: 'batu-kapur', slug_en: 'limestone', name_id: 'Batu Kapur (Glass Grade)', name_en: 'Limestone', role_id: 'Stabilizer utama dalam campuran batch kaca' },
+    ],
+    tech_requirements: [
+      { param: 'CaO Minimum', value: '> 54%' }, { param: 'Fe2O3 Maksimum', value: '< 0.05%' },
+      { param: 'SiO2', value: '< 0.5%' }, { param: 'Ukuran Butir', value: 'Mesh 40 – Mesh 100' },
+    ],
+    process_steps_id: [
+      { title: 'Batching', desc: 'Batu kapur digiling halus dan dicampur dengan pasir silika dan soda ash.' },
+      { title: 'Melting', desc: 'Campuran dilelehkan dalam furnace pada suhu 1.500°C.' },
+      { title: 'Refining', desc: 'Gelembung gas dihilangkan untuk menghasilkan kaca bening sempurna.' },
+      { title: 'Forming', desc: 'Kaca cair dibentuk menjadi lembaran (float) atau botol.' },
+    ],
+    pain_points_id: [
+      'Kandungan besi (Fe2O3) tinggi menyebabkan kaca berwarna hijau atau gelap',
+      'Ukuran butir tidak seragam memicu titik-titik tidak meleleh (stones) pada kaca',
+    ],
+    weu_value_id: 'Kami menawarkan batu kapur dengan kadar Fe2O3 ultra-rendah (<0.035%) yang ideal untuk produksi kaca flat bening (clear glass) dan peralatan laboratorium.',
+    weu_value_en: 'We offer limestone with ultra-low Fe2O3 (<0.035%), ideal for clear flat glass and laboratory glassware production.',
+    case_scenario_id: 'Produsen botol kaca di Bekasi mencapai indeks transmisi cahaya 91% menggunakan batu kapur spesifikasi khusus dari PT WEU.',
+    faq_id: [
+      { q: 'Bagaimana konsistensi kadar besi dijaga?', a: 'Kami melakukan analisis XRF per lot pengiriman khusus untuk industri kaca guna menjamin ambang batas Fe2O3 tidak terlewati.' }
+    ],
+    schema_service_id: 'Penyediaan Batu Kapur High-Purity untuk Industri Kaca',
+  },
+  {
+    id: 'kulit', slug_id: 'kulit', slug_en: 'leather-tanning',
+    name_id: 'Penyamakan Kulit', name_en: 'Leather Tanning',
+    hero_bg: '/mining-bg.webp', hero_tag: 'Agen Unhairing & pH Control',
+    overview_id: 'Industri penyamakan kulit menggunakan kapur padam dalam tahap awal pengolahan kulit mentah. Kapur membantu menghilangkan bulu dan protein yang tidak diinginkan sebelum proses penyamakan kimia dimulai.',
+    overview_en: 'The leather tanning industry uses hydrated lime in the early stages of raw hide processing to remove hair and unwanted proteins.',
+    limestone_role_id: 'Kapur padam (Ca(OH)2) meningkatkan pH kulit secara drastis, menyebabkan serat kulit membengkak (swelling) sehingga memudahkan penetrasi bahan penyamak dan penghilangan akar bulu.',
+    limestone_role_en: 'Hydrated lime drastically raises hide pH, causing swelling to facilitate tannin penetration and hair root removal.',
+    products_used: [
+      { slug_id: 'kapur-padam', slug_en: 'hydrated-lime', name_id: 'Kapur Padam (Mesh 325)', name_en: 'Hydrated Lime', role_id: 'Digunakan dalam proses liming/unhairing drum' },
+    ],
+    tech_requirements: [
+      { param: 'Ca(OH)2', value: '> 92%' }, { param: 'Fe2O3', value: '< 0.1%' },
+      { param: 'Mn', value: '< 0.05%' }, { param: 'Solubility', value: 'High Slaking Rate' },
+    ],
+    process_steps_id: [
+      { title: 'Soaking', desc: 'Kulit mentah dicuci untuk menghilangkan garam dan kotoran.' },
+      { title: 'Liming', desc: 'Kulit direndam dalam larutan kapur dan natrium sulfida selama 12–24 jam.' },
+      { title: 'Unhairing', desc: 'Bulu yang sudah lepas dibuang secara mekanis.' },
+      { title: 'Deliming', desc: 'pH kulit diturunkan kembali menggunakan asam lemah sebelum tanning.' },
+    ],
+    pain_points_id: [
+      'Kandungan besi (Fe) tinggi meninggalkan noda gelap yang tidak bisa hilang pada kulit premium',
+      'Kapur kasar merusak tekstur permukaan (grain) kulit selama putaran drum',
+    ],
+    weu_value_id: 'Kapur padam kami melewati filter magnetik untuk memastikan besi minimal, menjamin hasil penyamakan kulit artikel kualitas ekspor (leather grade A).',
+    weu_value_en: 'Our hydrated lime passes through magnetic filters to ensure minimal iron, guaranteeing export-quality Grade A tanned leather.',
+    case_scenario_id: 'Penyamakan kulit di Sidoarjo melaporkan penurunan cacat "grain damage" hingga 8% setelah beralih ke kapur padam ultra-halus PT WEU.',
+    faq_id: [
+      { q: 'Apakah kapur PT WEU kompatibel dengan enzim unhairing modern?', a: 'Ya, kemurnian kimia kapur kami memberikan kestabilan pH yang diperlukan agar enzim bekerja optimal.' }
+    ],
+    schema_service_id: 'Penyediaan Kapur Padam untuk Industri Penyamakan Kulit',
   },
   {
     id: 'kimia', slug_id: 'kimia', slug_en: 'chemical',
@@ -185,6 +353,138 @@ export const industriesFull: IndustryFull[] = [
       { q: 'Apakah PT WEU dapat menyesuaikan particle size distribution PCC untuk formulasi sealant?', a: 'Ya. PCC tersedia dengan D50 1.2–2.5 µm standar. Untuk kebutuhan viscosity dan rheologi sealant tertentu, kami dapat mengkonsultasikan surface modification dan particle size yang optimal.' },
     ],
     schema_service_id: 'Penyediaan Bahan Baku Kalsium untuk Industri Kimia',
+  },
+  {
+    id: 'pakan-ternak', slug_id: 'pakan-ternak', slug_en: 'animal-feed',
+    name_id: 'Industri Pakan Ternak', name_en: 'Animal Feed Industry',
+    hero_bg: '/mining-bg.webp', hero_tag: 'Sumber Kalsium Nutrisi Ternak',
+    overview_id: 'Kalsium Karbonat adalah suplemen mineral vital dalam formulasi pakan ternak untuk pertumbuhan tulang dan produksi telur yang kuat. PT WEU menyediakan kalsium grade pakan dengan kemurnian tinggi dan bebas kontaminan logam berat.',
+    overview_en: 'Calcium Carbonate is a vital mineral supplement in animal feed formulations for bone growth and strong egg production.',
+    limestone_role_id: 'Sebagai sumber Ca primer, ia membantu pembentukan kerabang telur pada unggas dan struktur rangka pada ternak ruminansia. Ia juga berfungsi sebagai pengatur pH dalam sistem pencernaan ternak.',
+    limestone_role_en: 'As a primary Ca source, it helps eggshell formation in poultry and skeletal structure in ruminants.',
+    products_used: [
+      { slug_id: 'kalsium-karbonat', slug_en: 'caco3', name_id: 'CaCO3 (Feed Grade)', name_en: 'Feed Grade CaCO3', role_id: 'Additive nutrisi kalsium dalam campuran pakan' },
+      { slug_id: 'agregat', slug_en: 'aggregate', name_id: 'Grit Kalsium', name_en: 'Calcium Grit', role_id: 'Membantu pencernaan mekanis (gizzard) pada unggas' },
+    ],
+    tech_requirements: [
+      { param: 'Calcium (Ca)', value: '> 38%' }, { param: 'Lead (Pb)', value: '< 5 ppm' },
+      { param: 'Arsenic (As)', value: '< 2 ppm' }, { param: 'Size', value: '80–200 mesh (Powder) / 1–3mm (Grit)' },
+    ],
+    process_steps_id: [
+      { title: 'Fine Grinding', desc: 'Batu kapur murni digiling menjadi powder halus atau butiran grit sesuai jenis ternak.' },
+      { title: 'Sterilization', desc: 'Proses pemanasan untuk memastikan produk bebas dari patogen biologis.' },
+      { title: 'Blending', desc: 'Dicampurkan ke dalam formula pakan konsentrat bersama jagung dan bungkil kedelai.' },
+    ],
+    pain_points_id: [
+      'Kontaminasi logam berat menyebabkan keracunan kronis pada ternak dan kegagalan sertifikasi pangan',
+      'Ukuran partikel tidak konsisten menyebabkan pemisahan (segregasi) dalam silo pakan',
+    ],
+    weu_value_id: 'Mineral kami berasal dari deposit kristalin yang secara alami rendah logam berat. Kami menjamin kadar Timbal (Pb) di bawah 1 ppm, jauh di bawah batas keamanan internasional.',
+    weu_value_en: 'Our minerals come from crystalline deposits naturally low in heavy metals, guaranteeing Lead (Pb) under 1 ppm.',
+    case_scenario_id: 'Satu hub produsen pakan ternak di Makassar melaporkan peningkatan kekuatan kerabang telur sebesar 12% setelah beralih ke kalsium grit PT WEU.',
+    faq_id: [
+      { q: 'Apakah tersedia kalsium grit untuk ayam petelur?', a: 'Ya, kami memproduksi grit ukuran 1.5–3.0 mm yang ideal untuk meningkatkan asupan kalsium malam hari pada ayam petelur.' }
+    ],
+    schema_service_id: 'Penyediaan Kalsium Nutrisi untuk Pabrik Pakan Ternak',
+  },
+  {
+    id: 'cat-coating', slug_id: 'cat-coating', slug_en: 'paint-coating',
+    name_id: 'Industri Cat & Pelapis', name_en: 'Paint & Coating Industry',
+    hero_bg: '/mining-bg.webp', hero_tag: 'Extender untuk Opacity & Daya Tahan',
+    overview_id: 'Kalsium Karbonat ultra-halus (GCC/PCC) adalah extender utama dalam industri cat untuk mengatur gloss, opacity, dan kekuatan lapisan film cat.',
+    overview_en: 'Ultra-fine Calcium Carbonate is the primary extender in the paint industry, regulating gloss, opacity, and film strength.',
+    limestone_role_id: 'Ia bertindak sebagai pembantu dispersi TiO2, meningkatkan daya tutup (covering power), dan memberikan resistensi terhadap cuaca pada cat eksterior.',
+    limestone_role_en: 'It acts as a TiO2 dispersion aid, enhancing covering power and providing weather resistance for exterior paints.',
+    products_used: [
+      { slug_id: 'kalsium-karbonat', slug_en: 'caco3', name_id: 'CaCO3 Super Fine', name_en: 'Super Fine CaCO3', role_id: 'Extender cat tembok dan cat dekoratif' },
+      { slug_id: 'pcc', slug_en: 'pcc', name_id: 'PCC Coating Grade', name_en: 'Coating Grade PCC', role_id: 'Filler premium untuk cat otomotif dan industrial coating' },
+    ],
+    tech_requirements: [
+      { param: 'Whiteness/Brightness', value: '> 95%' }, { param: 'Hegman Gauge', value: '5.5–6.5' },
+      { param: 'D50', value: '1.5–2.0 µm' }, { param: 'Specific Gravity', value: '2.7' },
+    ],
+    process_steps_id: [
+      { title: 'Dispersion', desc: 'CaCO3 didispersikan dalam resin menggunakan high-speed dissolver.' },
+      { title: 'Grinding/Milling', desc: 'Campuran digiling dalam bead mill untuk mencapai kehalusan dispersi sub-mikron.' },
+      { title: 'Let-down', desc: 'Penambahan aditif sisa untuk mencapai viskositas final cat.' },
+    ],
+    pain_points_id: [
+      'Low brightness mengakibatkan warna cat terlihat kotor dan tidak cerah',
+      'Ukuran partikel kasar (oversize) menyebabkan bintik pada permukaan film cat',
+    ],
+    weu_value_id: 'Brightness CaCO3 kami yang mencapai 96-97% memungkinkan produsen cat mengurangi penggunaan Titanium Dioxide (TiO2) yang mahal hingga 10% tanpa mengurangi opacity.',
+    weu_value_en: 'Our 96-97% brightness CaCO3 allows paint manufacturers to reduce expensive TiO2 usage by up to 10% without loss of opacity.',
+    case_scenario_id: 'Produsen cat di Surabaya berhasil menghemat biaya formulasi sebesar Rp 1.200 per liter dengan mengoptimalkan penggunaan extender PT WEU.',
+    faq_id: [
+      { q: 'Apakah kapur ini cocok untuk cat berbasis air?', a: 'Sangat cocok. CaCO3 kami memiliki daya dispersi tinggi dalam sistem water-based dengan pH stabil.' }
+    ],
+    schema_service_id: 'Penyediaan Extender Mineral untuk Industri Cat dan Pelapis',
+  },
+  {
+    id: 'emas', slug_id: 'emas', slug_en: 'gold-cyanidation',
+    name_id: 'Pertambangan Emas', name_en: 'Gold Mining',
+    hero_bg: '/mining-bg.webp', hero_tag: 'Kontrol pH untuk Ekstraksi Sianida',
+    overview_id: 'Dalam ekstraksi emas metode sianidasi, kontrol pH sangat kritis untuk mencegah terbentuknya gas HCN yang mematikan. Kapur bakar atau kapur padam digunakan untuk menjaga pH di atas 10.5.',
+    overview_en: 'In gold cyanidation, pH control is critical to prevent lethal HCN gas formation. Quicklime or hydrated lime keeps pH above 10.5.',
+    limestone_role_id: 'Kapur menetralisir asam yang dihasilkan dari oksidasi mineral sulfida dan menjaga stabilitas larutan sianida selama proses leaching.',
+    limestone_role_en: 'Lime neutralizes acid from sulfide mineral oxidation and maintains cyanide solution stability during leaching.',
+    products_used: [
+      { slug_id: 'kapur-bakar', slug_en: 'burn-lime', name_id: 'Kapur Bakar (Lumpy/Powder)', name_en: 'Quicklime', role_id: 'Agen pengatur pH utama dalam tangki leaching emas' },
+      { slug_id: 'kapur-padam', slug_en: 'hydrated-lime', name_id: 'Kapur Padam', name_en: 'Hydrated Lime', role_id: 'Digunakan dalam unit pengolahan limbah tailing emas' },
+    ],
+    tech_requirements: [
+      { param: 'Available CaO', value: '> 90%' }, { param: 'Slaking Rate', value: 'Rapid' },
+      { param: 'Reaktivitas', value: 'T60 < 1.5 min' }, { param: 'Grit', value: '< 1%' },
+    ],
+    process_steps_id: [
+      { title: 'pH Conditioning', desc: 'Kapur ditambahkan ke slurry bijih emas sebelum penambahan sianida.' },
+      { title: 'Leaching', desc: 'Emas dilarutkan dalam kondisi pH alkali stabil (10.5–11.5).' },
+      { title: 'Detoxification', desc: 'Limbah tailing dinetralisir menggunakan kapur sebelum dibuang ke bendungan tailing.' },
+    ],
+    pain_points_id: [
+      'Konsumsi kapur tinggi akibat mineral sulfida reaktif meningkatkan biaya operasional tambang',
+      'Gas HCN terbentuk jika pH turun di bawah 10.0, membahayakan keselamatan kerja',
+    ],
+    weu_value_id: 'Reaktivitas tinggi kapur bakar kami (T60 sangat cepat) memungkinkan respon koreksi pH yang instan, menjamin keamanan maksimal di site tambang emas.',
+    weu_value_en: 'The rapid T60 reactivity of our quicklime ensures instant pH correction response, maximizing safety at gold mine sites.',
+    case_scenario_id: 'Tambang emas di Minahasa Utara menekan konsumsi sianida sebesar 5% dengan menjaga stabilitas pH menggunakan kapur bakar high-purity PT WEU.',
+    faq_id: [
+      { q: 'Apakah PT WEU menyediakan kapur dalam kemasan tahan cuaca?', a: 'Ya, kami menggunakan jumbo bag dengan liner kedap air untuk melindungi kapur bakar dari hidrasi selama penyimpanan di site tambang terbuka.' }
+    ],
+    schema_service_id: 'Penyediaan Kapur Stabilisator pH untuk Industri Pertambangan Emas',
+  },
+  {
+    id: 'keramik', slug_id: 'keramik', slug_en: 'ceramics',
+    name_id: 'Industri Keramik & Saniter', name_en: 'Ceramics & Sanitary',
+    hero_bg: '/mining-bg.webp', hero_tag: 'Flux & Sumber Kalsium untuk Glasir',
+    overview_id: 'Batu kapur dan kalsium karbonat digunakan dalam badan keramik dan glasir untuk meningkatkan kekuatan mekanis dan estetika permukaan.',
+    overview_en: 'Limestone and calcium carbonate are used in ceramic bodies and glazes to enhance mechanical strength and surface aesthetics.',
+    limestone_role_id: 'Dalam glasir, kalsium bertindak sebagai flux yang membantu pelelehan bahan silika pada suhu tinggi dan mengurangi koefisien ekspansi termal.',
+    limestone_role_en: 'In glazes, calcium acts as a flux assisting silica melting at high temperatures and reducing thermal expansion coefficients.',
+    products_used: [
+      { slug_id: 'kalsium-karbonat', slug_en: 'caco3', name_id: 'CaCO3 Mesh 325-800', name_en: 'CaCO3', role_id: 'Bahan baku badan keramik dan campuran glasir' },
+    ],
+    tech_requirements: [
+      { param: 'Fe2O3', value: '< 0.08%' }, { param: 'CaO', value: '> 54%' },
+      { param: 'MgO', value: '< 0.5%' }, { param: 'Firing Color', value: 'Super White' },
+    ],
+    process_steps_id: [
+      { title: 'Body Preparation', desc: 'CaCO3 dicampur dengan clay, feldspar, dan silika.' },
+      { title: 'Pressing/Casting', desc: 'Pembentukan keramik atau produk saniter (toilet/wastafel).' },
+      { title: 'Glazing', desc: 'Pelapisan permukaan dengan campuran yang mengandung kalsium halus.' },
+      { title: 'Firing', desc: 'Pembakaran dalam kiln pada suhu 1.100–1.280°C.' },
+    ],
+    pain_points_id: [
+      'Bintik hitam pada keramik akibat kontaminasi besi (iron specks) dalam kalsium',
+      'Keretakan (crazing) pada glasir jika koefisien ekspansi kalsium tidak presisi',
+    ],
+    weu_value_id: 'Batu kapur kami memiliki warna bakar (firing color) putih bersih tanpa bercak kecokelatan, sangat sesuai untuk industri tableware dan saniter premium.',
+    weu_value_en: 'Our limestone yields a clean white firing color without brownish spots, ideal for tableware and premium sanitaryware.',
+    case_scenario_id: 'Pabrik ubin keramik di Karawang mengurangi tingkat reject sebesar 5% setelah mengganti supplier kalsium ke PT WEU.',
+    faq_id: [
+      { q: 'Bagaimana kehalusan kalsium untuk glasir?', a: 'Kami merekomendasikan mesh 800 (D50 < 10µm) untuk aplikasi glasir guna mendapatkan permukaan yang halus dan rata.' }
+    ],
+    schema_service_id: 'Penyediaan Mineral Kalsium untuk Industri Keramik dan Saniter',
   },
   {
     id: 'pertanian', slug_id: 'pertanian', slug_en: 'agriculture',

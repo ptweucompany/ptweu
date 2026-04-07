@@ -5,16 +5,16 @@ export const metadata: Metadata = {
   description: 'Portal governansi dan standar PT Wira Energi Utama dalam Bahasa Indonesia. Roadmap sertifikasi ISO 9001, 14001, 45001, dashboard KPI keselamatan, registry NIB dan IUP.',
   keywords: ['governansi perusahaan tambang', 'ISO 9001 Indonesia', 'ISO 14001 tambang', 'ISO 45001 K3 Indonesia', 'tata kelola PT WEU', 'sertifikasi ISO Sulawesi'],
   alternates: {
-    canonical: 'https://ptweu.company/governance-standards',
+    canonical: 'https://wiraenergiutama.com/governance-standards',
     languages: {
-      'id': 'https://ptweu.company/governansi-standar',
-      'en': 'https://ptweu.company/governance-standards',
+      'id': 'https://wiraenergiutama.com/governansi-standar',
+      'en': 'https://wiraenergiutama.com/governance-standards',
     },
   },
   openGraph: {
     title: 'Governansi & Standar ISO | PT Wira Energi Utama',
     description: 'Roadmap ISO 9001/14001/45001, KPI keselamatan, dan registry legal NIB & IUP PT Wira Energi Utama, Sulawesi Utara.',
-    url: 'https://ptweu.company/governansi-standar',
+    url: 'https://wiraenergiutama.com/governansi-standar',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Governansi PT Wira Energi Utama' }],
   },
   twitter: {

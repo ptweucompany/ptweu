@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { industriesFullBySlug, industrySlugsID } from '../../../src/data/industryFull';
+import { industriesFull, industriesFullBySlug, industrySlugsID } from '../../../src/data/industryFull';
 import { allProducts } from '../../../src/data/products';
 import { ports } from '../../../src/data/logistics';
 import { company } from '../../../src/data/company';
@@ -16,33 +16,70 @@ export async function generateStaticParams() {
   return industrySlugsID.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const ind = industriesFullBySlug[slug];
+  const ind = industriesFull.find(i => i.slug_id === slug || i.slug_en === slug);
   if (!ind) return {};
-  const BASE = 'https://ptweu.company';
+
+  const BASE = 'https://wiraenergiutama.com';
+
   return {
-    title: `${ind.name_id} | Supplier Mineral Industri PT Wira Energi Utama`,
-    description: ind.overview_id.slice(0, 155),
-    keywords: [ind.name_id, 'batu kapur industri', 'PT Wira Energi Utama', 'Sulawesi Utara', ind.products_used[0]?.name_id],
+    title: `${ind.name_id} | Solusi Mineral Industri | PT Wira Energi Utama`,
+    description: ind.overview_id.slice(0, 160),
+    keywords: [
+      ind.name_id, 
+      `supplier ${ind.name_id}`, 
+      `batu kapur untuk ${ind.name_id}`, 
+      'industrial limestone supplier Indonesia', 
+      'PT WEU mineral solutions'
+    ],
     alternates: {
-      canonical: `${BASE}/industri/${slug}`,
-      languages: { id: `${BASE}/industri/${slug}`, en: `${BASE}/en/industries/${ind.slug_en}` },
+      canonical: `${BASE}/industri/${ind.slug_id}`,
+      languages: {
+        'id-ID': `${BASE}/industri/${ind.slug_id}`,
+        'en-US': `${BASE}/en/industries/${ind.slug_en || ind.slug_id}`,
+      },
     },
-    openGraph: { title: `${ind.name_id} | PT Wira Energi Utama`, description: ind.overview_id.slice(0, 155), url: `${BASE}/industri/${slug}` },
-    twitter: { card: 'summary_large_image', title: `${ind.name_id} | PT Wira Energi Utama` },
+    openGraph: {
+      title: `${ind.name_id} | Industrial Mineral Solutions | PT WEU`,
+      description: ind.overview_id.slice(0, 160),
+      url: `${BASE}/industri/${ind.slug_id}`,
+      siteName: 'PT Wira Energi Utama',
+      images: [{ url: ind.hero_bg, width: 1200, height: 630, alt: ind.name_id }],
+      locale: 'id_ID',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${ind.name_id} | PT Wira Energi Utama`,
+      description: ind.overview_id.slice(0, 160),
+      images: [ind.hero_bg],
+    }
   };
 }
 
 export default async function IndustriPage({ params }: Props) {
   const { slug } = await params;
-  const ind = industriesFullBySlug[slug];
+  const ind = industriesFull.find(i => i.slug_id === slug || i.slug_en === slug);
   if (!ind) notFound();
-  const BASE = 'https://ptweu.company';
+
+  const BASE = 'https://wiraenergiutama.com';
+  
+  // 🧭 SEO MAXIMIZE: BREADCRUMB SCHEMA
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': BASE },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Industri', 'item': `${BASE}/industri` },
+      { '@type': 'ListItem', 'position': 3, 'name': ind.name_id, 'item': `${BASE}/industri/${slug}` }
+    ]
+  };
 
   const serviceSchema = {
-    '@context': 'https://schema.org', '@type': 'Service',
-    name: ind.schema_service_id,
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: ind.name_id,
     description: ind.overview_id.slice(0, 200),
     provider: { '@type': 'Organization', name: company.legal_name, url: BASE },
     areaServed: { '@type': 'Country', name: 'Indonesia' },
@@ -57,6 +94,7 @@ export default async function IndustriPage({ params }: Props) {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
       {/* 1. HERO */}

@@ -64,7 +64,7 @@ export const offices = [
     phone: '(0434) 260 3008',
     whatsapp: '0811 4344 168',
     whatsapp_url: 'https://wa.me/628114344168',
-    email: 'contact@ptweu.company',
+    email: 'contact@wiraenergiutama.com',
     geo: { lat: 1.4748, lng: 124.8421 },
   },
   {

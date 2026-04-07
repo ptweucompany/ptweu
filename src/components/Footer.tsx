@@ -57,7 +57,7 @@ export default function Footer({ t, footerT, profileT }: FooterProps) {
                   <Mail className="text-brand-gold flex-shrink-0" size={20} />
                   <div className="flex flex-col text-sm">
                     <span>wiraenergiutama@yahoo.com</span>
-                    <span>contact@ptweu.company</span>
+                    <span>contact@wiraenergiutama.com</span>
                   </div>
                 </li>
               </ul>

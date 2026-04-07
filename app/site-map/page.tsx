@@ -10,37 +10,68 @@ export default function HTMLSitemap() {
 
   const sections = [
     {
-      title: 'Main Pages',
+      title: 'Company Architecture',
       icon: Globe,
       links: [
-        { label: 'Home', href: '/' },
-        { label: t.nav.about, href: lang === 'id' ? '/tentang-kami' : '/about' },
-        { label: t.nav.products, href: lang === 'id' ? '/produk' : '/products' },
-        { label: t.nav.catalog, href: lang === 'id' ? '/katalog' : '/catalog' },
-        { label: t.nav.blog, href: '/blog' },
-        { label: t.nav.contact, href: '/contact' },
+        { label: 'Official Home', href: '/' },
+        { label: `Corporate: ${t.nav.about}`, href: lang === 'id' ? '/tentang-kami' : '/about' },
+        { label: `Portfolio: ${t.nav.products}`, href: lang === 'id' ? '/produk' : '/products' },
+        { label: `Digital ${t.nav.catalog}`, href: lang === 'id' ? '/katalog' : '/catalog' },
+        { label: `Industrial ${t.nav.blog}`, href: '/blog' },
+        { label: `Direct ${t.nav.contact}`, href: '/contact' },
       ]
     },
     {
-      title: 'Products (ID)',
+      title: 'Product Portfolio',
       icon: Package,
       links: [
-        { label: 'Batu Kapur', href: '/produk/batu-kapur' },
-        { label: 'Kalsium Karbonat', href: '/produk/kalsium-karbonat' },
-        { label: 'Kapur Bakar', href: '/produk/kapur-bakar' },
-        { label: 'Kapur Padam', href: '/produk/kapur-padam' },
-        { label: 'PCC', href: '/produk/pcc' },
+        { label: 'Batu Kapur (Limestone Lumpy)', href: '/produk/batu-kapur' },
+        { label: 'Kalsium Karbonat (CaCO3 Powder)', href: '/produk/kalsium-karbonat' },
+        { label: 'Kapur Bakar (Quicklime CaO)', href: '/produk/kapur-bakar' },
+        { label: 'Kapur Padam (Hydrated Ca(OH)2)', href: '/produk/kapur-padam' },
+        { label: 'PCC (Precipitated CaCO3)', href: '/produk/pcc' },
+        { label: 'Agregat Beton (SNI Standard)', href: '/produk/agregat' },
       ]
     },
     {
-      title: 'Products (EN)',
-      icon: Package,
+      title: 'Industrial Solutions Ecosystem',
+      icon: Award,
       links: [
-        { label: 'Limestone', href: '/products/limestone' },
-        { label: 'CaCO3', href: '/products/caco3' },
-        { label: 'Burn Lime', href: '/products/burn-lime' },
-        { label: 'Hydrated Lime', href: '/products/hydrated-lime' },
-        { label: 'PCC', href: '/products/pcc' },
+        { label: 'Semen & Manufaktur Klinker', href: '/industri/semen' },
+        { label: 'Smelter & Pengolahan Baja', href: '/industri/baja' },
+        { label: 'Pembangkit Listrik (FGD)', href: '/industri/pltu' },
+        { label: 'Sintesis Industri Kimia', href: '/industri/kimia' },
+        { label: 'Pertanian & Akuakultur', href: '/industri/pertanian' },
+        { label: 'Konstruksi & Infrastruktur', href: '/industri/konstruksi' },
+        { label: 'Pemurnian Air & Limbah', href: '/industri/pengolahan-air' },
+        { label: 'Pabrik Kertas & Plastik', href: '/industri/kertas-plastik' },
+        { label: 'Rafinasi Gula & Makanan', href: '/industri/gula' },
+        { label: 'Industri Gelas & Kaca', href: '/industri/kaca' },
+        { label: 'Pemrosesan Kulit Industri', href: '/industri/kulit' },
+        { label: 'Produksi Pakan Ternak', href: '/industri/pakan-ternak' },
+        { label: 'Formulasi Cat & Pelapis', href: '/industri/cat-coating' },
+        { label: 'Ekstraksi Emas (Sianidasi)', href: '/industri/emas' },
+        { label: 'Keramik & Porselen Halus', href: '/industri/keramik' },
+      ]
+    },
+    {
+      title: 'Strategic Regional Hubs',
+      icon: MapPin,
+      links: [
+        { label: 'Manado - Headquarters', href: '/lokasi/manado' },
+        { label: 'Jakarta - Business Center', href: '/lokasi/jakarta' },
+        { label: 'Surabaya - Maritime Hub', href: '/lokasi/surabaya' },
+        { label: 'Makassar - Logistics Center', href: '/lokasi/makassar' },
+        { label: 'Cilegon - Heavy Industry', href: '/lokasi/cilegon' },
+        { label: 'Karawang - Industrial Estate', href: '/lokasi/karawang' },
+        { label: 'Bekasi - Manufacturing Hub', href: '/lokasi/bekasi' },
+        { label: 'KEK Bitung - Special Zone', href: '/lokasi/kek-bitung' },
+        { label: 'Maluku - Eastern Expansion', href: '/lokasi/maluku' },
+        { label: 'Serang - Banten Corridor', href: '/lokasi/serang' },
+        { label: 'Kotamobagu - Regional Depot', href: '/lokasi/kotamobagu' },
+        { label: 'Tangerang - Distribution Point', href: '/lokasi/tangerang' },
+        { label: 'Kudus - Central Java', href: '/lokasi/kudus' },
+        { label: 'KEK Gresik - JIIPE Area', href: '/lokasi/kek-gresik' },
       ]
     },
     {
@@ -70,7 +101,7 @@ export default function HTMLSitemap() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-12">
           {sections.map((section, idx) => {
             const Icon = section.icon;
             return (

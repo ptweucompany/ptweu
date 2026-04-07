@@ -8,17 +8,17 @@ export const metadata: Metadata = {
   title: 'Contact Us | Industrial Mineral Inquiry — PT Wira Energi Utama',
   description: 'Submit an inquiry for limestone, CaCO3, burn lime, hydrated lime, and PCC. PT WEU technical team is ready to assist your industrial mineral needs with fast response.',
   alternates: {
-    canonical: 'https://ptweu.company/en/contact',
-    languages: { id: 'https://ptweu.company/kontak', en: 'https://ptweu.company/en/contact' },
+    canonical: 'https://wiraenergiutama.com/en/contact',
+    languages: { id: 'https://wiraenergiutama.com/kontak', en: 'https://wiraenergiutama.com/en/contact' },
   },
   openGraph: {
     title: 'Contact PT Wira Energi Utama | Industrial Mineral Inquiry',
     description: 'Submit an inquiry and get a quote for industrial minerals from a trusted North Sulawesi source.',
-    url: 'https://ptweu.company/en/contact',
+    url: 'https://wiraenergiutama.com/en/contact',
   },
 };
 
-const BASE = 'https://ptweu.company';
+const BASE = 'https://wiraenergiutama.com';
 
 const contactSchema = {
   '@context': 'https://schema.org',
@@ -30,7 +30,7 @@ const contactSchema = {
     '@type': 'Organization',
     name: company.legal_name,
     telephone: '+62-0434-260-3008',
-    email: 'contact@ptweu.company',
+    email: 'contact@wiraenergiutama.com',
     url: BASE,
     contactPoint: {
       '@type': 'ContactPoint',
@@ -117,7 +117,7 @@ export default function ContactPage() {
                 </div>
               </a>
 
-              <a href="mailto:contact@ptweu.company"
+              <a href="mailto:contact@wiraenergiutama.com"
                 className="flex items-center gap-5 bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-[#C8A84B]/30 transition-colors">
                 <div className="w-14 h-14 bg-[#C8A84B] rounded-xl flex items-center justify-center flex-shrink-0">
                   <svg className="w-7 h-7 text-[#0A1628]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -126,7 +126,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-white font-bold">Email</p>
-                  <p className="text-[#C8A84B] font-semibold">contact@ptweu.company</p>
+                  <p className="text-[#C8A84B] font-semibold">contact@wiraenergiutama.com</p>
                   <p className="text-gray-400 text-xs">Response within 1 business day</p>
                 </div>
               </a>

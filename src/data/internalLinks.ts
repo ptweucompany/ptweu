@@ -55,6 +55,78 @@ export const internalLinks: Record<string, InternalLinkEntry> = {
     location: { id: 'Rantai Pasok Infrastruktur', en: 'Infrastructure Supply Chain', href: { id: '/governansi-standar', en: '/en/about' } },
     blog: { id: 'Material Agregat SNI', en: 'SNI Aggregate Materials', href: { id: '/blog/agregat-sni', en: '/en/blog/sni-aggregate' } }
   },
+  'water-treatment': {
+    products: [
+      { id: 'Kapur Padam (Ca(OH)2)', en: 'Hydrated Lime', href: { id: '/produk/kapur-padam', en: '/en/products/hydrated-lime' } },
+      { id: 'PCC Specialty', en: 'PCC Specialty', href: { id: '/produk/pcc', en: '/en/products/pcc' } }
+    ],
+    location: { id: 'Unit Hidrasi Ratatotok', en: 'Ratatotok Hydration Unit', href: { id: '/about', en: '/en/about' } },
+    blog: { id: 'Pemurnian Air Industri', en: 'Industrial Water Purification', href: { id: '/blog/water-purification', en: '/en/blog/water-purification' } }
+  },
+  'paper-plastic': {
+    products: [
+      { id: 'Tepung CaCO3 Halus', en: 'Fine CaCO3 Powder', href: { id: '/produk/kalsium-karbonat', en: '/en/products/caco3' } },
+      { id: 'PCC Nano', en: 'Nano PCC', href: { id: '/produk/pcc', en: '/en/products/pcc' } }
+    ],
+    location: { id: 'Grinding Plant Factory', en: 'Grinding Plant Factory', href: { id: '/about', en: '/en/about' } },
+    blog: { id: 'Filler untuk Kertas', en: 'Fillers for Paper Industry', href: { id: '/blog/paper-filler', en: '/en/blog/paper-filler' } }
+  },
+  'sugar-refinery': {
+    products: [
+      { id: 'Kapur Tohor (CaO)', en: 'Quicklime (CaO)', href: { id: '/produk/kapur-bakar', en: '/en/products/burn-lime' } },
+      { id: 'Kalsium Karbonat', en: 'Calcium Carbonate', href: { id: '/produk/kalsium-karbonat', en: '/en/products/caco3' } }
+    ],
+    location: { id: 'Dermaga Bitung', en: 'Bitung Port Access', href: { id: '/lokasi/bitung', en: '/en/locations/bitung' } },
+    blog: { id: 'Proses Dekarbonasi Gula', en: 'Sugar Decarbonation Process', href: { id: '/blog/sugar-process', en: '/en/blog/sugar-process' } }
+  },
+  'glass-industry': {
+    products: [
+      { id: 'Batu Kapur (Limestone)', en: 'Limestone Lumpy', href: { id: '/produk/batu-kapur', en: '/en/products/limestone' } },
+      { id: 'CaCO3 Low-Iron', en: 'Low-Iron CaCO3', href: { id: '/produk/kalsium-karbonat', en: '/en/products/caco3' } }
+    ],
+    location: { id: 'Tambang Ratatotok', en: 'Ratatotok Mining Site', href: { id: '/about', en: '/en/about' } },
+    blog: { id: 'Bahan Baku Kaca Murni', en: 'Pure Glass Raw Materials', href: { id: '/blog/glass-raw', en: '/en/blog/glass-raw' } }
+  },
+  'leather-tanning': {
+    products: [
+      { id: 'Kapur Padam (Hydrate)', en: 'Hydrated Lime', href: { id: '/produk/kapur-padam', en: '/en/products/hydrated-lime' } },
+      { id: 'Tungku Kalsinasi', en: 'Calcination Facility', href: { id: '/about', en: '/en/about' } }
+    ],
+    location: { id: 'Logistik Terintegrasi', en: 'Integrated Logistics', href: { id: '/lokasi', en: '/en/locations' } },
+    blog: { id: 'Kimia Penyamakan Kulit', en: 'Leather Tanning Chemistry', href: { id: '/blog/leather-tech', en: '/en/blog/leather-tech' } }
+  },
+  'animal-feed': {
+    products: [
+      { id: 'CaCO3 Feed Grade', en: 'Feed Grade CaCO3', href: { id: '/produk/kalsium-karbonat', en: '/en/products/caco3' } },
+      { id: 'Grit Kalsium', en: 'Calcium Grit', href: { id: '/produk/batu-kapur', en: '/en/products/limestone' } }
+    ],
+    location: { id: 'Distribusi Regional', en: 'Regional Distribution', href: { id: '/lokasi', en: '/en/locations' } },
+    blog: { id: 'Nutrisi Kalsium Ternak', en: 'Livestock Calcium Nutrition', href: { id: '/blog/feed-nutrition', en: '/en/blog/feed-nutrition' } }
+  },
+  'paint-coating': {
+    products: [
+      { id: 'CaCO3 Ultrafine', en: 'Ultrafine CaCO3', href: { id: '/produk/kalsium-karbonat', en: '/en/products/caco3' } },
+      { id: 'PCC Coating Grade', en: 'Coating Grade PCC', href: { id: '/produk/pcc', en: '/en/products/pcc' } }
+    ],
+    location: { id: 'QC Excellence Lab', en: 'QC Excellence Lab', href: { id: '/governansi-standar', en: '/en/about' } },
+    blog: { id: 'Opasitas Cat & CaCO3', en: 'Paint Opacity & CaCO3', href: { id: '/blog/paint-opacity', en: '/en/blog/paint-opacity' } }
+  },
+  'gold-cyanidation': {
+    products: [
+      { id: 'Kapur Tohor High-Active', en: 'High-Active Quicklime', href: { id: '/produk/kapur-bakar', en: '/en/products/burn-lime' } },
+      { id: 'Kapur Padam', en: 'Hydrated Lime', href: { id: '/produk/kapur-padam', en: '/en/products/hydrated-lime' } }
+    ],
+    location: { id: 'Site Operasional Sulut', en: 'North Sulawesi Operation', href: { id: '/about', en: '/en/about' } },
+    blog: { id: 'Kontrol pH Tambang Emas', en: 'Gold Mine pH Control', href: { id: '/blog/gold-ph', en: '/en/blog/gold-ph' } }
+  },
+  'ceramics': {
+    products: [
+      { id: 'Kalsium Karbonat', en: 'Calcium Carbonate', href: { id: '/produk/kalsium-karbonat', en: '/en/products/caco3' } },
+      { id: 'Batu Kapur Putih', en: 'White Limestone', href: { id: '/produk/batu-kapur', en: '/en/products/limestone' } }
+    ],
+    location: { id: 'Pusat Distribusi Nasional', en: 'National Distribution Center', href: { id: '/lokasi', en: '/en/locations' } },
+    blog: { id: 'Flux Keramik & Glasir', en: 'Ceramic Flux & Glazes', href: { id: '/blog/ceramic-flux', en: '/en/blog/ceramic-flux' } }
+  },
 
   // --- PRODUCTS ---
   'limestone': {

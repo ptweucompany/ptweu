@@ -24,10 +24,10 @@ export const metadata: Metadata = {
   title: 'PT Wira Energi Utama | Limestone & CaCO3 Industrial Supplier — North Sulawesi',
   description: 'Leading producer and supplier of Limestone, CaCO3, Quicklime, Hydrated Lime, and PCC in North Sulawesi, Indonesia. Production 150,000 MT/month. Distribution via Port Bitung.',
   alternates: {
-    canonical: 'https://ptweu.company/en',
+    canonical: 'https://wiraenergiutama.com/en',
     languages: {
-      en: 'https://ptweu.company/en',
-      id: 'https://ptweu.company',
+      en: 'https://wiraenergiutama.com/en',
+      id: 'https://wiraenergiutama.com',
     },
   },
 };

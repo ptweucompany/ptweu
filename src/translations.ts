@@ -1,6 +1,6 @@
 import { Translation } from './types';
 
-export const translations: Record<'id' | 'en', Translation> = {
+export const translations: { id: Translation; en: Partial<Translation> & Record<string, any> } = {
   // PT Wira Energi Utama - Corporate Data
   id: {
     nav: {
@@ -253,7 +253,7 @@ export const translations: Record<'id' | 'en', Translation> = {
     contact: {
       title: 'Hubungi Kami',
       address: 'Jalan Ratatotok Morea Soyowan, Desa Ratatotok Satu, Kec. Ratatotok, Kab. Minahasa Tenggara, Sulawesi Utara - Indonesia.',
-      phone: '0434 260 3008',
+      phone: '0434 260 3008 / +62 8114344168',
       email: 'wiraenergiutama@yahoo.com',
       form: {
         name: 'Nama Lengkap',
@@ -950,18 +950,16 @@ export const translations: Record<'id' | 'en', Translation> = {
         targets: ['Ekspansi Kapasitas', 'PCC Nanoscale', 'Net Zero Carbon']
       },
       gallery: {
-        title: 'Gambaran Kerja Nyata',
-        subtitle: 'Dokumentasi operasional dan fasilitas di lokasi tambang',
+        title: 'Visi Kerja Nyata',
+        subtitle: 'Dokumentasi operasional dari udara yang menunjukkan skala dan presisi penambangan kami.',
         images: [
-          '/Foto webp/IMG_1135.webp', '/Foto webp/IMG_1136.webp', '/Foto webp/IMG_1138.webp',
-          '/Foto webp/IMG_1139.webp', '/Foto webp/IMG_1141.webp', '/Foto webp/IMG_1142.webp',
-          '/Foto webp/IMG_1144.webp', '/Foto webp/IMG_1146.webp', '/Foto webp/IMG_1148.webp',
-          '/Foto webp/IMG_1149.webp', '/Foto webp/IMG_1154.webp', '/Foto webp/IMG_1156.webp',
-          '/Foto webp/IMG_1160.webp', '/Foto webp/IMG_1162.webp', '/Foto webp/IMG_1163.webp',
-          '/Foto webp/IMG_1165.webp', '/Foto webp/IMG_1167.webp', '/Foto webp/IMG_1170.webp',
-          '/Foto webp/IMG_1172.webp', '/Foto webp/IMG_1176.webp', '/Foto webp/IMG_1180.webp',
-          '/Foto webp/IMG_1186.webp', '/Foto webp/IMG_1200.webp', '/Foto webp/IMG_1212.webp',
-          '/Foto webp/IMG_1216.webp', '/Foto webp/IMG_1221.webp', '/Foto webp/IMG_1224.webp'
+          '/Drone Webp/DJI_20260225092843_0288_D (1).webp',
+          '/Drone Webp/DJI_20260310143518_0298_D (1).webp',
+          '/Drone Webp/DJI_20260310143640_0300_D (1).webp',
+          '/Drone Webp/DJI_20260310143758_0302_D (1).webp',
+          '/Drone Webp/DJI_20260310144034_0308_D (1).webp',
+          '/Drone Webp/DJI_20260310144136_0309_D (1).webp',
+          '/Drone Webp/DJI_20260310144303_0310_D (1).webp'
         ]
       }
     },
@@ -1105,7 +1103,7 @@ export const translations: Record<'id' | 'en', Translation> = {
           address: 'Taman Sari Cluster Lihaga, Blok H3-3 Kelurahan Paniki Bawah, Manado - Sulawesi Utara 95256 Indonesia',
           mapUrl: 'https://goo.gl/maps/placeholder-manado',
           image: '/office-manado.webp',
-          email: 'contact@ptweu.company',
+          email: 'contact@wiraenergiutama.com',
           phone: '(0434) 260 3008'
         },
         {
@@ -1120,7 +1118,7 @@ export const translations: Record<'id' | 'en', Translation> = {
       faq: {
         title: 'Pertanyaan Terkait Layanan',
         items: [
-          { q: 'Bagaimana cara meminta penawaran harga?', a: 'Anda dapat mengirimkan spesifikasi kebutuhan melalui formulir di bawah atau langsung menghubungi email sales kami (contact@ptweu.company).' },
+          { q: 'Bagaimana cara meminta penawaran harga?', a: 'Anda dapat mengirimkan spesifikasi kebutuhan melalui formulir di bawah atau langsung menghubungi email sales kami (contact@wiraenergiutama.com).' },
           { q: 'Apakah tersedia pengiriman ke luar pulau?', a: 'Ya, melalui dermaga pribadi (Private Jetty) kami, PT WEU melayani pengiriman via tongkang/barge ke seluruh wilayah Indonesia.' },
           { q: 'Berapa jumlah pesanan minimum (MOQ)?', a: 'MOQ bergantung pada jenis produk. Untuk pengiriman domestik via laut, umumnya mulai dari kapasitas 1 tongkang (7,500 - 10,000 MT), sedangkan pengambilan darat dapat disesuaikan.' },
           { q: 'Bagaimana prosedur untuk mendapatkan sampel batu kapur?', a: 'Sampel untuk pengujian laboratorium industri dapat diminta melalui departemen Quality Control kami dengan menyertakan profil perusahaan.' },
@@ -1150,7 +1148,7 @@ export const translations: Record<'id' | 'en', Translation> = {
     footer: {
       rights: 'Seluruh Hak Cipta Dilindungi.',
       links: [
-        { label: 'Produk', href: '/produk' },
+        { label: 'Governansi', href: '/governansi-standar' },
         { label: 'Privasi', href: '/privacy' }
       ]
     },
@@ -1219,12 +1217,15 @@ export const translations: Record<'id' | 'en', Translation> = {
       }
     },
     projectGallery: {
-      title: 'Galeri Proyek',
-      subtitle: 'Dokumentasi operasional dan fasilitas di lokasi tambang',
+      title: 'Galeri Proyek & Operasional',
+      subtitle: 'Tinjauan mendalam tentang fasilitas lapangan, infrastruktur distribusi, dan armada tambang kami.',
       images: [
-        '/Foto webp/IMG_1135.webp', '/Foto webp/IMG_1136.webp', '/Foto webp/IMG_1138.webp',
-        '/Foto webp/IMG_1139.webp', '/Foto webp/IMG_1141.webp', '/Foto webp/IMG_1142.webp',
-        '/Foto webp/IMG_1144.webp', '/Foto webp/IMG_1145.webp', '/Foto webp/IMG_1146.webp'
+        '/office-kota.webp',
+        '/office-manado.webp',
+        '/mining-bg.webp',
+        '/Hero.webp',
+        '/about-hero.webp',
+        '/history.webp'
       ]
     }
   },
@@ -1257,869 +1258,6 @@ export const translations: Record<'id' | 'en', Translation> = {
         'Prioritize environmentally friendly technology.',
         'Conduct proper greening reclamation in accordance with applicable regulations.',
       ],
-    },
-    products: {
-      title: 'Our Featured Products',
-      subtitle: 'Providing various types of high-quality limestone derivative products.',
-      items: [
-        { name: 'Limestone', desc: 'Main raw material for various industries.' },
-        { name: 'CaCO3 (All Sizes)', desc: 'Calcium Carbonate with various size specifications.' },
-        { name: 'Burn Lime (CaO)', desc: 'Quicklime produced from limestone calcination.' },
-        { name: 'Hydrated Lime (Ca(OH)2)', desc: 'Calcium Hydroxide for industrial and water treatment applications.' },
-        { name: 'PCC (Precipitated Calcium Carbonate)', desc: 'High purity precipitated calcium carbonate.' },
-      ],
-    },
-    qa: {
-      title: 'Quality Assurance',
-      text: 'Our products have undergone rigorous testing in accredited laboratories to ensure the highest quality standards.',
-      labs: ['Minertech', 'Intertek', 'Sucofindo', 'Public Works & Spatial Planning Department'],
-    },
-    legal: {
-      title: 'Legality & Formation',
-      subtitle: 'Full compliance standards in operations and licensing.',
-      iup: 'Production Operation IUP: 91201019114410010',
-      validity: 'Valid since April 2024',
-      legalities: [
-        {
-          title: 'Deed of Establishment & Amendment',
-          desc: 'Deed of Establishment No. 1 (Sept 9, 2019) by Notary Salmiaty Hadjidjah Mutiara Mokoginta, SH. Deed of Amendment No. 01 (June 5, 2023) by Notary Moh. Rheza Awaluddin, S.H., M.Kn. Issued Capital: Rp 3,630,000,000.'
-        },
-        {
-          title: 'Ministry of Law and Human Rights Decree',
-          desc: 'Ratification No. AHU-0046475.AH.01.01.TAHUN 2019 and Amendment No. AHU-0031214.AH.01.02.TAHUN 2023.'
-        },
-        {
-          title: 'Production Operation Mining License (IUP)',
-          desc: 'License Number 91201019114410010, KBLI 08102 (Limestone Excavation), Area 97.05 Ha in Southeast Minahasa Regency.'
-        },
-        {
-          title: 'Environmental Approval (UKL-UPL)',
-          desc: 'Decree No. 503/DPMPTSPD/PPKPLH/880/X/2023 (Operation & facility area 10.3 Ha).'
-        },
-        {
-          title: 'Marine PKKPR',
-          desc: 'Approval for Pier Construction covering 2.12 Ha in the Maluku Sea (No: 03082310517100005).'
-        },
-        {
-          title: 'Administrative Legality',
-          desc: 'NPWP 92.853.784.4-821.000 and Certificate of Domicile in Ratatotok Satu Village.'
-        }
-      ]
-    },
-    location: {
-      title: 'Strategic Location',
-      subtitle: 'Located in the heart of North Sulawesi\'s limestone resources.',
-      area: 'Total Area: 97.05 Hectares',
-      coordinates: 'Ratatotok District, Southeast Minahasa',
-    },
-    infrastructure: {
-      title: 'Infrastructure & Facilities',
-      subtitle: 'Supported by modern processing and logistics facilities.',
-      jetty: 'Specialized Jetty for efficient maritime distribution.',
-      crusher: 'Crushing Plant with a capacity of 250 Tons Per Hour (TPH).',
-    },
-    stats: {
-      title: 'Production Capacity',
-      subtitle: 'Annual production targets based on the company\'s work plan.',
-      unit: 'Tons / Year',
-    },
-    fleet: {
-      title: 'Fleet & Heavy Equipment',
-      subtitle: 'Utilizing world-class industrial equipment for maximum efficiency.',
-      items: [
-        { name: 'Excavator', brand: 'Komatsu' },
-        { name: 'Dump Truck', brand: 'Isuzu' },
-        { name: 'Wheel Loader', brand: 'Komatsu' },
-        { name: 'Crushing Plant', brand: 'Custom 250 TPH' },
-      ],
-    },
-    environment: {
-      title: 'Environmental Commitment',
-      subtitle: 'Responsible and sustainable mining.',
-      text: 'We are committed to post-mining greening reclamation and reforestation in accordance with applicable environmental regulations.',
-    },
-    gallery: {
-      title: 'Project Gallery',
-      subtitle: 'Operational documentation and facilities at the mining site.',
-    },
-    profile: {
-      link: 'Company Profile',
-      download: 'Download Profile (PDF)',
-    },
-    market: {
-      title: 'Market Presence',
-      subtitle: 'Serving various strategic industries across Indonesia.',
-      industries: [
-        { name: 'Smelter & Metals', icon: 'Factory' },
-        { name: 'Construction & Infrastructure', icon: 'Building' },
-        { name: 'Agriculture & Fertilizer', icon: 'Sprout' },
-        { name: 'Chemical Industry', icon: 'FlaskConical' },
-      ],
-    },
-    logistics: {
-      title: 'Efficient Supply Chain',
-      subtitle: 'Timely distribution through land and sea routes.',
-      text: 'With the support of a specialized jetty and internal logistics fleet, we guarantee smooth product delivery to customer locations with maximum efficiency.',
-    },
-    safety: {
-      title: 'Occupational Safety (HSE)',
-      subtitle: 'Uncompromising commitment to employee safety.',
-      points: [
-        'Zero Accident target in every operational area.',
-        'Routine HSE training for all staff and operators.',
-        'Complete PPE standards and safe work procedures.',
-        'Periodic health monitoring for mining workers.',
-      ],
-    },
-    csr: {
-      title: 'Social Impact & CSR',
-      subtitle: 'Growing together with the local Ratatotok community.',
-      text: 'We prioritize local labor absorption and actively contribute to infrastructure development and economic empowerment of villages around the mine.',
-    },
-    innovation: {
-      title: 'Mining Innovation',
-      subtitle: 'Adopting modern technology for high efficiency.',
-      text: 'The use of digital monitoring systems and the latest crushing plant technology ensures consistent product quality and environmentally friendly operations.',
-    },
-    partners: {
-      title: 'Strategic Partners',
-      subtitle: 'Trusted by leading industrial companies.',
-    },
-    vision: {
-      title: 'Future Vision',
-      subtitle: 'Becoming the leading limestone industry leader in Southeast Asia.',
-      text: 'We continue to expand capacity and improve quality standards to meet the ever-evolving needs of the global market.',
-    },
-    process: {
-      title: 'Mining Process',
-      subtitle: 'Systematic workflow for optimal results.',
-      steps: [
-        { title: 'Exploration', desc: 'Geological mapping and sample drilling to determine reserve quality.' },
-        { title: 'Land Clearing', desc: 'Responsible clearing of vegetation and topsoil.' },
-        { title: 'Drilling & Blasting', desc: 'Precision blasting techniques to minimize environmental impact.' },
-        { title: 'Loading & Hauling', desc: 'Moving material using modern heavy equipment to the processing area.' },
-        { title: 'Crushing', desc: 'Size reduction process according to customer request specifications.' },
-      ],
-    },
-    geology: {
-      title: 'Geological Advantage',
-      subtitle: 'High-purity limestone resources.',
-      text: 'The limestone deposits in our operational area have very high Calcium Oxide (CaO) content (>55%) with very low impurity content.',
-    },
-    economic: {
-      title: 'Economic Benefits',
-      subtitle: 'Significant added value for our business partners.',
-      points: [
-        { title: 'Cost Efficiency', desc: 'Competitive prices with premium quality increase customer profit margins.' },
-        { title: 'Stable Supply', desc: 'Abundant reserves guarantee long-term supply sustainability.' },
-        { title: 'Integrated Logistics', desc: 'Direct access to the sea significantly reduces distribution costs.' },
-      ],
-    },
-    benefits: {
-      title: 'Benefits of Our Products',
-      subtitle: 'Why choose PT WEU limestone?',
-      items: [
-        'Very high chemical reactivity.',
-        'Consistent and precise grain size.',
-        'Very low magnesium and silica content.',
-        'Optimal physical durability for construction.',
-      ],
-    },
-    resources: {
-      title: 'Resource Estimation',
-      subtitle: 'Large and sustainable reserve potential.',
-      text: 'Based on the latest geological survey, our 97.05 Ha IUP area holds millions of tons of high-quality limestone reserves ready for mining.',
-    },
-    operational: {
-      title: 'Operational Excellence',
-      subtitle: 'Large production capacity with strict quality control.',
-      stats: [
-        { label: 'Crusher Capacity', value: '250 TPH' },
-        { label: 'Operational Hours', value: '24/7' },
-        { label: 'Machine Uptime', value: '98%' },
-        { label: 'Quality Control', value: 'Every Hour' },
-      ],
-    },
-    qc: {
-      title: 'Strict Quality Control',
-      subtitle: 'Ensuring every grain meets the standard.',
-      text: 'Our internal laboratory performs sample testing every operational hour to ensure consistency in chemical content and product size.',
-    },
-    investment: {
-      title: 'Investment Value',
-      subtitle: 'Legal and operational certainty for investors.',
-      text: 'With complete IUP OP and professional management, we offer secure and profitable partnership opportunities.',
-    },
-    standards: {
-      title: 'Standard Compliance',
-      subtitle: 'Meeting national and international standards.',
-      text: 'All our operational processes and products meet SNI standards and strict Indonesian mining regulations.',
-    },
-    applications: {
-      title: 'Industrial Applications',
-      subtitle: 'Versatile use of limestone.',
-      items: [
-        { title: 'Steel Smelting', desc: 'Used as a flux to remove impurities during the iron and steel making process.' },
-        { title: 'Construction', desc: 'Key ingredient in cement, mortar, and road base stabilization.' },
-        { title: 'Water Treatment', desc: 'Adjusts pH levels and removes heavy metals from industrial wastewater.' },
-        { title: 'Agriculture', desc: 'Neutralizes soil acidity and provides essential calcium for crop growth.' },
-      ],
-    },
-    qcWorkflow: {
-      title: 'QC Workflow',
-      subtitle: 'Precision in every production batch.',
-      text: 'Our quality control system is integrated into every stage of the mining and processing workflow, ensuring that we deliver only the highest grade limestone to our partners.',
-      steps: [
-        { title: 'Sampling', desc: 'Representative samples collected from every 100 tons of production.' },
-        { title: 'Chemical Analysis', desc: 'Chemical composition testing using XRF technology in our lab.' },
-        { title: 'Verification', desc: 'Cross-checking results against customer specifications.' },
-        { title: 'Certification', desc: 'Final quality report issued before product dispatch.' },
-      ],
-    },
-    contact: {
-      title: 'Contact Us',
-      address: 'Ratatotok Morea Soyowan Street, Ratatotok Satu Village, Ratatotok District, Southeast Minahasa Regency, North Sulawesi - Indonesia.',
-      phone: '0811-4344-168',
-      email: 'wiraenergiutama@yahoo.com',
-      form: {
-        name: 'Full Name',
-        email: 'Email Address',
-        company: 'Company Name',
-        message: 'Your Message',
-        send: 'Send Message',
-        success: 'Your message has been sent. Thank you!',
-      },
-    },
-    aboutDetails: {
-      history: {
-        title: 'Our History & Heritage',
-        text: 'Founded with a commitment to being the primary energy in national development, PT Wira Energi Utama has evolved from a vision to optimize North Sulawesi\'s natural wealth into a globally integrated limestone provider. For over a decade, we have built a reputation for reliability, quality, and responsible mining practices in Ratatotok.',
-      },
-      values: [
-        { title: 'Integrity', desc: 'Conducting business with the highest ethical standards and full transparency.' },
-        { title: 'Innovation', desc: 'Continuously adopting the latest technology to improve efficiency and sustainability.' },
-        { title: 'Partnership', desc: 'Building long-term, mutually beneficial relationships with customers and the community.' },
-      ],
-      team: {
-        title: 'Our Leadership',
-        text: 'Led by experienced professionals in the mining industry dedicated to operational excellence and safety.',
-      },
-      visionMission: {
-        vision: {
-          title: 'Our Vision',
-          text: 'To be a leading global limestone/lime mining industry company that grows sustainably.'
-        },
-        mission: {
-          title: 'Our Mission',
-          items: [
-            'Cultivate a fast, productive, effective, and efficient culture.',
-            'Prioritize occupational health, safety, and environment in all actions.',
-            'Maintain good mining corporate governance to increase the trust of the surrounding community in the company.',
-            'Provide a learning environment to achieve excellence and improve employee welfare.',
-            'Prioritize environmentally friendly technology.',
-            'Conduct proper greening reclamation in accordance with applicable regulations.'
-          ]
-        }
-      },
-      sustainability: {
-        title: 'Sustainability Commitment',
-        text: 'We believe that mining must run in harmony with nature. Our proactive land reclamation program ensures that every mined-out area is returned to a productive green state.'
-      },
-      safety: {
-        title: 'Health & Safety (K3)',
-        text: 'Zero Accident is not just a target, it is our culture.',
-        points: ['Standard Safety Gear', 'Regular Staff Training', 'Periodic Equipment Certification', 'External Safety Audits']
-      },
-      process: {
-        title: 'The Mineral Journey',
-        steps: [
-          { title: 'Extraction', desc: 'Open-pit mining with controlled blasting methods.' },
-          { title: 'Crushing', desc: 'Mineral size reduction using automated crusher technology.' },
-          { title: 'Quality Control', desc: 'Laboratory testing to ensure mineral purity.' },
-          { title: 'Distribution', desc: 'Efficient logistics via our own specialized jetty.' }
-        ]
-      },
-      infrastructure: {
-        title: 'Advanced Infrastructure',
-        items: [
-          { name: 'Private Jetty', desc: 'Deep-water port capable of accommodating large-capacity barges.' },
-          { name: 'Crushing Plant', desc: 'Integrated processing system with high daily production capacity.' },
-          { name: 'QC Laboratory', desc: 'Technical facilities for real-time mineral chemical analysis.' }
-        ]
-      },
-      community: {
-        title: 'Building with Ratatotok',
-        text: 'PT WEU4 is not just a company; we are part of the North Sulawesi community. Through CSR programs, we support education, health, and local village infrastructure.'
-      },
-      quality: {
-        title: 'Global Quality Standards',
-        text: 'Our products meet international standards for use in the steel, cement, and high-reactivity chemical industries.'
-      },
-      industrial: {
-        title: 'Pillar of National Industry',
-        text: 'We are proud to be a major supplier for national strategic projects, supporting Indonesia\'s energy independence and industrial raw materials.'
-      }
-    },
-    productExpansion: {
-      supplyChain: {
-        title: 'Supply Chain Flow',
-        steps: [
-          { title: 'Mine Extraction', desc: 'Raw material collection from the Ratatotok mining pit.' },
-          { title: 'Custom Processing', desc: 'Mineral crushing and screening according to client technical specifications.' },
-          { title: 'Integrated Logistics', desc: 'Loading onto barges via our private deep-water jetty.' },
-          { title: 'On-Time Delivery', desc: 'Seamless global distribution to end-user factories.' }
-        ]
-      },
-      qcLifecycle: {
-        title: 'Quality Assurance Lifecycle',
-        items: [
-          'In-Pit Chemical Analysis',
-          'Daily Laboratory Sample Testing',
-          'Independent Third-Party Certification',
-          'Pre-Loading Product Verification'
-        ]
-      },
-      capabilities: {
-        title: 'Operational Capabilities',
-        text: 'Supported by modern infrastructure, we are able to meet large-scale demands consistently.',
-        stats: [
-          { label: 'Production Capacity', value: '150,000 MT/Month' },
-          { label: 'Mining Area', value: '100+ Hectares' },
-          { label: 'Jetty Draft', value: '12 Meters' }
-        ]
-      },
-      industries: {
-        title: 'Industries We Serve',
-        list: [
-          { name: 'Cement Industry', icon: 'Construction' },
-          { name: 'Steel Sector', icon: 'Wrench' },
-          { name: 'Power Plants (PLTU)', icon: 'Zap' },
-          { name: 'Chemical Industry', icon: 'Beaker' },
-          { name: 'Agriculture & Fertilizer', icon: 'Sprout' }
-        ]
-      },
-      customSolutions: {
-        title: 'Custom Mineral Solutions',
-        text: 'We understand that every industry has unique requirements. Our technical team is ready to engineer grit size and chemical purity to meet your production targets.'
-      },
-      sustainability: {
-        title: 'Eco-Friendly Production',
-        text: 'Our crushing systems are equipped with advanced dust filters and closed-circuit water systems to minimize environmental impact during production.'
-      },
-      partnership: {
-        title: 'How to Become Our Partner',
-        steps: [
-          { title: 'Technical Consultation', desc: 'Discuss the material specifications you need.' },
-          { title: 'Sample Testing', desc: 'We send material samples for testing in your laboratory.' },
-          { title: 'Contract Agreement', desc: 'Finalize volume, delivery schedule, and pricing.' },
-          { title: 'Execution & Supply', desc: 'Sustainable mineral supply begins to your facility.' }
-        ]
-      }
-    },
-    productDetails: {
-      specsTitle: 'Technical Specifications',
-      limestone: {
-        title: 'Limestone',
-        fullDesc: 'Our limestone is known for its high CaO content and extraordinary reactivity. Suitable for the steel, chemical, and cement industries.',
-        specs: ['CaO Content: > 55%', 'MgO: < 1.5%', 'Silica (SiO2): < 0.5%', 'Moisture: < 3%']
-      },
-      hydratedLime: {
-        title: 'Hydrated Lime',
-        fullDesc: 'Calcium Hydroxide from advanced processing for water purification, soil stabilization, and flue gas processing.',
-        specs: ['Ca(OH)2 Content: > 92%', 'Fineness (passing 325 mesh): > 95%', 'Color: Pure White']
-      },
-      burnLime: {
-        title: 'Burn Lime (CaO)',
-        fullDesc: 'Produced through controlled calcination processes to produce quicklime with high thermal activity.',
-        specs: ['Available CaO: > 90%', 'Size (Lumpy): 10-50mm', 'Reaction Temperature: > 60°C']
-      }
-    },
-    productPages: {
-      limestone: {
-        id: 'limestone',
-        category: 'raw',
-        description: 'Essential base material from high-calcium carbonate formations for various smelting and industrial manufacturing processes.',
-        size_variants: ['0–5 mm', '5–10 mm', '10–30 mm', '30–80 mm', 'Custom'],
-        derivatives: ['caco3', 'burnLime', 'hydratedLime', 'pcc'],
-        hero: {
-          title: 'Premium Limestone',
-          subtitle: 'High-Purity from Ratatotok',
-          description: 'Essential base material with superior Calcium Oxide (CaO) content for maximum industrial efficiency.',
-          image: '/products/limestone.png'
-        },
-        stats: [
-          { label: 'CaO Content', value: '> 55%', icon: 'ShieldCheck' },
-          { label: 'Purity', value: 'High', icon: 'Star' },
-          { label: 'Capacity', value: '250 TPH', icon: 'Zap' },
-          { label: 'Stock', value: 'Ready', icon: 'Package' }
-        ],
-        overview: {
-          title: 'Product Overview',
-          content: 'Our Limestone is mined directly from the unique Ratatotok geological formation, producing limestone with high crystalline purity. This product is the primary choice for industries requiring high chemical reactivity and low contaminant levels.',
-          features: [
-            'CaO purity above industry average',
-            'Extremely low silica and magnesium content',
-            'Ideal physical durability for construction',
-            'Customizable grain sizes'
-          ]
-        },
-        specifications: {
-          title: 'Chemical & Physical Analysis',
-          table: [
-            { label: 'Calcium Oxide (CaO)', value: '55.20%' },
-            { label: 'Magnesium Oxide (MgO)', value: '0.80%' },
-            { label: 'Silica (SiO2)', value: '0.35%' },
-            { label: 'Iron Oxide (Fe2O3)', value: '0.12%' },
-            { label: 'Alumina (Al2O3)', value: '0.15%' },
-            { label: 'Loss on Ignition (LOI)', value: '43.30%' }
-          ],
-          chartData: [
-            { name: 'CaO', value: 55.2, color: '#0F3460' },
-            { name: 'LOI', value: 43.3, color: '#E94560' },
-            { name: 'Others', value: 1.5, color: '#FFD700' }
-          ]
-        },
-        applications: {
-          title: 'Solutions for Various Industries',
-          items: [
-            { title: 'Steel Smelting', desc: 'As a flux to separate impurities from molten metal.', icon: 'Factory' },
-            { title: 'Cement Industry', desc: 'Primary raw material for high-quality clinker production.', icon: 'Building' },
-            { title: 'Construction', desc: 'Coarse aggregate for concrete and soil stabilization.', icon: 'Construction' },
-            { title: 'Water Treatment', desc: 'Neutralizing pH levels in industrial wastewater.', icon: 'Droplets' }
-          ]
-        },
-        process: {
-          title: 'Modern Production Workflow',
-          steps: [
-            { title: 'Controlled Extraction', desc: 'Mining with environmentally friendly methods to preserve mineral structure.' },
-            { title: 'Primary Crushing', desc: 'Initial size reduction using large-capacity jaw crushers.' },
-            { title: 'Sieving & Sorting', desc: 'Separation by mesh size according to customer requirements.' },
-            { title: 'Quality Validation', desc: 'Per-batch laboratory testing to ensure grade consistency.' }
-          ]
-        },
-        quality: {
-          title: 'Uncompromising Quality Standards',
-          content: 'Every ton of limestone leaving our facility has undergone rigorous verification. We partner with Sucofindo and Intertek for third-party certification to provide peace of mind for our partners.',
-          certs: ['SNI Standard', 'ISO 9001:2015 Compliant', 'Certificate of Analysis (COA) per Order']
-        },
-        faq: {
-          title: 'Frequently Asked Questions',
-          items: [
-            { q: 'What is the monthly production capacity?', a: 'Currently, our production capacity reaches 150,000 metric tons per month.' },
-            { q: 'Is sea delivery available?', a: 'Yes, we have a private jetty capable of accommodating 300ft barges.' },
-            { q: 'Can I order custom grain sizes?', a: 'Certainly, our crushing plant system can be configured to produce specific grain sizes (0-5mm, 5-10mm, etc.).' }
-          ]
-        },
-        cta: {
-          title: 'Ready to Scale Your Production?',
-          subtitle: 'Get a competitive price quote for your large-scale limestone needs today.',
-          button: 'ORDER NOW',
-          whatsapp: 'Contact via WhatsApp'
-        }
-      },
-      caco3: {
-        id: 'caco3',
-        category: 'processed',
-        description: 'Fine-ground calcium carbonate powder with high brightness for industrial filler applications.',
-        parent: 'limestone',
-        size_variants: ['400 mesh', '800 mesh', '1.250 mesh', '2.500 mesh'],
-        derivatives: ['pcc'],
-        hero: {
-          title: 'Calcium Carbonate (CaCO3)',
-          subtitle: 'Sizing Precision for Creative Industries',
-          description: 'High-quality calcium powder with maximum brightness for the plastic, paint, and rubber industries.',
-          image: '/products/caco3.png'
-        },
-        stats: [
-          { label: 'Brightness', value: '> 94%', icon: 'Sun' },
-          { label: 'Mesh', value: 'Varied', icon: 'Layers' },
-          { label: 'Purity', value: '99%', icon: 'Shield' },
-          { label: 'Ready', value: 'Stock', icon: 'Package' }
-        ],
-        overview: {
-          title: 'Superior CaCO3 Performance',
-          content: 'Our Calcium Carbonate is processed using modern grinding mill technology to produce consistent grain fineness. With high whiteness (brightness), this product is an ideal filler that enhances the visual quality of your final products.',
-          features: [
-            'Very narrow particle size distribution',
-            'Low oil absorption rate',
-            'Chemical stability across various temperature applications',
-            'Free from heavy metal contamination'
-          ]
-        },
-        specifications: {
-          title: 'Powder Technical Specifications',
-          table: [
-            { label: 'CaCO3 Content', value: '98.8%' },
-            { label: 'Brightness (Whiteness)', value: '95%' },
-            { label: 'Moisture Content', value: '0.15%' },
-            { label: 'Residue (325 mesh)', value: 'min 0.05%' },
-            { label: 'pH Value', value: '8.5 - 9.5' },
-            { label: 'Specific Gravity', value: '2.7 g/cm3' }
-          ],
-          chartData: [
-            { name: 'Calcium', value: 98.8, color: '#FFD700' },
-            { name: 'Impurities', value: 1.2, color: '#0F3460' }
-          ]
-        },
-        applications: {
-          title: 'Technical Applications',
-          items: [
-            { title: 'Plastic Industry', desc: 'Increasing rigidity and reducing polymer raw material costs.', icon: 'Layers' },
-            { title: 'Paint & Coating', desc: 'Providing good opacity and hiding power in paint layers.', icon: 'Palette' },
-            { title: 'Rubber Industry', desc: 'Improving elasticity and wear resistance in tires and footwear.', icon: 'Zap' },
-            { title: 'Paper', desc: 'Brightening paper color and improving ink absorption.', icon: 'FileText' }
-          ]
-        },
-        process: {
-          title: 'Precision Grinding Process',
-          steps: [
-            { title: 'Crystalline Selection', desc: 'Only pure white limestone is selected as raw material.' },
-            { title: 'Ultrafine Grinding', desc: 'Grinding using ball mills or ultra-centrifugal mills.' },
-            { title: 'Air Classification', desc: 'Particle separation using high-pressure air flow.' },
-            { title: 'Packaging', desc: 'Packing in 25kg, 50kg bags, or 1-ton jumbo bags.' }
-          ]
-        },
-        quality: {
-          title: 'Whiteness Guarantee',
-          content: 'We use digital colorimeters to monitor brightness levels in every batch. Color consistency is our priority to maintain your product aesthetic standards.',
-          certs: ['Certificate of Analysis (COA)', 'Material Safety Data Sheet (MSDS)', 'Lab Analysis Intertek']
-        },
-        faq: {
-          title: 'Product FAQ',
-          items: [
-            { q: 'What mesh sizes are available?', a: 'We produce sizes ranging from 400 mesh to 2500 mesh.' },
-            { q: 'What is the brightness level?', a: 'Our premium products have a brightness level above 94%.' },
-            { q: 'Is there food grade testing?', a: 'Currently we focus on industrial and technical grades, but our purity levels approach high standards.' }
-          ]
-        },
-        cta: {
-          title: 'Talk to Our Technical Experts',
-          subtitle: 'Consult your calcium carbonate specification needs for better product results.',
-          button: 'GET SAMPLES',
-          whatsapp: 'Chat on WhatsApp'
-        }
-      },
-      burnLime: {
-        id: 'burnLime',
-        category: 'processed',
-        description: 'Active calcium oxide for high reactivity in industrial processes including smelting and gas treatment.',
-        parent: 'limestone',
-        size_variants: ['Lumpy 10–50 mm', 'Powder'],
-        derivatives: ['hydratedLime'],
-        hero: {
-          title: 'Quicklime (CaO)',
-          subtitle: 'Chemical Energy for Fast Reaction',
-          description: 'High-activity Calcium Oxide (CaO) from extreme temperature calcination for maximum reactivity.',
-          image: '/products/burn-lime.png'
-        },
-        stats: [
-          { label: 'Active CaO', value: '> 90%', icon: 'Thermometer' },
-          { label: 'Reactivity', value: 'High', icon: 'Zap' },
-          { label: 'Calcination Temp', value: '1100°C', icon: 'Flame' },
-          { label: 'Order', value: 'Bulk', icon: 'Truck' }
-        ],
-        overview: {
-          title: 'The Power of Calcium Oxide',
-          content: 'Our Quicklime is produced through controlled thermal decomposition processes in advanced vertical kilns. The result is a material with high porosity and highly responsive chemical reactivity, essential for metal refining and chemical industries.',
-          features: [
-            'Active CaO content above 90%',
-            'Extremely fast slaking rate',
-            'Minimal residual CO2 content',
-            'Available in lumpy or powder form'
-          ]
-        },
-        specifications: {
-          title: 'Calcination Specifications',
-          table: [
-            { label: 'Available CaO', value: '92.1%' },
-            { label: 'Magnesium Oxide (MgO)', value: '0.55%' },
-            { label: 'Silica (SiO2)', value: '0.22%' },
-            { label: 'Loss on Ignition', value: '1.20%' },
-            { label: 'Sulfur (S)', value: '0.04%' },
-            { label: 'Reactivity (T60)', value: '< 2 minutes' }
-          ],
-          chartData: [
-            { name: 'Active CaO', value: 92.1, color: '#E94560' },
-            { name: 'Calcination Residue', value: 1.2, color: '#1A1A2E' }
-          ]
-        },
-        applications: {
-          title: 'Heavy Industrial Usage',
-          items: [
-            { title: 'Smelter Industry', desc: 'Impurity remover in nickel and bauxite refining.', icon: 'Anvil' },
-            { title: 'Sugar Production', desc: 'Sugarcane juice purification in the clarification process.', icon: 'Filter' },
-            { title: 'Soil & Mining', desc: 'Soft soil stabilization and mine tailing pH management.', icon: 'Mountain' },
-            { title: 'Chemicals', desc: 'Raw material for calcium carbide and other organic compounds.', icon: 'FlaskConical' }
-          ]
-        },
-        process: {
-          title: 'Precision Calcination Workflow',
-          steps: [
-            { title: 'Raw Material Screening', desc: 'Ensuring uniform limestone size for even combustion.' },
-            { title: 'Thermal Calcination', desc: 'Heating at 1000°C - 1200°C in shaft kilns.' },
-            { title: 'Cooling & Oxygen Control', desc: 'Fast cooling to maintain CaO chemical activity.' },
-            { title: 'Crushing & Packing', desc: 'Size reduction and air-tight packaging.' }
-          ]
-        },
-        quality: {
-          title: 'Reactivity Assurance',
-          content: 'We perform slaking tests every hour to ensure our quicklime reacts with water at the correct temperature. This ensures lime consumption efficiency for end users.',
-          certs: ['Chemical Purity Certificate', 'Slaking Rate Analysis', 'Energy Efficiency Standard']
-        },
-        faq: {
-          title: 'Quicklime FAQ',
-          items: [
-            { q: 'What is the best storage method?', a: 'Must be stored in a dry, tightly closed place due to its highly hygroscopic nature (absorbing water from the air).' },
-            { q: 'What is the thermal reactivity?', a: 'Average temperature rise reaches 60°C in less than 2 minutes when reacting with water.' },
-            { q: 'Is dump truck delivery available?', a: 'Yes, we provide dump trucks for bulk delivery or jumbo bag packing.' }
-          ]
-        },
-        cta: {
-          title: 'Optimize Your Industrial Process',
-          subtitle: 'Our high-reactivity quicklime can significantly reduce your operational costs.',
-          button: 'PRICING CONSULTATION',
-          whatsapp: 'Inquiry via WhatsApp'
-        }
-      },
-      hydratedLime: {
-        id: 'hydratedLime',
-        category: 'processed',
-        description: 'Fine calcium hydroxide powder for high-efficiency water treatment and environmental applications.',
-        parent: 'burnLime',
-        size_variants: ['325 Mesh (Standard)', 'Ultra-fine'],
-        derivatives: [],
-        hero: {
-          title: 'Hydrated Lime',
-          subtitle: 'Pure Solution for the Environment',
-          description: 'Fine-grade Calcium Hydroxide (Ca(OH)2) for water treatment and air pollution control.',
-          image: '/products/hydrated-lime.png'
-        },
-        stats: [
-          { label: 'Ca(OH)2', value: '> 92%', icon: 'Droplets' },
-          { label: 'Fineness', value: '325 Mesh', icon: 'Filter' },
-          { label: 'Color', value: 'Fine White', icon: 'Star' },
-          { label: 'Safety', value: 'MSDS', icon: 'ShieldCheck' }
-        ],
-        overview: {
-          title: 'Calcium Hydration Solution',
-          content: 'Our Hydrated Lime is the result of controlled hydration of pure quicklime (CaO). With extremely high fineness, this product is very easy to dissolve and react, making it the perfect choice for industrial wastewater and flue gas treatment.',
-          features: [
-            'Particle fineness passing 325 mesh (>95%)',
-            'Very stable calcium hydroxide content',
-            'High reactivity in acid neutralization',
-            'Safer handling compared to quicklime'
-          ]
-        },
-        specifications: {
-          title: 'Hydration Technical Data',
-          table: [
-            { label: 'Ca(OH)2 Content', value: '94.5%' },
-            { label: 'Calcium Oxide (CaO)', value: '71.5%' },
-            { label: 'Magnesium (MgO)', value: '0.40%' },
-            { label: 'Insoluble Matter', value: '0.45%' },
-            { label: 'Apparent Density', value: '0.45 - 0.55 g/ml' },
-            { label: 'Moisture Content', value: '< 1.0%' }
-          ],
-          chartData: [
-            { name: 'Calcium Hydroxide', value: 94.5, color: '#3456A3' },
-            { name: 'Associated Minerals', value: 5.5, color: '#F1C40F' }
-          ]
-        },
-        applications: {
-          title: 'Environmental Benefits',
-          items: [
-            { title: 'Clean Water Treatment', desc: 'Removing heavy metals and adjusting water hardness.', icon: 'Droplet' },
-            { title: 'Flue Gas Cleaning', desc: 'Absorbing acid gases (SO2, HCl) from factory stacks.', icon: 'Wind' },
-            { title: 'Road Construction', desc: 'Improving asphalt stability and road durability.', icon: 'Truck' },
-            { title: 'Waste Management', desc: 'Phosphate precipitation and particle flocculation in wastewater.', icon: 'Recycle' }
-          ]
-        },
-        process: {
-          title: 'Automated Hydration Technology',
-          steps: [
-            { title: 'Select Quicklime', desc: 'Only using high-reactivity CaO as base material.' },
-            { title: 'Controlled Hydration', desc: 'Precise water addition for perfect hydration reaction.' },
-            { title: 'Air Separation', desc: 'Separating coarse particles to achieve 325 mesh fineness.' },
-            { title: 'Silo Storage', desc: 'Stored in water-tight silos to maintain powder quality.' }
-          ]
-        },
-        quality: {
-          title: 'Proven Purity',
-          content: 'Our laboratory monitors grain fineness periodically using laser diffraction methods. We guarantee our product effectiveness in both dry and wet injection systems.',
-          certs: ['325 Mesh Fineness Verified', 'Purity Analysis Certificate', 'Eco-Industrial Certification']
-        },
-        faq: {
-          title: 'Hydrated Lime FAQ',
-          items: [
-            { q: 'Is this product dusty?', a: 'Yes, due to its high fineness. We recommend pneumatic systems or enclosures during pouring.' },
-            { q: 'What is the shelf life?', a: 'In good, dry packaging, it can last up to 6 months without significant quality degradation.' },
-            { q: 'Is there a minimum order?', a: 'Minimum order is 10 tons, available in 25kg bags or jumbo bags.' }
-          ]
-        },
-        cta: {
-          title: 'Create a Cleaner Environment',
-          subtitle: 'Use superior quality hydrated lime for your waste treatment system efficiency.',
-          button: 'REQUEST QUOTE',
-          whatsapp: 'Contact Us Now'
-        }
-      },
-      pcc: {
-        id: 'pcc',
-        category: 'advanced',
-        description: 'Highly pure precipitated calcium carbonate with molecular crystal control for specialty industrial grades.',
-        parent: 'caco3',
-        size_variants: ['Nano-size', 'Micron-size'],
-        derivatives: [],
-        hero: {
-          title: 'Precipitated Calcium Carbonate (PCC)',
-          subtitle: 'Molecular Purity for Specialty Industries',
-          description: 'Nanoscale precipitated calcium carbonate for pharmaceutical, cosmetic, and premium paper applications.',
-          image: '/products/pcc.png'
-        },
-        stats: [
-          { label: 'Purity', value: '99.9%', icon: 'ShieldCheck' },
-          { label: 'Crystal', value: 'Nano Size', icon: 'Microscope' },
-          { label: 'Brightness', value: '98%', icon: 'Sun' },
-          { label: 'Grade', value: 'Specialty', icon: 'Award' }
-        ],
-        overview: {
-          title: 'Calcium Precipitation Innovation',
-          content: 'Our PCC is produced through a chemical precipitation process that allows total control over crystal form and particle size. This produces a product with extreme whiteness and high surface reactivity, surpassing natural calcium carbonate (GCC) capabilities.',
-          features: [
-            'Exceptional chemical purity (>99.9% CaCO3)',
-            'Customizable crystal forms (Aragonite/Calcite)',
-            'Particle sizes in micron to nano scales',
-            'Controllable oil absorption values'
-          ]
-        },
-        specifications: {
-          title: 'Specialty Grade Specifications',
-          table: [
-            { label: 'CaCO3 Content', value: '99.85%' },
-            { label: 'Brightness (R457)', value: '98.5%' },
-            { label: 'Specific Surface Area', value: '12 - 15 m2/g' },
-            { label: 'Average Grain Size', value: '1.2 - 2.5 um' },
-            { label: 'Heavy Metals (Pb)', value: '< 1 ppm' },
-            { label: 'Acid Solubility', value: 'Perfect' }
-          ],
-          chartData: [
-            { name: 'CaCO3 Pure', value: 99.9, color: '#0F3460' },
-            { name: 'Trace Elements', value: 0.1, color: '#FFD700' }
-          ]
-        },
-        applications: {
-          title: 'High-End Applications',
-          items: [
-            { title: 'Pharmaceuticals', desc: 'Calcium supplements and tablet binders.', icon: 'Stethoscope' },
-            { title: 'Cosmetics', desc: 'Base material for face powder and premium personal care products.', icon: 'Sparkles' },
-            { title: 'Photo Paper', desc: 'Paper coating for high resolution and contrast printing.', icon: 'Printer' },
-            { title: 'Sealant Industry', desc: 'Rheology and viscosity regulator in automotive adhesives.', icon: 'Zap' }
-          ]
-        },
-        process: {
-          title: 'Chemical Synthesis Workflow',
-          steps: [
-            { title: 'Gas Carbonation', desc: 'Reaction between milk of lime and pure CO2 gas.' },
-            { title: 'Crystal Growth Control', desc: 'Adjusting temperature and pressure to form specific crystal structures.' },
-            { title: 'Filtration & Washing', desc: 'Cleaning residual ions to achieve molecular purity.' },
-            { title: 'Drying & Micronizing', desc: 'Low-temperature drying and fine particle separation.' }
-          ]
-        },
-        quality: {
-          title: 'World-Class Quality',
-          content: 'Our PCC products are produced under strict supervision with quality standards meeting food and pharmaceutical industry requirements. We guarantee precise consistency in every milligram.',
-          certs: ['High Purity Lab Test', 'Food Grade Compliance (Ready)', 'Pharmaceutical Analysis']
-        },
-        faq: {
-          title: 'PCC FAQ',
-          items: [
-            { q: 'What is the difference between PCC and regular calcium?', a: 'PCC is made through chemical reaction, so its size is smaller, whiter, and more uniform than natural ground results.' },
-            { q: 'Can I customize the crystal shape?', a: 'Yes, we can adjust the process to produce rhombohedral, scalenohedral, or prismatic shapes according to your application.' },
-            { q: 'Is halal/food grade certification available?', a: 'Our facility is designed for high standards and we are in the process of finalizing such certifications.' }
-          ]
-        },
-        cta: {
-          title: 'Innovate with Premium Materials',
-          subtitle: 'Enhance your flagship product quality with our Precipitated Calcium Carbonate.',
-          button: 'CONTACT TECHNICAL DIVISION',
-          whatsapp: 'WhatsApp Team Expert'
-        }
-      },
-      agregat: {
-        id: 'agregat',
-        category: 'processed',
-        description: 'High-quality crushed stone aggregate meeting SNI 1750 standards for durable infrastructure and high-strength concrete applications.',
-        size_variants: ['1–2 cm (Split)', '2–3 cm (Split)', 'Base Course', 'Screening'],
-        derivatives: [],
-        hero: {
-          title: 'Construction Aggregate',
-          subtitle: 'Maximum Structural Strength',
-          description: 'Hard stone material from precision crushing process for long-term construction durability.',
-          image: '/products/agregat-beton.png'
-        },
-        stats: [
-          { label: 'Standard', value: 'SNI 1750', icon: 'ShieldCheck' },
-          { label: 'Shape', value: 'Cubical', icon: 'Layers' },
-          { label: 'Abrasion', value: '< 25%', icon: 'Zap' },
-          { label: 'Stock', value: 'Ready', icon: 'Package' }
-        ],
-        overview: {
-          title: 'WEU Aggregate Quality',
-          content: 'Our concrete aggregate is processed from selected andesite/basalt stone through a three-stage crusher system to produce an ideal cubical grain shape for concrete mixes.',
-          features: [
-            'Uniform grain shape (low elongation)',
-            'Clean surfaces free from organic material',
-            'Resistance to extreme weather',
-            'Various fraction sizes available'
-          ]
-        },
-        specifications: {
-          title: 'Aggregate Technical Analysis',
-          table: [
-            { label: 'Specific Gravity', value: '2.65 g/cm3' },
-            { label: 'Water Absorption', value: '1.2%' },
-            { label: 'Sludge Content', value: '0.8%' },
-            { label: 'Impact Value', value: '18%' }
-          ],
-          chartData: [
-            { name: 'Solid', value: 98, color: '#0F3460' },
-            { name: 'Absorption', value: 2, color: '#FFD700' }
-          ]
-        },
-        applications: {
-          title: 'Construction Applications',
-          items: [
-            { title: 'Ready Mix Concrete', desc: 'Main material for structural concrete K-350 and above.', icon: 'Building' },
-            { title: 'Base Course', desc: 'Highway stabilization and heavy-duty areas.', icon: 'Construction' },
-            { title: 'Precast', desc: 'Manufacturing of box culverts, u-ditches, and piles.', icon: 'Factory' }
-          ]
-        },
-        process: {
-          title: 'Aggregate Production',
-          steps: [
-            { title: 'Rock Selection', desc: 'Choosing high-density hard rock.' },
-            { title: 'Triple Stage Crushing', desc: 'Step-by-step crushing process to maintain shape quality.' },
-            { title: 'Washing System', desc: 'Fine dust cleaning to ensure strong concrete bonding.' }
-          ]
-        },
-        quality: {
-          title: 'Infrastructure Standards',
-          content: 'Every aggregate batch is tested for abrasion and gradation to ensure structural durability for contractors.',
-          certs: ['SNI Lab Test', 'Sludge-Free Certificate', 'Routine Gradation Analysis']
-        },
-        faq: {
-          title: 'Aggregate FAQ',
-          items: [
-            { q: 'What sizes are available?', a: 'Sizes 1-2, 2-3, and base course are available as ordered.' }
-          ]
-        },
-        cta: {
-          title: 'Build Your Project Strong',
-          subtitle: 'Get high-quality aggregate for your national strategic projects.',
-          button: 'REQUEST QUOTATION',
-          whatsapp: 'Contact Logistics'
-        }
-      }
     },
     advancedAbout: {
       hero: {
@@ -2177,17 +1315,15 @@ export const translations: Record<'id' | 'en', Translation> = {
       },
       gallery: {
         title: 'Real Work Vision',
-        subtitle: 'Operational and facility documentation at the mine site',
+        subtitle: 'Aerial operational documentation showing the scale and precision of our mining.',
         images: [
-          '/Foto webp/IMG_1135.webp', '/Foto webp/IMG_1136.webp', '/Foto webp/IMG_1138.webp',
-          '/Foto webp/IMG_1139.webp', '/Foto webp/IMG_1141.webp', '/Foto webp/IMG_1142.webp',
-          '/Foto webp/IMG_1144.webp', '/Foto webp/IMG_1146.webp', '/Foto webp/IMG_1148.webp',
-          '/Foto webp/IMG_1149.webp', '/Foto webp/IMG_1154.webp', '/Foto webp/IMG_1156.webp',
-          '/Foto webp/IMG_1160.webp', '/Foto webp/IMG_1162.webp', '/Foto webp/IMG_1163.webp',
-          '/Foto webp/IMG_1165.webp', '/Foto webp/IMG_1167.webp', '/Foto webp/IMG_1170.webp',
-          '/Foto webp/IMG_1172.webp', '/Foto webp/IMG_1176.webp', '/Foto webp/IMG_1180.webp',
-          '/Foto webp/IMG_1186.webp', '/Foto webp/IMG_1200.webp', '/Foto webp/IMG_1212.webp',
-          '/Foto webp/IMG_1216.webp', '/Foto webp/IMG_1221.webp', '/Foto webp/IMG_1224.webp'
+          '/Drone Webp/DJI_20260225092843_0288_D (1).webp',
+          '/Drone Webp/DJI_20260310143518_0298_D (1).webp',
+          '/Drone Webp/DJI_20260310143640_0300_D (1).webp',
+          '/Drone Webp/DJI_20260310143758_0302_D (1).webp',
+          '/Drone Webp/DJI_20260310144034_0308_D (1).webp',
+          '/Drone Webp/DJI_20260310144136_0309_D (1).webp',
+          '/Drone Webp/DJI_20260310144303_0310_D (1).webp'
         ]
       }
     },
@@ -2331,7 +1467,7 @@ export const translations: Record<'id' | 'en', Translation> = {
           address: 'Taman Sari Cluster Lihaga, Blok H3-3 Kelurahan Paniki Bawah, Manado - North Sulawesi 95256 Indonesia',
           mapUrl: 'https://goo.gl/maps/placeholder-manado',
           image: '/office-manado.webp',
-          email: 'contact@ptweu.company',
+          email: 'contact@wiraenergiutama.com',
           phone: '(0431) 812345'
         },
         {
@@ -2346,7 +1482,7 @@ export const translations: Record<'id' | 'en', Translation> = {
       faq: {
         title: 'Service Related FAQ',
         items: [
-          { q: 'How to request a price quote?', a: 'You can send your requirement specifications via the form below or contact our sales email directly at contact@ptweu.company.' },
+          { q: 'How to request a price quote?', a: 'You can send your requirement specifications via the form below or contact our sales email directly at contact@wiraenergiutama.com.' },
           { q: 'Is shipping available outside the island?', a: 'Yes, through our private jetty, PT WEU serves shipping via barge to all regions of Indonesia.' },
           { q: 'What is the minimum order quantity (MOQ)?', a: 'MOQ depends on the product type. For domestic sea shipping, it starts from 1 barge capacity (7,500 - 10,000 MT), while land-based pickup can be adjusted.' },
           { q: 'What is the procedure for obtaining limestone samples?', a: 'Samples for industrial laboratory testing can be requested through our Quality Control department with a company profile attached.' },
@@ -2365,7 +1501,7 @@ export const translations: Record<'id' | 'en', Translation> = {
         },
         {
           title: '2. Data Usage',
-          content: 'The collected data is only used for official business communication, service improvement, and fulfillment of obligations according to Indonesian mining law.'
+          content: 'Collected data is only used for official business communication purposes, service improvement, and fulfilling obligations according to Indonesian mining law.'
         },
         {
           title: '3. Information Security',
@@ -2376,7 +1512,7 @@ export const translations: Record<'id' | 'en', Translation> = {
     footer: {
       rights: 'All Rights Reserved.',
       links: [
-        { label: 'Products', href: '/products' },
+        { label: 'Governance', href: '/governansi-standar' },
         { label: 'Privacy', href: '/privacy' }
       ]
     },
@@ -2445,13 +1581,16 @@ export const translations: Record<'id' | 'en', Translation> = {
       }
     },
     projectGallery: {
-      title: 'Project Gallery',
-      subtitle: 'Operational documentation and facilities at the mine site',
+      title: 'Project & Operational Gallery',
+      subtitle: 'An in-depth look at our field facilities, distribution infrastructure, and mining fleet.',
       images: [
-        '/Foto webp/IMG_1135.webp', '/Foto webp/IMG_1136.webp', '/Foto webp/IMG_1138.webp',
-        '/Foto webp/IMG_1139.webp', '/Foto webp/IMG_1141.webp', '/Foto webp/IMG_1142.webp',
-        '/Foto webp/IMG_1144.webp', '/Foto webp/IMG_1145.webp', '/Foto webp/IMG_1146.webp'
+        '/office-kota.webp',
+        '/office-manado.webp',
+        '/mining-bg.webp',
+        '/Hero.webp',
+        '/about-hero.webp',
+        '/history.webp'
       ]
     }
-  },
-}
+  }
+};

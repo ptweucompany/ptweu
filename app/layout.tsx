@@ -13,7 +13,7 @@ const inter = Inter({
   display: 'swap',
 });
 
-const BASE_URL = 'https://ptweu.company';
+const BASE_URL = 'https://wiraenergiutama.com';
 
 export const viewport: Viewport = {
   themeColor: '#C8A84B',
@@ -25,10 +25,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'PT Wira Energi Utama | Perusahaan Tambang Batu Kapur Sulawesi Utara',
+    default: 'PT Wira Energi Utama | Official Company Profile | Industrial Mining Supplier',
     template: '%s | PT Wira Energi Utama'
   },
-  description: 'PT Wira Energi Utama — perusahaan tambang dan supplier batu kapur (limestone), CaCO3, kapur bakar, kapur padam, dan PCC berkualitas tinggi dari Sulawesi Utara, Indonesia. Melayani industri smelter, konstruksi, dan manufaktur nasional.',
+  description: 'Official portal of PT Wira Energi Utama — Indonesia\'s premium supplier for High-Purity Limestone, CaCO3, Quicklime, Hydrated Lime, and PCC. Serving global smelting, construction, and chemical industries from North Sulawesi.',
   keywords: [
     'PT Wira Energi Utama',
     'tambang batu kapur Sulawesi Utara',
@@ -101,14 +101,18 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/2.svg', type: 'image/svg+xml' },
-      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
       { url: '/favicon.ico', sizes: 'any' },
+      { url: '/2.svg', type: 'image/svg+xml' },
+      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
+      { url: '/icon.png', type: 'image/png', sizes: '48x48' },
+      { url: '/icon.png', type: 'image/png', sizes: '96x96' },
+      { url: '/icon.png', type: 'image/png', sizes: '192x192' },
+      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
     ],
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
-    shortcut: '/2.svg',
+    shortcut: '/favicon.ico',
   },
   manifest: '/site.webmanifest',
   robots: {
@@ -154,8 +158,9 @@ const organizationSchema = {
       url: BASE_URL,
       logo: {
         '@type': 'ImageObject',
-        url: `${BASE_URL}/2.svg`,
-        contentUrl: `${BASE_URL}/2.svg`,
+        url: `${BASE_URL}/icon.png`,
+        width: '512',
+        height: '512'
       },
       image: `${BASE_URL}/og-image.png`,
       description: 'Perusahaan tambang batu kapur dan supplier mineral industri berkualitas tinggi dari Sulawesi Utara, Indonesia.',
@@ -188,7 +193,7 @@ const organizationSchema = {
           availableLanguage: ['Indonesian', 'English'],
         },
       ],
-      email: 'contact@ptweu.company',
+      email: 'contact@wiraenergiutama.com',
       sameAs: [
         'https://www.instagram.com/pt_weu',
       ],
@@ -219,7 +224,7 @@ const organizationSchema = {
       image: `${BASE_URL}/og-image.png`,
       url: BASE_URL,
       telephone: '+62-434-260-3008',
-      email: 'contact@ptweu.company',
+      email: 'contact@wiraenergiutama.com',
       priceRange: '$$',
       address: {
         '@type': 'PostalAddress',

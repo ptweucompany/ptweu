@@ -3,7 +3,7 @@
 import { Globe, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Language, Translation } from '../types';
 
@@ -17,13 +17,32 @@ interface NavbarProps {
 export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === '/';
+  const router = useRouter();
+  const isHome = pathname === '/' || pathname === '/en';
+
+  const handleLangChange = (newLang: Language) => {
+    if (newLang === lang) return;
+    setLang(newLang);
+
+    if (newLang === 'en') {
+      if (pathname === '/') {
+        router.push('/en');
+      } else if (!pathname.startsWith('/en')) {
+        router.push(`/en${pathname}`);
+      }
+    } else {
+      if (pathname === '/en') {
+        router.push('/');
+      } else if (pathname.startsWith('/en/')) {
+        router.push(pathname.replace('/en/', '/'));
+      }
+    }
+  };
 
   const navLinks = [
     { name: t.products, href: lang === 'id' ? '/produk' : '/products' },
     { name: t.about, href: lang === 'id' ? '/tentang-kami' : '/about' },
     { name: t.catalog, href: '/katalog' },
-    { name: t.governance, href: lang === 'id' ? '/governansi-standar' : '/governance-standards' },
   ];
 
   return (
@@ -31,7 +50,7 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group" aria-label="PT Wira Energi Utama Home">
+          <Link href={lang === 'id' ? '/' : '/en'} className="flex items-center space-x-3 group" aria-label="PT Wira Energi Utama Home">
             <div className="relative w-12 h-12 flex items-center justify-center transition-transform group-hover:scale-110">
               <Image 
                 src="/2.svg" 
@@ -50,7 +69,7 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className={`text-sm font-medium hover:text-brand-gold transition-colors flex items-center ${isHome ? 'text-brand-gold' : ''}`}>
+            <Link href={lang === 'id' ? '/' : '/en'} className={`text-sm font-medium hover:text-brand-gold transition-colors flex items-center ${isHome ? 'text-brand-gold' : ''}`}>
               Home
             </Link>
             
@@ -66,13 +85,13 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
             
             <div className="flex items-center space-x-2 border-l border-white/20 pl-6">
               <button
-                onClick={() => setLang('id')}
+                onClick={() => handleLangChange('id')}
                 className={`text-xs font-bold px-2 py-1 rounded ${lang === 'id' ? 'bg-brand-gold text-brand-blue' : 'hover:text-brand-gold'}`}
               >
                 ID
               </button>
               <button
-                onClick={() => setLang('en')}
+                onClick={() => handleLangChange('en')}
                 className={`text-xs font-bold px-2 py-1 rounded ${lang === 'en' ? 'bg-brand-gold text-brand-blue' : 'hover:text-brand-gold'}`}
               >
                 EN

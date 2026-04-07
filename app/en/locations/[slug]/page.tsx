@@ -14,12 +14,40 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const dest = exportDestBySlug[slug];
   if (!dest) return {};
-  const BASE = 'https://ptweu.company';
+
+  const BASE = 'https://wiraenergiutama.com';
+
   return {
-    title: `Export Limestone to ${dest.country_en} | PT Wira Energi Utama Indonesia`,
-    description: dest.overview_en.slice(0, 155),
-    alternates: { canonical: `${BASE}/en/locations/${slug}`, languages: { en: `${BASE}/en/locations/${slug}` } },
-    openGraph: { title: `Export to ${dest.country_en} | PT Wira Energi Utama`, description: dest.overview_en.slice(0, 155), url: `${BASE}/en/locations/${slug}` },
+    title: `Export Limestone to ${dest.country_en} | Indonesia Mining Exporter | PT WEU`,
+    description: dest.overview_en.slice(0, 160),
+    keywords: [
+      `export limestone to ${dest.country_en}`, 
+      `Indonesia mineral supplier ${dest.country_en}`, 
+      'PT WEU global export', 
+      'industrial mineral partner SE Asia'
+    ],
+    alternates: {
+      canonical: `${BASE}/en/locations/${slug}`,
+      languages: {
+        'id-ID': `${BASE}/lokasi`, // Fallback for ID as these are export-specific EN pages
+        'en-US': `${BASE}/en/locations/${slug}`,
+      },
+    },
+    openGraph: {
+      title: `Export Industrial Minerals to ${dest.country_en} | PT Wira Energi Utama`,
+      description: dest.overview_en.slice(0, 160),
+      url: `${BASE}/en/locations/${slug}`,
+      siteName: 'PT Wira Energi Utama',
+      images: [{ url: '/Hero.webp', width: 1200, height: 630, alt: `Export to ${dest.country_en}` }],
+      locale: 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `PT Wira Energi Utama | Export to ${dest.country_en}`,
+      description: dest.overview_en.slice(0, 160),
+      images: ['/Hero.webp'],
+    }
   };
 }
 
@@ -27,17 +55,44 @@ export default async function EnLocationsPage({ params }: Props) {
   const { slug } = await params;
   const dest = exportDestBySlug[slug];
   if (!dest) notFound();
-  const BASE = 'https://ptweu.company';
-  const schema = {
-    '@context': 'https://schema.org', '@type': 'Organization',
-    name: 'PT Wira Energi Utama', url: BASE,
-    offers: { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Limestone & Calcium Minerals' }, areaServed: dest.country_en, priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+
+  const BASE = 'https://wiraenergiutama.com';
+  
+  // 🧭 SEO MAXIMIZE: BREADCRUMB & ORGANIZATION SCHEMA (EN)
+  const combinedSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': BASE },
+          { '@type': 'ListItem', 'position': 2, 'name': 'Locations', 'item': `${BASE}/en/locations` },
+          { '@type': 'ListItem', 'position': 3, 'name': dest.country_en, 'item': `${BASE}/en/locations/${slug}` }
+        ]
+      },
+      {
+        '@type': 'Organization',
+        '@id': `${BASE}/#organization`,
+        name: 'PT Wira Energi Utama',
+        url: BASE,
+        logo: `${BASE}/icon.png`,
+        description: `Indonesian mineral mining and export company specializing in Limestone, CaCO3, and Quicklime for the ${dest.country_en} market.`,
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: 'Export Solutions',
+          itemListElement: [
+            { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Premium Limestone for Export' }, areaServed: dest.country_en }
+          ]
+        }
+      }
+    ]
   };
+
   const CheckIcon = () => (<svg className="w-4 h-4 text-[#C8A84B] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>);
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }} />
       {/* 1. HERO */}
       <section className="relative bg-[#0A1628] min-h-[55vh] flex items-end overflow-hidden">
         <Image src="/mining-bg.webp" alt={`Export limestone to ${dest.country_en}`} fill priority quality={80} sizes="100vw" className="object-cover opacity-35" />

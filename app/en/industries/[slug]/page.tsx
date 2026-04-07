@@ -2,48 +2,95 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { industriesFullBySlugEN, industrySlugsEN } from '../../../../src/data/industryFull';
+import { industriesFull, industriesFullBySlugEN, industrySlugsEN } from '../../../../src/data/industryFull';
 import { allProducts } from '../../../../src/data/products';
 import { ports } from '../../../../src/data/logistics';
+import { company } from '../../../../src/data/company';
 import CTASection from '../../../../src/components/CTASection';
 import { internalLinks } from '../../../../src/data/internalLinks';
 import TrustMicroSection from '../../../../src/components/TrustMicroSection';
 
 interface Props { params: Promise<{ slug: string }>; }
-export async function generateStaticParams() { return industrySlugsEN.map((slug) => ({ slug })); }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateStaticParams() {
+  return industrySlugsEN.map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const ind = industriesFullBySlugEN[slug];
+  const ind = industriesFull.find(i => i.slug_en === slug || i.slug_id === slug);
   if (!ind) return {};
-  const BASE = 'https://ptweu.company';
+
+  const BASE = 'https://wiraenergiutama.com';
+
   return {
-    title: `${ind.name_en} | Industrial Mineral Supplier — PT Wira Energi Utama`,
-    description: ind.overview_en.slice(0, 155),
+    title: `${ind.name_en} | Industrial Mineral Solutions | PT Wira Energi Utama`,
+    description: ind.overview_en.slice(0, 160),
+    keywords: [
+      ind.name_en, 
+      `limestone supplier for ${ind.name_en}`, 
+      `${ind.name_en} industry mineral`, 
+      'PT WEU global solutions', 
+      'industrial calcium supplier Indonesia'
+    ],
     alternates: {
-      canonical: `${BASE}/en/industries/${slug}`,
-      languages: { en: `${BASE}/en/industries/${slug}`, id: `${BASE}/industri/${ind.slug_id}` },
+      canonical: `${BASE}/en/industries/${ind.slug_en || ind.slug_id}`,
+      languages: {
+        'id-ID': `${BASE}/industri/${ind.slug_id}`,
+        'en-US': `${BASE}/en/industries/${ind.slug_en || ind.slug_id}`,
+      },
     },
-    openGraph: { title: `${ind.name_en} | PT Wira Energi Utama`, description: ind.overview_en.slice(0, 155), url: `${BASE}/en/industries/${slug}` },
+    openGraph: {
+      title: `${ind.name_en} | Official Industrial Minerals | PT WEU`,
+      description: ind.overview_en.slice(0, 160),
+      url: `${BASE}/en/industries/${ind.slug_en || ind.slug_id}`,
+      siteName: 'PT Wira Energi Utama',
+      images: [{ url: ind.hero_bg, width: 1200, height: 630, alt: ind.name_en }],
+      locale: 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${ind.name_en} | PT Wira Energi Utama`,
+      description: ind.overview_en.slice(0, 160),
+      images: [ind.hero_bg],
+    }
   };
 }
 
-export default async function EnIndustriesPage({ params }: Props) {
+export default async function IndustriPage_EN({ params }: Props) {
   const { slug } = await params;
-  const ind = industriesFullBySlugEN[slug];
+  const ind = industriesFull.find(i => i.slug_en === slug || i.slug_id === slug);
   if (!ind) notFound();
-  const BASE = 'https://ptweu.company';
-  const schema = {
-    '@context': 'https://schema.org', '@type': 'Service',
-    name: ind.name_en, description: ind.overview_en.slice(0, 200),
-    provider: { '@type': 'Organization', name: 'PT Wira Energi Utama', url: BASE },
-    areaServed: 'Indonesia', serviceType: ind.name_en,
+
+  const BASE = 'https://wiraenergiutama.com';
+  
+  // 🧭 SEO MAXIMIZE: BREADCRUMB SCHEMA (EN)
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': BASE },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Industries', 'item': `${BASE}/en/industries` },
+      { '@type': 'ListItem', 'position': 3, 'name': ind.name_en, 'item': `${BASE}/en/industries/${slug}` }
+    ]
+  };
+
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: ind.name_en,
+    description: ind.overview_en.slice(0, 200),
+    provider: { '@id': `${BASE}/#organization` },
+    areaServed: 'Indonesia',
+    serviceType: ind.name_en,
   };
   const CheckIcon = () => (<svg className="w-5 h-5 text-[#C8A84B] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>);
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       {/* HERO */}
       <section className="relative bg-[#0A1628] min-h-[55vh] flex items-end overflow-hidden" aria-label={`Hero - ${ind.name_en}`}>
         <Image 

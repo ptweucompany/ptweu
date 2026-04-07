@@ -5,16 +5,16 @@ export const metadata: Metadata = {
   description: 'Ikuti berita terbaru, artikel teknis, dan wawasan industri dari PT Wira Energi Utama. Topik: pertambangan batu kapur, inovasi mineral, regulasi lingkungan, dan lebih.',
   keywords: ['blog tambang Indonesia', 'berita industri batu kapur', 'artikel mineral industri', 'PT WEU news', 'pertambangan Sulawesi Utara'],
   alternates: {
-    canonical: 'https://ptweu.company/blog',
+    canonical: 'https://wiraenergiutama.com/blog',
     languages: {
-      'id': 'https://ptweu.company/blog',
-      'en': 'https://ptweu.company/blog',
+      'id': 'https://wiraenergiutama.com/blog',
+      'en': 'https://wiraenergiutama.com/blog',
     },
   },
   openGraph: {
     title: 'Blog & Berita | PT Wira Energi Utama',
     description: 'Berita dan artikel terbaru dari industri pertambangan batu kapur dan mineral Indonesia.',
-    url: 'https://ptweu.company/blog',
+    url: 'https://wiraenergiutama.com/blog',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Blog PT Wira Energi Utama' }],
   },
   twitter: {

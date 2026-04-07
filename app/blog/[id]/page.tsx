@@ -14,28 +14,37 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const post = translations.id.advancedBlog.posts.find((p) => p.id === id);
-  
-  if (!post) return { title: 'Blog | PT Wira Energi Utama' };
+  if (!post) return { title: 'Industrial Blog | PT Wira Energi Utama' };
+
+  const BASE = 'https://wiraenergiutama.com';
 
   return {
-    title: `${post.title} | Blog PT Wira Energi Utama`,
+    title: `${post.title} | Wira Energi Utama Insights`,
     description: post.excerpt,
+    keywords: [post.category, 'industrial mineral blog', 'mining news Indonesia', 'PT WEU updates', post.title],
+    alternates: {
+      canonical: `${BASE}/blog/${id}`,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      images: [post.image],
+      url: `${BASE}/blog/${id}`,
+      siteName: 'PT Wira Energi Utama',
+      images: [{ url: post.image, width: 1200, height: 630, alt: post.title }],
+      locale: 'id_ID',
+      type: 'article',
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [post.image],
+    }
   };
 }
 
 export default async function BlogDetailPage({ params }: Props) {
   const { id } = await params;
-  
-  // For dynamic pages, we often need to fetch based on current language,
-  // but since we're in a server component with no context, we default to ID
-  // or use a custom logic. Here we'll default to the ID translation for the static build.
-  // In a real app, you might use middleware or a language prefix in the URL.
-  
   const post = translations.id.advancedBlog.posts.find((p) => p.id === id);
   const heroT = translations.id.advancedBlog.hero;
 
@@ -47,5 +56,35 @@ export default async function BlogDetailPage({ params }: Props) {
     );
   }
 
-  return <AdvancedBlogDetail post={post} heroT={heroT} />;
+  const BASE = 'https://wiraenergiutama.com';
+
+  // 🧭 SEO MAXIMIZE: BREADCRUMB & ARTICLE SCHEMA
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': BASE },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Blog', 'item': `${BASE}/blog` },
+      { '@type': 'ListItem', 'position': 3, 'name': post.title, 'item': `${BASE}/blog/${id}` }
+    ]
+  };
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    image: `${BASE}${post.image}`,
+    author: { '@type': 'Organization', name: 'PT Wira Energi Utama', url: BASE },
+    publisher: { '@id': `${BASE}/#organization` },
+    datePublished: '2026-04-07', // Use current date for these new rich blog posts
+  };
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <AdvancedBlogDetail post={post} heroT={heroT} />
+    </>
+  );
 }

@@ -12,7 +12,7 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-const enT = fullT.en;
+const enT = { ...fullT.id, ...fullT.en } as any;
 
 const slugToId: Record<string, string> = {
   'limestone': 'limestone',
@@ -27,25 +27,46 @@ export async function generateStaticParams() {
   return productSlugsEN.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const productId = slugToId[slug];
   const product = (enT.productPages as any)[productId];
   if (!product) return {};
-  
-  const BASE = 'https://ptweu.company';
+
+  const BASE = 'https://wiraenergiutama.com';
+
   return {
-    title: `${product.hero.title} | PT Wira Energi Utama — North Sulawesi, Indonesia`,
-    description: product.description.slice(0, 155),
+    title: `${product.hero.title} | Premium Industrial Mineral | PT Wira Energi Utama`,
+    description: product.description.slice(0, 160),
+    keywords: [
+      product.hero.title, 
+      `high-purity ${product.hero.title} supplier`, 
+      'industrial mineral exporter Indonesia', 
+      'PT WEU global partners', 
+      'calcium carbonate manufacturer'
+    ],
     alternates: {
       canonical: `${BASE}/en/products/${slug}`,
+      languages: {
+        'id-ID': `${BASE}/produk/${slug.replace('limestone', 'batu-kapur').replace('caco3', 'kalsium-karbonat').replace('burn-lime', 'kapur-bakar').replace('hydrated-lime', 'kapur-padam').replace('aggregate', 'agregat')}`,
+        'en-US': `${BASE}/en/products/${slug}`,
+      },
     },
     openGraph: {
       title: `${product.hero.title} | PT Wira Energi Utama`,
-      description: product.description.slice(0, 155),
+      description: product.description.slice(0, 160),
       url: `${BASE}/en/products/${slug}`,
+      siteName: 'PT Wira Energi Utama',
       images: [{ url: product.hero.image, width: 1200, height: 630, alt: product.hero.title }],
+      locale: 'en_US',
+      type: 'website',
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${product.hero.title} | PT Wira Energi Utama`,
+      description: product.description.slice(0, 160),
+      images: [product.hero.image],
+    }
   };
 }
 
@@ -55,7 +76,18 @@ export default async function EnProductDetailPage({ params }: Props) {
   const product = (enT.productPages as any)[productId];
   if (!product) notFound();
 
-  const BASE = 'https://ptweu.company';
+  const BASE = 'https://wiraenergiutama.com';
+  
+  // 🧭 SEO MAXIMIZE: BREADCRUMB SCHEMA (EN)
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': BASE },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Products', 'item': `${BASE}/en/products` },
+      { '@type': 'ListItem', 'position': 3, 'name': product.hero.title, 'item': `${BASE}/en/products/${slug}` }
+    ]
+  };
 
   const productSchema = {
     '@context': 'https://schema.org',

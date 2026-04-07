@@ -8,17 +8,17 @@ export const metadata: Metadata = {
   title: 'Hubungi Kami | Inquiry Mineral Industri — PT Wira Energi Utama',
   description: 'Kirim inquiry untuk batu kapur, CaCO3, kapur bakar, kapur padam, dan PCC. Tim teknis PT WEU siap membantu kebutuhan mineral industri Anda dengan respon cepat.',
   alternates: {
-    canonical: 'https://ptweu.company/kontak',
-    languages: { id: 'https://ptweu.company/kontak', en: 'https://ptweu.company/en/contact' },
+    canonical: 'https://wiraenergiutama.com/kontak',
+    languages: { id: 'https://wiraenergiutama.com/kontak', en: 'https://wiraenergiutama.com/en/contact' },
   },
   openGraph: {
     title: 'Hubungi PT Wira Energi Utama | Inquiry Mineral Industri',
     description: 'Submit inquiry dan dapatkan penawaran harga mineral industri dari sumber terpercaya Sulawesi Utara.',
-    url: 'https://ptweu.company/kontak',
+    url: 'https://wiraenergiutama.com/kontak',
   },
 };
 
-const BASE = 'https://ptweu.company';
+const BASE = 'https://wiraenergiutama.com';
 
 const contactSchema = {
   '@context': 'https://schema.org',
@@ -30,7 +30,7 @@ const contactSchema = {
     '@type': 'Organization',
     name: company.legal_name,
     telephone: '+62-0434-260-3008',
-    email: 'contact@ptweu.company',
+    email: 'contact@wiraenergiutama.com',
     url: BASE,
     contactPoint: {
       '@type': 'ContactPoint',
@@ -117,7 +117,7 @@ export default function KontakPage() {
                 </div>
               </a>
 
-              <a href="mailto:contact@ptweu.company"
+              <a href="mailto:contact@wiraenergiutama.com"
                 className="flex items-center gap-5 bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-[#C8A84B]/30 transition-colors">
                 <div className="w-14 h-14 bg-[#C8A84B] rounded-xl flex items-center justify-center flex-shrink-0">
                   <svg className="w-7 h-7 text-[#0A1628]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -126,7 +126,7 @@ export default function KontakPage() {
                 </div>
                 <div>
                   <p className="text-white font-bold">Email</p>
-                  <p className="text-[#C8A84B] font-semibold">contact@ptweu.company</p>
+                  <p className="text-[#C8A84B] font-semibold">contact@wiraenergiutama.com</p>
                   <p className="text-gray-400 text-xs">Respon dalam 1 hari kerja</p>
                 </div>
               </a>

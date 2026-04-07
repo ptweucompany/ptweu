@@ -24,10 +24,10 @@ export const metadata: Metadata = {
   title: 'PT Wira Energi Utama | Supplier Batu Kapur & CaCO3 Industri — Sulawesi Utara',
   description: 'Produsen dan supplier batu kapur (limestone), CaCO3, kapur bakar, kapur padam, dan PCC berkualitas tinggi. Produksi 150.000 MT/bulan, distribusi via Pelabuhan Bitung. IUP OP resmi dari Sulawesi Utara.',
   alternates: {
-    canonical: 'https://ptweu.company',
+    canonical: 'https://wiraenergiutama.com',
     languages: {
-      id: 'https://ptweu.company',
-      en: 'https://ptweu.company/en',
+      id: 'https://wiraenergiutama.com',
+      en: 'https://wiraenergiutama.com/en',
     },
   },
 };

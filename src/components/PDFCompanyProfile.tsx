@@ -70,7 +70,7 @@ const PDFCompanyProfile = forwardRef<HTMLDivElement, PDFCompanyProfileProps>(({ 
           </div>
           <div className="text-right">
              <p style={{ color: colors.brandGold }} className="text-xl font-black uppercase tracking-[0.2em] mb-4">ESTABLISHED 2019</p>
-             <p className="text-4xl font-black tracking-tighter">WWW.PTWEU.COMPANY</p>
+             <p className="text-4xl font-black tracking-tighter">WWW.WIRAENERGIUTAMA.COM</p>
           </div>
         </div>
       </div>
