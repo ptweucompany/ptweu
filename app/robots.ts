@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 
 export const dynamic = 'force-static';
 
-const BASE_URL = 'https://wiraenergiutama.com';
+const BASE_URL = process.env.APP_URL || 'https://wiraenergiutama.com';
 
 export default function robots(): MetadataRoute.Robots {
   return {

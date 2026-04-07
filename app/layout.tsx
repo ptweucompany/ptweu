@@ -13,7 +13,7 @@ const inter = Inter({
   display: 'swap',
 });
 
-const BASE_URL = 'https://wiraenergiutama.com';
+const BASE_URL = process.env.APP_URL || 'https://wiraenergiutama.com';
 
 export const viewport: Viewport = {
   themeColor: '#C8A84B',

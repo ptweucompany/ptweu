@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 
 export const dynamic = 'force-static';
 
-const BASE = 'https://wiraenergiutama.com';
+const BASE = process.env.APP_URL || 'https://wiraenergiutama.com';
 const MOD = new Date('2026-04-07T00:00:00Z');
 
 // 🔧 PART 1 — SITEMAP OPTIMIZATION (CONTROLLED SLUGS)

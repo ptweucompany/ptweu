@@ -1220,13 +1220,90 @@ export const translations: { id: Translation; en: Partial<Translation> & Record<
       title: 'Galeri Proyek & Operasional',
       subtitle: 'Tinjauan mendalam tentang fasilitas lapangan, infrastruktur distribusi, dan armada tambang kami.',
       images: [
-        '/office-kota.webp',
-        '/office-manado.webp',
-        '/mining-bg.webp',
-        '/Hero.webp',
-        '/about-hero.webp',
-        '/history.webp'
+        '/Foto webp/IMG_1135.webp',
+        '/Foto webp/IMG_1136.webp',
+        '/Foto webp/IMG_1138.webp',
+        '/Foto webp/IMG_1139.webp',
+        '/Foto webp/IMG_1141.webp',
+        '/Foto webp/IMG_1142.webp',
+        '/Foto webp/IMG_1144.webp',
+        '/Foto webp/IMG_1146.webp',
+        '/Foto webp/IMG_1148.webp',
+        '/Foto webp/IMG_1149.webp',
+        '/Foto webp/IMG_1154.webp',
+        '/Foto webp/IMG_1156.webp',
+        '/Foto webp/IMG_1160.webp',
+        '/Foto webp/IMG_1162.webp',
+        '/Foto webp/IMG_1163.webp',
+        '/Foto webp/IMG_1165.webp',
+        '/Foto webp/IMG_1167.webp',
+        '/Foto webp/IMG_1170.webp',
+        '/Foto webp/IMG_1172.webp',
+        '/Foto webp/IMG_1176.webp',
+        '/Foto webp/IMG_1180.webp',
+        '/Foto webp/IMG_1186.webp',
+        '/Foto webp/IMG_1200.webp',
+        '/Foto webp/IMG_1212.webp',
+        '/Foto webp/IMG_1216.webp',
+        '/Foto webp/IMG_1221.webp',
+        '/Foto webp/IMG_1224.webp'
       ]
+    },
+    advancedSustainability: {
+      hero: {
+        title: 'Komitmen Masa Depan',
+        subtitle: 'Sustainabilty & ESG Framework',
+        description: 'Membangun warisan positif melalui pertambangan yang bertanggung jawab, pemulihan ekosistem, dan pemberdayaan masyarakat lokal.',
+        image: '/Foto webp/IMG_1135.webp'
+      },
+      environment: {
+        title: 'Manajemen Lingkungan',
+        description: 'Kami menerapkan standar ketat untuk meminimalkan dampak operasional terhadap ekosistem sekitar melalui pemantauan kualitas air, udara, dan keanekaragaman hayati secara berkala.',
+        image: '/Foto webp/IMG_1138.webp',
+        metrics: [
+          { label: 'Kualitas Air', value: '100% Baku Mutu', icon: 'Activity' },
+          { label: 'Emisi Karbon', value: '-15% Efisiensi', icon: 'Zap' },
+          { label: 'Energi Terbarukan', value: 'Solar Ready', icon: 'Sun' }
+        ]
+      },
+      reclamation: {
+        title: 'Strategi Reklamasi',
+        subtitle: 'Restorasi Ekosistem Pasca Tambang',
+        content: 'Program reklamasi kami bukan sekadar memenuhi regulasi, tetapi upaya aktif mengembalikan fungsi ekologis lahan tambang menjadi area hijau yang produktif.',
+        steps: [
+          { title: 'Penataan Lahan', desc: 'Rekontruksi topografi sesuai rencana tata ruang.', icon: 'Move' },
+          { title: 'Penyebaran Top Soil', desc: 'Pemulihan lapisan tanah subur untuk vegetasi.', icon: 'Sprout' },
+          { title: 'Revegetasi', desc: 'Penanaman bibit pohon endemik lokal secara masif.', icon: 'Trees' },
+          { title: 'Pemeliharaan', desc: 'Monitoring berkala hingga ekosistem mandiri terbentuk.', icon: 'CheckCircle' }
+        ]
+      },
+      community: {
+        title: 'Pemberdayaan Masyarakat',
+        subtitle: 'CSR & Dampak Sosial Positif',
+        content: 'Kami tumbuh bersama masyarakat lokal melalui inisiatif pendidikan, kesehatan, dan pengembangan ekonomi kerakyatan di sekitar area operasional.',
+        highlights: [
+          { title: 'Pendidikan', desc: 'Beasiswa dan bantuan fasilitas sekolah lokal.', icon: 'GraduationCap' },
+          { title: 'Kesehatan', desc: 'Layanan kesehatan gratis dan edukasi sanitasi.', icon: 'HeartPulse' },
+          { title: 'Ekonomi', desc: 'Pendampingan UMKM dan penyerapan tenaga kerja lokal.', icon: 'TrendingUp' }
+        ]
+      },
+      esg: {
+        title: 'Kinerja ESG',
+        subtitle: 'Environmental, Social, & Governance',
+        metrics: [
+          { label: 'Area Hijau', value: '97.05 Ha', trend: 'stable' },
+          { label: 'Local Hiring', value: '85%', trend: 'up' },
+          { label: 'Zero Accident', value: '100%', trend: 'stable' }
+        ]
+      },
+      certifications: {
+        title: 'Standar & Sertifikasi',
+        items: [
+          { name: 'ISO 14001:2015', issuer: 'Environmental Management', year: 'Target 2026' },
+          { name: 'SMK3 Minerba', issuer: 'Kementerian ESDM', year: 'Active' },
+          { name: 'UKL-UPL', issuer: 'Dinas Lingkungan Hidup', year: 'Active' }
+        ]
+      }
     }
   },
   en: {
@@ -1584,13 +1661,90 @@ export const translations: { id: Translation; en: Partial<Translation> & Record<
       title: 'Project & Operational Gallery',
       subtitle: 'An in-depth look at our field facilities, distribution infrastructure, and mining fleet.',
       images: [
-        '/office-kota.webp',
-        '/office-manado.webp',
-        '/mining-bg.webp',
-        '/Hero.webp',
-        '/about-hero.webp',
-        '/history.webp'
+        '/Foto webp/IMG_1135.webp',
+        '/Foto webp/IMG_1136.webp',
+        '/Foto webp/IMG_1138.webp',
+        '/Foto webp/IMG_1139.webp',
+        '/Foto webp/IMG_1141.webp',
+        '/Foto webp/IMG_1142.webp',
+        '/Foto webp/IMG_1144.webp',
+        '/Foto webp/IMG_1146.webp',
+        '/Foto webp/IMG_1148.webp',
+        '/Foto webp/IMG_1149.webp',
+        '/Foto webp/IMG_1154.webp',
+        '/Foto webp/IMG_1156.webp',
+        '/Foto webp/IMG_1160.webp',
+        '/Foto webp/IMG_1162.webp',
+        '/Foto webp/IMG_1163.webp',
+        '/Foto webp/IMG_1165.webp',
+        '/Foto webp/IMG_1167.webp',
+        '/Foto webp/IMG_1170.webp',
+        '/Foto webp/IMG_1172.webp',
+        '/Foto webp/IMG_1176.webp',
+        '/Foto webp/IMG_1180.webp',
+        '/Foto webp/IMG_1186.webp',
+        '/Foto webp/IMG_1200.webp',
+        '/Foto webp/IMG_1212.webp',
+        '/Foto webp/IMG_1216.webp',
+        '/Foto webp/IMG_1221.webp',
+        '/Foto webp/IMG_1224.webp'
       ]
+    },
+    advancedSustainability: {
+      hero: {
+        title: 'Future Commitment',
+        subtitle: 'Sustainability & ESG Framework',
+        description: 'Building a positive legacy through responsible mining, ecosystem restoration, and local community empowerment.',
+        image: '/Foto webp/IMG_1135.webp'
+      },
+      environment: {
+        title: 'Environmental Management',
+        description: 'We implement strict standards to minimize operational impacts on surrounding ecosystems through regular monitoring of water, air quality, and biodiversity.',
+        image: '/Foto webp/IMG_1138.webp',
+        metrics: [
+          { label: 'Water Quality', value: '100% Compliance', icon: 'Activity' },
+          { label: 'Carbon Emission', value: '-15% Efficiency', icon: 'Zap' },
+          { label: 'Renewable Energy', value: 'Solar Ready', icon: 'Sun' }
+        ]
+      },
+      reclamation: {
+        title: 'Reclamation Strategy',
+        subtitle: 'Post-Mining Ecosystem Restoration',
+        content: 'Our reclamation program is not just about meeting regulations, but an active effort to restore the ecological function of mining lands into productive green areas.',
+        steps: [
+          { title: 'Land Contour', desc: 'Topographic reconstruction according to spatial plans.', icon: 'Move' },
+          { title: 'Top Soil Spreading', desc: 'Restoring fertile soil layers for vegetation.', icon: 'Sprout' },
+          { title: 'Revegetation', desc: 'Massive planting of local endemic tree seedlings.', icon: 'Trees' },
+          { title: 'Maintenance', desc: 'Regular monitoring until a self-sustaining ecosystem is formed.', icon: 'CheckCircle' }
+        ]
+      },
+      community: {
+        title: 'Community Empowerment',
+        subtitle: 'CSR & Positive Social Impact',
+        content: 'We grow together with local communities through initiatives in education, health, and local economic development around the operational areas.',
+        highlights: [
+          { title: 'Education', desc: 'Scholarships and assistance for local school facilities.', icon: 'GraduationCap' },
+          { title: 'Health', desc: 'Free healthcare services and sanitation education.', icon: 'HeartPulse' },
+          { title: 'Economy', desc: 'SME mentoring and local labor absorption.', icon: 'TrendingUp' }
+        ]
+      },
+      esg: {
+        title: 'ESG Performance',
+        subtitle: 'Environmental, Social, & Governance',
+        metrics: [
+          { label: 'Green Area', value: '97.05 Ha', trend: 'stable' },
+          { label: 'Local Hiring', value: '85%', trend: 'up' },
+          { label: 'Zero Accident', value: '100%', trend: 'stable' }
+        ]
+      },
+      certifications: {
+        title: 'Standards & Certifications',
+        items: [
+          { name: 'ISO 14001:2015', issuer: 'Environmental Management', year: 'Target 2026' },
+          { name: 'SMK3 Minerba', issuer: 'ESDM Ministry', year: 'Active' },
+          { name: 'UKL-UPL', issuer: 'Environmental Agency', year: 'Active' }
+        ]
+      }
     }
   }
 };

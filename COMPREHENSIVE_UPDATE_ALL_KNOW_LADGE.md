@@ -143,6 +143,8 @@ Route (app)
 ├ ● /produk/[slug]              (ID Produk Deep-dive)
 ├ ○ /robots.txt                 (Crawler Policy)
 ├ ○ /sitemap.xml                (Search Index Index)
+├ ○ /sustainability             (EN Sustainability)
+├ ○ /berkelanjutan              (ID Keberlanjutan)
 └ ○ /tentang-kami               (ID Tentang Kami)
 ```
 
@@ -206,9 +208,20 @@ Route (app)
     - **Static-First Baseline**: Verified the performance of 65+ prerendered pages utilizing Next.js `output: 'export'`, guaranteeing zero-latency delivery.
 
 ### Build Metrics (Production Final)
-- **Total Prerendered Pages:** 67+
+- **Total Prerendered Pages:** 69+
 - **Build Outcome:** **SUCCESSFUL** ✅
 - **Database Status:** Connected (Supabase)
 - **PDF Reliability Status:** 100% Stable (Hex-Fallback Mode)
 
-*Last Updated: April 7, 2026 (Completion of PDF Hardening & Production Push)*
+## 15. Recent Upgrades (April 7, 2026 - Sustainability & Gallery Refinement)
+- **Sustainability Web Portal (ESG Hub)**:
+    - Implemented a dedicated Sustainability architecture featuring **AdvancedSustainability.tsx**.
+    - Sections include: **Ecosystem Restoration (Reclamation Strategy)**, **Community Empowerment (CSR)**, and **Environmental Management Dashboard**.
+    - Integrated with `translations.ts` for full ID/EN parity across `/sustainability` and `/berkelanjutan`.
+- **Operational Gallery Hardening**:
+    - Replaced existing gallery assets with a high-definition set of 27 images from the `/public/Foto webp` directory.
+    - Optimized the `PhotoSlider.tsx` component to handle the expanded image array across the Corporate Profile and About pages.
+- **Project Documentation Integrity**:
+    - Updated `COMPREHENSIVE_UPDATE_ALL_KNOW_LADGE.md` to reflect the latest 69+ page routing topology and internal link mapping.
+
+*Last Updated: April 7, 2026 (Completion of Sustainability Portal & Gallery Refresh)*

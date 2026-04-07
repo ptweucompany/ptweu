@@ -7,6 +7,7 @@ const nextConfig = {
   reactStrictMode: true,
   env: {
     GEMINI_API_KEY: process.env.GEMINI_API_KEY,
+    APP_URL: process.env.APP_URL,
   },
 };
 

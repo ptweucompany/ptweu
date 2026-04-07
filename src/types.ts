@@ -228,6 +228,7 @@ export interface Translation {
   advancedCatalog: AdvancedCatalogData;
   advancedBlog: AdvancedBlogData;
   advancedContact: AdvancedContactData;
+  advancedSustainability: AdvancedSustainabilityData;
   privacy: {
     title: string;
     lastUpdated: string;
@@ -346,4 +347,35 @@ export interface AdvancedGovernanceData {
   legal: { title: string; subtitle: string; items: { label: string; value: string }[] };
   safety: { title: string; content: string; kpis: { label: string; value: string }[] };
   environmental: { title: string; content: string; metrics: { label: string; value: string }[] };
+}
+
+export interface AdvancedSustainabilityData {
+  hero: { title: string; subtitle: string; description: string; image: string };
+  environment: {
+    title: string;
+    description: string;
+    image: string;
+    metrics: { label: string; value: string; icon: string }[];
+  };
+  reclamation: {
+    title: string;
+    subtitle: string;
+    content: string;
+    steps: { title: string; desc: string; icon: string }[];
+  };
+  community: {
+    title: string;
+    subtitle: string;
+    content: string;
+    highlights: { title: string; desc: string; icon: string }[];
+  };
+  esg: {
+    title: string;
+    subtitle: string;
+    metrics: { label: string; value: string; trend: 'up' | 'down' | 'stable' }[];
+  };
+  certifications: {
+    title: string;
+    items: { name: string; issuer: string; year: string }[];
+  };
 }
