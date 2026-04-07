@@ -100,15 +100,15 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/2.webp', sizes: 'any', type: 'image/webp' },
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
+      { url: '/2.webp?v=1.0.4', sizes: 'any', type: 'image/webp' },
+      { url: '/favicon.ico?v=1.0.4', sizes: 'any' },
+      { url: '/icon.png?v=1.0.4', type: 'image/png', sizes: '32x32' },
     ],
     apple: [
-      { url: '/2.webp', sizes: '180x180', type: 'image/webp' },
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/2.webp?v=1.0.4', sizes: '180x180', type: 'image/webp' },
+      { url: '/apple-touch-icon.png?v=1.0.4', sizes: '180x180', type: 'image/png' },
     ],
-    shortcut: '/favicon.ico',
+    shortcut: '/favicon.ico?v=1.0.4',
   },
   manifest: '/site.webmanifest',
   robots: {
