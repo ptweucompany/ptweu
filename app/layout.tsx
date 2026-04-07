@@ -100,16 +100,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/2.webp', sizes: 'any' },
-      { url: '/2.webp', type: 'image/webp' },
+      { url: '/2.webp', sizes: 'any', type: 'image/webp' },
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/icon.png', type: 'image/png', sizes: '32x32' },
-      { url: '/icon.png', type: 'image/png', sizes: '48x48' },
-      { url: '/icon.png', type: 'image/png', sizes: '96x96' },
-      { url: '/icon.png', type: 'image/png', sizes: '192x192' },
-      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
     ],
     apple: [
       { url: '/2.webp', sizes: '180x180', type: 'image/webp' },
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
     shortcut: '/favicon.ico',
   },
