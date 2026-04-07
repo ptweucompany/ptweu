@@ -53,33 +53,31 @@ export default function CompanyProfile({ t }: CompanyProfileProps) {
             (el as HTMLElement).style.display = 'none';
           });
 
-          // 2. Comprehensive CSS Sanitization for Tailwind 4 / Modern Colors
-          // This is critical to prevent the "lab()" parsing crash
-          const allElements = clonedDoc.querySelectorAll('*');
-          allElements.forEach((el) => {
+          // 2. Aggressive CSS Sanitization for Modern Colors (OKLCH, LAB, etc.)
+          clonedDoc.querySelectorAll('*').forEach((el) => {
             const htmlEl = el as HTMLElement;
             if (!htmlEl.style) return;
 
-            // Map of common Tailwind 4 colors used in PT WEU to safe HEX
-            const style = window.getComputedStyle(htmlEl);
+            const computedStyle = window.getComputedStyle(htmlEl);
+            const properties = ['color', 'backgroundColor', 'borderColor', 'outlineColor', 'fill', 'stroke'];
             
-            // Fix text colors
-            if (style.color.includes('oklch') || style.color.includes('lab')) {
-              // Default to brand blue if text is dark, brand gold if light
-              htmlEl.style.setProperty('color', '#0A1628', 'important');
-            }
-            
-            // Fix background colors
-            if (style.backgroundColor.includes('oklch') || style.backgroundColor.includes('lab')) {
-                if (htmlEl.classList.contains('bg-brand-blue')) htmlEl.style.backgroundColor = '#0A1628';
-                else if (htmlEl.classList.contains('bg-brand-gold')) htmlEl.style.backgroundColor = '#C8A84B';
-                else htmlEl.style.backgroundColor = 'transparent';
-            }
-
-            // Fix border colors
-            if (style.borderColor.includes('oklch') || style.borderColor.includes('lab')) {
-              htmlEl.style.borderColor = '#e5e7eb';
-            }
+            properties.forEach(prop => {
+              const value = (computedStyle as any)[prop];
+              if (value && (value.includes('oklch') || value.includes('lab') || value.includes('oklab') || value.includes('lch'))) {
+                // Fallback to absolute colors based on class or default
+                if (prop === 'backgroundColor') {
+                  if (htmlEl.classList.contains('bg-brand-blue')) htmlEl.style.backgroundColor = '#0A1628';
+                  else if (htmlEl.classList.contains('bg-brand-gold')) htmlEl.style.backgroundColor = '#C8A84B';
+                  else htmlEl.style.backgroundColor = 'transparent';
+                } else if (prop === 'color') {
+                  if (htmlEl.classList.contains('text-brand-gold')) htmlEl.style.color = '#C8A84B';
+                  else if (htmlEl.classList.contains('text-brand-blue')) htmlEl.style.color = '#0A1628';
+                  else htmlEl.style.color = '#0A1628'; // Default dark
+                } else {
+                  htmlEl.style.setProperty(prop, 'inherit', 'important');
+                }
+              }
+            });
           });
 
           // 3. Inject print-specific styles

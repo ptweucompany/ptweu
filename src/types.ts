@@ -222,6 +222,7 @@ export interface Translation {
     burnLime: ProductPageData;
     hydratedLime: ProductPageData;
     pcc: ProductPageData;
+    agregat: ProductPageData;
   };
   advancedAbout: AdvancedAboutData;
   advancedCatalog: AdvancedCatalogData;
@@ -258,6 +259,7 @@ export interface AdvancedCatalogData {
     title: string; 
     description: string; 
     items: { 
+      id?: string;
       name: string; 
       specs: string; 
       tags: string[];
@@ -288,6 +290,12 @@ export interface AdvancedContactData {
 }
 
 export interface ProductPageData {
+  id: string;
+  category: 'raw' | 'processed' | 'advanced';
+  description: string;
+  parent?: string;
+  size_variants?: string[];
+  derivatives?: string[];
   hero: {
     title: string;
     subtitle: string;

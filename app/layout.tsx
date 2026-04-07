@@ -267,6 +267,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://edxawclzktunjdxsirpv.supabase.co" />
+        <link rel="dns-prefetch" href="https://edxawclzktunjdxsirpv.supabase.co" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={`${inter.className} min-h-screen font-sans text-gray-900 bg-white`}>

@@ -410,6 +410,11 @@ export const translations: Record<'id' | 'en', Translation> = {
     },
     productPages: {
       limestone: {
+        id: 'limestone',
+        category: 'raw',
+        description: 'Material dasar esensial dari formasi kalsium karbonat tinggi untuk berbagai proses peleburan dan manufaktur industri.',
+        size_variants: ['0–5 mm', '5–10 mm', '10–30 mm', '30–80 mm', 'Custom'],
+        derivatives: ['caco3', 'burnLime', 'hydratedLime', 'pcc'],
         hero: {
           title: 'Batu Kapur Premium',
           subtitle: 'Kualitas Tinggi dari Ratatotok',
@@ -487,6 +492,12 @@ export const translations: Record<'id' | 'en', Translation> = {
         }
       },
       caco3: {
+        id: 'caco3',
+        category: 'processed',
+        description: 'Tepung kalsium karbonat giling halus dengan kecerahan tinggi untuk aplikasi filler industri.',
+        parent: 'limestone',
+        size_variants: ['400 mesh', '800 mesh', '1.250 mesh', '2.500 mesh'],
+        derivatives: ['pcc'],
         hero: {
           title: 'Kalsium Karbonat (CaCO3)',
           subtitle: 'Presisi Ukuran untuk Industri Kreatif',
@@ -563,6 +574,12 @@ export const translations: Record<'id' | 'en', Translation> = {
         }
       },
       burnLime: {
+        id: 'burnLime',
+        category: 'processed',
+        description: 'Kalsium oksida aktif untuk reaktivitas tinggi dalam proses industri termasuk peleburan dan pengolahan gas.',
+        parent: 'limestone',
+        size_variants: ['Lumpy 10–50 mm', 'Serbuk'],
+        derivatives: ['hydratedLime'],
         hero: {
           title: 'Kapur Bakar (Quicklime)',
           subtitle: 'Energi Kimia untuk Reaksi Cepat',
@@ -639,6 +656,12 @@ export const translations: Record<'id' | 'en', Translation> = {
         }
       },
       hydratedLime: {
+        id: 'hydratedLime',
+        category: 'processed',
+        description: 'Tepung kalsium hidroksida halus untuk pengolahan air dan aplikasi lingkungan dengan efisiensi tinggi.',
+        parent: 'burnLime',
+        size_variants: ['325 mesh (standar)', 'Ultra-fine'],
+        derivatives: [],
         hero: {
           title: 'Kapur Padam (Hydrated Lime)',
           subtitle: 'Larutan Murni untuk Lingkungan',
@@ -715,6 +738,12 @@ export const translations: Record<'id' | 'en', Translation> = {
         }
       },
       pcc: {
+        id: 'pcc',
+        category: 'advanced',
+        description: 'Kalsium karbonat presipitasi kemurnian sangat tinggi dengan kontrol kristal molekuler untuk grade industri khusus.',
+        parent: 'caco3',
+        size_variants: ['Nano-size', 'Micron-size'],
+        derivatives: [],
         hero: {
           title: 'Precipitated Calcium Carbonate (PCC)',
           subtitle: 'Kemurnian Molekuler untuk Industri Khusus',
@@ -788,6 +817,81 @@ export const translations: Record<'id' | 'en', Translation> = {
           subtitle: 'Tingkatkan kualitas produk unggulan Anda dengan Precipitated Calcium Carbonate kami.',
           button: 'HUBUNGI DIVISI TEKNIS',
           whatsapp: 'WhatsApp Tim Ahli'
+        }
+      },
+      agregat: {
+        id: 'agregat',
+        category: 'processed',
+        description: 'Agregat batu pecah berkualitas tinggi memenuhi standar SNI 1750 untuk infrastruktur tahan lama dan aplikasi beton mutu tinggi.',
+        size_variants: ['1–2 cm (Split)', '2–3 cm (Split)', 'Base Course', 'Screening'],
+        derivatives: [],
+        hero: {
+          title: 'Agregat Beton SNI',
+          subtitle: 'Kekuatan Struktural Maksimal',
+          description: 'Material batuan keras hasil proses crushing presisi untuk daya tahan konstruksi jangka panjang.',
+          image: '/products/agregat-beton.png'
+        },
+        stats: [
+          { label: 'Standar', value: 'SNI 1750', icon: 'ShieldCheck' },
+          { label: 'Bentuk', value: 'Kubikal', icon: 'Layers' },
+          { label: 'Abrasi', value: '< 25%', icon: 'Zap' },
+          { label: 'Stok', value: 'Ready', icon: 'Package' }
+        ],
+        overview: {
+          title: 'Kualitas Agregat WEU',
+          content: 'Agregat beton kami diproses dari batuan andesit/basalt pilihan melalui sistem crusher tiga tahap untuk menghasilkan bentuk butiran kubikal yang ideal bagi campuran beton.',
+          features: [
+            'Bentuk butiran seragam (low elongation)',
+            'Permukaan bersih dari material organik',
+            'Ketahanan terhadap cuaca ekstrem',
+            'Tersedia berbagai ukuran fraksi'
+          ]
+        },
+        specifications: {
+          title: 'Analisis Teknis Agregat',
+          table: [
+            { label: 'Berat Jenis', value: '2.65 g/cm3' },
+            { label: 'Penyerapan Air', value: '1.2%' },
+            { label: 'Kadar Lumpur', value: '0.8%' },
+            { label: 'Impact Value', value: '18%' }
+          ],
+          chartData: [
+            { name: 'Solid', value: 98, color: '#0F3460' },
+            { name: 'Absorpsi', value: 2, color: '#FFD700' }
+          ]
+        },
+        applications: {
+          title: 'Aplikasi Konstruksi',
+          items: [
+            { title: 'Beton Ready Mix', desc: 'Material utama untuk beton struktural K-350 ke atas.', icon: 'Building' },
+            { title: 'Lapis Pondasi', desc: 'Stabilisasi jalan raya dan area beban berat.', icon: 'Construction' },
+            { title: 'Precast', desc: 'Pembuatan box culvert, u-ditch, dan tiang pancang.', icon: 'Factory' }
+          ]
+        },
+        process: {
+          title: 'Produksi Agregat',
+          steps: [
+            { title: 'Seleksi Batuan', desc: 'Pemilihan batuan keras dengan densitas tinggi.' },
+            { title: 'Triple Stage Crushing', desc: 'Proses pemecahan bertahap untuk menjaga kualitas bentuk.' },
+            { title: 'Washing System', desc: 'Pembersihan debu halus untuk memastikan ikatan beton kuat.' }
+          ]
+        },
+        quality: {
+          title: 'Standar Infrastruktur',
+          content: 'Setiap batch agregat diuji abrasi dan gradasi untuk memastikan ketahanan struktur bagi kontraktor.',
+          certs: ['Uji Laboratorium SNI', 'Sertifikat Bebas Lumpur', 'Analisis Gradasi Rutin']
+        },
+        faq: {
+          title: 'Pertanyaan Agregat',
+          items: [
+            { q: 'Ukuran apa saja yang tersedia?', a: 'Tersedia ukuran 1-2, 2-3, dan base course sesuai pesanan.' }
+          ]
+        },
+        cta: {
+          title: 'Bangun Proyek Anda dengan Kokoh',
+          subtitle: 'Dapatkan agregat berkualitas tinggi untuk proyek strategis nasional Anda.',
+          button: 'MINTA PENAWARAN',
+          whatsapp: 'Hubungi Logistik'
         }
       }
     },
@@ -869,26 +973,26 @@ export const translations: Record<'id' | 'en', Translation> = {
       },
       categories: [
         {
-          title: 'Industri Peleburan & Logam',
-          description: 'Material fluks dengan kemurnian tinggi untuk smelter.',
+          title: 'Industrial Crushing & Material Processing',
+          description: 'High-purity limestone materials engineered for smelting, construction, and industrial processing applications.',
           items: [
-            { name: 'Limestone Lumpy', specs: 'CaO > 55%, 40-150mm', tags: ['Smelter', 'Flux'], image: '/products/limestone-lumpy.png', details: ['High Calcium Content', 'Consistent Size Range', 'Low Silicate'] },
-            { name: 'Quicklime', specs: 'Active CaO > 90%', tags: ['Steel', 'Chemical'], image: '/products/burn-lime.png', details: ['Fast Reactivity', 'High Purity', 'Moisture Controlled'] }
+            { id: 'limestone', name: 'Limestone Lumpy', specs: 'CaO > 55%, 40-150mm', tags: ['Smelter', 'Flux'], image: '/products/limestone-lumpy.png', details: ['High Calcium Content', 'Consistent Size Range', 'Low Silicate'] },
+            { id: 'burnLime', name: 'Quicklime', specs: 'Active CaO > 90%', tags: ['Steel', 'Chemical'], image: '/products/burn-lime.png', details: ['Fast Reactivity', 'High Purity', 'Moisture Controlled'] }
           ]
         },
         {
           title: 'Konstruksi & Infrastruktur',
           description: 'Agregat standar SNI untuk daya tahan maksimal.',
           items: [
-            { name: 'Agregat Beton', specs: 'Sesuai SNI 1750', tags: ['Infrastruktur', 'Beton'], image: '/products/agregat-beton.png', details: ['Cubical Shape', 'Clean Surfaces', 'Vibrated Material'] }
+            { id: 'agregat', name: 'Agregat Beton', specs: 'Sesuai SNI 1750', tags: ['Infrastruktur', 'Beton'], image: '/products/agregat-beton.png', details: ['Cubical Shape', 'Clean Surfaces', 'Vibrated Material'] }
           ]
         },
         {
           title: 'Kalsium Karbonat (CaCO3)',
           description: 'Tepung mineral untuk kertas, plastik, and kimia.',
           items: [
-            { name: 'Tepung CaCO3', specs: 'D97 < 10 micron', tags: ['Plastic', 'Paper'], image: '/products/tepung-caco3.png', details: ['Ultra Fine Grinding', 'High Whiteness', 'Strict PSD Control'] },
-            { name: 'PCC Nanoscale', specs: 'Purity > 99%', tags: ['Pharma', 'Paint'], image: '/products/pcc-nanoscale.png', details: ['Precipitated Tech', 'Nano Particle Size', 'Pharma Grade'] }
+            { id: 'caco3', name: 'Tepung CaCO3', specs: 'D97 < 10 micron', tags: ['Plastic', 'Paper'], image: '/products/tepung-caco3.png', details: ['Ultra Fine Grinding', 'High Whiteness', 'Strict PSD Control'] },
+            { id: 'pcc', name: 'PCC Nanoscale', specs: 'Purity > 99%', tags: ['Pharma', 'Paint'], image: '/products/pcc-nanoscale.png', details: ['Precipitated Tech', 'Nano Particle Size', 'Pharma Grade'] }
           ]
         }
       ],
@@ -897,7 +1001,13 @@ export const translations: Record<'id' | 'en', Translation> = {
         items: [
           { name: 'Pembuatan Baja', usage: 'Penghilangan pengotor fosfor & sulfur', icon: 'Flame' },
           { name: 'Pengolahan Air', usage: 'Penyesuaian pH & koagulasi', icon: 'Droplets' },
-          { name: 'Kertas & Plastik', usage: 'Material pengisi (filler) kualitas tinggi', icon: 'Layers' }
+          { name: 'Kertas & Plastik', usage: 'Material pengisi (filler) kualitas tinggi', icon: 'Layers' },
+          { name: 'Batu Split (Aggregate)', usage: 'Material bangunan, ukuran 1.2 - 2.3 cm', icon: 'Construction' },
+          { name: 'PLTU (Power Plant)', usage: 'Desulfurisasi gas buang, ukuran > 3 cm', icon: 'Zap' },
+          { name: 'Industri Semen', usage: 'Bahan klinker semen Portland berkualitas', icon: 'Factory' },
+          { name: 'Pertanian & Perikanan', usage: 'Penetral keasaman tanah & air tambak', icon: 'Sprout' },
+          { name: 'Industri Gelas & Kaca', usage: 'Fluxing agent peleburan kaca murni', icon: 'Beaker' },
+          { name: 'Peleburan Logam', usage: 'Pemisah terak (slag) dari logam cair', icon: 'Microscope' }
         ]
       },
       download: {
@@ -909,7 +1019,7 @@ export const translations: Record<'id' | 'en', Translation> = {
       },
       documentation: {
         title: 'Dokumentasi Teknis (Photo)',
-        subtitle: 'Bukti kualitas visual dari laboratorium dan fasilitas crushing plant kami.',
+        subtitle: 'Bukti kualitas visual dari Lapangan dan fasilitas crushing plant kami.',
         images: [
           '/Foto webp/IMG_1135.webp', '/Foto webp/IMG_1136.webp', '/Foto webp/IMG_1138.webp',
           '/Foto webp/IMG_1139.webp', '/Foto webp/IMG_1141.webp', '/Foto webp/IMG_1142.webp'
@@ -1522,6 +1632,11 @@ export const translations: Record<'id' | 'en', Translation> = {
     },
     productPages: {
       limestone: {
+        id: 'limestone',
+        category: 'raw',
+        description: 'Essential base material from high-calcium carbonate formations for various smelting and industrial manufacturing processes.',
+        size_variants: ['0–5 mm', '5–10 mm', '10–30 mm', '30–80 mm', 'Custom'],
+        derivatives: ['caco3', 'burnLime', 'hydratedLime', 'pcc'],
         hero: {
           title: 'Premium Limestone',
           subtitle: 'High-Purity from Ratatotok',
@@ -1599,6 +1714,12 @@ export const translations: Record<'id' | 'en', Translation> = {
         }
       },
       caco3: {
+        id: 'caco3',
+        category: 'processed',
+        description: 'Fine-ground calcium carbonate powder with high brightness for industrial filler applications.',
+        parent: 'limestone',
+        size_variants: ['400 mesh', '800 mesh', '1.250 mesh', '2.500 mesh'],
+        derivatives: ['pcc'],
         hero: {
           title: 'Calcium Carbonate (CaCO3)',
           subtitle: 'Sizing Precision for Creative Industries',
@@ -1675,6 +1796,12 @@ export const translations: Record<'id' | 'en', Translation> = {
         }
       },
       burnLime: {
+        id: 'burnLime',
+        category: 'processed',
+        description: 'Active calcium oxide for high reactivity in industrial processes including smelting and gas treatment.',
+        parent: 'limestone',
+        size_variants: ['Lumpy 10–50 mm', 'Powder'],
+        derivatives: ['hydratedLime'],
         hero: {
           title: 'Quicklime (CaO)',
           subtitle: 'Chemical Energy for Fast Reaction',
@@ -1751,6 +1878,12 @@ export const translations: Record<'id' | 'en', Translation> = {
         }
       },
       hydratedLime: {
+        id: 'hydratedLime',
+        category: 'processed',
+        description: 'Fine calcium hydroxide powder for high-efficiency water treatment and environmental applications.',
+        parent: 'burnLime',
+        size_variants: ['325 Mesh (Standard)', 'Ultra-fine'],
+        derivatives: [],
         hero: {
           title: 'Hydrated Lime',
           subtitle: 'Pure Solution for the Environment',
@@ -1827,6 +1960,12 @@ export const translations: Record<'id' | 'en', Translation> = {
         }
       },
       pcc: {
+        id: 'pcc',
+        category: 'advanced',
+        description: 'Highly pure precipitated calcium carbonate with molecular crystal control for specialty industrial grades.',
+        parent: 'caco3',
+        size_variants: ['Nano-size', 'Micron-size'],
+        derivatives: [],
         hero: {
           title: 'Precipitated Calcium Carbonate (PCC)',
           subtitle: 'Molecular Purity for Specialty Industries',
@@ -1900,6 +2039,81 @@ export const translations: Record<'id' | 'en', Translation> = {
           subtitle: 'Enhance your flagship product quality with our Precipitated Calcium Carbonate.',
           button: 'CONTACT TECHNICAL DIVISION',
           whatsapp: 'WhatsApp Team Expert'
+        }
+      },
+      agregat: {
+        id: 'agregat',
+        category: 'processed',
+        description: 'High-quality crushed stone aggregate meeting SNI 1750 standards for durable infrastructure and high-strength concrete applications.',
+        size_variants: ['1–2 cm (Split)', '2–3 cm (Split)', 'Base Course', 'Screening'],
+        derivatives: [],
+        hero: {
+          title: 'Construction Aggregate',
+          subtitle: 'Maximum Structural Strength',
+          description: 'Hard stone material from precision crushing process for long-term construction durability.',
+          image: '/products/agregat-beton.png'
+        },
+        stats: [
+          { label: 'Standard', value: 'SNI 1750', icon: 'ShieldCheck' },
+          { label: 'Shape', value: 'Cubical', icon: 'Layers' },
+          { label: 'Abrasion', value: '< 25%', icon: 'Zap' },
+          { label: 'Stock', value: 'Ready', icon: 'Package' }
+        ],
+        overview: {
+          title: 'WEU Aggregate Quality',
+          content: 'Our concrete aggregate is processed from selected andesite/basalt stone through a three-stage crusher system to produce an ideal cubical grain shape for concrete mixes.',
+          features: [
+            'Uniform grain shape (low elongation)',
+            'Clean surfaces free from organic material',
+            'Resistance to extreme weather',
+            'Various fraction sizes available'
+          ]
+        },
+        specifications: {
+          title: 'Aggregate Technical Analysis',
+          table: [
+            { label: 'Specific Gravity', value: '2.65 g/cm3' },
+            { label: 'Water Absorption', value: '1.2%' },
+            { label: 'Sludge Content', value: '0.8%' },
+            { label: 'Impact Value', value: '18%' }
+          ],
+          chartData: [
+            { name: 'Solid', value: 98, color: '#0F3460' },
+            { name: 'Absorption', value: 2, color: '#FFD700' }
+          ]
+        },
+        applications: {
+          title: 'Construction Applications',
+          items: [
+            { title: 'Ready Mix Concrete', desc: 'Main material for structural concrete K-350 and above.', icon: 'Building' },
+            { title: 'Base Course', desc: 'Highway stabilization and heavy-duty areas.', icon: 'Construction' },
+            { title: 'Precast', desc: 'Manufacturing of box culverts, u-ditches, and piles.', icon: 'Factory' }
+          ]
+        },
+        process: {
+          title: 'Aggregate Production',
+          steps: [
+            { title: 'Rock Selection', desc: 'Choosing high-density hard rock.' },
+            { title: 'Triple Stage Crushing', desc: 'Step-by-step crushing process to maintain shape quality.' },
+            { title: 'Washing System', desc: 'Fine dust cleaning to ensure strong concrete bonding.' }
+          ]
+        },
+        quality: {
+          title: 'Infrastructure Standards',
+          content: 'Every aggregate batch is tested for abrasion and gradation to ensure structural durability for contractors.',
+          certs: ['SNI Lab Test', 'Sludge-Free Certificate', 'Routine Gradation Analysis']
+        },
+        faq: {
+          title: 'Aggregate FAQ',
+          items: [
+            { q: 'What sizes are available?', a: 'Sizes 1-2, 2-3, and base course are available as ordered.' }
+          ]
+        },
+        cta: {
+          title: 'Build Your Project Strong',
+          subtitle: 'Get high-quality aggregate for your national strategic projects.',
+          button: 'REQUEST QUOTATION',
+          whatsapp: 'Contact Logistics'
         }
       }
     },
@@ -1984,23 +2198,23 @@ export const translations: Record<'id' | 'en', Translation> = {
           title: 'Smelter & Metal Industry',
           description: 'High-purity flux materials for smelters.',
           items: [
-            { name: 'Limestone Lumpy', specs: 'CaO > 55%, 40-150mm', tags: ['Smelter', 'Flux'], image: '/products/limestone-lumpy.png', details: ['High Calcium Content', 'Consistent Size Range', 'Low Silicate'] },
-            { name: 'Quicklime', specs: 'Active CaO > 90%', tags: ['Steel', 'Chemical'], image: '/products/burn-lime.png', details: ['Fast Reactivity', 'High Purity', 'Moisture Controlled'] }
+            { id: 'limestone', name: 'Limestone Lumpy', specs: 'CaO > 55%, 40-150mm', tags: ['Smelter', 'Flux'], image: '/products/limestone-lumpy.png', details: ['High Calcium Content', 'Consistent Size Range', 'Low Silicate'] },
+            { id: 'burnLime', name: 'Quicklime', specs: 'Active CaO > 90%', tags: ['Steel', 'Chemical'], image: '/products/burn-lime.png', details: ['Fast Reactivity', 'High Purity', 'Moisture Controlled'] }
           ]
         },
         {
           title: 'Construction & Infrastructure',
           description: 'SNI standard aggregates for maximum durability.',
           items: [
-            { name: 'Concrete Aggregate', specs: 'SNI 1750 Compliant', tags: ['Infrastruktur', 'Beton'], image: '/products/agregat-beton.png', details: ['Cubical Shape', 'Clean Surfaces', 'Vibrated Material'] }
+            { id: 'agregat', name: 'Concrete Aggregate', specs: 'SNI 1750 Compliant', tags: ['Infrastruktur', 'Beton'], image: '/products/agregat-beton.png', details: ['Cubical Shape', 'Clean Surfaces', 'Vibrated Material'] }
           ]
         },
         {
           title: 'Calcium Carbonate (CaCO3)',
           description: 'Mineral powder for paper, plastic, and chemical industries.',
           items: [
-            { name: 'CaCO3 Powder', specs: 'D97 < 10 micron', tags: ['Plastic', 'Paper'], image: '/products/tepung-caco3.png', details: ['Ultra Fine Grinding', 'High Whiteness', 'Strict PSD Control'] },
-            { name: 'Nano PCC', specs: 'Purity > 99%', tags: ['Pharma', 'Paint'], image: '/products/pcc-nanoscale.png', details: ['Precipitated Tech', 'Nano Particle Size', 'Pharma Grade'] }
+            { id: 'caco3', name: 'CaCO3 Powder', specs: 'D97 < 10 micron', tags: ['Plastic', 'Paper'], image: '/products/tepung-caco3.png', details: ['Ultra Fine Grinding', 'High Whiteness', 'Strict PSD Control'] },
+            { id: 'pcc', name: 'Nano PCC', specs: 'Purity > 99%', tags: ['Pharma', 'Paint'], image: '/products/pcc-nanoscale.png', details: ['Precipitated Tech', 'Nano Particle Size', 'Pharma Grade'] }
           ]
         }
       ],
@@ -2009,7 +2223,13 @@ export const translations: Record<'id' | 'en', Translation> = {
         items: [
           { name: 'Steel Making', usage: 'Phosphorus & sulfur impurity removal', icon: 'Flame' },
           { name: 'Water Treatment', usage: 'pH adjustment & coagulation', icon: 'Droplets' },
-          { name: 'Paper & Plastic', usage: 'High-quality filler material', icon: 'Layers' }
+          { name: 'Paper & Plastic', usage: 'High-quality filler material', icon: 'Layers' },
+          { name: 'Split Stone (Aggregate)', usage: 'Building materials, size 1.2 - 2.3 cm', icon: 'Construction' },
+          { name: 'Coal Power Plant (PLTU)', usage: 'Flue gas desulfurization, size > 3 cm', icon: 'Zap' },
+          { name: 'Cement Industry', usage: 'Raw material for high-purity cement clinker', icon: 'Factory' },
+          { name: 'Agriculture & Aquaculture', usage: 'Soil and water pH neutralization', icon: 'Sprout' },
+          { name: 'Glass Manufacturing', usage: 'Fluxing agent for pure glass melting', icon: 'Beaker' },
+          { name: 'Metal Smelting', usage: 'Fluxing media for efficient slag separation', icon: 'Microscope' }
         ]
       },
       download: {

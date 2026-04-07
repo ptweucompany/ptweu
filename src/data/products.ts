@@ -352,8 +352,68 @@ export const pcc: ProductData = {
   ],
 };
 
+// ─── AGREGAT ──────────────────────────────────────────────────────────────────
+export const agregat: ProductData = {
+  id: 'agregat',
+  slug_id: 'agregat',
+  slug_en: 'aggregate',
+  name_id: 'Agregat Beton SNI',
+  name_en: 'Construction Aggregate',
+  image: '/products/agregat-beton.png',
+  hero_subtitle_id: 'Kekuatan Struktural Maksimal — Standar Infrastruktur Nasional',
+  hero_subtitle_en: 'Maximum Structural Strength — National Infrastructure Standard',
+  description_id:
+    'Agregat beton kami diproses dari batuan andesit/basalt pilihan melalui sistem crusher tiga tahap untuk menghasilkan bentuk butiran kubikal yang ideal bagi campuran beton. Produk ini memenuhi spesifikasi SNI 1750 untuk aplikasi infrastruktur jalan raya, jembatan, dan gedung bertingkat.',
+  description_en:
+    'Our concrete aggregate is processed from selected andesite/basalt stone through a three-stage crusher system to produce an ideal cubical grain shape for concrete mixes. This product meets SNI 1750 specifications for highway infrastructure, bridges, and high-rise building applications.',
+  specs: [
+    { label: 'Berat Jenis (Specific Gravity)', value: '2.65 g/cm³' },
+    { label: 'Penyerapan Air (Absorption)', value: '1.2%' },
+    { label: 'Kadar Lumpur (Sludge)', value: '0.8%' },
+    { label: 'Abrasi (Los Angeles Test)', value: '18% – 22%' },
+    { label: 'Impact Value', value: '12%' },
+    { label: 'Bentuk Butiran', value: 'Kubikal (Low Elongation Index)' },
+  ],
+  size_variants: ['1–2 cm (Split)', '2–3 cm (Split)', 'Base Course A & B', 'Screening 0–5 mm'],
+  key_features_id: [
+    'Bentuk butiran seragam (low elongation) untuk ikatan beton kuat',
+    'Permukaan bersih dari material organik dan tanah',
+    'Ketahanan abrasi tinggi sesuai standar Bina Marga',
+    'Tersedia berbagai ukuran fraksi presisi',
+    'Stabilitas gradasi yang konsisten di setiap batch',
+  ],
+  key_features_en: [
+    'Uniform grain shape (low elongation) for strong concrete bonding',
+    'Clean surfaces free from organic material and soil',
+    'High abrasion resistance meeting Bina Marga standards',
+    'Multiple precision fraction sizes available',
+    'Consistent gradation stability across every batch',
+  ],
+  applications: [
+    { industry: 'Beton Ready Mix', use: 'Material utama untuk beton struktural K-350 ke atas pada proyek gedung dan infrastruktur', icon: 'Building' },
+    { industry: 'Konstruksi Jalan (Lapis Pondasi)', use: 'Stabilisasi jalan raya, area beban berat, dan pelapis pondasi bawah (Base Course)', icon: 'Construction' },
+    { industry: 'Precast & Beton Pracetak', use: 'Pembuatan box culvert, u-ditch, tiang pancang, dan pagar panel beton', icon: 'Factory' },
+    { industry: 'Pekerjaan Aspal (AC-WC)', use: 'Campuran aspal panas (Hotmix) untuk permukaan jalan dengan lalu lintas padat', icon: 'Truck' },
+  ],
+  certs: ['Uji Laboratorium SNI 1750', 'Sertifikat Bebas Lumpur', 'Analisis Abrasi Berkala'],
+  faq_id: [
+    { q: 'Ukuran agregat apa saja yang paling banyak dicari?', a: 'Ukuran 1–2 cm dan 2–3 cm (batu split) paling banyak digunakan untuk cor beton struktural. Kami juga menyediakan base course untuk pengerasan jalan.' },
+    { q: 'Apakah agregat ini sudah dicuci?', a: 'Ya, sistem kami dilengkapi dengan unit washing untuk meminimalkan kadar lumpur (di bawah 1%), memastikan kekuatan rekat semen yang optimal.' },
+    { q: 'Berapa kapasitas produksi harian untuk agregat?', a: 'Produksi harian kami mencapai 2.000 – 3.000 ton tergantung pada konfigurasi fraksi yang diperlukan.' },
+    { q: 'Apakah ada pengujian laboratorium rutin?', a: 'Setiap batch produksi diuji gradasi dan abrasi di laboratorium internal kami dan secara berkala diverifikasi oleh laboratorium independen.' },
+  ],
+  moq: '100 MT (via darat) | 7.500 MT (via laut)',
+  packaging: ['Bulk / Curah (Dump Truck)', 'Barge (Tongkang)'],
+  lead_time: '2–5 hari kerja',
+  internal_links: [
+    { label: 'Aplikasi Konstruksi', href: '/industri/konstruksi' },
+    { label: 'Proyek Infrastruktur', href: '/proyek' },
+    { label: 'Batu Kapur (Bahan Semen)', href: '/produk/batu-kapur' },
+  ],
+};
+
 // ─── REGISTRY ────────────────────────────────────────────────────────────────
-export const allProducts: ProductData[] = [limestone, caco3, burnLime, hydratedLime, pcc];
+export const allProducts: ProductData[] = [limestone, caco3, burnLime, hydratedLime, pcc, agregat];
 
 export const productsBySlugID: Record<string, ProductData> = {
   'batu-kapur': limestone,
@@ -361,6 +421,7 @@ export const productsBySlugID: Record<string, ProductData> = {
   'kapur-bakar': burnLime,
   'kapur-padam': hydratedLime,
   pcc,
+  agregat,
 };
 
 export const productsBySlugEN: Record<string, ProductData> = {
@@ -369,6 +430,7 @@ export const productsBySlugEN: Record<string, ProductData> = {
   'burn-lime': burnLime,
   'hydrated-lime': hydratedLime,
   pcc,
+  aggregate: agregat,
 };
 
 export const productSlugsID = Object.keys(productsBySlugID);

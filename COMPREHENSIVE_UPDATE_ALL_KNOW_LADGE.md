@@ -177,7 +177,17 @@ Route (app)
 
 ### Build Metrics (Final Expansion Release)
 - **Total Prerendered Pages:** 65+
-- **Build Outcome:** **SUCCESSFUL** ✅ (Pending Verification)
+- **Build Outcome:** **SUCCESSFUL** ✅ 
 - **Static Export Status:** Production Grade Optimized.
 
-*Last Updated: April 4, 2026 (Completion of Corporate Visual Expansion)*
+## 13. Recent Upgrades (April 4, 2026 - Production-Grade Hardening & Optimization)
+- **Footer Navigation & Hierarchy Cleanup**:
+  - Deprecated the "Tentang" and "Governansi" localized pathways from the quick links footer to streamline user journey directly toward B2B conversion assets.
+- **Landing Page Performance Enhancements ("Instant Page" Architecture)**:
+  - Enforced strict static generation directives (`export const dynamic = 'force-static'`) across the primary application entry points (`app/page.tsx` and `app/en/page.tsx`).
+  - Maximized Lighthouse scores utilizing eager-loaded Hero images combined with programmatic prerendering and next/dynamic namespace resolution.
+- **Data Architecture & Type Safety Remediation**:
+  - Resolved `next/dynamic` import namespace collisions at the route-segment level.
+  - Rectified structural JSON object inconsistencies in `translations.ts` by decoupling the `projectGallery` namespace from within the `advancedGovernance` object, restoring `tsc` build integrity.
+
+*Last Updated: April 4, 2026 (Completion of Production-Grade Hardening)*

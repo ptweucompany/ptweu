@@ -34,7 +34,7 @@ export default function Footer({ t, footerT, profileT }: FooterProps) {
               <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 hover:bg-brand-gold hover:text-brand-blue transition-all rounded-full flex items-center justify-center cursor-pointer">
                 <Facebook size={20} />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 hover:bg-brand-gold hover:text-brand-blue transition-all rounded-full flex items-center justify-center cursor-pointer">
+              <a href="https://www.linkedin.com/in/pt-wira-energi-utama-company-b1941b401/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 hover:bg-brand-gold hover:text-brand-blue transition-all rounded-full flex items-center justify-center cursor-pointer">
                 <Linkedin size={20} />
               </a>
             </div>
