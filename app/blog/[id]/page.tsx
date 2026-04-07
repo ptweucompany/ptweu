@@ -7,8 +7,8 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  const ids = ['1', '2', '3'];
-  return ids.map((id) => ({ id }));
+  const posts = translations.id.advancedBlog.posts;
+  return posts.map((post) => ({ id: post.id }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
