@@ -1113,7 +1113,7 @@ export const translations: { id: Translation; en: Partial<Translation> & Record<
           mapUrl: 'https://goo.gl/maps/placeholder-kota',
           image: '/office-kota.webp',
           email: 'wiraenergiutama@yahoo.com',
-          phone: '(0434) 260 3008 / 0811 4344 168'
+          phone: '(0434) 260 3008 / 0813 9956 7777'
         }
       ],
       faq: {

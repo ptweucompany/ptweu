@@ -131,7 +131,7 @@ export default async function IndustriPage({ params }: Props) {
               Request Penawaran Industri
             </Link>
             <a
-              href={`https://wa.me/628114344168?text=${encodeURIComponent(`Halo PT WEU, saya tertarik konsultasi mineral untuk industri: ${ind.name_id}. Bisa minta info lebih lanjut?\n\nIndustri: ${ind.name_id}\nURL: ${BASE}/industri/${slug}`)}`}
+              href={`https://wa.me/6281399567777?text=${encodeURIComponent(`Halo PT WEU, saya tertarik konsultasi mineral untuk industri: ${ind.name_id}. Bisa minta info lebih lanjut?\n\nIndustri: ${ind.name_id}\nURL: ${BASE}/industri/${slug}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors"

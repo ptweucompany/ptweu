@@ -184,7 +184,7 @@ const organizationSchema = {
         },
         {
           '@type': 'ContactPoint',
-          telephone: '+62-811-4344-168',
+          telephone: '+62-813-9956-7777',
           contactType: 'sales',
           contactOption: 'TollFree',
           availableLanguage: ['Indonesian', 'English'],

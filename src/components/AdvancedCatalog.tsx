@@ -373,7 +373,7 @@ export default function AdvancedCatalog({ t }: AdvancedCatalogProps) {
 
                     <div className="flex flex-col sm:flex-row gap-4 mt-auto">
                       <a 
-                        href={`https://wa.me/628114344168?text=Halo%20PT%20WEU,%20saya%20tertarik%20dengan%20produk%20${encodeURIComponent(product.hero.title)}.%20Mohon%20info%20lebih%20lanjut.`}
+                        href={`https://wa.me/6281399567777?text=Halo%20PT%20WEU,%20saya%20tertarik%20dengan%20produk%20${encodeURIComponent(product.hero.title)}.%20Mohon%20info%20lebih%20lanjut.`}
                         className="flex-1 py-5 bg-brand-blue text-white rounded-2xl font-black uppercase tracking-[0.1em] flex items-center justify-center hover:bg-brand-blue/90 transition-all shadow-xl shadow-brand-blue/20"
                       >
                         Request Quotation

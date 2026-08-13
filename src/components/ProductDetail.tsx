@@ -71,7 +71,7 @@ export default function ProductDetail({ data, contactT }: ProductDetailProps) {
                 {data.cta.button}
               </button>
               <a 
-                href={`https://wa.me/628114344168`}
+                href={`https://wa.me/6281399567777`}
                 target="_blank"
                 className="px-10 py-5 bg-white/10 backdrop-blur-md text-white border border-white/20 font-bold rounded-2xl hover:bg-white/20 transition-all flex items-center gap-3"
               >
@@ -372,7 +372,7 @@ export default function ProductDetail({ data, contactT }: ProductDetailProps) {
                 {data.cta.button}
               </button>
               <a 
-                href={`https://wa.me/628114344168`}
+                href={`https://wa.me/6281399567777`}
                 target="_blank"
                 className="flex items-center gap-6 text-brand-blue font-black text-2xl hover:text-brand-gold transition-all group"
               >

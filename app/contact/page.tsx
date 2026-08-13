@@ -148,7 +148,7 @@ export default function ContactPage() {
                   <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6 font-sans">For Faster Response:</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <a 
-                      href="https://wa.me/628114344168" 
+                      href="https://wa.me/6281399567777" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center justify-center space-x-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-black py-4 px-6 rounded-2xl transition-all transform hover:scale-105 shadow-lg shadow-green-500/20"

@@ -36,7 +36,7 @@ const contactSchema = {
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        telephone: '+62-811-4344-168',
+        telephone: '+62-813-9956-7777',
         contactType: 'sales',
         availableLanguage: ['Indonesian', 'English'],
         contactOption: 'TollFree',
@@ -56,7 +56,7 @@ const contactFaqSchema = {
   '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'What is the Minimum Order Quantity (MOQ) for purchase?', acceptedAnswer: { '@type': 'Answer', text: 'Our MOQ is flexible: for local delivery starting from 20 MT, inter-island minimum 500 MT via barge, and export minimum 7,500 MT through Bitung Port. We are open to trial shipments for new customers.' } },
-    { '@type': 'Question', name: 'How long is the response time after sending an inquiry?', acceptedAnswer: { '@type': 'Answer', text: 'Our team will respond within 1 business day. For urgent needs, contact us directly via WhatsApp +62 811 4344 168 for an instant response.' } },
+    { '@type': 'Question', name: 'How long is the response time after sending an inquiry?', acceptedAnswer: { '@type': 'Answer', text: 'Our team will respond within 1 business day. For urgent needs, contact us directly via WhatsApp +62 813 9956 7777 for an instant response.' } },
     { '@type': 'Question', name: 'Can PT WEU ship outside Sulawesi?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We have a dedicated jetty with a 12-meter draft and use Bitung Port (SEZ) for inter-island shipping and exports to Australia, China, Singapore, and the Asia Pacific region.' } },
     { '@type': 'Question', name: 'Is a Certificate of Analysis (COA) available?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Every production batch is accompanied by a standard COA. For commercial volumes, independent certification from Sucofindo or Intertek is available upon customer request.' } },
     { '@type': 'Question', name: 'What is the ordering process?', acceptedAnswer: { '@type': 'Answer', text: '1) Send inquiry via this form or WhatsApp → 2) Technical team contacts you to confirm specifications → 3) Price proposal & terms are sent → 4) PO & supply contract → 5) Production & delivery according to schedule.' } },
@@ -65,7 +65,7 @@ const contactFaqSchema = {
 
 const faqData = [
   { q: 'What is the Minimum Order Quantity (MOQ) for purchase?', a: 'Our MOQ is flexible: for local delivery starting from 20 MT, inter-island minimum 500 MT via barge, and export minimum 7,500 MT through Bitung Port. We are open to trial shipments for new customers.' },
-  { q: 'How long is the response time after sending an inquiry?', a: 'Our team will respond within 1 business day. For urgent needs, contact us directly via WhatsApp +62 811 4344 168 for an instant response.' },
+  { q: 'How long is the response time after sending an inquiry?', a: 'Our team will respond within 1 business day. For urgent needs, contact us directly via WhatsApp +62 813 9956 7777 for an instant response.' },
   { q: 'Can PT WEU ship outside Sulawesi?', a: 'Yes. We have a dedicated jetty with a 12-meter draft and use Bitung Port (SEZ) for inter-island shipping and exports to Australia, China, Singapore, and the Asia Pacific region.' },
   { q: 'Is a Certificate of Analysis (COA) available?', a: 'Yes. Every production batch is accompanied by a standard COA. For commercial volumes, independent certification from Sucofindo or Intertek is available upon customer request.' },
   { q: 'What is the ordering process?', a: '1) Send inquiry via this form or WhatsApp → 2) Technical team contacts you to confirm specifications → 3) Price proposal & terms are sent → 4) PO & supply contract → 5) Production & delivery according to schedule.' },
@@ -124,7 +124,7 @@ export default function ContactPage() {
             </div>
             {/* Quick Contact Cards */}
             <div className="grid grid-cols-1 gap-4">
-              <a href={`https://wa.me/628114344168?text=${encodeURIComponent('Hello PT WEU, I would like to know more about your industrial mineral products.')}`}
+              <a href={`https://wa.me/6281399567777?text=${encodeURIComponent('Hello PT WEU, I would like to know more about your industrial mineral products.')}`}
                 target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-5 bg-[#25D366]/10 border border-[#25D366]/30 rounded-2xl p-5 hover:bg-[#25D366]/15 transition-colors">
                 <div className="w-14 h-14 bg-[#25D366] rounded-xl flex items-center justify-center flex-shrink-0">
@@ -134,7 +134,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-white font-bold">WhatsApp (Fast Response)</p>
-                  <p className="text-[#25D366] text-lg font-bold">+62 811 4344 168</p>
+                  <p className="text-[#25D366] text-lg font-bold">+62 813 9956 7777</p>
                   <p className="text-gray-400 text-xs">Mon–Sat, 08:00–17:00 WITA</p>
                 </div>
               </a>
@@ -336,9 +336,9 @@ export default function ContactPage() {
           <h2 className="text-white text-2xl font-bold mb-4">Ready to Start Procurement?</h2>
           <p className="text-gray-300 mb-8">Contact our sales team now or scroll up to fill out the complete Inquiry Form.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://wa.me/628114344168" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/6281399567777" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#1ebe5d] transition-colors">
-              WhatsApp: +62 811 4344 168
+              WhatsApp: +62 813 9956 7777
             </a>
             <LeadScrollButton label="↑ Fill Inquiry Form" />
           </div>

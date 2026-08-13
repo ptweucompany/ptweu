@@ -36,7 +36,7 @@ const contactSchema = {
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        telephone: '+62-811-4344-168',
+        telephone: '+62-813-9956-7777',
         contactType: 'sales',
         availableLanguage: ['Indonesian', 'English'],
         contactOption: 'TollFree',
@@ -63,7 +63,7 @@ const contactFaqSchema = {
     {
       '@type': 'Question',
       name: 'Berapa lama waktu respon setelah mengirim inquiry?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Tim kami akan merespon dalam 1 hari kerja. Untuk kebutuhan mendesak, hubungi langsung via WhatsApp 0811 4344 168 untuk respon instan.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Tim kami akan merespon dalam 1 hari kerja. Untuk kebutuhan mendesak, hubungi langsung via WhatsApp 0813 9956 7777 untuk respon instan.' },
     },
     {
       '@type': 'Question',
@@ -85,7 +85,7 @@ const contactFaqSchema = {
 
 const faqData = [
   { q: 'Berapa MOQ (Minimum Order Quantity) untuk pembelian?', a: 'MOQ kami fleksibel: untuk pengiriman lokal mulai dari 20 MT, antar pulau minimal 500 MT via tongkang, dan ekspor minimal 7.500 MT melalui Pelabuhan Bitung. Kami terbuka untuk trial shipment bagi pelanggan baru.' },
-  { q: 'Berapa lama waktu respon setelah mengirim inquiry?', a: 'Tim kami akan merespon dalam 1 hari kerja. Untuk kebutuhan mendesak, hubungi langsung via WhatsApp 0811 4344 168 untuk respon instan.' },
+  { q: 'Berapa lama waktu respon setelah mengirim inquiry?', a: 'Tim kami akan merespon dalam 1 hari kerja. Untuk kebutuhan mendesak, hubungi langsung via WhatsApp 0813 9956 7777 untuk respon instan.' },
   { q: 'Apakah PT WEU bisa mengirim ke luar Sulawesi?', a: 'Ya. Kami memiliki jetty khusus draft 12 meter dan menggunakan Pelabuhan Bitung (KEK) untuk pengiriman antar pulau dan ekspor ke Australia, China, Singapura, dan kawasan Asia Pasifik.' },
   { q: 'Apakah tersedia Certificate of Analysis (COA)?', a: 'Ya. Setiap batch produksi disertai COA standar. Untuk volume komersial, tersedia sertifikasi independen dari Sucofindo atau Intertek atas permintaan pelanggan.' },
   { q: 'Bagaimana proses pemesanan?', a: '1) Kirim inquiry via form ini atau WhatsApp → 2) Tim teknis menghubungi untuk konfirmasi spesifikasi → 3) Proposal harga & syarat dikirimkan → 4) PO & kontrak pasokan → 5) Produksi & pengiriman sesuai jadwal.' },
@@ -144,7 +144,7 @@ export default function KontakPage() {
             </div>
             {/* Quick Contact Cards */}
             <div className="grid grid-cols-1 gap-4">
-              <a href={`https://wa.me/628114344168?text=${encodeURIComponent('Halo PT WEU, saya ingin mengetahui lebih lanjut tentang produk mineral industri Anda.')}`}
+              <a href={`https://wa.me/6281399567777?text=${encodeURIComponent('Halo PT WEU, saya ingin mengetahui lebih lanjut tentang produk mineral industri Anda.')}`}
                 target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-5 bg-[#25D366]/10 border border-[#25D366]/30 rounded-2xl p-5 hover:bg-[#25D366]/15 transition-colors">
                 <div className="w-14 h-14 bg-[#25D366] rounded-xl flex items-center justify-center flex-shrink-0">
@@ -154,7 +154,7 @@ export default function KontakPage() {
                 </div>
                 <div>
                   <p className="text-white font-bold">WhatsApp (Respon Cepat)</p>
-                  <p className="text-[#25D366] text-lg font-bold">0811 4344 168</p>
+                  <p className="text-[#25D366] text-lg font-bold">0813 9956 7777</p>
                   <p className="text-gray-400 text-xs">Senin–Sabtu, 08.00–17.00 WITA</p>
                 </div>
               </a>
@@ -356,9 +356,9 @@ export default function KontakPage() {
           <h2 className="text-white text-2xl font-bold mb-4">Siap Memulai Pengadaan Mineral?</h2>
           <p className="text-gray-300 mb-8">Hubungi tim penjualan kami sekarang atau scroll ke atas untuk mengisi Form Inquiry lengkap.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://wa.me/628114344168" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/6281399567777" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#1ebe5d] transition-colors">
-              WhatsApp: 0811 4344 168
+              WhatsApp: 0813 9956 7777
             </a>
             <LeadScrollButton label="↑ Isi Form Inquiry" />
           </div>

@@ -118,7 +118,7 @@ export default async function EnLocationsPage({ params }: Props) {
               Request Export Quote to {dest.country_en}
             </Link>
             <a
-              href={`https://wa.me/628114344168?text=Hello%20PT%20WEU%2C%20I%20would%20like%20to%20inquire%20export%20logistics%20to%20${encodeURIComponent(dest.country_en)}`}
+              href={`https://wa.me/6281399567777?text=Hello%20PT%20WEU%2C%20I%20would%20like%20to%20inquire%20export%20logistics%20to%20${encodeURIComponent(dest.country_en)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors text-center"

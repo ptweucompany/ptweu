@@ -203,7 +203,7 @@ export default async function ProdukDetailPage({ params }: Props) {
               Dapatkan Penawaran <ArrowRight size={16} />
             </Link>
             <a
-              href={`https://wa.me/628114344168`}
+              href={`https://wa.me/6281399567777`}
               target="_blank"
               className="px-10 py-5 border border-white/20 text-white font-black rounded-xl hover:bg-white/10 transition-all uppercase tracking-widest text-xs"
             >

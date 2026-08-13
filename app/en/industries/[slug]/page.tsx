@@ -124,7 +124,7 @@ export default async function IndustriPage_EN({ params }: Props) {
               Request Quote
             </Link>
             <a
-              href={`https://wa.me/628114344168?text=${encodeURIComponent(`Hello PT WEU, I am interested in ${ind.name_en} mineral solutions. Can I get more information?\n\nIndustry: ${ind.name_en}\nURL: ${BASE}/en/industries/${slug}`)}`}
+              href={`https://wa.me/6281399567777?text=${encodeURIComponent(`Hello PT WEU, I am interested in ${ind.name_en} mineral solutions. Can I get more information?\n\nIndustry: ${ind.name_en}\nURL: ${BASE}/en/industries/${slug}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:border-[#C8A84B] transition-colors text-center"

@@ -82,7 +82,7 @@ Lokasi Pengiriman:
             className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-[#C8A84B] hover:bg-[#b8933b] text-[#0A1628] font-black rounded-xl transition-colors">
             {customCTA || c.cta}
           </Link>
-          <a href={`https://wa.me/628114344168?text=${waText}`} target="_blank" rel="noopener noreferrer"
+          <a href={`https://wa.me/6281399567777?text=${waText}`} target="_blank" rel="noopener noreferrer"
             className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold transition-colors ${variant === 'dark'
                 ? 'bg-[#25D366] hover:bg-[#1ebe5d] text-white'
                 : 'border border-gray-200 hover:border-[#C8A84B] text-gray-700'
