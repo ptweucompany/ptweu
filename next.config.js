@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: 'export' dihapus — tidak kompatibel dengan API routes & ISR
-  // Gunakan 'next build' biasa untuk deploy ke Vercel/server
+  // output: 'export' — static export untuk Cloudflare Pages (output ke folder out/ → dist/)
+  output: 'export',
+  trailingSlash: false,
   images: {
     unoptimized: true,
     qualities: [60, 75, 85, 90],
