@@ -175,6 +175,6 @@ export const internalLinks: Record<string, InternalLinkEntry> = {
       { id: 'Infrastruktur Jalan', en: 'Road Infrastructure', href: { id: '/industri/konstruksi', en: '/en/industries/construction' } }
     ],
     location: { id: 'Crushing Plant 250 TPH', en: '250 TPH Crushing Plant', href: { id: '/governansi-standar', en: '/en/about' } },
-    blog: { id: 'Kualitas Agregat Beton', en: 'Concrete Aggregate Quality', href: { id: '/blog/agregat-sni', en: '/en/blog/sni-aggregate' } }
+    blog: { id: 'Batu Giling 1x2 & 2x3', en: 'Crushed Limestone 1x2 & 2x3', href: { id: '/blog/batu-giling', en: '/en/blog/crushed-limestone' } }
   }
 };

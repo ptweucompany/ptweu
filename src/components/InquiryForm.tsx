@@ -107,9 +107,8 @@ function buildWAMessage(d: InquiryData): string {
 /* ─── FIELD STYLES ───────────────────────────────────────────────────────── */
 
 function inputClass(err?: string) {
-  return `w-full px-4 py-3 border rounded-xl text-sm text-gray-700 transition-colors focus:outline-none ${
-    err ? 'border-red-400 bg-red-50 focus:border-red-400' : 'border-gray-200 focus:border-[#C8A84B]'
-  }`;
+  return `w-full px-4 py-3 border rounded-xl text-sm text-gray-700 transition-colors focus:outline-none ${err ? 'border-red-400 bg-red-50 focus:border-red-400' : 'border-gray-200 focus:border-[#C8A84B]'
+    }`;
 }
 
 /* ─── INNER FORM ─────────────────────────────────────────────────────────── */
@@ -176,7 +175,7 @@ function InquiryFormInner({ lang = 'id' }: { lang?: 'id' | 'en' }) {
         },
         body: JSON.stringify(payload),
       });
-      
+
       if (!response.ok) {
         console.error('Formspree submission failed:', response.statusText);
       }
@@ -229,11 +228,10 @@ function InquiryFormInner({ lang = 'id' }: { lang?: 'id' | 'en' }) {
         {STEP_TITLES.map((title, i) => (
           <div key={i} className="flex items-center flex-1 last:flex-none">
             <div className="flex flex-col items-center">
-              <div className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${
-                i < step ? 'bg-[#0A1628] text-[#C8A84B]'
+              <div className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${i < step ? 'bg-[#0A1628] text-[#C8A84B]'
                   : i === step ? 'bg-[#C8A84B] text-[#0A1628]'
-                  : 'bg-gray-100 text-gray-400'
-              }`}>
+                    : 'bg-gray-100 text-gray-400'
+                }`}>
                 {i < step ? (
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -290,7 +288,7 @@ function InquiryFormInner({ lang = 'id' }: { lang?: 'id' | 'en' }) {
                   {lang === 'en' ? 'Phone / WhatsApp *' : 'Telepon / WhatsApp *'}
                 </label>
                 <input type="tel" value={data.phone} onChange={e => set('phone', e.target.value)}
-                  placeholder="+62 811 4344 168" className={inputClass(errors.phone)} />
+                  placeholder="+62 813 9956 7777" className={inputClass(errors.phone)} />
                 {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
               </div>
               <div className="sm:col-span-2">
@@ -323,15 +321,13 @@ function InquiryFormInner({ lang = 'id' }: { lang?: 'id' | 'en' }) {
             <div className="grid grid-cols-1 gap-3 mb-6">
               {PRODUCTS.map(p => (
                 <button key={p.value} type="button" onClick={() => set('product', p.value)}
-                  className={`text-left w-full px-4 py-3 rounded-xl border-2 transition-all ${
-                    data.product === p.value
+                  className={`text-left w-full px-4 py-3 rounded-xl border-2 transition-all ${data.product === p.value
                       ? 'border-[#C8A84B] bg-[#C8A84B]/8'
                       : 'border-gray-200 hover:border-gray-300'
-                  }`}>
-                  <div className="flex items-start gap-3">
-                    <span className={`w-5 h-5 flex-shrink-0 rounded-full border-2 mt-0.5 flex items-center justify-center ${
-                      data.product === p.value ? 'border-[#C8A84B] bg-[#C8A84B]' : 'border-gray-300'
                     }`}>
+                  <div className="flex items-start gap-3">
+                    <span className={`w-5 h-5 flex-shrink-0 rounded-full border-2 mt-0.5 flex items-center justify-center ${data.product === p.value ? 'border-[#C8A84B] bg-[#C8A84B]' : 'border-gray-300'
+                      }`}>
                       {data.product === p.value && (
                         <span className="w-2 h-2 bg-[#0A1628] rounded-full" />
                       )}
@@ -355,11 +351,10 @@ function InquiryFormInner({ lang = 'id' }: { lang?: 'id' | 'en' }) {
               {INDUSTRIES.map(ind => (
                 <button key={ind.value} type="button"
                   onClick={() => set('industry', data.industry === ind.value ? '' : ind.value)}
-                  className={`px-3 py-2 rounded-lg border text-sm transition-all ${
-                    data.industry === ind.value
+                  className={`px-3 py-2 rounded-lg border text-sm transition-all ${data.industry === ind.value
                       ? 'border-[#C8A84B] bg-[#C8A84B]/8 text-[#0A1628] font-semibold'
                       : 'border-gray-200 text-gray-600 hover:border-gray-300'
-                  }`}>
+                    }`}>
                   {ind.label}
                 </button>
               ))}
@@ -384,11 +379,10 @@ function InquiryFormInner({ lang = 'id' }: { lang?: 'id' | 'en' }) {
             <div className="grid grid-cols-2 gap-3 mb-6">
               {VOLUMES.map(v => (
                 <button key={v.value} type="button" onClick={() => set('volume', v.value)}
-                  className={`text-left px-4 py-3 rounded-xl border-2 transition-all ${
-                    data.volume === v.value
+                  className={`text-left px-4 py-3 rounded-xl border-2 transition-all ${data.volume === v.value
                       ? 'border-[#C8A84B] bg-[#C8A84B]/8'
                       : 'border-gray-200 hover:border-gray-300'
-                  }`}>
+                    }`}>
                   <p className={`font-bold text-sm ${data.volume === v.value ? 'text-[#0A1628]' : 'text-gray-700'}`}>
                     {v.label}
                   </p>
@@ -405,11 +399,10 @@ function InquiryFormInner({ lang = 'id' }: { lang?: 'id' | 'en' }) {
               {PACKAGING_OPTS.map(p => (
                 <button key={p.value} type="button"
                   onClick={() => set('packaging', data.packaging === p.value ? '' : p.value)}
-                  className={`text-left px-4 py-3 rounded-xl border-2 transition-all ${
-                    data.packaging === p.value
+                  className={`text-left px-4 py-3 rounded-xl border-2 transition-all ${data.packaging === p.value
                       ? 'border-[#C8A84B] bg-[#C8A84B]/8'
                       : 'border-gray-200 hover:border-gray-300'
-                  }`}>
+                    }`}>
                   <p className={`font-bold text-sm ${data.packaging === p.value ? 'text-[#0A1628]' : 'text-gray-700'}`}>
                     {p.label}
                   </p>

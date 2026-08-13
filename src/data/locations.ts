@@ -55,7 +55,7 @@ export const locations: LocationData[] = [
       { q: 'Apakah PT WEU melayani pengiriman retail di Manado?', a: 'Kami melayani kebutuhan industri skala menengah hingga besar. Untuk proyek infrastruktur di Manado, kami menyediakan armada dump truck khusus.' },
       { q: 'Di mana lokasi gudang penyimpanan di Manado?', a: 'Titik distribusi utama kami berada di Bitung dan Ratatotok untuk menjamin kesegaran material (freshly mined).' }
     ],
-    related_products: [{ slug_id: 'batu-kapur', name_id: 'Batu Kapur' }, { slug_id: 'agregat', name_id: 'Agregat Beton' }],
+    related_products: [{ slug_id: 'batu-kapur', name_id: 'Batu Kapur' }, { slug_id: 'agregat', name_id: 'Batu Giling' }],
     related_industries: [{ slug_id: 'konstruksi', name_id: 'Konstruksi' }, { slug_id: 'semen', name_id: 'Industri Semen' }],
   },
   {
@@ -113,7 +113,7 @@ export const locations: LocationData[] = [
     faq_id: [
       { q: 'Berapa kapasitas angkut per tongkang ke Makassar?', a: 'Standar pengiriman kami menggunakan tongkang 300 kaki dengan kapasitas 7.500 hingga 10.000 MT per trip.' }
     ],
-    related_products: [{ slug_id: 'batu-kapur', name_id: 'Batu Kapur' }, { slug_id: 'agregat', name_id: 'Agregat Beton' }],
+    related_products: [{ slug_id: 'batu-kapur', name_id: 'Batu Kapur' }, { slug_id: 'agregat', name_id: 'Batu Giling' }],
     related_industries: [{ slug_id: 'baja', name_id: 'Smelter & Logam' }],
   },
   {
@@ -170,7 +170,7 @@ export const locations: LocationData[] = [
     faq_id: [
       { q: 'Apakah produk Kakao PT WEU bersertifikat untuk pakan ternak?', a: 'Produk kami memiliki hasil uji Sucofindo yang mengonfirmasi kadar kalsium tinggi dan keamanan logam berat untuk campuran pakan.' }
     ],
-    related_products: [{ slug_id: 'kalsium-karbonat', name_id: 'CaCO3' }, { slug_id: 'agregat', name_id: 'Agregat Beton' }],
+    related_products: [{ slug_id: 'kalsium-karbonat', name_id: 'CaCO3' }, { slug_id: 'agregat', name_id: 'Batu Giling' }],
     related_industries: [{ slug_id: 'pertanian', name_id: 'Pakan Ternak' }],
   },
   {
@@ -246,7 +246,7 @@ export const locations: LocationData[] = [
     faq_id: [
       { q: 'Apakah PT WEU memiliki kantor di Kotamobagu?', a: 'Kami memiliki kantor perwakilan untuk koordinasi operasional lapangan dan logistik darat di wilayah Kotamobagu.' }
     ],
-    related_products: [{ slug_id: 'agregat', name_id: 'Agregat Beton' }, { slug_id: 'batu-kapur', name_id: 'Batu Kapur' }],
+    related_products: [{ slug_id: 'agregat', name_id: 'Batu Giling' }, { slug_id: 'batu-kapur', name_id: 'Batu Kapur' }],
     related_industries: [{ slug_id: 'konstruksi', name_id: 'Konstruksi' }],
   },
   {
@@ -303,7 +303,7 @@ export const locations: LocationData[] = [
     faq_id: [
       { q: 'Apakah PT WEU bisa menyuplai batu kapur untuk reklamasi KEK?', a: 'Ya, kami memiliki kapasitas besar untuk mendukung tahap awal reklamasi maupun tahap operasional industri di KEK.' }
     ],
-    related_products: [{ slug_id: 'batu-kapur', name_id: 'Batu Kapur' }, { slug_id: 'agregat', name_id: 'Agregat Beton' }],
+    related_products: [{ slug_id: 'batu-kapur', name_id: 'Batu Kapur' }, { slug_id: 'agregat', name_id: 'Batu Giling' }],
     related_industries: [{ slug_id: 'baja', name_id: 'Smelter & Logam' }],
   },
 ];

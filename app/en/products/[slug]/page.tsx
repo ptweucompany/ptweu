@@ -95,14 +95,30 @@ export default async function EnProductDetailPage({ params }: Props) {
     name: product.hero.title,
     description: product.description,
     image: `${BASE}${product.hero.image}`,
-    brand: { '@type': 'Organization', name: 'PT Wira Energi Utama' },
+    brand: { '@type': 'Organization', name: 'PT Wira Energi Utama', '@id': `${BASE}/#organization` },
+    manufacturer: { '@type': 'Organization', name: 'PT Wira Energi Utama', url: BASE },
     offers: {
       '@type': 'Offer',
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
-      seller: { '@type': 'Organization', name: 'PT Wira Energi Utama' },
+      seller: { '@type': 'Organization', name: 'PT Wira Energi Utama', url: BASE },
+      businessFunction: 'http://purl.org/goodrelations/v1#Sell',
+      eligibleRegion: [{ '@type': 'Country', name: 'Indonesia' }, { '@type': 'Continent', name: 'Asia' }],
     },
+    category: 'Industrial Mineral',
+    countryOfOrigin: { '@type': 'Country', name: 'Indonesia' },
   };
+
+  // 🧭 SEO MAXIMIZE: FAQPAGE SCHEMA (EN)
+  const faqSchema = product.faq?.items?.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: product.faq.items.map((item: { q: string; a: string }) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  } : null;
   
   // Breadcrumb Path Logic
   const getPath = (id: string): any[] => {
@@ -119,8 +135,18 @@ export default async function EnProductDetailPage({ params }: Props) {
     <div className="bg-white">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       {/* ── 1. HERO ─────────────────────────────────────────────── */}
       <section className="relative bg-[#0A1628] min-h-[60vh] flex items-end overflow-hidden pt-32">
@@ -129,6 +155,8 @@ export default async function EnProductDetailPage({ params }: Props) {
           alt={product.hero.title}
           fill
           priority
+          sizes="100vw"
+          quality={85}
           className="object-cover opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/40 to-transparent" />

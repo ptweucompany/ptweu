@@ -30,7 +30,7 @@ export default function HTMLSitemap() {
         { label: 'Kapur Bakar (Quicklime CaO)', href: '/produk/kapur-bakar' },
         { label: 'Kapur Padam (Hydrated Ca(OH)2)', href: '/produk/kapur-padam' },
         { label: 'PCC (Precipitated CaCO3)', href: '/produk/pcc' },
-        { label: 'Agregat Beton (SNI Standard)', href: '/produk/agregat' },
+        { label: 'Batu Giling (1x2 & 2x3)', href: '/produk/agregat' },
       ]
     },
     {

@@ -29,17 +29,38 @@ const contactSchema = {
   mainEntity: {
     '@type': 'Organization',
     name: company.legal_name,
-    telephone: '+62-0434-260-3008',
+    '@id': `${BASE}/#organization`,
+    telephone: '+62-434-260-3008',
     email: 'contact@wiraenergiutama.com',
     url: BASE,
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+62-811-4344-168',
-      contactType: 'sales',
-      availableLanguage: ['Indonesian', 'English'],
-      contactOption: 'TollFree',
-    },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: '+62-811-4344-168',
+        contactType: 'sales',
+        availableLanguage: ['Indonesian', 'English'],
+        contactOption: 'TollFree',
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: '+62-434-260-3008',
+        contactType: 'customer service',
+        availableLanguage: ['Indonesian', 'English'],
+      },
+    ],
   },
+};
+
+const contactFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What is the Minimum Order Quantity (MOQ) for purchase?', acceptedAnswer: { '@type': 'Answer', text: 'Our MOQ is flexible: for local delivery starting from 20 MT, inter-island minimum 500 MT via barge, and export minimum 7,500 MT through Bitung Port. We are open to trial shipments for new customers.' } },
+    { '@type': 'Question', name: 'How long is the response time after sending an inquiry?', acceptedAnswer: { '@type': 'Answer', text: 'Our team will respond within 1 business day. For urgent needs, contact us directly via WhatsApp +62 811 4344 168 for an instant response.' } },
+    { '@type': 'Question', name: 'Can PT WEU ship outside Sulawesi?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We have a dedicated jetty with a 12-meter draft and use Bitung Port (SEZ) for inter-island shipping and exports to Australia, China, Singapore, and the Asia Pacific region.' } },
+    { '@type': 'Question', name: 'Is a Certificate of Analysis (COA) available?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Every production batch is accompanied by a standard COA. For commercial volumes, independent certification from Sucofindo or Intertek is available upon customer request.' } },
+    { '@type': 'Question', name: 'What is the ordering process?', acceptedAnswer: { '@type': 'Answer', text: '1) Send inquiry via this form or WhatsApp → 2) Technical team contacts you to confirm specifications → 3) Price proposal & terms are sent → 4) PO & supply contract → 5) Production & delivery according to schedule.' } },
+  ],
 };
 
 const faqData = [
@@ -64,6 +85,7 @@ export default function ContactPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactFaqSchema) }} />
 
       {/* 1. HERO */}
       <section className="bg-[#0A1628] py-20">

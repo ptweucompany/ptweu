@@ -253,7 +253,7 @@ export const translations: { id: Translation; en: Partial<Translation> & Record<
     contact: {
       title: 'Hubungi Kami',
       address: 'Jalan Ratatotok Morea Soyowan, Desa Ratatotok Satu, Kec. Ratatotok, Kab. Minahasa Tenggara, Sulawesi Utara - Indonesia.',
-      phone: '0434 260 3008 / +62 8114344168',
+      phone: '0434 260 3008 / +62 813 9956 7777',
       email: 'wiraenergiutama@yahoo.com',
       form: {
         name: 'Nama Lengkap',
@@ -419,7 +419,7 @@ export const translations: { id: Translation; en: Partial<Translation> & Record<
           title: 'Batu Kapur Premium',
           subtitle: 'Kualitas Tinggi dari Ratatotok',
           description: 'Material dasar esensial dengan kadar kalsium oksida (CaO) superior untuk efisiensi industri maksimal.',
-          image: '/products/limestone.png'
+          image: '/products/limestone.webp'
         },
         stats: [
           { label: 'Kadar CaO', value: '> 55%', icon: 'ShieldCheck' },
@@ -502,7 +502,7 @@ export const translations: { id: Translation; en: Partial<Translation> & Record<
           title: 'Kalsium Karbonat (CaCO3)',
           subtitle: 'Presisi Ukuran untuk Industri Kreatif',
           description: 'Tepung kalsium berkualitas tinggi dengan tingkat kecerahan maksimal untuk industri plastik, cat, dan karet.',
-          image: '/products/caco3.png'
+          image: '/products/caco3.webp'
         },
         stats: [
           { label: 'Brightness', value: '> 94%', icon: 'Sun' },
@@ -584,7 +584,7 @@ export const translations: { id: Translation; en: Partial<Translation> & Record<
           title: 'Kapur Bakar (Quicklime)',
           subtitle: 'Energi Kimia untuk Reaksi Cepat',
           description: 'Kalsium Oksida (CaO) aktif tinggi hasil kalsinasi suhu ekstrem untuk reaktivitas maksimal.',
-          image: '/products/burn-lime.png'
+          image: '/products/burn-lime.webp'
         },
         stats: [
           { label: 'CaO Aktif', value: '> 90%', icon: 'Thermometer' },
@@ -666,7 +666,7 @@ export const translations: { id: Translation; en: Partial<Translation> & Record<
           title: 'Kapur Padam (Hydrated Lime)',
           subtitle: 'Larutan Murni untuk Lingkungan',
           description: 'Kalsium Hidroksida (Ca(OH)2) berkualitas halus untuk pengolahan air dan kontrol polusi udara.',
-          image: '/products/hydrated-lime.png'
+          image: '/products/hydrated-lime.webp'
         },
         stats: [
           { label: 'Ca(OH)2', value: '> 92%', icon: 'Droplets' },
@@ -748,7 +748,7 @@ export const translations: { id: Translation; en: Partial<Translation> & Record<
           title: 'Precipitated Calcium Carbonate (PCC)',
           subtitle: 'Kemurnian Molekuler untuk Industri Khusus',
           description: 'Kalsium karbonat presipitasi dengan ukuran butir nano untuk aplikasi farmasi, kosmetik, dan kertas premium.',
-          image: '/products/pcc.png'
+          image: '/products/pcc.webp'
         },
         stats: [
           { label: 'Purity', value: '99.9%', icon: 'ShieldCheck' },
@@ -822,74 +822,74 @@ export const translations: { id: Translation; en: Partial<Translation> & Record<
       agregat: {
         id: 'agregat',
         category: 'processed',
-        description: 'Agregat batu pecah berkualitas tinggi memenuhi standar SNI 1750 untuk infrastruktur tahan lama dan aplikasi beton mutu tinggi.',
-        size_variants: ['1–2 cm (Split)', '2–3 cm (Split)', 'Base Course', 'Screening'],
+        description: 'Batu kapur yang dipecah (batu giling) dari tambang Ratatotok, tersedia dalam ukuran 1x2 (10–20mm) dan 2x3 (20–30mm) untuk kebutuhan konstruksi umum.',
+        size_variants: ['1x2 cm (10–20 mm)', '2x3 cm (20–30 mm)'],
         derivatives: [],
         hero: {
-          title: 'Agregat Beton SNI',
-          subtitle: 'Kekuatan Struktural Maksimal',
-          description: 'Material batuan keras hasil proses crushing presisi untuk daya tahan konstruksi jangka panjang.',
-          image: '/products/agregat-beton.png'
+          title: 'Batu Giling',
+          subtitle: 'Batu Kapur Pecah Ukuran 1x2 & 2x3',
+          description: 'Batu kapur hasil proses crushing langsung dari tambang Ratatotok. Tersedia dua ukuran standar untuk kebutuhan konstruksi dan pengurugan.',
+          image: '/products/agregat-beton.webp'
         },
         stats: [
-          { label: 'Standar', value: 'SNI 1750', icon: 'ShieldCheck' },
-          { label: 'Bentuk', value: 'Kubikal', icon: 'Layers' },
-          { label: 'Abrasi', value: '< 25%', icon: 'Zap' },
+          { label: 'Ukuran', value: '1x2 & 2x3', icon: 'Layers' },
+          { label: 'Jenis', value: 'Batu Kapur', icon: 'Mountain' },
+          { label: 'Lumpur', value: '< 1%', icon: 'Zap' },
           { label: 'Stok', value: 'Ready', icon: 'Package' }
         ],
         overview: {
-          title: 'Kualitas Agregat WEU',
-          content: 'Agregat beton kami diproses dari batuan andesit/basalt pilihan melalui sistem crusher tiga tahap untuk menghasilkan bentuk butiran kubikal yang ideal bagi campuran beton.',
+          title: 'Batu Giling PT WEU',
+          content: 'Batu giling kami adalah batu kapur (limestone) yang dipecah menggunakan crusher plant 250 TPH di tambang Ratatotok. Produk ini bukan agregat beton bersertifikasi SNI, melainkan batu pecah untuk kebutuhan konstruksi umum dan pengurugan.',
           features: [
-            'Bentuk butiran seragam (low elongation)',
-            'Permukaan bersih dari material organik',
-            'Ketahanan terhadap cuaca ekstrem',
-            'Tersedia berbagai ukuran fraksi'
+            'Dua ukuran tersedia: 1x2 dan 2x3',
+            'Berasal dari batu kapur Ratatotok berkadar CaO tinggi',
+            'Kadar lumpur rendah dari sistem washing plant',
+            'Pasokan langsung dari tambang, volume besar'
           ]
         },
         specifications: {
-          title: 'Analisis Teknis Agregat',
+          title: 'Spesifikasi Batu Giling',
           table: [
-            { label: 'Berat Jenis', value: '2.65 g/cm3' },
-            { label: 'Penyerapan Air', value: '1.2%' },
-            { label: 'Kadar Lumpur', value: '0.8%' },
-            { label: 'Impact Value', value: '18%' }
+            { label: 'Ukuran 1x2', value: '10 – 20 mm' },
+            { label: 'Ukuran 2x3', value: '20 – 30 mm' },
+            { label: 'Kadar Lumpur', value: '< 1%' },
+            { label: 'Kadar CaO', value: '> 55%' }
           ],
           chartData: [
-            { name: 'Solid', value: 98, color: '#0F3460' },
-            { name: 'Absorpsi', value: 2, color: '#FFD700' }
+            { name: 'Solid', value: 99, color: '#0F3460' },
+            { name: 'Lumpur', value: 1, color: '#FFD700' }
           ]
         },
         applications: {
-          title: 'Aplikasi Konstruksi',
+          title: 'Aplikasi Batu Giling',
           items: [
-            { title: 'Beton Ready Mix', desc: 'Material utama untuk beton struktural K-350 ke atas.', icon: 'Building' },
-            { title: 'Lapis Pondasi', desc: 'Stabilisasi jalan raya dan area beban berat.', icon: 'Construction' },
-            { title: 'Precast', desc: 'Pembuatan box culvert, u-ditch, dan tiang pancang.', icon: 'Factory' }
+            { title: 'Konstruksi Umum', desc: 'Campuran beton umum, pengurugan, dan sirtu untuk lantai kerja.', icon: 'Building' },
+            { title: 'Pengerasan Jalan', desc: 'Lapis pondasi jalan dan pengerasan area tambang.', icon: 'Construction' },
+            { title: 'Reklamasi & Urugan', desc: 'Material urugan untuk reklamasi dan penimbunan area industri.', icon: 'Layers' }
           ]
         },
         process: {
-          title: 'Produksi Agregat',
+          title: 'Proses Produksi',
           steps: [
-            { title: 'Seleksi Batuan', desc: 'Pemilihan batuan keras dengan densitas tinggi.' },
-            { title: 'Triple Stage Crushing', desc: 'Proses pemecahan bertahap untuk menjaga kualitas bentuk.' },
-            { title: 'Washing System', desc: 'Pembersihan debu halus untuk memastikan ikatan beton kuat.' }
+            { title: 'Penambangan', desc: 'Batu kapur ditambang dari formasi Ratatotok, Minahasa Tenggara.' },
+            { title: 'Crushing', desc: 'Proses pemecahan menggunakan crusher plant 250 TPH ke ukuran 1x2 dan 2x3.' },
+            { title: 'Washing & Sortir', desc: 'Pembersihan kadar lumpur dan sortir ukuran sebelum pengiriman.' }
           ]
         },
         quality: {
-          title: 'Standar Infrastruktur',
-          content: 'Setiap batch agregat diuji abrasi dan gradasi untuk memastikan ketahanan struktur bagi kontraktor.',
-          certs: ['Uji Laboratorium SNI', 'Sertifikat Bebas Lumpur', 'Analisis Gradasi Rutin']
+          title: 'Kualitas Material',
+          content: 'Setiap batch diuji kadar lumpur dan gradasi di laboratorium internal kami sebelum pengiriman ke pelanggan.',
+          certs: ['COA per pesanan', 'Uji Kadar Lumpur', 'Analisis Gradasi Internal']
         },
         faq: {
-          title: 'Pertanyaan Agregat',
+          title: 'Pertanyaan Batu Giling',
           items: [
-            { q: 'Ukuran apa saja yang tersedia?', a: 'Tersedia ukuran 1-2, 2-3, dan base course sesuai pesanan.' }
+            { q: 'Apa itu batu giling?', a: 'Batu giling adalah batu kapur yang dipecah (crushed limestone) dari tambang kami. Tersedia ukuran 1x2 (10–20mm) dan 2x3 (20–30mm). Bukan agregat beton bersertifikat SNI.' }
           ]
         },
         cta: {
-          title: 'Bangun Proyek Anda dengan Kokoh',
-          subtitle: 'Dapatkan agregat berkualitas tinggi untuk proyek strategis nasional Anda.',
+          title: 'Butuh Batu Giling dalam Volume Besar?',
+          subtitle: 'Pasokan langsung dari tambang Ratatotok. Hubungi tim kami untuk penawaran terbaik.',
           button: 'MINTA PENAWARAN',
           whatsapp: 'Hubungi Logistik'
         }
@@ -975,23 +975,23 @@ export const translations: { id: Translation; en: Partial<Translation> & Record<
           title: 'Industrial Crushing & Material Processing',
           description: 'High-purity limestone materials engineered for smelting, construction, and industrial processing applications.',
           items: [
-            { id: 'limestone', name: 'Limestone Lumpy', specs: 'CaO > 55%, 40-150mm', tags: ['Smelter', 'Flux'], image: '/products/limestone-lumpy.png', details: ['High Calcium Content', 'Consistent Size Range', 'Low Silicate'] },
-            { id: 'burnLime', name: 'Quicklime', specs: 'Active CaO > 90%', tags: ['Steel', 'Chemical'], image: '/products/burn-lime.png', details: ['Fast Reactivity', 'High Purity', 'Moisture Controlled'] }
+            { id: 'limestone', name: 'Limestone Lumpy', specs: 'CaO > 55%, 40-150mm', tags: ['Smelter', 'Flux'], image: '/products/limestone-lumpy.webp', details: ['High Calcium Content', 'Consistent Size Range', 'Low Silicate'] },
+            { id: 'burnLime', name: 'Quicklime', specs: 'Active CaO > 90%', tags: ['Steel', 'Chemical'], image: '/products/burn-lime.webp', details: ['Fast Reactivity', 'High Purity', 'Moisture Controlled'] }
           ]
         },
         {
-          title: 'Konstruksi & Infrastruktur',
-          description: 'Agregat standar SNI untuk daya tahan maksimal.',
+          title: 'Konstruksi & Batu Giling',
+          description: 'Batu kapur giling ukuran 1x2 dan 2x3 untuk konstruksi umum dan pengurugan.',
           items: [
-            { id: 'agregat', name: 'Agregat Beton', specs: 'Sesuai SNI 1750', tags: ['Infrastruktur', 'Beton'], image: '/products/agregat-beton.png', details: ['Cubical Shape', 'Clean Surfaces', 'Vibrated Material'] }
+            { id: 'agregat', name: 'Batu Giling', specs: 'Ukuran 1x2 & 2x3', tags: ['Konstruksi', 'Urugan'], image: '/products/agregat-beton.webp', details: ['1x2 cm (10–20mm)', '2x3 cm (20–30mm)', 'Batu Kapur Pecah'] }
           ]
         },
         {
           title: 'Kalsium Karbonat (CaCO3)',
           description: 'Tepung mineral untuk kertas, plastik, and kimia.',
           items: [
-            { id: 'caco3', name: 'Tepung CaCO3', specs: 'D97 < 10 micron', tags: ['Plastic', 'Paper'], image: '/products/tepung-caco3.png', details: ['Ultra Fine Grinding', 'High Whiteness', 'Strict PSD Control'] },
-            { id: 'pcc', name: 'PCC Nanoscale', specs: 'Purity > 99%', tags: ['Pharma', 'Paint'], image: '/products/pcc-nanoscale.png', details: ['Precipitated Tech', 'Nano Particle Size', 'Pharma Grade'] }
+            { id: 'caco3', name: 'Tepung CaCO3', specs: 'D97 < 10 micron', tags: ['Plastic', 'Paper'], image: '/products/tepung-caco3.webp', details: ['Ultra Fine Grinding', 'High Whiteness', 'Strict PSD Control'] },
+            { id: 'pcc', name: 'PCC Nanoscale', specs: 'Purity > 99%', tags: ['Pharma', 'Paint'], image: '/products/pcc-nanoscale.webp', details: ['Precipitated Tech', 'Nano Particle Size', 'Pharma Grade'] }
           ]
         }
       ],
@@ -1069,8 +1069,8 @@ export const translations: { id: Translation; en: Partial<Translation> & Record<
         },
         {
           id: '5',
-          title: 'Daya Tahan Infrastruktur: Peran Kalsium Karbonat Standar SNI',
-          excerpt: 'Mengapa agregat beton dan bubuk kalsium berkualitas tinggi menjadi kunci kekuatan proyek strategis nasional Indonesia.',
+          title: 'Daya Tahan Infrastruktur: Peran Material Kapur Berkualitas',
+          excerpt: 'Mengapa batu giling dan bubuk kalsium dari batu kapur berkualitas menjadi kunci kekuatan proyek konstruksi di Indonesia.',
           date: '22 Maret 2024',
           category: 'Teknologi',
           image: '/blog/infrastructure_durability.png'
@@ -1417,23 +1417,23 @@ export const translations: { id: Translation; en: Partial<Translation> & Record<
           title: 'Smelter & Metal Industry',
           description: 'High-purity flux materials for smelters.',
           items: [
-            { id: 'limestone', name: 'Limestone Lumpy', specs: 'CaO > 55%, 40-150mm', tags: ['Smelter', 'Flux'], image: '/products/limestone-lumpy.png', details: ['High Calcium Content', 'Consistent Size Range', 'Low Silicate'] },
-            { id: 'burnLime', name: 'Quicklime', specs: 'Active CaO > 90%', tags: ['Steel', 'Chemical'], image: '/products/burn-lime.png', details: ['Fast Reactivity', 'High Purity', 'Moisture Controlled'] }
+            { id: 'limestone', name: 'Limestone Lumpy', specs: 'CaO > 55%, 40-150mm', tags: ['Smelter', 'Flux'], image: '/products/limestone-lumpy.webp', details: ['High Calcium Content', 'Consistent Size Range', 'Low Silicate'] },
+            { id: 'burnLime', name: 'Quicklime', specs: 'Active CaO > 90%', tags: ['Steel', 'Chemical'], image: '/products/burn-lime.webp', details: ['Fast Reactivity', 'High Purity', 'Moisture Controlled'] }
           ]
         },
         {
           title: 'Construction & Infrastructure',
           description: 'SNI standard aggregates for maximum durability.',
           items: [
-            { id: 'agregat', name: 'Concrete Aggregate', specs: 'SNI 1750 Compliant', tags: ['Infrastruktur', 'Beton'], image: '/products/agregat-beton.png', details: ['Cubical Shape', 'Clean Surfaces', 'Vibrated Material'] }
+            { id: 'agregat', name: 'Concrete Aggregate', specs: 'SNI 1750 Compliant', tags: ['Infrastruktur', 'Beton'], image: '/products/agregat-beton.webp', details: ['Cubical Shape', 'Clean Surfaces', 'Vibrated Material'] }
           ]
         },
         {
           title: 'Calcium Carbonate (CaCO3)',
           description: 'Mineral powder for paper, plastic, and chemical industries.',
           items: [
-            { id: 'caco3', name: 'CaCO3 Powder', specs: 'D97 < 10 micron', tags: ['Plastic', 'Paper'], image: '/products/tepung-caco3.png', details: ['Ultra Fine Grinding', 'High Whiteness', 'Strict PSD Control'] },
-            { id: 'pcc', name: 'Nano PCC', specs: 'Purity > 99%', tags: ['Pharma', 'Paint'], image: '/products/pcc-nanoscale.png', details: ['Precipitated Tech', 'Nano Particle Size', 'Pharma Grade'] }
+            { id: 'caco3', name: 'CaCO3 Powder', specs: 'D97 < 10 micron', tags: ['Plastic', 'Paper'], image: '/products/tepung-caco3.webp', details: ['Ultra Fine Grinding', 'High Whiteness', 'Strict PSD Control'] },
+            { id: 'pcc', name: 'Nano PCC', specs: 'Purity > 99%', tags: ['Pharma', 'Paint'], image: '/products/pcc-nanoscale.webp', details: ['Precipitated Tech', 'Nano Particle Size', 'Pharma Grade'] }
           ]
         }
       ],

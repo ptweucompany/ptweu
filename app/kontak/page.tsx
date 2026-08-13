@@ -29,17 +29,58 @@ const contactSchema = {
   mainEntity: {
     '@type': 'Organization',
     name: company.legal_name,
-    telephone: '+62-0434-260-3008',
+    '@id': `${BASE}/#organization`,
+    telephone: '+62-434-260-3008',
     email: 'contact@wiraenergiutama.com',
     url: BASE,
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+62-811-4344-168',
-      contactType: 'sales',
-      availableLanguage: ['Indonesian', 'English'],
-      contactOption: 'TollFree',
-    },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: '+62-811-4344-168',
+        contactType: 'sales',
+        availableLanguage: ['Indonesian', 'English'],
+        contactOption: 'TollFree',
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: '+62-434-260-3008',
+        contactType: 'customer service',
+        availableLanguage: ['Indonesian', 'English'],
+      },
+    ],
   },
+};
+
+const contactFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Berapa MOQ (Minimum Order Quantity) untuk pembelian?',
+      acceptedAnswer: { '@type': 'Answer', text: 'MOQ kami fleksibel: untuk pengiriman lokal mulai dari 20 MT, antar pulau minimal 500 MT via tongkang, dan ekspor minimal 7.500 MT melalui Pelabuhan Bitung. Kami terbuka untuk trial shipment bagi pelanggan baru.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Berapa lama waktu respon setelah mengirim inquiry?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Tim kami akan merespon dalam 1 hari kerja. Untuk kebutuhan mendesak, hubungi langsung via WhatsApp 0811 4344 168 untuk respon instan.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Apakah PT WEU bisa mengirim ke luar Sulawesi?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Ya. Kami memiliki jetty khusus draft 12 meter dan menggunakan Pelabuhan Bitung (KEK) untuk pengiriman antar pulau dan ekspor ke Australia, China, Singapura, dan kawasan Asia Pasifik.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Apakah tersedia Certificate of Analysis (COA)?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Ya. Setiap batch produksi disertai COA standar. Untuk volume komersial, tersedia sertifikasi independen dari Sucofindo atau Intertek atas permintaan pelanggan.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Bagaimana proses pemesanan?',
+      acceptedAnswer: { '@type': 'Answer', text: '1) Kirim inquiry via form ini atau WhatsApp → 2) Tim teknis menghubungi untuk konfirmasi spesifikasi → 3) Proposal harga & syarat dikirimkan → 4) PO & kontrak pasokan → 5) Produksi & pengiriman sesuai jadwal.' },
+    },
+  ],
 };
 
 const faqData = [
@@ -64,6 +105,7 @@ export default function KontakPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactFaqSchema) }} />
 
       {/* 1. HERO */}
       <section className="bg-[#0A1628] py-20">

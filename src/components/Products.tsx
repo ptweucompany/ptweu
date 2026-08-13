@@ -24,15 +24,15 @@ const slugMapEN: Record<string, string> = {
 };
 
 const productImageMap: Record<string, string> = {
-  'batu-kapur': '/products/limestone.png',
-  'limestone': '/products/limestone.png',
-  'kalsium-karbonat': '/products/caco3.png',
-  'caco3': '/products/caco3.png',
-  'kapur-bakar': '/products/burn-lime.png',
-  'burn-lime': '/products/burn-lime.png',
-  'kapur-padam': '/products/hydrated-lime.png',
-  'hydrated-lime': '/products/hydrated-lime.png',
-  'pcc': '/products/pcc.png'
+  'batu-kapur': '/products/limestone.webp',
+  'limestone': '/products/limestone.webp',
+  'kalsium-karbonat': '/products/caco3.webp',
+  'caco3': '/products/caco3.webp',
+  'kapur-bakar': '/products/burn-lime.webp',
+  'burn-lime': '/products/burn-lime.webp',
+  'kapur-padam': '/products/hydrated-lime.webp',
+  'hydrated-lime': '/products/hydrated-lime.webp',
+  'pcc': '/products/pcc.webp'
 };
 
 export default function Products({ t }: ProductsProps) {

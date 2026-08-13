@@ -69,6 +69,21 @@ export default async function BlogDetailPage({ params }: Props) {
     ]
   };
 
+  // Helper: konversi format "15 Maret 2024" → "2024-03-15" untuk ISO 8601
+  const monthMap: Record<string, string> = {
+    'Januari': '01', 'Februari': '02', 'Maret': '03', 'April': '04',
+    'Mei': '05', 'Juni': '06', 'Juli': '07', 'Agustus': '08',
+    'September': '09', 'Oktober': '10', 'November': '11', 'Desember': '12'
+  };
+  const parseDate = (dateStr: string): string => {
+    const parts = dateStr.split(' ');
+    if (parts.length === 3) {
+      const [day, month, year] = parts;
+      return `${year}-${monthMap[month] || '01'}-${day.padStart(2, '0')}`;
+    }
+    return '2024-03-01';
+  };
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -77,7 +92,11 @@ export default async function BlogDetailPage({ params }: Props) {
     image: `${BASE}${post.image}`,
     author: { '@type': 'Organization', name: 'PT Wira Energi Utama', url: BASE },
     publisher: { '@id': `${BASE}/#organization` },
-    datePublished: '2026-04-07', // Use current date for these new rich blog posts
+    datePublished: parseDate(post.date),
+    dateModified: parseDate(post.date),
+    articleSection: post.category,
+    inLanguage: 'id-ID',
+    isPartOf: { '@id': `${BASE}/#website` },
   };
 
   return (

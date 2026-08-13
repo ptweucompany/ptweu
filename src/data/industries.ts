@@ -97,7 +97,7 @@ export const industries: IndustryData[] = [
     name_en: 'Construction & Infrastructure',
     slug: 'konstruksi',
     products_used: ['Agregat Batu Kapur', 'CaCO3', 'Kapur Padam'],
-    how_used_id: 'Batu kapur sebagai base jalan dan agregat beton. CaCO3 sebagai filler aspal dan campuran beton. Kapur padam untuk stabilisasi tanah subgrade.',
+    how_used_id: 'Batu kapur sebagai base jalan dan batu giling 1x2 & 2x3 untuk campuran konstruksi umum. CaCO3 sebagai filler aspal dan campuran beton. Kapur padam untuk stabilisasi tanah subgrade.',
     required_specs: 'Agregat 10–80 mm sesuai SNI; CaCO3 200–325 mesh untuk filler',
     pain_points_id: [
       'Boom infrastruktur nasional mendorong permintaan tinggi dengan timeline ketat',
