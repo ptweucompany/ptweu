@@ -12,9 +12,10 @@ interface NavbarProps {
   setLang: (lang: Language) => void;
   t: Translation['nav'];
   onContactClick: () => void;
+  homeLabel?: string;
 }
 
-export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps) {
+export default function Navbar({ lang, setLang, t, onContactClick, homeLabel = 'Home' }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
@@ -70,7 +71,7 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
             <Link href={lang === 'id' ? '/' : '/en'} className={`text-sm font-medium hover:text-brand-gold transition-colors flex items-center ${isHome ? 'text-brand-gold' : ''}`}>
-              Home
+              {homeLabel}
             </Link>
             
             {navLinks.map((link) => (
@@ -132,11 +133,11 @@ export default function Navbar({ lang, setLang, t, onContactClick }: NavbarProps
       {isMenuOpen && (
         <div className="md:hidden bg-brand-blue border-t border-white/10 py-4 px-4 space-y-4 animate-in slide-in-from-top duration-300">
           <Link
-            href="/"
+            href={lang === 'id' ? '/' : '/en'}
             onClick={() => setIsMenuOpen(false)}
             className="block text-lg font-medium hover:text-brand-gold"
           >
-            Home
+            {homeLabel}
           </Link>
           {navLinks.map((link) => (
             <Link

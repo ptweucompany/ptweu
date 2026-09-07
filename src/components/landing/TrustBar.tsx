@@ -1,6 +1,16 @@
-import Link from 'next/link';
+export interface TrustBarStat {
+  value: string;
+  label: string;
+  desc: string;
+}
+export interface TrustBarContent {
+  tag: string;
+  heading: string;
+  stats: TrustBarStat[];
+  badges: string[];
+}
 
-const CONTENT = {
+const CONTENT: Record<'id' | 'en', TrustBarContent> = {
   id: {
     tag: 'Didukung Legalitas IUP OP Resmi · April 2024',
     heading: 'Kapasitas Produksi Skala Industri',
@@ -8,7 +18,8 @@ const CONTENT = {
       { value: '150.000 MT', label: 'Kapasitas Produksi / Bulan', desc: 'Didukung Crusher 250 TPH 24/7' },
       { value: '97 Ha', label: 'Luas Area IUP OP', desc: 'Deposit batu kapur Ratatotok, CaO > 55%' },
       { value: '3 Pelabuhan', label: 'Jalur Distribusi Laut', desc: 'Bitung · Kotabunan · Belang' },
-    ]
+    ],
+    badges: ['Sucofindo', 'Intertek', 'Minertech', 'SMK3 Certified'],
   },
   en: {
     tag: 'Legal IUP OP License Certified · April 2024',
@@ -17,12 +28,19 @@ const CONTENT = {
       { value: '150,000 MT', label: 'Production Capacity / Month', desc: 'Supported by 250 TPH Crusher 24/7' },
       { value: '97 Ha', label: 'Official IUP OP Area', desc: 'Limestone deposit in Ratatotok, CaO > 55%' },
       { value: '3 Ports', label: 'Sea Distribution Network', desc: 'Bitung · Kotabunan · Belang' },
-    ]
-  }
+    ],
+    badges: ['Sucofindo', 'Intertek', 'Minertech', 'SMK3 Certified'],
+  },
 };
 
-export default function TrustBar({ lang = 'id' }: { lang?: 'id' | 'en' }) {
-  const c = CONTENT[lang];
+export default function TrustBar({
+  lang = 'id',
+  data,
+}: {
+  lang?: 'id' | 'en';
+  data?: TrustBarContent;
+}) {
+  const c = data ?? CONTENT[lang];
   return (
     <section
       id="trust"
@@ -49,7 +67,7 @@ export default function TrustBar({ lang = 'id' }: { lang?: 'id' | 'en' }) {
           ))}
         </dl>
         <div className="mt-10 flex flex-wrap justify-center gap-6 text-sm text-gray-400">
-          {['Sucofindo', 'Intertek', 'Minertech', 'SMK3 Certified'].map((lab) => (
+          {c.badges.map((lab) => (
             <span key={lab} className="flex items-center gap-1.5">
               <svg className="w-4 h-4 text-[#C8A84B]" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>

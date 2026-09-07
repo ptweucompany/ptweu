@@ -10,6 +10,7 @@ import ScrollIntentCTA from './ScrollIntentCTA';
  */
 export default function ScrollIntentWrapper() {
   const pathname = usePathname();
+  if (pathname?.startsWith('/admin')) return null;
   const lang = pathname?.startsWith('/en') ? 'en' : 'id';
   return <ScrollIntentCTA lang={lang} />;
 }

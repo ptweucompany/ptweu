@@ -10,9 +10,22 @@ interface ProductSummary {
 
 interface ProductPreviewProps {
   products: ProductSummary[];
+  title?: string;
+  intro?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  itemCtaLabel?: string;
 }
 
-export default function ProductPreview({ products }: ProductPreviewProps) {
+export default function ProductPreview({
+  products,
+  title = 'Produk Mineral Industri Kami',
+  intro = 'Produk turunan batu kapur berkualitas tinggi — tersedia dalam berbagai spesifikasi teknis sesuai kebutuhan industri Anda.',
+  ctaLabel = 'Lihat Semua Produk & Spesifikasi Teknis',
+  ctaHref = '/produk',
+  itemCtaLabel = 'Lihat Spesifikasi',
+  itemHrefBase = '/produk',
+}: ProductPreviewProps & { itemHrefBase?: string }) {
   return (
     <section
       id="produk"
@@ -20,17 +33,13 @@ export default function ProductPreview({ products }: ProductPreviewProps) {
       aria-label="Preview produk unggulan PT Wira Energi Utama"
     >
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-[#0A1628] text-2xl sm:text-3xl font-bold mb-2">
-          Produk Mineral Industri Kami
-        </h2>
-        <p className="text-gray-500 mb-10">
-          5 produk turunan batu kapur berkualitas tinggi — tersedia dalam berbagai spesifikasi teknis sesuai kebutuhan industri Anda.
-        </p>
+        <h2 className="text-[#0A1628] text-2xl sm:text-3xl font-bold mb-2">{title}</h2>
+        <p className="text-gray-500 mb-10">{intro}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product) => (
             <Link
               key={product.slug}
-              href={`/produk/${product.slug}`}
+              href={`${itemHrefBase}/${product.slug}`}
               className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-lg hover:border-[#C8A84B]/40 transition-all duration-300"
             >
               <div className="relative h-52 overflow-hidden bg-gray-100">
@@ -47,7 +56,7 @@ export default function ProductPreview({ products }: ProductPreviewProps) {
                 <h3 className="text-[#0A1628] font-bold text-lg leading-snug">{product.name}</h3>
                 <p className="text-gray-500 text-sm mt-1 line-clamp-2">{product.subtitle}</p>
                 <span className="mt-4 inline-flex items-center text-[#A68A3B] font-semibold text-sm">
-                  Lihat Spesifikasi
+                  {itemCtaLabel}
                   <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                   </svg>
@@ -58,10 +67,10 @@ export default function ProductPreview({ products }: ProductPreviewProps) {
         </div>
         <div className="mt-10 text-center">
           <Link
-            href="/produk"
+            href={ctaHref}
             className="inline-flex items-center px-8 py-3 border-2 border-[#0A1628] text-[#0A1628] font-bold rounded-lg hover:bg-[#0A1628] hover:text-white transition-colors duration-200"
           >
-            Lihat Semua Produk &amp; Spesifikasi Teknis
+            {ctaLabel}
           </Link>
         </div>
       </div>

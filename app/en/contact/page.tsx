@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import InquiryForm from '../../../src/components/InquiryForm';
 import LeadScrollButton from '../../../src/components/LeadScrollButton';
-import { offices, legal, company } from '../../../src/data/company';
+import { getSiteSettings } from '../../../src/lib/content/resolver';
+
 
 export const metadata: Metadata = {
   title: 'Contact Us | Industrial Mineral Inquiry — PT Wira Energi Utama',
@@ -20,61 +21,61 @@ export const metadata: Metadata = {
 
 const BASE = 'https://wiraenergiutama.com';
 
-const contactSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ContactPage',
-  name: 'Contact PT Wira Energi Utama',
-  description: 'Contact and inquiry page for industrial minerals',
-  url: `${BASE}/en/contact`,
-  mainEntity: {
-    '@type': 'Organization',
-    name: company.legal_name,
-    '@id': `${BASE}/#organization`,
-    telephone: '+62-434-260-3008',
-    email: 'contact@wiraenergiutama.com',
-    url: BASE,
-    contactPoint: [
-      {
-        '@type': 'ContactPoint',
-        telephone: '+62-813-9956-7777',
-        contactType: 'sales',
-        availableLanguage: ['Indonesian', 'English'],
-        contactOption: 'TollFree',
-      },
-      {
-        '@type': 'ContactPoint',
-        telephone: '+62-434-260-3008',
-        contactType: 'customer service',
-        availableLanguage: ['Indonesian', 'English'],
-      },
-    ],
-  },
+const digits = (s: string) => (s || '').replace(/\D/g, '');
+const intlPhone = (s: string) => {
+  const d = digits(s);
+  if (!d) return '';
+  if (d.startsWith('62')) return '+' + d;
+  if (d.startsWith('0')) return '+62' + d.slice(1);
+  return '+' + d;
 };
 
-const contactFaqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    { '@type': 'Question', name: 'What is the Minimum Order Quantity (MOQ) for purchase?', acceptedAnswer: { '@type': 'Answer', text: 'Our MOQ is flexible: for local delivery starting from 20 MT, inter-island minimum 500 MT via barge, and export minimum 7,500 MT through Bitung Port. We are open to trial shipments for new customers.' } },
-    { '@type': 'Question', name: 'How long is the response time after sending an inquiry?', acceptedAnswer: { '@type': 'Answer', text: 'Our team will respond within 1 business day. For urgent needs, contact us directly via WhatsApp +62 813 9956 7777 for an instant response.' } },
-    { '@type': 'Question', name: 'Can PT WEU ship outside Sulawesi?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We have a dedicated jetty with a 12-meter draft and use Bitung Port (SEZ) for inter-island shipping and exports to Australia, China, Singapore, and the Asia Pacific region.' } },
-    { '@type': 'Question', name: 'Is a Certificate of Analysis (COA) available?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Every production batch is accompanied by a standard COA. For commercial volumes, independent certification from Sucofindo or Intertek is available upon customer request.' } },
-    { '@type': 'Question', name: 'What is the ordering process?', acceptedAnswer: { '@type': 'Answer', text: '1) Send inquiry via this form or WhatsApp → 2) Technical team contacts you to confirm specifications → 3) Price proposal & terms are sent → 4) PO & supply contract → 5) Production & delivery according to schedule.' } },
-  ],
-};
+function buildFaq(wa: string) {
+  return [
+    { q: 'What is the Minimum Order Quantity (MOQ) for purchase?', a: 'Our MOQ is flexible: for local delivery starting from 20 MT, inter-island minimum 500 MT via barge, and export minimum 7,500 MT through Bitung Port. We are open to trial shipments for new customers.' },
+    { q: 'How long is the response time after sending an inquiry?', a: `Our team will respond within 1 business day. For urgent needs, contact us directly via WhatsApp ${wa} for an instant response.` },
+    { q: 'Can PT WEU ship outside Sulawesi?', a: 'Yes. We have a dedicated jetty with a 12-meter draft and use Bitung Port (SEZ) for inter-island shipping and exports to Australia, China, Singapore, and the Asia Pacific region.' },
+    { q: 'Is a Certificate of Analysis (COA) available?', a: 'Yes. Every production batch is accompanied by a standard COA. For commercial volumes, independent certification from Sucofindo or Intertek is available upon customer request.' },
+    { q: 'What is the ordering process?', a: '1) Send inquiry via this form or WhatsApp → 2) Technical team contacts you to confirm specifications → 3) Price proposal & terms are sent → 4) PO & supply contract → 5) Production & delivery according to schedule.' },
+    { q: 'Is price information available on the website?', a: 'Industrial mineral prices are dynamic depending on specifications, volume, packaging, and delivery location. Please submit an inquiry to get a customized quote.' },
+  ];
+}
 
-const faqData = [
-  { q: 'What is the Minimum Order Quantity (MOQ) for purchase?', a: 'Our MOQ is flexible: for local delivery starting from 20 MT, inter-island minimum 500 MT via barge, and export minimum 7,500 MT through Bitung Port. We are open to trial shipments for new customers.' },
-  { q: 'How long is the response time after sending an inquiry?', a: 'Our team will respond within 1 business day. For urgent needs, contact us directly via WhatsApp +62 813 9956 7777 for an instant response.' },
-  { q: 'Can PT WEU ship outside Sulawesi?', a: 'Yes. We have a dedicated jetty with a 12-meter draft and use Bitung Port (SEZ) for inter-island shipping and exports to Australia, China, Singapore, and the Asia Pacific region.' },
-  { q: 'Is a Certificate of Analysis (COA) available?', a: 'Yes. Every production batch is accompanied by a standard COA. For commercial volumes, independent certification from Sucofindo or Intertek is available upon customer request.' },
-  { q: 'What is the ordering process?', a: '1) Send inquiry via this form or WhatsApp → 2) Technical team contacts you to confirm specifications → 3) Price proposal & terms are sent → 4) PO & supply contract → 5) Production & delivery according to schedule.' },
-  { q: 'Is price information available on the website?', a: 'Industrial mineral prices are dynamic depending on specifications, volume, packaging, and delivery location. Please submit an inquiry to get a customized quote.' },
-];
-
-export default function ContactPage() {
+export default async function ContactPage() {
+  const settings = await getSiteSettings();
+  const offices = settings.offices;
+  const legal = settings.legal;
   const headOffice = offices[0];
-  const regionalOffice = offices[1];
+  const waDigits = digits(settings.whatsapp_url) || digits(settings.whatsapp) || '6281399567777';
+  const waDisplay = settings.whatsapp ? '+62 ' + settings.whatsapp.replace(/^0/, '').replace(/(\d{3})(\d{4})(\d+)/, '$1 $2 $3') : '+62 813 9956 7777';
+  const emailPrimary = settings.email_primary || 'contact@wiraenergiutama.com';
+  const phoneDisplay = settings.phone || '(0434) 260 3008';
+
+  const faqData = buildFaq(waDisplay);
+  const contactSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: `Contact ${settings.legal_name}`,
+    description: 'Contact and inquiry page for industrial minerals',
+    url: `${BASE}/en/contact`,
+    mainEntity: {
+      '@type': 'Organization',
+      name: settings.legal_name,
+      '@id': `${BASE}/#organization`,
+      telephone: intlPhone(settings.phone) || '+62-434-260-3008',
+      email: emailPrimary,
+      url: BASE,
+      contactPoint: [
+        { '@type': 'ContactPoint', telephone: intlPhone(settings.whatsapp) || '+62-813-9956-7777', contactType: 'sales', availableLanguage: ['Indonesian', 'English'], contactOption: 'TollFree' },
+        { '@type': 'ContactPoint', telephone: intlPhone(settings.phone) || '+62-434-260-3008', contactType: 'customer service', availableLanguage: ['Indonesian', 'English'] },
+      ],
+    },
+  };
+  const contactFaqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqData.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  };
 
   const CheckIcon = () => (
     <svg className="w-4 h-4 text-[#C8A84B] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -124,7 +125,7 @@ export default function ContactPage() {
             </div>
             {/* Quick Contact Cards */}
             <div className="grid grid-cols-1 gap-4">
-              <a href={`https://wa.me/6281399567777?text=${encodeURIComponent('Hello PT WEU, I would like to know more about your industrial mineral products.')}`}
+              <a href={`https://wa.me/${waDigits}?text=${encodeURIComponent('Hello PT WEU, I would like to know more about your industrial mineral products.')}`}
                 target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-5 bg-[#25D366]/10 border border-[#25D366]/30 rounded-2xl p-5 hover:bg-[#25D366]/15 transition-colors">
                 <div className="w-14 h-14 bg-[#25D366] rounded-xl flex items-center justify-center flex-shrink-0">
@@ -139,7 +140,7 @@ export default function ContactPage() {
                 </div>
               </a>
 
-              <a href="mailto:contact@wiraenergiutama.com"
+              <a href={`mailto:${emailPrimary}`}
                 className="flex items-center gap-5 bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-[#C8A84B]/30 transition-colors">
                 <div className="w-14 h-14 bg-[#C8A84B] rounded-xl flex items-center justify-center flex-shrink-0">
                   <svg className="w-7 h-7 text-[#0A1628]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -148,12 +149,12 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-white font-bold">Email</p>
-                  <p className="text-[#C8A84B] font-semibold">contact@wiraenergiutama.com</p>
+                  <p className="text-[#C8A84B] font-semibold">{emailPrimary}</p>
                   <p className="text-gray-400 text-xs">Response within 1 business day</p>
                 </div>
               </a>
 
-              <a href="tel:+6204342603008"
+              <a href={`tel:${intlPhone(settings.phone) || "+624342603008"}`}
                 className="flex items-center gap-5 bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-[#C8A84B]/30 transition-colors">
                 <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
                   <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -162,7 +163,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-white font-bold">Office Phone</p>
-                  <p className="text-gray-300 font-semibold">(0434) 260 3008</p>
+                  <p className="text-gray-300 font-semibold">{phoneDisplay}</p>
                   <p className="text-gray-400 text-xs">Manado, North Sulawesi</p>
                 </div>
               </a>
@@ -269,7 +270,7 @@ export default function ContactPage() {
                       <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                       </svg>
-                      <a href={`tel:+620434260300`} className="text-gray-700 hover:text-[#C8A84B] transition-colors">{office.phone}</a>
+                      <a href={`tel:${intlPhone(office.phone || "")}`} className="text-gray-700 hover:text-[#C8A84B] transition-colors">{office.phone}</a>
                     </div>
                   )}
                   {office.whatsapp_url && (
@@ -300,7 +301,7 @@ export default function ContactPage() {
       <section className="bg-gray-50">
         <div className="h-80 w-full relative overflow-hidden">
           <iframe
-            src={`https://maps.google.com/maps?q=${headOffice.geo.lat},${headOffice.geo.lng}&z=14&output=embed`}
+            src={`https://maps.google.com/maps?q=${headOffice.geo?.lat ?? 1.4748},${headOffice.geo?.lng ?? 124.8421}&z=14&output=embed`}
             width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"
             referrerPolicy="no-referrer-when-downgrade" title="PT Wira Energi Utama Location, Manado"
             className="grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
@@ -336,7 +337,7 @@ export default function ContactPage() {
           <h2 className="text-white text-2xl font-bold mb-4">Ready to Start Procurement?</h2>
           <p className="text-gray-300 mb-8">Contact our sales team now or scroll up to fill out the complete Inquiry Form.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://wa.me/6281399567777" target="_blank" rel="noopener noreferrer"
+            <a href={`https://wa.me/${waDigits}`} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#1ebe5d] transition-colors">
               WhatsApp: +62 813 9956 7777
             </a>

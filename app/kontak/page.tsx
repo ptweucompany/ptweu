@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import InquiryForm from '../../src/components/InquiryForm';
 import LeadScrollButton from '../../src/components/LeadScrollButton';
-import { offices, legal, company } from '../../src/data/company';
+import { getSiteSettings } from '../../src/lib/content/resolver';
+
 
 export const metadata: Metadata = {
   title: 'Hubungi Kami | Inquiry Mineral Industri — PT Wira Energi Utama',
@@ -20,81 +21,77 @@ export const metadata: Metadata = {
 
 const BASE = 'https://wiraenergiutama.com';
 
-const contactSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ContactPage',
-  name: 'Hubungi PT Wira Energi Utama',
-  description: 'Halaman kontak dan inquiry untuk mineral industri',
-  url: `${BASE}/kontak`,
-  mainEntity: {
-    '@type': 'Organization',
-    name: company.legal_name,
-    '@id': `${BASE}/#organization`,
-    telephone: '+62-434-260-3008',
-    email: 'contact@wiraenergiutama.com',
-    url: BASE,
-    contactPoint: [
-      {
-        '@type': 'ContactPoint',
-        telephone: '+62-813-9956-7777',
-        contactType: 'sales',
-        availableLanguage: ['Indonesian', 'English'],
-        contactOption: 'TollFree',
-      },
-      {
-        '@type': 'ContactPoint',
-        telephone: '+62-434-260-3008',
-        contactType: 'customer service',
-        availableLanguage: ['Indonesian', 'English'],
-      },
-    ],
-  },
+const digits = (s: string) => (s || '').replace(/\D/g, '');
+const intlPhone = (s: string) => {
+  const d = digits(s);
+  if (!d) return '';
+  if (d.startsWith('62')) return '+' + d;
+  if (d.startsWith('0')) return '+62' + d.slice(1);
+  return '+' + d;
 };
 
-const contactFaqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Berapa MOQ (Minimum Order Quantity) untuk pembelian?',
-      acceptedAnswer: { '@type': 'Answer', text: 'MOQ kami fleksibel: untuk pengiriman lokal mulai dari 20 MT, antar pulau minimal 500 MT via tongkang, dan ekspor minimal 7.500 MT melalui Pelabuhan Bitung. Kami terbuka untuk trial shipment bagi pelanggan baru.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'Berapa lama waktu respon setelah mengirim inquiry?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Tim kami akan merespon dalam 1 hari kerja. Untuk kebutuhan mendesak, hubungi langsung via WhatsApp 0813 9956 7777 untuk respon instan.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'Apakah PT WEU bisa mengirim ke luar Sulawesi?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Ya. Kami memiliki jetty khusus draft 12 meter dan menggunakan Pelabuhan Bitung (KEK) untuk pengiriman antar pulau dan ekspor ke Australia, China, Singapura, dan kawasan Asia Pasifik.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'Apakah tersedia Certificate of Analysis (COA)?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Ya. Setiap batch produksi disertai COA standar. Untuk volume komersial, tersedia sertifikasi independen dari Sucofindo atau Intertek atas permintaan pelanggan.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'Bagaimana proses pemesanan?',
-      acceptedAnswer: { '@type': 'Answer', text: '1) Kirim inquiry via form ini atau WhatsApp → 2) Tim teknis menghubungi untuk konfirmasi spesifikasi → 3) Proposal harga & syarat dikirimkan → 4) PO & kontrak pasokan → 5) Produksi & pengiriman sesuai jadwal.' },
-    },
-  ],
-};
+function buildFaq(wa: string) {
+  return [
+    { q: 'Berapa MOQ (Minimum Order Quantity) untuk pembelian?', a: 'MOQ kami fleksibel: untuk pengiriman lokal mulai dari 20 MT, antar pulau minimal 500 MT via tongkang, dan ekspor minimal 7.500 MT melalui Pelabuhan Bitung. Kami terbuka untuk trial shipment bagi pelanggan baru.' },
+    { q: 'Berapa lama waktu respon setelah mengirim inquiry?', a: `Tim kami akan merespon dalam 1 hari kerja. Untuk kebutuhan mendesak, hubungi langsung via WhatsApp ${wa} untuk respon instan.` },
+    { q: 'Apakah PT WEU bisa mengirim ke luar Sulawesi?', a: 'Ya. Kami memiliki jetty khusus draft 12 meter dan menggunakan Pelabuhan Bitung (KEK) untuk pengiriman antar pulau dan ekspor ke Australia, China, Singapura, dan kawasan Asia Pasifik.' },
+    { q: 'Apakah tersedia Certificate of Analysis (COA)?', a: 'Ya. Setiap batch produksi disertai COA standar. Untuk volume komersial, tersedia sertifikasi independen dari Sucofindo atau Intertek atas permintaan pelanggan.' },
+    { q: 'Bagaimana proses pemesanan?', a: '1) Kirim inquiry via form ini atau WhatsApp → 2) Tim teknis menghubungi untuk konfirmasi spesifikasi → 3) Proposal harga & syarat dikirimkan → 4) PO & kontrak pasokan → 5) Produksi & pengiriman sesuai jadwal.' },
+    { q: 'Apakah ada informasi harga di website?', a: 'Harga mineral industri bersifat dinamis tergantung spesifikasi, volume, packaging, dan lokasi pengiriman. Silakan submit inquiry untuk mendapatkan penawaran yang disesuaikan.' },
+  ];
+}
 
-const faqData = [
-  { q: 'Berapa MOQ (Minimum Order Quantity) untuk pembelian?', a: 'MOQ kami fleksibel: untuk pengiriman lokal mulai dari 20 MT, antar pulau minimal 500 MT via tongkang, dan ekspor minimal 7.500 MT melalui Pelabuhan Bitung. Kami terbuka untuk trial shipment bagi pelanggan baru.' },
-  { q: 'Berapa lama waktu respon setelah mengirim inquiry?', a: 'Tim kami akan merespon dalam 1 hari kerja. Untuk kebutuhan mendesak, hubungi langsung via WhatsApp 0813 9956 7777 untuk respon instan.' },
-  { q: 'Apakah PT WEU bisa mengirim ke luar Sulawesi?', a: 'Ya. Kami memiliki jetty khusus draft 12 meter dan menggunakan Pelabuhan Bitung (KEK) untuk pengiriman antar pulau dan ekspor ke Australia, China, Singapura, dan kawasan Asia Pasifik.' },
-  { q: 'Apakah tersedia Certificate of Analysis (COA)?', a: 'Ya. Setiap batch produksi disertai COA standar. Untuk volume komersial, tersedia sertifikasi independen dari Sucofindo atau Intertek atas permintaan pelanggan.' },
-  { q: 'Bagaimana proses pemesanan?', a: '1) Kirim inquiry via form ini atau WhatsApp → 2) Tim teknis menghubungi untuk konfirmasi spesifikasi → 3) Proposal harga & syarat dikirimkan → 4) PO & kontrak pasokan → 5) Produksi & pengiriman sesuai jadwal.' },
-  { q: 'Apakah ada informasi harga di website?', a: 'Harga mineral industri bersifat dinamis tergantung spesifikasi, volume, packaging, dan lokasi pengiriman. Silakan submit inquiry untuk mendapatkan penawaran yang disesuaikan.' },
-];
-
-export default function KontakPage() {
+export default async function KontakPage() {
+  const settings = await getSiteSettings();
+  const offices = settings.offices;
+  const legal = settings.legal;
   const headOffice = offices[0];
-  const regionalOffice = offices[1];
+  const waDigits = digits(settings.whatsapp_url) || digits(settings.whatsapp) || '6281399567777';
+  const waDisplay = settings.whatsapp || '0813 9956 7777';
+  const emailPrimary = settings.email_primary || 'contact@wiraenergiutama.com';
+  const phoneDisplay = settings.phone || '(0434) 260 3008';
+
+  const contactSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: `Hubungi ${settings.legal_name}`,
+    description: 'Halaman kontak dan inquiry untuk mineral industri',
+    url: `${BASE}/kontak`,
+    mainEntity: {
+      '@type': 'Organization',
+      name: settings.legal_name,
+      '@id': `${BASE}/#organization`,
+      telephone: intlPhone(settings.phone) || '+62-434-260-3008',
+      email: emailPrimary,
+      url: BASE,
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          telephone: intlPhone(settings.whatsapp) || '+62-813-9956-7777',
+          contactType: 'sales',
+          availableLanguage: ['Indonesian', 'English'],
+          contactOption: 'TollFree',
+        },
+        {
+          '@type': 'ContactPoint',
+          telephone: intlPhone(settings.phone) || '+62-434-260-3008',
+          contactType: 'customer service',
+          availableLanguage: ['Indonesian', 'English'],
+        },
+      ],
+    },
+  };
+
+  const faqData = buildFaq(waDisplay);
+  const contactFaqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqData.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
 
   const CheckIcon = () => (
     <svg className="w-4 h-4 text-[#C8A84B] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -144,7 +141,7 @@ export default function KontakPage() {
             </div>
             {/* Quick Contact Cards */}
             <div className="grid grid-cols-1 gap-4">
-              <a href={`https://wa.me/6281399567777?text=${encodeURIComponent('Halo PT WEU, saya ingin mengetahui lebih lanjut tentang produk mineral industri Anda.')}`}
+              <a href={`https://wa.me/${waDigits}?text=${encodeURIComponent('Halo PT WEU, saya ingin mengetahui lebih lanjut tentang produk mineral industri Anda.')}`}
                 target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-5 bg-[#25D366]/10 border border-[#25D366]/30 rounded-2xl p-5 hover:bg-[#25D366]/15 transition-colors">
                 <div className="w-14 h-14 bg-[#25D366] rounded-xl flex items-center justify-center flex-shrink-0">
@@ -154,12 +151,12 @@ export default function KontakPage() {
                 </div>
                 <div>
                   <p className="text-white font-bold">WhatsApp (Respon Cepat)</p>
-                  <p className="text-[#25D366] text-lg font-bold">0813 9956 7777</p>
+                  <p className="text-[#25D366] text-lg font-bold">{waDisplay}</p>
                   <p className="text-gray-400 text-xs">Senin–Sabtu, 08.00–17.00 WITA</p>
                 </div>
               </a>
 
-              <a href="mailto:contact@wiraenergiutama.com"
+              <a href={`mailto:${emailPrimary}`}
                 className="flex items-center gap-5 bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-[#C8A84B]/30 transition-colors">
                 <div className="w-14 h-14 bg-[#C8A84B] rounded-xl flex items-center justify-center flex-shrink-0">
                   <svg className="w-7 h-7 text-[#0A1628]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -168,12 +165,12 @@ export default function KontakPage() {
                 </div>
                 <div>
                   <p className="text-white font-bold">Email</p>
-                  <p className="text-[#C8A84B] font-semibold">contact@wiraenergiutama.com</p>
+                  <p className="text-[#C8A84B] font-semibold">{emailPrimary}</p>
                   <p className="text-gray-400 text-xs">Respon dalam 1 hari kerja</p>
                 </div>
               </a>
 
-              <a href="tel:+6204342603008"
+              <a href={`tel:${intlPhone(settings.phone) || '+624342603008'}`}
                 className="flex items-center gap-5 bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-[#C8A84B]/30 transition-colors">
                 <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
                   <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -182,7 +179,7 @@ export default function KontakPage() {
                 </div>
                 <div>
                   <p className="text-white font-bold">Telepon Kantor</p>
-                  <p className="text-gray-300 font-semibold">(0434) 260 3008</p>
+                  <p className="text-gray-300 font-semibold">{phoneDisplay}</p>
                   <p className="text-gray-400 text-xs">Manado, Sulawesi Utara</p>
                 </div>
               </a>
@@ -289,7 +286,7 @@ export default function KontakPage() {
                       <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                       </svg>
-                      <a href={`tel:+620434260300`} className="text-gray-700 hover:text-[#C8A84B] transition-colors">{office.phone}</a>
+                      <a href={`tel:${intlPhone(office.phone || '')}`} className="text-gray-700 hover:text-[#C8A84B] transition-colors">{office.phone}</a>
                     </div>
                   )}
                   {office.whatsapp_url && (
@@ -320,7 +317,7 @@ export default function KontakPage() {
       <section className="bg-gray-50">
         <div className="h-80 w-full relative overflow-hidden">
           <iframe
-            src={`https://maps.google.com/maps?q=${headOffice.geo.lat},${headOffice.geo.lng}&z=14&output=embed`}
+            src={`https://maps.google.com/maps?q=${headOffice.geo?.lat ?? 1.4748},${headOffice.geo?.lng ?? 124.8421}&z=14&output=embed`}
             width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"
             referrerPolicy="no-referrer-when-downgrade" title="Lokasi PT Wira Energi Utama, Manado"
             className="grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
@@ -356,9 +353,9 @@ export default function KontakPage() {
           <h2 className="text-white text-2xl font-bold mb-4">Siap Memulai Pengadaan Mineral?</h2>
           <p className="text-gray-300 mb-8">Hubungi tim penjualan kami sekarang atau scroll ke atas untuk mengisi Form Inquiry lengkap.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://wa.me/6281399567777" target="_blank" rel="noopener noreferrer"
+            <a href={`https://wa.me/${waDigits}`} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#1ebe5d] transition-colors">
-              WhatsApp: 0813 9956 7777
+              WhatsApp: {waDisplay}
             </a>
             <LeadScrollButton label="↑ Isi Form Inquiry" />
           </div>

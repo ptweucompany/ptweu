@@ -7,6 +7,8 @@ import FooterWrapper from './FooterWrapper';
 import ScrollToTopWrapper from './ScrollToTopWrapper';
 import Script from 'next/script';
 import ScrollIntentWrapper from '../src/components/ScrollIntentWrapper';
+import { getResolvedSiteContent } from '../src/lib/content/resolver';
+import type { SiteSettings } from '../src/lib/content/types';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -14,6 +16,7 @@ const inter = Inter({
 });
 
 const BASE_URL = process.env.APP_URL || 'https://wiraenergiutama.com';
+
 
 export const viewport: Viewport = {
   themeColor: '#C8A84B',
@@ -143,15 +146,27 @@ export const metadata: Metadata = {
   category: 'Industrial',
 };
 
-const organizationSchema = {
+function toIntlPhone(raw: string): string {
+  const digits = (raw || '').replace(/[^\d+]/g, '');
+  if (!digits) return '';
+  if (digits.startsWith('+')) return digits;
+  if (digits.startsWith('0')) return '+62-' + digits.slice(1);
+  if (digits.startsWith('62')) return '+' + digits.slice(0, 2) + '-' + digits.slice(2);
+  return digits;
+}
+
+function buildOrganizationSchema(s: SiteSettings) {
+  const head = s.offices[0];
+  const sameAs = [s.instagram_url, s.facebook_url, s.linkedin_url].filter(Boolean);
+  return {
   '@context': 'https://schema.org',
   '@graph': [
     {
       '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
-      name: 'PT Wira Energi Utama',
-      legalName: 'PT Wira Energi Utama',
-      alternateName: 'PT WEU',
+      name: s.legal_name,
+      legalName: s.legal_name,
+      alternateName: s.short_name,
       url: BASE_URL,
       logo: {
         '@type': 'ImageObject',
@@ -161,15 +176,15 @@ const organizationSchema = {
       },
       image: `${BASE_URL}/og-image.png`,
       description: 'Perusahaan tambang batu kapur dan supplier mineral industri berkualitas tinggi dari Sulawesi Utara, Indonesia.',
-      foundingDate: '2015',
+      foundingDate: s.founded,
       foundingLocation: {
         '@type': 'Place',
         name: 'Manado, Sulawesi Utara, Indonesia',
       },
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Taman Sari Cluster Lihaga, Blok H3-3, Kel. Paniki Bawah',
-        addressLocality: 'Manado',
+        streetAddress: head?.address_id || 'Taman Sari Cluster Lihaga, Blok H3-3, Kel. Paniki Bawah',
+        addressLocality: head?.city || 'Manado',
         addressRegion: 'Sulawesi Utara',
         postalCode: '95256',
         addressCountry: 'ID',
@@ -177,26 +192,24 @@ const organizationSchema = {
       contactPoint: [
         {
           '@type': 'ContactPoint',
-          telephone: '+62-434-260-3008',
+          telephone: toIntlPhone(s.phone) || '+62-434-260-3008',
           contactType: 'customer service',
           availableLanguage: ['Indonesian', 'English'],
           areaServed: 'ID',
         },
         {
           '@type': 'ContactPoint',
-          telephone: '+62-813-9956-7777',
+          telephone: toIntlPhone(s.whatsapp) || '+62-813-9956-7777',
           contactType: 'sales',
           contactOption: 'TollFree',
           availableLanguage: ['Indonesian', 'English'],
         },
       ],
-      email: 'contact@wiraenergiutama.com',
-      sameAs: [
-        'https://www.instagram.com/pt_weu',
-      ],
+      email: s.email_primary,
+      sameAs: sameAs.length ? sameAs : ['https://www.instagram.com/pt_weu'],
       numberOfEmployees: {
         '@type': 'QuantitativeValue',
-        value: 50,
+        value: s.employees_approx,
       },
       areaServed: {
         '@type': 'Country',
@@ -217,24 +230,24 @@ const organizationSchema = {
     {
       '@type': 'LocalBusiness',
       '@id': `${BASE_URL}/#localbusiness`,
-      name: 'PT Wira Energi Utama — Kantor Pusat Manado',
+      name: `${s.legal_name} — Kantor Pusat Manado`,
       image: `${BASE_URL}/og-image.png`,
       url: BASE_URL,
-      telephone: '+62-434-260-3008',
-      email: 'contact@wiraenergiutama.com',
+      telephone: toIntlPhone(s.phone) || '+62-434-260-3008',
+      email: s.email_primary,
       priceRange: '$$',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Taman Sari Cluster Lihaga, Blok H3-3, Kel. Paniki Bawah',
-        addressLocality: 'Manado',
+        streetAddress: head?.address_id || 'Taman Sari Cluster Lihaga, Blok H3-3, Kel. Paniki Bawah',
+        addressLocality: head?.city || 'Manado',
         addressRegion: 'Sulawesi Utara',
         postalCode: '95256',
         addressCountry: 'ID',
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: 1.4748,
-        longitude: 124.8421,
+        latitude: head?.geo?.lat ?? 1.4748,
+        longitude: head?.geo?.lng ?? 124.8421,
       },
       openingHoursSpecification: [
         { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
@@ -258,20 +271,24 @@ const organizationSchema = {
       inLanguage: ['id', 'en'],
     },
   ],
-};
+  };
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { settings, blocks } = await getResolvedSiteContent();
+  const organizationSchema = buildOrganizationSchema(settings);
+
   return (
     <html lang="id" suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={`${inter.className} min-h-screen font-sans text-gray-900 bg-white`}>
-        <LanguageProvider>
+        <LanguageProvider initialSettings={settings} initialBlocks={blocks}>
           <ScrollToTopWrapper />
           <NavbarWrapper />
           <main>{children}</main>

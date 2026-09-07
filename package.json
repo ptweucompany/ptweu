@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && mv out dist",
+    "build": "rm -rf .next dist out && next build && mv out dist",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@google/genai": "^1.30.0",
+    "@supabase/supabase-js": "^2.115.0",
     "@tailwindcss/postcss": "^4.2.1",
     "better-sqlite3": "^12.4.1",
     "dotenv": "^17.2.3",
