@@ -103,7 +103,7 @@ export default function AdminCompanyPage() {
     }
     setInitial(structuredClone(form));
     setStatus('Tersimpan. Memicu update website…');
-    const pub = await autoPublish();
+    const pub = await autoPublish('Data Perusahaan diperbarui');
     setSaving(false);
     setStatus(pub.message);
   }

@@ -13,6 +13,7 @@ const NAV = [
   { href: '/admin/company', label: 'Data Perusahaan' },
   { href: '/admin/products', label: 'Produk & Harga' },
   { href: '/admin/content', label: 'Teks Halaman' },
+  { href: '/admin/logs', label: 'Riwayat' },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {

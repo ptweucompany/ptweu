@@ -168,7 +168,7 @@ export default function AdminProductsPage() {
       return;
     }
     setStatus('Tersimpan. Memicu update website…');
-    const pub = await autoPublish();
+    const pub = await autoPublish(`Produk "${pForm.name_id}" diperbarui`);
     setSaving(false);
     setStatus(pub.message);
     await refresh();

@@ -34,8 +34,5 @@ export const supabase = createClient<Database>(
       detectSessionInUrl: true,
       storageKey: 'ptweu-admin-auth',
     },
-    global: {
-      headers: { 'x-application-name': 'ptweu-cms' },
-    },
   },
 );

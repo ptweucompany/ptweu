@@ -62,7 +62,7 @@ export default function AdminContentPage() {
     }
     setInitial(JSON.stringify(blocks));
     setStatus('Tersimpan. Memicu update website…');
-    const pub = await autoPublish();
+    const pub = await autoPublish('Teks Halaman diperbarui');
     setSaving(false);
     setStatus(pub.message);
   }

@@ -209,7 +209,66 @@ export async function loadLastPublish() {
   return data ?? null;
 }
 
-export async function publish(note = 'Publish from dashboard') {
+export interface RevisionRow {
+  id: string;
+  created_at: string;
+  created_by: string | null;
+  note: string;
+}
+
+export async function loadRevisions(limit = 60): Promise<RevisionRow[]> {
+  const { data } = await supabase
+    .from('content_revisions')
+    .select('id,created_at,created_by,note')
+    .order('created_at', { ascending: false })
+    .limit(limit);
+  return (data as RevisionRow[]) ?? [];
+}
+
+/** Re-apply a saved snapshot to the live tables, then publish. */
+export async function restoreRevision(id: string) {
+  const { data: rev, error } = await supabase
+    .from('content_revisions')
+    .select('snapshot,created_at')
+    .eq('id', id)
+    .maybeSingle();
+  if (error || !rev) throw error ?? new Error('Versi tidak ditemukan');
+
+  const snap = rev.snapshot as {
+    site_settings: Record<string, unknown> | null;
+    products: Record<string, unknown>[];
+    product_pricing: Record<string, unknown>[];
+    content_blocks: Record<string, unknown>[];
+  };
+
+  if (snap.site_settings) {
+    const s = await supabase
+      .from('site_settings')
+      .upsert(snap.site_settings as never, { onConflict: 'id' });
+    if (s.error) throw s.error;
+  }
+  if (snap.products?.length) {
+    const p = await supabase.from('products').upsert(snap.products as never, { onConflict: 'id' });
+    if (p.error) throw p.error;
+  }
+  if (snap.product_pricing?.length) {
+    const pr = await supabase
+      .from('product_pricing')
+      .upsert(snap.product_pricing as never, { onConflict: 'product_id' });
+    if (pr.error) throw pr.error;
+  }
+  if (snap.content_blocks?.length) {
+    const b = await supabase
+      .from('content_blocks')
+      .upsert(snap.content_blocks as never, { onConflict: 'key' });
+    if (b.error) throw b.error;
+  }
+
+  return publish(`Dikembalikan ke versi ${new Date(rev.created_at).toLocaleString('id-ID')}`);
+}
+
+/** Write a point-in-time snapshot row to content_revisions (the change log). */
+export async function snapshotRevision(note = 'Perubahan disimpan') {
   const [{ data: user }, site, products, pricing, blocks] = await Promise.all([
     supabase.auth.getUser(),
     supabase.from('site_settings').select('*').eq('id', 1).maybeSingle(),
@@ -231,10 +290,17 @@ export async function publish(note = 'Publish from dashboard') {
     snapshot: snapshot as unknown as Database['public']['Tables']['content_revisions']['Insert']['snapshot'],
   });
   if (rev.error) throw rev.error;
+}
 
-  // Trigger the Cloudflare rebuild via the Edge Function (keeps the hook secret).
-  const fn = await supabase.functions.invoke('publish', { body: { note } });
-  return fn;
+/** Trigger the Cloudflare rebuild via the Edge Function (keeps the hook secret). */
+export async function triggerBuild(note = 'Publish from dashboard') {
+  return supabase.functions.invoke('publish', { body: { note } });
+}
+
+/** Snapshot + trigger a build. Used by the manual "Perbarui Website" button. */
+export async function publish(note = 'Publish from dashboard') {
+  await snapshotRevision(note);
+  return triggerBuild(note);
 }
 
 // ── Auto-publish after save ──────────────────────────────────────────────────
@@ -249,7 +315,14 @@ export type AutoPublishResult =
   | { ok: true; message: string }
   | { ok: false; message: string };
 
-export async function autoPublish(): Promise<AutoPublishResult> {
+export async function autoPublish(note = 'Perubahan disimpan'): Promise<AutoPublishResult> {
+  // Always log the change.
+  try {
+    await snapshotRevision(note);
+  } catch {
+    /* non-fatal: the log entry failed but the data is saved */
+  }
+
   const now = Date.now();
   if (now - _lastAutoPublish < AUTO_PUBLISH_COOLDOWN_MS) {
     return {
@@ -259,7 +332,7 @@ export async function autoPublish(): Promise<AutoPublishResult> {
   }
   _lastAutoPublish = now;
   try {
-    const res = await publish('Auto-publish setelah simpan');
+    const res = await triggerBuild(note);
     const data = (res?.data ?? {}) as { deployed?: boolean; error?: string };
     if (res?.error) {
       _lastAutoPublish = 0;
