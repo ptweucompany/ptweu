@@ -9,10 +9,11 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[];
 
+type StrCols<K extends string> = { [P in K]: string };
+type StrColsOpt<K extends string> = { [P in K]?: string };
+
 export type Database = {
-  __InternalSupabase: {
-    PostgrestVersion: '14.5';
-  };
+  __InternalSupabase: { PostgrestVersion: '14.5' };
   public: {
     Tables: {
       content_blocks: {
@@ -49,27 +50,33 @@ export type Database = {
         Relationships: [];
       };
       content_revisions: {
-        Row: {
-          created_at: string;
-          created_by: string | null;
-          id: string;
-          note: string;
-          snapshot: Json;
-        };
-        Insert: {
-          created_at?: string;
-          created_by?: string | null;
-          id?: string;
-          note?: string;
-          snapshot: Json;
-        };
-        Update: {
-          created_at?: string;
-          created_by?: string | null;
-          id?: string;
-          note?: string;
-          snapshot?: Json;
-        };
+        Row: { created_at: string; created_by: string | null; id: string; note: string; snapshot: Json };
+        Insert: { created_at?: string; created_by?: string | null; id?: string; note?: string; snapshot: Json };
+        Update: { created_at?: string; created_by?: string | null; id?: string; note?: string; snapshot?: Json };
+        Relationships: [];
+      };
+      inquiries: {
+        Row: StrCols<
+          | 'admin_notes' | 'company' | 'country' | 'created_at' | 'delivery' | 'email' | 'form'
+          | 'id' | 'industry' | 'message' | 'name' | 'packaging' | 'phone' | 'product'
+          | 'source' | 'status' | 'updated_at' | 'volume'
+        >;
+        Insert: StrColsOpt<
+          | 'admin_notes' | 'company' | 'country' | 'created_at' | 'delivery' | 'email' | 'form'
+          | 'id' | 'industry' | 'message' | 'name' | 'packaging' | 'phone' | 'product'
+          | 'source' | 'status' | 'updated_at' | 'volume'
+        >;
+        Update: StrColsOpt<
+          | 'admin_notes' | 'company' | 'country' | 'created_at' | 'delivery' | 'email' | 'form'
+          | 'id' | 'industry' | 'message' | 'name' | 'packaging' | 'phone' | 'product'
+          | 'source' | 'status' | 'updated_at' | 'volume'
+        >;
+        Relationships: [];
+      };
+      private_config: {
+        Row: { key: string; updated_at: string; value: string };
+        Insert: { key: string; updated_at?: string; value?: string };
+        Update: { key?: string; updated_at?: string; value?: string };
         Relationships: [];
       };
       product_pricing: {

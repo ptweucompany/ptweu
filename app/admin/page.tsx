@@ -9,6 +9,7 @@ import {
   loadProducts,
   loadSiteSettings,
 } from '../../src/lib/admin/cms';
+import { countNewInquiries } from '../../src/lib/admin/inbox';
 import { Button, Callout, Section } from '../../src/components/admin/ui';
 
 export const dynamic = 'force-static';
@@ -19,21 +20,24 @@ export default function AdminOverviewPage() {
   const [blockCount, setBlockCount] = useState(0);
   const [hasSettings, setHasSettings] = useState(false);
   const [lastPublish, setLastPublish] = useState<string | null>(null);
+  const [newInquiries, setNewInquiries] = useState(0);
   const [importing, setImporting] = useState(false);
   const [msg, setMsg] = useState('');
 
   async function refresh() {
     setLoading(true);
-    const [products, blocks, settings, lp] = await Promise.all([
+    const [products, blocks, settings, lp, nq] = await Promise.all([
       loadProducts(),
       loadContentBlocks(),
       loadSiteSettings(),
       loadLastPublish(),
+      countNewInquiries().catch(() => 0),
     ]);
     setProductCount(products.length);
     setBlockCount(blocks.length);
     setHasSettings(Boolean(settings));
     setLastPublish(lp?.created_at ?? null);
+    setNewInquiries(nq);
     setLoading(false);
   }
 
@@ -74,7 +78,13 @@ export default function AdminOverviewPage() {
       )}
 
       {!empty && (
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+          <Stat
+            label="Inquiry baru"
+            value={loading ? '…' : String(newInquiries)}
+            href="/admin/inquiries"
+            highlight={newInquiries > 0}
+          />
           <Stat label="Produk" value={loading ? '…' : String(productCount)} href="/admin/products" />
           <Stat label="Blok teks" value={loading ? '…' : String(blockCount)} href="/admin/content" />
           <Stat
@@ -92,6 +102,7 @@ export default function AdminOverviewPage() {
 
       <Section title="Kelola konten">
         <ul className="divide-y divide-gray-100">
+          <Row href="/admin/inquiries" title="Inbox Inquiry" desc="Pesan dari form kontak & inquiry website. Kelola status & catatan." />
           <Row href="/admin/company" title="Data Perusahaan" desc="Telepon, email, alamat kantor, sosial media, legalitas." />
           <Row href="/admin/products" title="Produk & Harga" desc="Spesifikasi produk (publik) dan harga internal (tidak tampil di website)." />
           <Row href="/admin/content" title="Teks Halaman" desc="Teks landing page: hero, trust bar, CTA, footer, menu." />
@@ -120,11 +131,27 @@ export default function AdminOverviewPage() {
   );
 }
 
-function Stat({ label, value, href }: { label: string; value: string; href?: string }) {
+function Stat({
+  label,
+  value,
+  href,
+  highlight,
+}: {
+  label: string;
+  value: string;
+  href?: string;
+  highlight?: boolean;
+}) {
   const inner = (
-    <div className="bg-white rounded-xl border border-gray-200 p-4">
+    <div
+      className={`rounded-xl border p-4 ${
+        highlight ? 'bg-amber-50 border-amber-300' : 'bg-white border-gray-200'
+      }`}
+    >
       <p className="text-xs font-medium uppercase tracking-wide text-gray-400">{label}</p>
-      <p className="text-2xl font-bold text-gray-900 mt-1">{value}</p>
+      <p className={`text-2xl font-bold mt-1 ${highlight ? 'text-amber-700' : 'text-gray-900'}`}>
+        {value}
+      </p>
     </div>
   );
   return href ? <Link href={href}>{inner}</Link> : inner;

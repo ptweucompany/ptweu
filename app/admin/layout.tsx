@@ -6,10 +6,12 @@ import { usePathname, useRouter } from 'next/navigation';
 import type { Session } from '@supabase/supabase-js';
 import { supabase, supabaseConfigured } from '../../src/lib/supabase/client';
 import { loadLastPublish, publish, signOut } from '../../src/lib/admin/cms';
+import { countNewInquiries } from '../../src/lib/admin/inbox';
 import { Button } from '../../src/components/admin/ui';
 
 const NAV = [
   { href: '/admin', label: 'Overview', exact: true },
+  { href: '/admin/inquiries', label: 'Inbox', badge: true },
   { href: '/admin/company', label: 'Data Perusahaan' },
   { href: '/admin/products', label: 'Produk & Harga' },
   { href: '/admin/content', label: 'Teks Halaman' },
@@ -26,6 +28,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [publishing, setPublishing] = useState(false);
   const [publishMsg, setPublishMsg] = useState<string>('');
   const [lastPublish, setLastPublish] = useState<string | null>(null);
+  const [newCount, setNewCount] = useState(0);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -44,6 +47,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   useEffect(() => {
     if (session && !isLogin) {
       loadLastPublish().then((r) => setLastPublish(r?.created_at ?? null)).catch(() => {});
+      countNewInquiries().then(setNewCount).catch(() => {});
     }
   }, [session, isLogin, pathname]);
 
@@ -138,13 +142,22 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 <li key={n.href}>
                   <Link
                     href={n.href}
-                    className={`block rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap ${
+                    className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap ${
                       active
                         ? 'bg-brand-blue text-white'
                         : 'text-gray-600 hover:bg-gray-100'
                     }`}
                   >
                     {n.label}
+                    {n.badge && newCount > 0 && (
+                      <span
+                        className={`inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full text-[11px] font-bold ${
+                          active ? 'bg-white text-brand-blue' : 'bg-amber-500 text-white'
+                        }`}
+                      >
+                        {newCount}
+                      </span>
+                    )}
                   </Link>
                 </li>
               );

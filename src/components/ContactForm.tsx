@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Translation } from '../types';
 import { motion } from 'motion/react';
 import { Send, CheckCircle2 } from 'lucide-react';
+import { submitInquiry } from '../lib/inquiries';
 
 interface ContactFormProps {
   t: Translation['contact'];
@@ -16,24 +17,33 @@ export default function ContactForm({ t }: ContactFormProps) {
     e.preventDefault();
     setStatus('submitting');
 
-    const formData = new FormData(e.currentTarget);
-    
+    const formEl = e.currentTarget;
+    const formData = new FormData(formEl);
+
+    // Primary: save to our own inbox (visible in the admin dashboard).
+    const res = await submitInquiry({
+      form: 'contact',
+      name: String(formData.get('name') ?? ''),
+      email: String(formData.get('email') ?? ''),
+      company: String(formData.get('company') ?? ''),
+      message: String(formData.get('message') ?? ''),
+    });
+
+    // Best-effort backup to Formspree.
     try {
-      const response = await fetch('https://formspree.io/f/xykbeevg', {
+      await fetch('https://formspree.io/f/xykbeevg', {
         method: 'POST',
         body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { Accept: 'application/json' },
       });
+    } catch {
+      /* backup only */
+    }
 
-      if (response.ok) {
-        setStatus('success');
-        (e.target as HTMLFormElement).reset();
-      } else {
-        setStatus('error');
-      }
-    } catch (err) {
+    if (res.ok) {
+      setStatus('success');
+      formEl.reset();
+    } else {
       setStatus('error');
     }
   };

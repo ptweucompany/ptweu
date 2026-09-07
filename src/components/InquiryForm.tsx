@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { submitInquiry } from '../lib/inquiries';
 
 /* ─── CONSTANTS ─────────────────────────────────────────────────────────── */
 
@@ -158,29 +159,24 @@ function InquiryFormInner({ lang = 'id' }: { lang?: 'id' | 'en' }) {
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setSubmitting(true);
 
+    // Primary: save to our own inbox (visible in the admin dashboard).
+    await submitInquiry({ form: 'inquiry', ...data });
+
+    // Best-effort backup to Formspree (kept during transition; safe to remove later).
     const payload = {
       ...data,
       timestamp: new Date().toISOString(),
       source: typeof window !== 'undefined' ? window.location.href : '',
       _subject: `New B2B Inquiry from ${data.name} (${data.company})`,
     };
-
-    // 🚀 PRODUCTION FORM SUBMISSION (Formspree xykbeevg)
     try {
-      const response = await fetch('https://formspree.io/f/xykbeevg', {
+      await fetch('https://formspree.io/f/xykbeevg', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(payload),
       });
-
-      if (!response.ok) {
-        console.error('Formspree submission failed:', response.statusText);
-      }
-    } catch (err) {
-      console.error('Form submission error:', err);
+    } catch {
+      /* backup only — inbox already has the lead */
     }
 
     setSubmitting(false);
