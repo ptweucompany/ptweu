@@ -79,6 +79,20 @@ export type Database = {
         Update: { key?: string; updated_at?: string; value?: string };
         Relationships: [];
       };
+      product_pages: {
+        Row: { id: string; data_id: Json; data_en: Json; updated_at: string };
+        Insert: { id: string; data_id?: Json; data_en?: Json; updated_at?: string };
+        Update: { id?: string; data_id?: Json; data_en?: Json; updated_at?: string };
+        Relationships: [
+          {
+            foreignKeyName: 'product_pages_id_fkey';
+            columns: ['id'];
+            isOneToOne: true;
+            referencedRelation: 'products';
+            referencedColumns: ['id'];
+          },
+        ];
+      };
       product_pricing: {
         Row: {
           currency: string;

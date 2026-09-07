@@ -4,15 +4,13 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { ChevronRight, Factory, Zap, ShieldCheck, Star, ArrowRight } from 'lucide-react';
 import { productSlugsEN } from '../../../../src/data/products';
-import { translations as fullT } from '../../../../src/translations';
 import CTASection from '../../../../src/components/CTASection';
 import TrustMicroSection from '../../../../src/components/TrustMicroSection';
+import { getProductPages } from '../../../../src/lib/content/resolver';
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
-
-const enT = { ...fullT.id, ...fullT.en } as any;
 
 const slugToId: Record<string, string> = {
   'limestone': 'limestone',
@@ -30,7 +28,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const productId = slugToId[slug];
-  const product = (enT.productPages as any)[productId];
+  const pages = await getProductPages('en');
+  const product = pages[productId];
   if (!product) return {};
 
   const BASE = 'https://wiraenergiutama.com';
@@ -73,7 +72,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function EnProductDetailPage({ params }: Props) {
   const { slug } = await params;
   const productId = slugToId[slug];
-  const product = (enT.productPages as any)[productId];
+  const pages = await getProductPages('en');
+  const product = pages[productId];
   if (!product) notFound();
 
   const BASE = 'https://wiraenergiutama.com';
@@ -122,7 +122,7 @@ export default async function EnProductDetailPage({ params }: Props) {
   
   // Breadcrumb Path Logic
   const getPath = (id: string): any[] => {
-    const p = (enT.productPages as any)[id];
+    const p = pages[id];
     if (!p) return [];
     if (p.parent) {
       return [...getPath(p.parent), p];
@@ -295,7 +295,7 @@ export default async function EnProductDetailPage({ params }: Props) {
                     <h3 className="text-xs font-black text-brand-gold uppercase tracking-[0.3em] mb-8 relative">Derivative Products</h3>
                     <div className="space-y-3 relative">
                       {product.derivatives.map((derId: string) => {
-                        const derProduct = (enT.productPages as any)[derId];
+                        const derProduct = pages[derId];
                         return (
                           <Link 
                             key={derId}

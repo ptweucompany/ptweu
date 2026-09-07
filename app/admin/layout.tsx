@@ -14,6 +14,7 @@ const NAV = [
   { href: '/admin/inquiries', label: 'Inbox', badge: true },
   { href: '/admin/company', label: 'Data Perusahaan' },
   { href: '/admin/products', label: 'Produk & Harga' },
+  { href: '/admin/product-pages', label: 'Halaman Produk' },
   { href: '/admin/content', label: 'Teks Halaman' },
   { href: '/admin/logs', label: 'Riwayat' },
 ];

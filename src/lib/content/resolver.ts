@@ -5,6 +5,7 @@
 
 import { supabase, supabaseConfigured } from '../supabase/client';
 import type { ProductData } from '../../data/products';
+import { translations } from '../../translations';
 import {
   DEFAULT_CONTENT_BLOCKS,
   DEFAULT_CONTENT_MAP,
@@ -181,6 +182,42 @@ export async function getPublicProducts(): Promise<ProductData[]> {
 export async function getProductBySlug(slug: string): Promise<ProductData | undefined> {
   const all = await getPublicProducts();
   return all.find((p) => p.slug_id === slug || p.slug_en === slug || p.id === slug);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Product detail pages (rich marketing content — mirrors translations.productPages)
+// Keyed by the translation key ('limestone', 'burnLime', ...) so the existing
+// page templates need no other change.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type ProductPageMap = Record<string, any>;
+
+export async function getProductPages(lang: Lang): Promise<ProductPageMap> {
+  // Hardcoded fallback lives in translations.ts.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const tAny = translations as any;
+  const fallback: ProductPageMap =
+    (lang === 'en'
+      ? tAny.en?.productPages ?? tAny.id.productPages
+      : tAny.id.productPages) ?? {};
+
+  if (!supabaseConfigured) return fallback;
+
+  return memo(`product_pages_${lang}`, async () => {
+    try {
+      const { data, error } = await supabase.from('product_pages').select('id,data_id,data_en');
+      if (error || !data || !data.length) return fallback;
+      const map: ProductPageMap = { ...fallback };
+      for (const row of data) {
+        const d = (lang === 'en' ? row.data_en : row.data_id) as { id?: string } | null;
+        if (d && typeof d === 'object' && d.id) map[d.id] = d;
+      }
+      return map;
+    } catch {
+      return fallback;
+    }
+  });
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
