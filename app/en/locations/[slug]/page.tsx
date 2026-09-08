@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { exportDestBySlug, exportSlugs } from '../../../../src/data/locations';
+import { getCollection } from '../../../../src/lib/content/resolver';
 import { allProducts } from '../../../../src/data/products';
 import CTASection from '../../../../src/components/CTASection';
 import TrustMicroSection from '../../../../src/components/TrustMicroSection';
@@ -12,7 +13,9 @@ export async function generateStaticParams() { return exportSlugs.map((slug) => 
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const dest = exportDestBySlug[slug];
+  const _dest = await getCollection('export_destinations') as any[];
+  const dest = _dest.find((d:any)=>d.slug===slug);
+
   if (!dest) return {};
 
   const BASE = 'https://wiraenergiutama.com';
@@ -53,7 +56,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function EnLocationsPage({ params }: Props) {
   const { slug } = await params;
-  const dest = exportDestBySlug[slug];
+  const _dest = await getCollection('export_destinations') as any[];
+  const dest = _dest.find((d:any)=>d.slug===slug);
+
   if (!dest) notFound();
 
   const BASE = 'https://wiraenergiutama.com';

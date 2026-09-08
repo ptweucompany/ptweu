@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { locationsBySlug, locationSlugs, locations } from '../../../src/data/locations';
+import { getCollection } from '../../../src/lib/content/resolver';
 import { allProducts } from '../../../src/data/products';
 import { industriesFull } from '../../../src/data/industryFull';
 import { legal } from '../../../src/data/company';
@@ -18,6 +19,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  const locations = await getCollection('locations') as any[];
   const loc = locations.find(l => l.slug === slug);
   if (!loc) return {};
 
@@ -60,6 +62,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function LocationPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const locations = await getCollection('locations') as any[];
   const loc = locations.find(l => l.slug === slug);
   if (!loc) notFound();
 

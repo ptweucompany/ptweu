@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { industriesFull } from '../../src/data/industryFull';
+import { getCollection } from '../../src/lib/content/resolver';
 
 export const metadata: Metadata = {
   title: 'Industri yang Kami Layani | PT Wira Energi Utama — Sulawesi Utara',
@@ -8,7 +8,8 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://ptweu.company/industri', languages: { id: 'https://ptweu.company/industri', en: 'https://ptweu.company/en/industries' } },
 };
 
-export default function IndustriPage() {
+export default async function IndustriPage() {
+  const industriesFull = await getCollection('industries');
   return (
     <main>
       <section className="bg-[#0A1628] py-20">

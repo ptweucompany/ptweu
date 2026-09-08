@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { locations } from '../../src/data/locations';
+import { getCollection } from '../../src/lib/content/resolver';
 
 export const metadata: Metadata = {
   title: 'Cakupan Distribusi | PT Wira Energi Utama — Sulawesi Utara',
@@ -8,7 +8,8 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://ptweu.company/lokasi', languages: { id: 'https://ptweu.company/lokasi', en: 'https://ptweu.company/en/locations' } },
 };
 
-export default function LokasiListPage() {
+export default async function LokasiListPage() {
+  const locations = await getCollection('locations');
   return (
     <main>
       <section className="bg-[#0A1628] py-20">

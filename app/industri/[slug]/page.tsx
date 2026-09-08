@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { industriesFull, industriesFullBySlug, industrySlugsID } from '../../../src/data/industryFull';
+import { getCollection } from '../../../src/lib/content/resolver';
 import { allProducts } from '../../../src/data/products';
 import { ports } from '../../../src/data/logistics';
 import { company } from '../../../src/data/company';
@@ -18,6 +19,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  const industriesFull = await getCollection('industries') as any[];
   const ind = industriesFull.find(i => i.slug_id === slug || i.slug_en === slug);
   if (!ind) return {};
 
@@ -60,6 +62,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function IndustriPage({ params }: Props) {
   const { slug } = await params;
+  const industriesFull = await getCollection('industries') as any[];
   const ind = industriesFull.find(i => i.slug_id === slug || i.slug_en === slug);
   if (!ind) notFound();
 

@@ -1,4 +1,5 @@
 import { translations } from '../../../src/translations';
+import { getPageContent } from '../../../src/lib/content/resolver';
 import AdvancedBlogDetail from '../../../src/components/AdvancedBlogDetail';
 import { Metadata } from 'next';
 
@@ -13,7 +14,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const post = translations.id.advancedBlog.posts.find((p) => p.id === id);
+  const pc = await getPageContent();
+  const blog = (pc.advancedBlog?.id as any) ?? translations.id.advancedBlog;
+  const post = blog.posts.find((p: any) => p.id === id);
   if (!post) return { title: 'Industrial Blog | PT Wira Energi Utama' };
 
   const BASE = 'https://wiraenergiutama.com';
@@ -45,8 +48,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogDetailPage({ params }: Props) {
   const { id } = await params;
-  const post = translations.id.advancedBlog.posts.find((p) => p.id === id);
-  const heroT = translations.id.advancedBlog.hero;
+  const pc = await getPageContent();
+  const blog = (pc.advancedBlog?.id as any) ?? translations.id.advancedBlog;
+  const post = blog.posts.find((p: any) => p.id === id);
+  const heroT = blog.hero;
 
   if (!post) {
     return (

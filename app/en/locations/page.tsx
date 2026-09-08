@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { exportDestinations } from '../../../src/data/locations';
+import { getCollection } from '../../../src/lib/content/resolver';
 
 export const metadata: Metadata = {
   title: 'Export Markets | PT Wira Energi Utama — Limestone Export from Indonesia',
@@ -8,7 +8,8 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://ptweu.company/en/locations', languages: { en: 'https://ptweu.company/en/locations', id: 'https://ptweu.company/lokasi' } },
 };
 
-export default function EnLocationsListPage() {
+export default async function EnLocationsListPage() {
+  const exportDestinations = await getCollection('export_destinations');
   return (
     <main>
       <section className="bg-[#0A1628] py-20">

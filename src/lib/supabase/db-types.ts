@@ -73,6 +73,12 @@ export type Database = {
         >;
         Relationships: [];
       };
+      data_collections: {
+        Row: { key: string; data: Json; updated_at: string };
+        Insert: { key: string; data?: Json; updated_at?: string };
+        Update: { key?: string; data?: Json; updated_at?: string };
+        Relationships: [];
+      };
       page_content: {
         Row: { key: string; label: string; data_id: Json; data_en: Json; sort_order: number; updated_at: string };
         Insert: { key: string; label?: string; data_id?: Json; data_en?: Json; sort_order?: number; updated_at?: string };

@@ -17,6 +17,7 @@ const NAV = [
   { href: '/admin/product-pages', label: 'Halaman Produk' },
   { href: '/admin/content', label: 'Teks Landing' },
   { href: '/admin/pages', label: 'Teks Halaman Lain' },
+  { href: '/admin/collections', label: 'Industri & Lokasi' },
   { href: '/admin/logs', label: 'Riwayat' },
 ];
 

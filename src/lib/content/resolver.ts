@@ -247,6 +247,40 @@ export async function getPageContent(): Promise<PageContentMap> {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Structured data collections (industries, locations, export destinations).
+// Items carry inline _id / _en fields, so one array serves both languages.
+// ─────────────────────────────────────────────────────────────────────────────
+
+import { industriesFull } from '../../data/industryFull';
+import { locations as defaultLocations, exportDestinations as defaultExportDest } from '../../data/locations';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const COLLECTION_DEFAULTS: Record<string, any[]> = {
+  industries: industriesFull as unknown as unknown[],
+  locations: defaultLocations as unknown as unknown[],
+  export_destinations: defaultExportDest as unknown as unknown[],
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function getCollection(key: string): Promise<any[]> {
+  const fallback = COLLECTION_DEFAULTS[key] ?? [];
+  if (!supabaseConfigured) return fallback;
+  return memo(`collection_${key}`, async () => {
+    try {
+      const { data, error } = await supabase
+        .from('data_collections')
+        .select('data')
+        .eq('key', key)
+        .maybeSingle();
+      if (error || !data || !Array.isArray(data.data) || !data.data.length) return fallback;
+      return data.data as unknown[];
+    } catch {
+      return fallback;
+    }
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Bundled resolve for the root layout
 // ─────────────────────────────────────────────────────────────────────────────
 
