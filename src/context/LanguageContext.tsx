@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { Language, Translation } from '../types';
 import { translations } from '../translations';
 import { supabase, supabaseConfigured } from '../lib/supabase/client';
@@ -9,7 +9,7 @@ import {
   DEFAULT_SITE_SETTINGS,
   blocksToMap,
 } from '../lib/content/defaults';
-import type { ContentMap, SiteSettings } from '../lib/content/types';
+import type { ContentMap, PageContentMap, SiteSettings } from '../lib/content/types';
 
 interface LanguageContextType {
   lang: Language;
@@ -25,18 +25,32 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+// Which translations.<key> sub-trees the CMS is allowed to override.
+const PAGE_KEYS = [
+  'advancedAbout',
+  'advancedCatalog',
+  'advancedGovernance',
+  'advancedSustainability',
+  'productExpansion',
+  'products',
+  'aboutDetails',
+];
+
 export function LanguageProvider({
   children,
   initialSettings,
   initialBlocks,
+  initialPageContent,
 }: {
   children: React.ReactNode;
   initialSettings?: SiteSettings;
   initialBlocks?: ContentMap;
+  initialPageContent?: PageContentMap;
 }) {
   const [lang, setLang] = useState<Language>('id');
   const [settings, setSettings] = useState<SiteSettings>(initialSettings ?? DEFAULT_SITE_SETTINGS);
   const [blocks, setBlocks] = useState<ContentMap>(initialBlocks ?? DEFAULT_CONTENT_MAP);
+  const [pageContent, setPageContent] = useState<PageContentMap>(initialPageContent ?? {});
 
   // Runtime overlay: pick up dashboard edits without waiting for a rebuild.
   useEffect(() => {
@@ -44,9 +58,10 @@ export function LanguageProvider({
     let cancelled = false;
     (async () => {
       try {
-        const [s, b] = await Promise.all([
+        const [s, b, pc] = await Promise.all([
           supabase.from('site_settings').select('*').eq('id', 1).maybeSingle(),
           supabase.from('content_blocks').select('key,value_id,value_en'),
+          supabase.from('page_content').select('key,data_id,data_en'),
         ]);
         if (cancelled) return;
         if (s.data) {
@@ -66,6 +81,11 @@ export function LanguageProvider({
         if (b.data && b.data.length) {
           setBlocks({ ...DEFAULT_CONTENT_MAP, ...blocksToMap(b.data) });
         }
+        if (pc.data && pc.data.length) {
+          const map: PageContentMap = {};
+          for (const r of pc.data) map[r.key] = { id: r.data_id, en: r.data_en };
+          setPageContent(map);
+        }
       } catch {
         /* keep defaults / SSR values */
       }
@@ -75,7 +95,18 @@ export function LanguageProvider({
     };
   }, []);
 
-  const t = (lang === 'en' ? { ...translations.id, ...translations.en } : translations.id) as Translation;
+  const t = useMemo(() => {
+    const base = (lang === 'en'
+      ? { ...translations.id, ...translations.en }
+      : { ...translations.id }) as Record<string, unknown>;
+    for (const key of PAGE_KEYS) {
+      const entry = pageContent[key];
+      if (!entry) continue;
+      const val = lang === 'en' ? entry.en ?? entry.id : entry.id;
+      if (val && typeof val === 'object') base[key] = val;
+    }
+    return base as unknown as Translation;
+  }, [lang, pageContent]);
 
   const tc = (key: string, fallback = '') => {
     const entry = blocks[key] ?? DEFAULT_CONTENT_MAP[key];

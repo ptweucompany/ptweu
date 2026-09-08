@@ -41,6 +41,8 @@ export interface SiteSettings {
   phone: string;
   whatsapp: string;
   whatsapp_url: string;
+  whatsapp_2: string;
+  whatsapp_2_url: string;
   instagram_url: string;
   facebook_url: string;
   linkedin_url: string;
@@ -79,8 +81,13 @@ export type Lang = 'id' | 'en';
 /** Resolved key -> { id, en } map for fast lookup in components. */
 export type ContentMap = Record<string, { id: string; en: string }>;
 
+/** key -> { id, en } for whole nested page-content trees (translations overlay). */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type PageContentMap = Record<string, { id: any; en: any }>;
+
 /** Everything a Server Component needs to render CMS-aware chrome (layout). */
 export interface ResolvedSiteContent {
   settings: SiteSettings;
   blocks: ContentMap;
+  pageContent: PageContentMap;
 }

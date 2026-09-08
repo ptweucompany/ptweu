@@ -60,6 +60,8 @@ function mergeSiteSettings(row: Record<string, unknown> | null): SiteSettings {
     phone: str('phone', d.phone),
     whatsapp: str('whatsapp', d.whatsapp),
     whatsapp_url: str('whatsapp_url', d.whatsapp_url),
+    whatsapp_2: str('whatsapp_2', d.whatsapp_2),
+    whatsapp_2_url: str('whatsapp_2_url', d.whatsapp_2_url),
     instagram_url: str('instagram_url', d.instagram_url),
     facebook_url: str('facebook_url', d.facebook_url),
     linkedin_url: str('linkedin_url', d.linkedin_url),
@@ -221,12 +223,40 @@ export async function getProductPages(lang: Lang): Promise<ProductPageMap> {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Whole-page content trees (overlays translations.<key> — About, Catalog, etc.)
+// Returns { <translationKey>: { id: <tree>, en: <tree> } }.
+// ─────────────────────────────────────────────────────────────────────────────
+
+import type { PageContentMap } from './types';
+
+export async function getPageContent(): Promise<PageContentMap> {
+  if (!supabaseConfigured) return {};
+  return memo('page_content', async () => {
+    try {
+      const { data, error } = await supabase
+        .from('page_content')
+        .select('key,data_id,data_en');
+      if (error || !data || !data.length) return {};
+      const map: PageContentMap = {};
+      for (const row of data) map[row.key] = { id: row.data_id, en: row.data_en };
+      return map;
+    } catch {
+      return {};
+    }
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Bundled resolve for the root layout
 // ─────────────────────────────────────────────────────────────────────────────
 
 export async function getResolvedSiteContent(): Promise<ResolvedSiteContent> {
-  const [settings, blocks] = await Promise.all([getSiteSettings(), getContentMap()]);
-  return { settings, blocks };
+  const [settings, blocks, pageContent] = await Promise.all([
+    getSiteSettings(),
+    getContentMap(),
+    getPageContent(),
+  ]);
+  return { settings, blocks, pageContent };
 }
 
 export { DEFAULT_CONTENT_BLOCKS, DEFAULT_SITE_SETTINGS };

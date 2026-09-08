@@ -279,7 +279,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { settings, blocks } = await getResolvedSiteContent();
+  const { settings, blocks, pageContent } = await getResolvedSiteContent();
   const organizationSchema = buildOrganizationSchema(settings);
 
   return (
@@ -288,7 +288,7 @@ export default async function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={`${inter.className} min-h-screen font-sans text-gray-900 bg-white`}>
-        <LanguageProvider initialSettings={settings} initialBlocks={blocks}>
+        <LanguageProvider initialSettings={settings} initialBlocks={blocks} initialPageContent={pageContent}>
           <ScrollToTopWrapper />
           <NavbarWrapper />
           <main>{children}</main>

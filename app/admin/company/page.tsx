@@ -88,6 +88,8 @@ export default function AdminCompanyPage() {
       phone: form.phone,
       whatsapp: form.whatsapp,
       whatsapp_url: form.whatsapp_url,
+      whatsapp_2: form.whatsapp_2,
+      whatsapp_2_url: form.whatsapp_2_url,
       instagram_url: form.instagram_url,
       facebook_url: form.facebook_url,
       linkedin_url: form.linkedin_url,
@@ -141,6 +143,10 @@ export default function AdminCompanyPage() {
           onChange={(v) => set('whatsapp_url', v)}
           hint="Contoh: https://wa.me/6281399567777"
         />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-gray-100">
+          <Field label="Nomor WhatsApp #2 (tampilan)" value={form.whatsapp_2} onChange={(v) => set('whatsapp_2', v)} hint="Nomor kedua di halaman Kontak. Kosongkan jika tidak dipakai." />
+          <Field label="Link WhatsApp #2" type="url" value={form.whatsapp_2_url} onChange={(v) => set('whatsapp_2_url', v)} hint="Contoh: https://wa.me/628114344168" />
+        </div>
       </Section>
 
       <Section title="Sosial Media">

@@ -73,6 +73,12 @@ export type Database = {
         >;
         Relationships: [];
       };
+      page_content: {
+        Row: { key: string; label: string; data_id: Json; data_en: Json; sort_order: number; updated_at: string };
+        Insert: { key: string; label?: string; data_id?: Json; data_en?: Json; sort_order?: number; updated_at?: string };
+        Update: { key?: string; label?: string; data_id?: Json; data_en?: Json; sort_order?: number; updated_at?: string };
+        Relationships: [];
+      };
       private_config: {
         Row: { key: string; updated_at: string; value: string };
         Insert: { key: string; updated_at?: string; value?: string };
@@ -233,6 +239,8 @@ export type Database = {
           tagline_en: string;
           tagline_id: string;
           updated_at: string;
+          whatsapp_2: string;
+          whatsapp_2_url: string;
           whatsapp: string;
           whatsapp_url: string;
         };
@@ -255,6 +263,8 @@ export type Database = {
           updated_at?: string;
           whatsapp?: string;
           whatsapp_url?: string;
+          whatsapp_2?: string;
+          whatsapp_2_url?: string;
         };
         Update: {
           email_primary?: string;
@@ -275,6 +285,8 @@ export type Database = {
           updated_at?: string;
           whatsapp?: string;
           whatsapp_url?: string;
+          whatsapp_2?: string;
+          whatsapp_2_url?: string;
         };
         Relationships: [];
       };

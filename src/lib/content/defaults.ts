@@ -25,6 +25,8 @@ export const DEFAULT_SITE_SETTINGS: SiteSettings = {
   phone: '(0434) 260 3008',
   whatsapp: '0813 9956 7777',
   whatsapp_url: 'https://wa.me/6281399567777',
+  whatsapp_2: '0811 4344 168',
+  whatsapp_2_url: 'https://wa.me/628114344168',
   instagram_url: 'https://www.instagram.com/pt_weu',
   facebook_url: 'https://www.facebook.com/share/r/1CDn2C1xCV/',
   linkedin_url: 'https://www.linkedin.com/in/pt-wira-energi-utama-company-b1941b401/',
